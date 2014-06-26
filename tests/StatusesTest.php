@@ -34,6 +34,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_StatusesTest extends PHPUnit_Framework_Test
 			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::CANCELLED_BY_CLIENT, Pronamic_WP_Pay_Statuses::CANCELLED ),
 			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::AUTHORIZED_AND_CANCELLED, Pronamic_WP_Pay_Statuses::CANCELLED ),
 			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::AUTHORIZED_AND_CANCELLED_64, Pronamic_WP_Pay_Statuses::CANCELLED ),
+			// Open
+			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::ORDER_STORED, Pronamic_WP_Pay_Statuses::OPEN ),
 		);
     }
 }
