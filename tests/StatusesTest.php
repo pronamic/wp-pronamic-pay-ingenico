@@ -20,6 +20,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_StatusesTest extends PHPUnit_Framework_Test
 
 	public function statusMatrixProvider() {
 		return array(
+			// Failture
 			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::INCOMPLETE_OR_INVALID, Pronamic_WP_Pay_Statuses::FAILURE ),
 			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::INCOMPLETE_OR_INVALID, Pronamic_WP_Pay_Statuses::FAILURE ),
 			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::AUTHORIZATION_REFUSED, Pronamic_WP_Pay_Statuses::FAILURE ),
@@ -29,6 +30,10 @@ class Pronamic_WP_Pay_Gateways_Ogone_StatusesTest extends PHPUnit_Framework_Test
 			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::PAYMENT_DECLIEND_BY_THE_ACQUIRER, Pronamic_WP_Pay_Statuses::FAILURE ),
 			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::PAYMENT_REFUSED, Pronamic_WP_Pay_Statuses::FAILURE ),
 			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::REFUND_DECLINED_BY_THE_ACQUIRER, Pronamic_WP_Pay_Statuses::FAILURE ),
+			// Cancelled
+			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::CANCELLED_BY_CLIENT, Pronamic_WP_Pay_Statuses::CANCELLED ),
+			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::AUTHORIZED_AND_CANCELLED, Pronamic_WP_Pay_Statuses::CANCELLED ),
+			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::AUTHORIZED_AND_CANCELLED_64, Pronamic_WP_Pay_Statuses::CANCELLED ),
 		);
     }
 }
