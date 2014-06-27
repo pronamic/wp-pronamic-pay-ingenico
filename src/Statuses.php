@@ -12,243 +12,243 @@
 class Pronamic_WP_Pay_Gateways_Ogone_Statuses {
 	/**
 	 * Incomplete or invalid
-	 * @var int
+	 * @var string
 	 */
-	const INCOMPLETE_OR_INVALID = 0;
+	const INCOMPLETE_OR_INVALID = '0';
 
 	/**
 	 * Cancelled by client
-	 * @var int
+	 * @var string
 	 */
-	const CANCELLED_BY_CLIENT = 1;
+	const CANCELLED_BY_CLIENT = '1';
 
 	/**
 	 * Authorization refused
-	 * @var int
+	 * @var string
 	 */
-	const AUTHORIZATION_REFUSED = 2;
+	const AUTHORIZATION_REFUSED = '2';
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Order stored
-	 * @var int
+	 * @var string
 	 */
-	const ORDER_STORED = 4;
+	const ORDER_STORED = '4';
 
 	/**
 	 * Stored waiting external result
-	 * @var int
+	 * @var string
 	 */
-	const STORED_WAITING_EXTERNAL_RESULT = 40;
+	const STORED_WAITING_EXTERNAL_RESULT = '40';
 
 	/**
 	 * Waiting client payment
-	 * @var int
+	 * @var string
 	 */
-	const WAITING_CLIENT_PAYMENT = 41;
+	const WAITING_CLIENT_PAYMENT = '41';
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Authorized
-	 * @var int
+	 * @var string
 	 */
-	const AUTHORIZED = 5;
+	const AUTHORIZED = '5';
 
 	/**
 	 * Authorized waiting external result
-	 * @var int
+	 * @var string
 	 */
-	const AUHTORIZED_WAITING_EXTERNAL_RESULT = 50;
+	const AUHTORIZED_WAITING_EXTERNAL_RESULT = '50';
 
 	/**
 	 * Authorization waiting
-	 * @var int
+	 * @var string
 	 */
-	const AUTHORIZATION_WAITING = 51;
+	const AUTHORIZATION_WAITING = '51';
 
 	/**
 	 * Authorization not known
-	 * @var int
+	 * @var string
 	 */
-	const AUTHORIZATION_NOT_KNOWN = 52;
+	const AUTHORIZATION_NOT_KNOWN = '52';
 
 	/**
 	 * Stand-by
-	 * @var int
+	 * @var string
 	 */
-	const STAND_BY = 55;
+	const STAND_BY = '55';
 
 	/**
 	 * OK with scheduled payments
-	 * @var int
+	 * @var string
 	 */
-	const OK_WITH_SCHEDULED_PAYMENTS = 56;
+	const OK_WITH_SCHEDULED_PAYMENTS = '56';
 
 	/**
 	 * Error in scheduled payments
-	 * @var int
+	 * @var string
 	 */
-	const ERROR_IN_SCHEDULED_PAYMENTS = 57;
+	const ERROR_IN_SCHEDULED_PAYMENTS = '57';
 
 	/**
 	 * Authoriz. to get manually
-	 * @var int
+	 * @var string
 	 */
-	const AUHORIZ_TO_GET_MANUALLY = 59;
+	const AUHORIZ_TO_GET_MANUALLY = '59';
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Authorized and cancelled
-	 * @var int
+	 * @var string
 	 */
-	const AUTHORIZED_AND_CANCELLED = 6;
+	const AUTHORIZED_AND_CANCELLED = '6';
 
 	/**
 	 * Author. deletion waiting
-	 * @var int
+	 * @var string
 	 */
-	const AUTHOR_DELETION_WAITING = 61;
+	const AUTHOR_DELETION_WAITING = '61';
 
 	/**
 	 * Author. deletion uncertain
-	 * @var int
+	 * @var string
 	 */
-	const AUTHOR_DELETION_UNCERTAIN = 62;
+	const AUTHOR_DELETION_UNCERTAIN = '62';
 
 	/**
 	 * Author. deletion refused
-	 * @var int
+	 * @var string
 	 */
-	const AUTHOR_DELETION_REFUSED = 63;
+	const AUTHOR_DELETION_REFUSED = '63';
 
 	/**
 	 * Authorized and cancelled
-	 * @var int
+	 * @var string
 	 */
-	const AUTHORIZED_AND_CANCELLED_64 = 64;
+	const AUTHORIZED_AND_CANCELLED_64 = '64';
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Payment deleted
-	 * @var int
+	 * @var string
 	 */
-	const PAYMENT_DELETED = 7;
+	const PAYMENT_DELETED = '7';
 
 	/**
 	 * Payment deletion pending
-	 * @var int
+	 * @var string
 	 */
-	const PAYMENT_DELETION_PENDING = 71;
+	const PAYMENT_DELETION_PENDING = '71';
 
 	/**
 	 * Payment deletion uncertain
-	 * @var int
+	 * @var string
 	 */
-	const PAYMENT_DELETION_UNCERTAIN = 72;
+	const PAYMENT_DELETION_UNCERTAIN = '72';
 
 	/**
 	 * Payment deletion refused
-	 * @var int
+	 * @var string
 	 */
-	const PAYMENT_DELETION_REFUSED = 73;
+	const PAYMENT_DELETION_REFUSED = '73';
 
 	/**
 	 * Payment deleted
-	 * @var int
+	 * @var string
 	 */
-	const PAYMENT_DELETED_74 = 74;
+	const PAYMENT_DELETED_74 = '74';
 
 	/**
 	 * Deletion processed by merchant
-	 * @var int
+	 * @var string
 	 */
-	const DELETION_PROCESSED_BY_MERCHANT = 75;
+	const DELETION_PROCESSED_BY_MERCHANT = '75';
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Refund
-	 * @var int
+	 * @var string
 	 */
-	const REFUND = 8;
+	const REFUND = '8';
 
 	/**
 	 * Refund pending
-	 * @var int
+	 * @var string
 	 */
-	const REFUND_PENDING = 81;
+	const REFUND_PENDING = '81';
 
 	/**
 	 * Refund uncertain
-	 * @var int
+	 * @var string
 	 */
-	const REFUND_UNCERTAIN = 82;
+	const REFUND_UNCERTAIN = '82';
 
 	/**
 	 * Refund refused
-	 * @var int
+	 * @var string
 	 */
-	const REFUND_REFUSED = 83;
+	const REFUND_REFUSED = '83';
 
 	/**
 	 * Payment declined by the acquirer
-	 * @var int
+	 * @var string
 	 */
-	const PAYMENT_DECLIEND_BY_THE_ACQUIRER = 84;
+	const PAYMENT_DECLIEND_BY_THE_ACQUIRER = '84';
 
 	/**
 	 * Refund processed by merchant
-	 * @var int
+	 * @var string
 	 */
-	const REFUND_PROCESSED_BY_MERCHANT = 85;
+	const REFUND_PROCESSED_BY_MERCHANT = '85';
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Payment requested
-	 * @var int
+	 * @var string
 	 */
-	const PAYMENT_REQUESTED = 9;
+	const PAYMENT_REQUESTED = '9';
 
 	/**
 	 * Payment processing
-	 * @var int
+	 * @var string
 	 */
-	const PAYMENT_PROCESSING = 91;
+	const PAYMENT_PROCESSING = '91';
 
 	/**
 	 * Payment uncertain
-	 * @var int
+	 * @var string
 	 */
-	const PAYMENT_UNCERTAIN = 92;
+	const PAYMENT_UNCERTAIN = '92';
 
 	/**
 	 * Payment refused
-	 * @var int
+	 * @var string
 	 */
-	const PAYMENT_REFUSED = 93;
+	const PAYMENT_REFUSED = '93';
 
 	/**
 	 * Refund declined by the acquirer
-	 * @var int
+	 * @var string
 	 */
-	const REFUND_DECLINED_BY_THE_ACQUIRER = 94;
+	const REFUND_DECLINED_BY_THE_ACQUIRER = '94';
 
 	/**
 	 * Payment processed by merchant
-	 * @var int
+	 * @var string
 	 */
-	const PAYMENT_PROCESSED_BY_MERCHANT = 95;
+	const PAYMENT_PROCESSED_BY_MERCHANT = '95';
 
 	/**
 	 * Being processed
-	 * @var int
+	 * @var string
 	 */
-	const BEING_PROCESSED = 99;
+	const BEING_PROCESSED = '99';
 
 	/////////////////////////////////////////////////
 

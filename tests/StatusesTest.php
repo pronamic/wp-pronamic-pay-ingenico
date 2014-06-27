@@ -12,8 +12,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_StatusesTest extends PHPUnit_Framework_Test
 	/**
 	 * @dataProvider statusMatrixProvider
 	 */
-	public function testTransform( $mollieStatus, $expected ) {
-		$status = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $mollieStatus );
+	public function testTransform( $ogoneStatus, $expected ) {
+		$status = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $ogoneStatus );
 
 		$this->assertEquals( $expected, $status );
 	}
@@ -21,7 +21,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_StatusesTest extends PHPUnit_Framework_Test
 	public function statusMatrixProvider() {
 		return array(
 			// Failture
-			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::INCOMPLETE_OR_INVALID, Pronamic_WP_Pay_Statuses::FAILURE ),
 			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::INCOMPLETE_OR_INVALID, Pronamic_WP_Pay_Statuses::FAILURE ),
 			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::AUTHORIZATION_REFUSED, Pronamic_WP_Pay_Statuses::FAILURE ),
 			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::AUTHOR_DELETION_REFUSED, Pronamic_WP_Pay_Statuses::FAILURE ),
