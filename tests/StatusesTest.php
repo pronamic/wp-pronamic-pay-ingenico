@@ -63,6 +63,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_StatusesTest extends PHPUnit_Framework_Test
 			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::REFUND_PROCESSED_BY_MERCHANT, Pronamic_WP_Pay_Statuses::SUCCESS ),
 			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::PAYMENT_REQUESTED, Pronamic_WP_Pay_Statuses::SUCCESS ),
 			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::PAYMENT_PROCESSED_BY_MERCHANT, Pronamic_WP_Pay_Statuses::SUCCESS ),
+			// Other
+			array( 'not existing status', null ),
 		);
     }
 }

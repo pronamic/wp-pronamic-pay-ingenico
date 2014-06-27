@@ -2,7 +2,7 @@
 
 /**
  * Title: Ogone statuses constants
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2014
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
  */
 class Pronamic_WP_Pay_Gateways_Ogone_Statuses {
 	/**
-	 * Incomplete or invalid 
+	 * Incomplete or invalid
 	 * @var int
 	 */
 	const INCOMPLETE_OR_INVALID = 0;
@@ -254,10 +254,12 @@ class Pronamic_WP_Pay_Gateways_Ogone_Statuses {
 
 	/**
 	 * Transform an Ogone status to an Pronamic Pay status
-	 * 
+	 *
 	 * @param string $status
 	 */
 	public static function transform( $status ) {
+		$result = null;
+
 		switch ( $status ) {
 			case self::INCOMPLETE_OR_INVALID:
 			case self::AUTHORIZATION_REFUSED:
@@ -302,5 +304,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Statuses {
 			case self::PAYMENT_PROCESSED_BY_MERCHANT:
 				return Pronamic_WP_Pay_Statuses::SUCCESS;
 		}
+
+		return $result;
 	}
 }
