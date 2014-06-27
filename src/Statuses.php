@@ -258,8 +258,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_Statuses {
 	 * @param string $status
 	 */
 	public static function transform( $status ) {
-		$result = null;
-
 		switch ( $status ) {
 			case self::INCOMPLETE_OR_INVALID:
 			case self::AUTHORIZATION_REFUSED:
@@ -303,8 +301,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_Statuses {
 			case self::PAYMENT_REQUESTED:
 			case self::PAYMENT_PROCESSED_BY_MERCHANT:
 				return Pronamic_WP_Pay_Statuses::SUCCESS;
+			default:
+				return null;
 		}
-
-		return $result;
 	}
 }
