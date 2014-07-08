@@ -2,16 +2,30 @@
 	"name": "wp-pay-gateways/ogone",
 	"description": "Ogone driver for the WordPress payment processing library.",
 	"keywords": ["wordpress", "wp", "pay", "ogone", "gateway", "pronamic"],
-	"homepage": "https://github.com/wp-pay-gateways/ogone",
+	"homepage": "http://www.wp-pay.org/gateways/ogone/",
+	"license": "GPL-3.0+",
+	"authors": [
+		{
+			"name": "Pronamic",
+			"email": "info@pronamic.eu",
+			"homepage": "http://www.pronamic.eu/",
+			"role": "Company"
+		},
+		{
+			"name": "Remco Tolsma",
+			"email": "info@remcotolsma.nl",
+			"homepage": "http://www.remcotolsma.nl/",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"email": "support@wp-pay.org",
+		"issues": "https://github.com/wp-pay-gateways/ogone/issues",
+		"source": "https://github.com/wp-pay-gateways/ogone"
+	},
 	"autoload": {
 		"classmap": ["src/"]
 	},
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "https://github.com/wp-pay/core"
-		}
-	],
 	"require": {
 		"wp-pay/core": "dev-develop"
 	},
