@@ -21,9 +21,9 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 	/**
 	 * Constructs and initializes an Ogone DirectLink gateway
 	 *
-	 * @param Pronamic_Pay_Gateways_Ogone_DirectLink_Config $config
+	 * @param Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Config $config
 	 */
-	public function __construct( Pronamic_Pay_Gateways_Ogone_DirectLink_Config $config ) {
+	public function __construct( Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Config $config ) {
 		parent::__construct( $config );
 
 		$this->set_method( Pronamic_WP_Pay_Gateway::METHOD_HTTP_REDIRECT );
@@ -31,7 +31,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 		$this->set_amount_minimum( 1.20 );
 		$this->set_slug( self::SLUG );
 
-		$this->client = new Pronamic_Pay_Gateways_Ogone_DirectLink_Client();
+		$this->client = new Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Client();
 		$this->client->psp_id   = $config->psp_id;
 		$this->client->sha_in   = $config->sha_in_pass_phrase;
 		$this->client->user_id  = $config->user_id;
@@ -42,7 +42,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 	/////////////////////////////////////////////////
 
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
-		$ogone_data = new Pronamic_Pay_Gateways_Ogone_Data();
+		$ogone_data = new Pronamic_WP_Pay_Gateways_Ogone_Data();
 
 		// Default
 		$ogone_data_general = new Pronamic_Pay_Gateways_Ogone_DataGeneralHelper( $ogone_data );
@@ -57,14 +57,14 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 			->set_email_address( $data->get_email() );
 
 		// DirectLink
-		$ogone_data_directlink = new Pronamic_Pay_Gateways_Ogone_DirectLink_DataHelper( $ogone_data );
+		$ogone_data_directlink = new Pronamic_WP_Pay_Gateways_Ogone_DirectLink_DataHelper( $ogone_data );
 
 		$ogone_data_directlink
 			->set_user_id( $this->client->user_id )
 			->set_password( $this->client->password );
 
 		// Credit card
-		$ogone_data_credit_card = new Pronamic_Pay_Gateways_Ogone_DataCreditCardHelper( $ogone_data );
+		$ogone_data_credit_card = new Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper( $ogone_data );
 
 		$credit_card = $data->get_credit_card();
 
@@ -77,7 +77,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 
 		// 3-D Secure
 		if ( $this->config->enabled_3d_secure ) {
-			$secure_data_helper = new Pronamic_Pay_Gateways_Ogone_3DSecure_DataHelper( $ogone_data );
+			$secure_data_helper = new Pronamic_WP_Pay_Gateways_Ogone_3DSecure_DataHelper( $ogone_data );
 
 			$secure_data_helper
 				->set_3d_secure_flag( true )
@@ -96,11 +96,11 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 		}
 
 		// Signature
-		$calculation_fields = Pronamic_Gateways_Ogone_Security::get_calculations_parameters_in();
+		$calculation_fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculations_parameters_in();
 
-		$fields = Pronamic_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $ogone_data->get_fields() );
+		$fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $ogone_data->get_fields() );
 
-		$signature = Pronamic_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->config->sha_in_pass_phrase, $this->config->hash_algorithm );
+		$signature = Pronamic_WP_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->config->sha_in_pass_phrase, $this->config->hash_algorithm );
 
 		$ogone_data->set_field( 'SHASIGN', $signature );
 
@@ -139,15 +139,15 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 		foreach ( $inputs as $input => $data ) {
 			$data = array_change_key_case( $data, CASE_UPPER );
 
-			$calculation_fields = Pronamic_Gateways_Ogone_Security::get_calculations_parameters_out();
+			$calculation_fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculations_parameters_out();
 
-			$fields = Pronamic_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $data );
+			$fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $data );
 
 			$signature = $data['SHASIGN'];
-			$signature_out = Pronamic_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->config->sha_out_pass_phrase, $this->config->hash_algorithm );
+			$signature_out = Pronamic_WP_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->config->sha_out_pass_phrase, $this->config->hash_algorithm );
 
 			if ( strcasecmp( $signature, $signature_out ) === 0 ) {
-				$status = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $data[ Pronamic_Pay_Gateways_Ogone_Parameters::STATUS ] );
+				$status = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $data[ Pronamic_WP_Pay_Gateways_Ogone_Parameters::STATUS ] );
 
 				$payment->set_status( $status );
 			}

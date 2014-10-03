@@ -31,7 +31,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Client {
 	 * Constructs and initializes an Ogone DirectLink client
 	 */
 	public function __construct() {
-		$this->api_url = Pronamic_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_URL;
+		$this->api_url = Pronamic_WP_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_URL;
 	}
 
 	/////////////////////////////////////////////////
@@ -55,7 +55,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Client {
 	public function order_direct( array $data = array() ) {
 		$order_response = false;
 
-		$result = Pronamic_WP_Util::remote_get_body( $this->api_url, 200, array(
+		$result = Pronamic_WP_Pay_Util::remote_get_body( $this->api_url, 200, array(
 			'method'    => 'POST',
 			'sslverify' => false,
 			'body'      => $data,
@@ -64,17 +64,17 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Client {
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;
 		} else {
-			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
+			$xml = Pronamic_WP_Pay_Util::simplexml_load_string( $result );
 
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
 			} else {
-				$order_response = Pronamic_Gateways_Ogone_XML_OrderResponseParser::parse( $xml );
+				$order_response = Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser::parse( $xml );
 
 				if ( ! empty( $order_response->nc_error ) ) {
-					$ogone_error = new Pronamic_Pay_Gateways_Ogone_Error();
-					$ogone_error->code        = Pronamic_XML_Util::filter( $order_response->nc_error );
-					$ogone_error->explanation = Pronamic_XML_Util::filter( $order_response->nc_error_plus );
+					$ogone_error = new Pronamic_WP_Pay_Gateways_Ogone_Error();
+					$ogone_error->code        = Pronamic_WP_Pay_XML_Security::filter( $order_response->nc_error );
+					$ogone_error->explanation = Pronamic_WP_Pay_XML_Security::filter( $order_response->nc_error_plus );
 
 					$this->error = new WP_Error( 'ogone_error', (string) $ogone_error, $ogone_error );
 				}

@@ -58,7 +58,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Data {
 	 *
 	 * @param string $name
 	 * @param string $value
-	 * @return Pronamic_Pay_Gateways_Ogone_Data
+	 * @return Pronamic_WP_Pay_Gateways_Ogone_Data
 	 */
 	public function set_field( $name, $value ) {
 		$this->fields[ $name ] = $value;

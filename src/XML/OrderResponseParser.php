@@ -13,7 +13,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser {
 	 * Parse the specified XML element into an iDEAL transaction object
 	 *
 	 * @param SimpleXMLElement $xml
-	 * @param Pronamic_Pay_Gateways_Ogone_DirectLink_OrderResponse $order_response
+	 * @param Pronamic_WP_Pay_Gateways_Ogone_DirectLink_OrderResponse $order_response
 	 */
 	public static function parse( SimpleXMLElement $xml, $order_response = null ) {
 		if ( ! $order_response instanceof Pronamic_WP_Pay_Gateways_Ogone_DirectLink_OrderResponse ) {

@@ -21,7 +21,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_DataHelper {
 	/**
 	 * Constructs and initialize a Ogone data default helper class
 	 */
-	public function __construct( Pronamic_Pay_Gateways_Ogone_Data $data ) {
+	public function __construct( Pronamic_WP_Pay_Gateways_Ogone_Data $data ) {
 		$this->data = $data;
 	}
 

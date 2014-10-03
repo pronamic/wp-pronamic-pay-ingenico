@@ -12,16 +12,16 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_
 	/**
 	 * Construct and intialize an iDEAL Easy gateway
 	 *
-	 * @param Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Config $config
+	 * @param Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Config $config
 	 */
-	public function __construct( Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Config $config ) {
+	public function __construct( Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Config $config ) {
 		parent::__construct( $config );
 
 		$this->set_method( Pronamic_WP_Pay_Gateway::METHOD_HTML_FORM );
 		$this->set_has_feedback( false );
 		$this->set_amount_minimum( 0.01 );
 
-		$this->client = new Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client();
+		$this->client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client();
 		$this->client->setPaymentServerUrl( $config->url );
 		$this->client->setPspId( $config->psp_id );
 	}

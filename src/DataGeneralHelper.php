@@ -12,7 +12,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper {
 	/**
 	 * Data
 	 *
-	 * @var Pronamic_Pay_Gateways_Ogone_Data
+	 * @var Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper
 	 */
 	private $data;
 
@@ -21,7 +21,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper {
 	/**
 	 * Constructs and initialize a Ogone data default helper class
 	 */
-	public function __construct( Pronamic_Pay_Gateways_Ogone_Data $data ) {
+	public function __construct( Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper $data ) {
 		$this->data = $data;
 	}
 
@@ -33,7 +33,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper {
 	 * Set PSP ID
 	 *
 	 * @param int $number
-	 * @return Pronamic_Pay_Gateways_Ogone_DataGeneralHelper
+	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
 	public function set_psp_id( $number ) {
 		$this->data->set_field( 'PSPID', $number );
@@ -47,7 +47,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper {
 	 * Set order ID
 	 *
 	 * @param string $order_id
-	 * @return Pronamic_Pay_Gateways_Ogone_DataDefaultHelper
+	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
 	public function set_order_id( $order_id ) {
 		$this->data->set_field( 'ORDERID', $order_id );
@@ -59,7 +59,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper {
 	 * Set order description
 	 *
 	 * @param string $description
-	 * @return Pronamic_Pay_Gateways_Ogone_DataDefaultHelper
+	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
 	public function set_order_description( $description ) {
 		$this->data->set_field( 'COM', $description );
@@ -73,10 +73,10 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper {
 	 * Set amount
 	 *
 	 * @param float $amount
-	 * @return Pronamic_Pay_Gateways_Ogone_DataDefaultHelper
+	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
 	public function set_amount( $amount ) {
-		$this->data->set_field( 'AMOUNT', Pronamic_WP_Util::amount_to_cents( $amount ) );
+		$this->data->set_field( 'AMOUNT', Pronamic_WP_Pay_Util::amount_to_cents( $amount ) );
 
 		return $this;
 	}
@@ -85,7 +85,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper {
 	 * Set currency
 	 *
 	 * @param string $currency
-	 * @return Pronamic_Pay_Gateways_Ogone_DataDefaultHelper
+	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
 	public function set_currency( $currency ) {
 		$this->data->set_field( 'CURRENCY', $currency );
@@ -99,7 +99,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper {
 	 * Set customer name
 	 *
 	 * @param string $name
-	 * @return Pronamic_Pay_Gateways_Ogone_DataDefaultHelper
+	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
 	public function set_customer_name( $name ) {
 		$this->data->set_field( 'CN', $name );
@@ -111,7 +111,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper {
 	 * Set email address
 	 *
 	 * @param string $email
-	 * @return Pronamic_Pay_Gateways_Ogone_DataDefaultHelper
+	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
 	public function set_email_address( $email ) {
 		$this->data->set_field( 'EMAIL', $email );

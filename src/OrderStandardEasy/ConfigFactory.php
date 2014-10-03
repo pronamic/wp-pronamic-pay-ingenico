@@ -2,7 +2,7 @@
 
 class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_ConfigFactory extends Pronamic_WP_Pay_GatewayConfigFactory {
 	public function get_config( $post_id ) {
-		$config = new Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Config();
+		$config = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Config();
 
 		$config->psp_id = get_post_meta( $post_id, '_pronamic_gateway_ogone_psp_id', true );
 

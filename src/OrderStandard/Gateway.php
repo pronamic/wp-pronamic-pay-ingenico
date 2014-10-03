@@ -34,7 +34,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 	 *
 	 * @param Pronamic_WordPress_IDeal_Configuration $config
 	 */
-	public function __construct( Pronamic_Pay_Gateways_Ogone_OrderStandard_Config $config ) {
+	public function __construct( Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config $config ) {
 		parent::__construct( $config );
 
 		$this->set_method( Pronamic_WP_Pay_Gateway::METHOD_HTML_FORM );
@@ -42,7 +42,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 		$this->set_amount_minimum( 0.01 );
 		$this->set_slug( self::SLUG );
 
-		$this->client = new Pronamic_Pay_Gateways_Ogone_OrderStandard_Client();
+		$this->client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client();
 
 		$this->client->setPaymentServerUrl( $config->url );
 		$this->client->setPspId( $config->psp_id );
@@ -99,7 +99,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 			$data = $this->client->verifyRequest( $data );
 
 			if ( $data !== false ) {
-				$status = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $data[ Pronamic_Pay_Gateways_Ogone_Parameters::STATUS ] );
+				$status = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $data[ Pronamic_WP_Pay_Gateways_Ogone_Parameters::STATUS ] );
 
 				$payment->set_status( $status );
 			}

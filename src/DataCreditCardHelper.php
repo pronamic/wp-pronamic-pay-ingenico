@@ -21,7 +21,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper {
 	/**
 	 * Constructs and initialize a Ogone data default helper class
 	 */
-	public function __construct( Pronamic_Pay_Gateways_Ogone_Data $data ) {
+	public function __construct( Pronamic_WP_Pay_Gateways_Ogone_Data $data ) {
 		$this->data = $data;
 	}
 
@@ -33,7 +33,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper {
 	 * Set credit card number
 	 *
 	 * @param int $number
-	 * @return Pronamic_Pay_Gateways_Ogone_DataDefaultHelper
+	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper
 	 */
 	public function set_number( $number ) {
 		$this->data->set_field( 'CARDNO', $number );
@@ -45,10 +45,10 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper {
 	 * Set expiration date
 	 *
 	 * @param DateTime $date
-	 * @return Pronamic_Pay_Gateways_Ogone_DataDefaultHelper
+	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper
 	 */
 	public function set_expiration_date( DateTime $date ) {
-		$this->data->set_field( 'ED', $date->format( Pronamic_Pay_Gateways_Ogone_Ogone::EXPIRATION_DATE_FORMAT ) );
+		$this->data->set_field( 'ED', $date->format( Pronamic_WP_Pay_Gateways_Ogone_Ogone::EXPIRATION_DATE_FORMAT ) );
 
 		return $this;
 	}
@@ -57,7 +57,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper {
 	 * Set security code
 	 *
 	 * @param string $security_code
-	 * @return Pronamic_Pay_Gateways_Ogone_DataDefaultHelper
+	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper
 	 */
 	public function set_security_code( $security_code ) {
 		$this->data->set_field( 'CVC', $security_code );

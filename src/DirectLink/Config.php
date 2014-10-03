@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Config extends Pronamic_Pay_Gateways_Ogone_Config {
+class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Config extends Pronamic_WP_Pay_Gateways_Ogone_Config {
 	public $user_id;
 
 	public $password;
@@ -23,6 +23,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Config extends Pronamic_Pay_Gate
 	 * Constructs and initializes an Ogone DirectLink config object
 	 */
 	public function __construct() {
-		$this->api_url = Pronamic_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_URL;
+		$this->api_url = Pronamic_WP_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_URL;
 	}
 }

@@ -2,7 +2,7 @@
 
 class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_ConfigFactory extends Pronamic_WP_Pay_GatewayConfigFactory {
 	public function get_config( $post_id ) {
-		$config = new Pronamic_Pay_Gateways_Ogone_DirectLink_Config();
+		$config = new Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Config();
 
 		$config->mode = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
 
@@ -23,16 +23,16 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_ConfigFactory extends Pronamic_W
 		$is_utf8 = strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) == 0;
 
 		if ( $is_utf8 ) {
-			$config->api_url = Pronamic_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_UTF8_URL;
+			$config->api_url = Pronamic_WP_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_UTF8_URL;
 		} else {
-			$config->api_url = Pronamic_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_URL;
+			$config->api_url = Pronamic_WP_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_URL;
 		}
 
 		if ( $config->mode == Pronamic_IDeal_IDeal::MODE_TEST ) {
 			if ( $is_utf8 ) {
-				$config->api_url = Pronamic_Pay_Gateways_Ogone_DirectLink::API_TEST_UTF8_URL;
+				$config->api_url = Pronamic_WP_Pay_Gateways_Ogone_DirectLink::API_TEST_UTF8_URL;
 			} else {
-				$config->api_url = Pronamic_Pay_Gateways_Ogone_DirectLink::API_TEST_URL;
+				$config->api_url = Pronamic_WP_Pay_Gateways_Ogone_DirectLink::API_TEST_URL;
 			}
 		}
 

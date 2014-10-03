@@ -8,6 +8,6 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Config extends Pronamic_Pay_Gateways_Ogone_Config {
+class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Config extends Pronamic_WP_Pay_Gateways_Ogone_Config {
 	public $url;
 }

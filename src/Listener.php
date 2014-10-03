@@ -28,12 +28,12 @@ class Pronamic_WP_Pay_Gateways_Ogone_Listener implements Pronamic_Pay_Gateways_L
 		$data = array_change_key_case( $data, CASE_UPPER );
 
 		if ( isset(
-			$data[ Pronamic_Pay_Gateways_Ogone_Parameters::NC_ERROR ],
+			$data[ Pronamic_WP_Pay_Gateways_Ogone_Parameters::NC_ERROR ],
 			$data['PAYID'],
-			$data[ Pronamic_Pay_Gateways_Ogone_Parameters::ORDERID ],
-			$data[ Pronamic_Pay_Gateways_Ogone_Parameters::STATUS ]
+			$data[ Pronamic_WP_Pay_Gateways_Ogone_Parameters::ORDERID ],
+			$data[ Pronamic_WP_Pay_Gateways_Ogone_Parameters::STATUS ]
 		) ) {
-			$payment_id = $data[ Pronamic_Pay_Gateways_Ogone_Parameters::ORDERID ];
+			$payment_id = $data[ Pronamic_WP_Pay_Gateways_Ogone_Parameters::ORDERID ];
 
 			$payment = get_pronamic_payment( $payment_id );
 
