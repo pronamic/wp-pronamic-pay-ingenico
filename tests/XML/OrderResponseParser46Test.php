@@ -1,8 +1,8 @@
 <?php
 
-class Pronamic_Pay_Gateways_Ogone_DirectLink_TestOrderResponseParser46 extends WP_UnitTestCase {
+class Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser46Test extends WP_UnitTestCase {
 	function test_init() {
-		$filename = Pronamic_WP_Pay_Plugin::$dirname . '/tests/data/Pronamic/Pay/Gateways/Ogone/DirectLink/response-status-46.xml';
+		$filename = dirname( __FILE__ ) . '/../Mock/response-status-46.xml';
 
 		$simplexml = simplexml_load_file( $filename );
 
@@ -15,9 +15,9 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_TestOrderResponseParser46 extends W
 	 * @depends test_init
 	 */
 	function test_parser( $simplexml ) {
-		$order_response = Pronamic_Gateways_Ogone_XML_OrderResponseParser::parse( $simplexml );
+		$order_response = Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser::parse( $simplexml );
 
-		$this->assertInstanceOf( 'Pronamic_Pay_Gateways_Ogone_DirectLink_OrderResponse', $order_response );
+		$this->assertInstanceOf( 'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_OrderResponse', $order_response );
 
 		return $order_response;
 	}
@@ -26,9 +26,9 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_TestOrderResponseParser46 extends W
 	 * @depends test_parser
 	 */
 	function test_values( $order_response ) {
-		$filename = Pronamic_WP_Pay_Plugin::$dirname . '/tests/data/Pronamic/Pay/Gateways/Ogone/DirectLink/response-status-46-html-answer.html';
+		$filename = dirname( __FILE__ ) . '/../Mock/response-status-46-html-answer.html';
 
-		$expected = new Pronamic_Pay_Gateways_Ogone_DirectLink_OrderResponse();
+		$expected = new Pronamic_WP_Pay_Gateways_Ogone_DirectLink_OrderResponse();
 		$expected->order_id      = '1387195001';
 		$expected->pay_id        = '26187584';
 		$expected->nc_error      = '0';

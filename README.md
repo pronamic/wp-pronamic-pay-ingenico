@@ -4,6 +4,11 @@
 
 [![Build Status](https://travis-ci.org/wp-pay-gateways/ogone.svg?branch=develop)](https://travis-ci.org/wp-pay-gateways/ogone)
 [![Coverage Status](https://coveralls.io/repos/wp-pay-gateways/ogone/badge.png?branch=develop)](https://coveralls.io/r/wp-pay-gateways/ogone?branch=develop)
+[![Latest Stable Version](https://poser.pugx.org/wp-pay-gateways/ogone/v/stable.svg)](https://packagist.org/packages/wp-pay-gateways/ogone)
+[![Total Downloads](https://poser.pugx.org/wp-pay-gateways/ogone/downloads.svg)](https://packagist.org/packages/wp-pay-gateways/ogone)
+[![Latest Unstable Version](https://poser.pugx.org/wp-pay-gateways/ogone/v/unstable.svg)](https://packagist.org/packages/wp-pay-gateways/ogone)
+[![License](https://poser.pugx.org/wp-pay-gateways/ogone/license.svg)](https://packagist.org/packages/wp-pay-gateways/ogone)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 ## Documentation
 
