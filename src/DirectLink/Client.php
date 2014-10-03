@@ -72,9 +72,10 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Client {
 				$order_response = Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser::parse( $xml );
 
 				if ( ! empty( $order_response->nc_error ) ) {
-					$ogone_error = new Pronamic_WP_Pay_Gateways_Ogone_Error();
-					$ogone_error->code        = Pronamic_WP_Pay_XML_Security::filter( $order_response->nc_error );
-					$ogone_error->explanation = Pronamic_WP_Pay_XML_Security::filter( $order_response->nc_error_plus );
+					$ogone_error = new Pronamic_WP_Pay_Gateways_Ogone_Error(
+						Pronamic_WP_Pay_XML_Security::filter( $order_response->nc_error ),
+						Pronamic_WP_Pay_XML_Security::filter( $order_response->nc_error_plus )
+					);
 
 					$this->error = new WP_Error( 'ogone_error', (string) $ogone_error, $ogone_error );
 				}

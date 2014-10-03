@@ -14,22 +14,26 @@ class Pronamic_WP_Pay_Gateways_Ogone_Error {
 	 *
 	 * @var string
 	 */
-	public $code;
+	private $code;
 
 	/**
 	 * Error explanation
 	 *
 	 * @var string
 	 */
-	public $explanation;
+	private $explanation;
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Constructs and intializes an Ogone error
+	 *
+	 * @param string $code
+	 * @param string $explanation
 	 */
-	public function __construct() {
-
+	public function __construct( $code, $explanation ) {
+		$this->code        = $code;
+		$this->explanation = $explanation;
 	}
 
 	//////////////////////////////////////////////////
