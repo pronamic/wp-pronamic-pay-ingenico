@@ -102,7 +102,57 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 				$status = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $data[ Pronamic_WP_Pay_Gateways_Ogone_Parameters::STATUS ] );
 
 				$payment->set_status( $status );
+
+				$this->update_status_payment_note( $payment, $data );
 			}
 		}
+	}
+
+	/////////////////////////////////////////////////
+
+	/**
+	 * Update status payment note
+	 *
+	 * @param Pronamic_Pay_Payment $payment
+	 * @param array $data
+	 */
+	private function update_status_payment_note( Pronamic_Pay_Payment $payment, $data ) {
+		$labels = array(
+			'STATUS'               => __( 'Status', 'pronamic_ideal' ),
+			'ORDERID'              => __( 'Order ID', 'pronamic_ideal' ),
+			'CURRENCY'             => __( 'Currency', 'pronamic_ideal' ),
+			'AMOUNT'               => __( 'Amount', 'pronamic_ideal' ),
+			'PM'                   => __( 'Payment Method', 'pronamic_ideal' ),
+			'ACCEPTANCE'           => __( 'Acceptance', 'pronamic_ideal' ),
+			'STATUS'               => __( 'Status', 'pronamic_ideal' ),
+			'CARDNO'               => __( 'Card Number', 'pronamic_ideal' ),
+			'ED'                   => __( 'End Date', 'pronamic_ideal' ),
+			'CN'                   => __( 'Customer Name', 'pronamic_ideal' ),
+			'TRXDATE'              => __( 'Transaction Date', 'pronamic_ideal' ),
+			'PAYID'                => __( 'Pay ID', 'pronamic_ideal' ),
+			'NCERROR'              => __( 'NC Error', 'pronamic_ideal' ),
+			'BRAND'                => __( 'Brand', 'pronamic_ideal' ),
+			'IP'                   => __( 'IP', 'pronamic_ideal' ),
+			'SHASIGN'              => __( 'SHA Signature', 'pronamic_ideal' ),
+		);
+
+		$note = '';
+
+		$note .= '<p>';
+		$note .= __( 'Ogone transaction data in response message:', 'pronamic_ideal' );
+		$note .= '</p>';
+
+		$note .= '<dl>';
+
+		foreach ( $labels as $key => $label ) {
+			if ( isset( $data[ $key ] ) && '' != $data[ $key ] ) {
+				$note .= sprintf( '<dt>%s</dt>', esc_html( $label ) );
+				$note .= sprintf( '<dd>%s</dd>', esc_html( $data[ $key ] ) );
+			}
+		}
+
+		$note .= '</dl>';
+
+		$payment->add_note( $note );
 	}
 }
