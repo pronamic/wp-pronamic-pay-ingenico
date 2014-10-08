@@ -45,24 +45,26 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper {
 
 	/**
 	 * Set order ID
+	 * AN..max16 (AN = Alphanumeric, free text)
 	 *
 	 * @param string $order_id
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
 	public function set_order_id( $order_id ) {
-		$this->data->set_field( 'ORDERID', $order_id );
+		$this->data->set_field( 'ORDERID', substr( $order_id, 0, 16 ) );
 
 		return $this;
 	}
 
 	/**
 	 * Set order description
+	 * AN..max32 (AN = Alphanumeric, free text)
 	 *
 	 * @param string $description
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
 	public function set_order_description( $description ) {
-		$this->data->set_field( 'COM', $description );
+		$this->data->set_field( 'COM', substr( $description, 0, 32 ) );
 
 		return $this;
 	}

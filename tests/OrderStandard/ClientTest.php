@@ -2,7 +2,7 @@
 
 class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ClientTest extends WP_UnitTestCase {
 	function test_signature_in_empty() {
-		$client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client();
+		$client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client( '' );
 
 		$signature_in = $client->get_signature_in();
 
@@ -11,14 +11,23 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ClientTest extends WP_UnitTes
 
 	function test_signature_in_from_documentation() {
 		// http://pronamic.nl/wp-content/uploads/2012/02/ABNAMRO_e-Com-BAS_EN.pdf #page 11
-		$client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client();
+		$client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client( 'MyPSPID' );
 
-		$client->set_amount( 15 );
-		$client->set_currency( 'EUR' );
-		$client->set_language( 'en_US' );
-		$client->set_order_id( '1234' );
-		$client->set_psp_id( 'MyPSPID' );
 		$client->set_pass_phrase_in( 'Mysecretsig1875!?' );
+
+		// Data
+		$ogone_data = $client->get_data();
+
+		// General
+		$ogone_data_general = new Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper( $ogone_data );
+
+		$ogone_data_general
+			->set_amount( 15 )
+			->set_currency( 'EUR' )
+			->set_language( 'en_US' )
+			->set_order_id( '1234' );
+
+		// Signature
 
 		$signature_in = $client->get_signature_in();
 
@@ -41,9 +50,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ClientTest extends WP_UnitTes
 			'SHASIGN'    => '8DC2A769700CA4B3DF87FE8E3B6FD162D6F6A5FA',
 		);
 
-		$client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client();
+		$client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client( 'MyPSPID' );
 
-		$client->set_psp_id( 'MyPSPID' );
 		$client->set_pass_phrase_out( 'Mysecretsig1875!?' );
 
 		$result = $client->verify_request( $_GET );

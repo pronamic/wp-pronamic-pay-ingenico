@@ -128,4 +128,24 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper {
 	public function set_decline_url( $url ) {
 		$this->data->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::DECLINE_URL, $url );
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Set home URL
+	 *
+	 * @param string $url
+	 */
+	public function set_home_url( $url ) {
+		$this->data->set_field( 'home', $url );
+	}
+
+	/**
+	 * Set back URL
+	 *
+	 * @param string $url
+	 */
+	public function set_back_url( $url ) {
+		$this->data->set_field( 'backurl', $url );
+	}
 }

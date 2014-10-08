@@ -31,27 +31,15 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 		$this->set_amount_minimum( 0.01 );
 		$this->set_slug( self::SLUG );
 
-		$this->client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client();
+		$this->client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client( $this->config->psp_id );
 
 		$this->client->set_payment_server_url( $config->url );
-		$this->client->set_psp_id( $config->psp_id );
 		$this->client->set_pass_phrase_in( $config->sha_in_pass_phrase );
 		$this->client->set_pass_phrase_out( $config->sha_out_pass_phrase );
 
 		if ( ! empty( $config->hash_algorithm ) ) {
 			$this->client->set_hash_algorithm( $config->hash_algorithm );
 		}
-	}
-
-	/////////////////////////////////////////////////
-
-	/**
-	 * Get output HTML
-	 *
-	 * @see Pronamic_WP_Pay_Gateway::get_output_html()
-	 */
-	public function get_output_html() {
-		return $this->client->get_html_fields();
 	}
 
 	/////////////////////////////////////////////////
@@ -65,21 +53,55 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$payment->set_action_url( $this->client->get_payment_server_url() );
 
-		$this->client->set_language( $data->get_language_and_country() );
-		$this->client->set_currency( $data->get_currency() );
-		$this->client->set_order_id( $payment->get_id() );
-		$this->client->set_order_description( $data->get_description() );
-		$this->client->set_amount( $data->get_amount() );
+		$ogone_data = $this->client->get_data();
 
-		$this->client->set_customer_name( $data->getCustomerName() );
-		$this->client->set_email( $data->get_email() );
+		// General
+		$ogone_data_general = new Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper( $ogone_data );
+
+		$ogone_data_general
+			->set_order_id( $data->get_order_id() )
+			->set_order_description( $data->get_description() )
+			->set_currency( $data->get_currency() )
+			->set_amount( $data->get_amount() )
+			->set_customer_name( $data->getCustomerName() )
+			->set_language( $data->get_language_and_country() )
+			->set_email( $data->get_email() );
+
+		// URL's
+		$ogone_url_helper = new Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper( $ogone_data );
 
 		$url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
 
-		$this->client->set_accept_url( add_query_arg( 'status', 'accept', $url ) );
-		$this->client->set_cancel_url( add_query_arg( 'status', 'cancel', $url ) );
-		$this->client->set_decline_url( add_query_arg( 'status', 'decline', $url ) );
-		$this->client->set_exception_url( add_query_arg( 'status', 'exception', $url ) );
+		$ogone_url_helper
+			->set_accept_url( add_query_arg( 'status', 'accept', $url ) )
+			->set_cancel_url( add_query_arg( 'status', 'cancel', $url ) )
+			->set_decline_url( add_query_arg( 'status', 'decline', $url ) )
+			->set_exception_url( add_query_arg( 'status', 'exception', $url ) );
+
+		// $this->client->set_language( $data->get_language_and_country() );
+		// $this->client->set_currency( $data->get_currency() );
+		// $this->client->set_order_id( $payment->get_id() );
+		// $this->client->set_order_description( $data->get_description() );
+		// $this->client->set_amount( $data->get_amount() );
+
+		// $this->client->set_customer_name( $data->getCustomerName() );
+		// $this->client->set_email( $data->get_email() );
+
+		// $this->client->set_accept_url( add_query_arg( 'status', 'accept', $url ) );
+		// $this->client->set_cancel_url( add_query_arg( 'status', 'cancel', $url ) );
+		// $this->client->set_decline_url( add_query_arg( 'status', 'decline', $url ) );
+		// $this->client->set_exception_url( add_query_arg( 'status', 'exception', $url ) );
+	}
+
+	/////////////////////////////////////////////////
+
+	/**
+	 * Get output HTML
+	 *
+	 * @see Pronamic_WP_Pay_Gateway::get_output_html()
+	 */
+	public function get_output_html() {
+		return $this->client->get_html_fields();
 	}
 
 	/////////////////////////////////////////////////

@@ -28,129 +28,23 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	//////////////////////////////////////////////////
 
 	/**
-	 * The order ID
-	 *
-	 * @var string
-	 */
-	private $order_id;
-
-	/**
-	 * The language
-	 *
-	 * @var string
-	 */
-	private $language;
-
-	/**
-	 * Description
-	 *
-	 * @var string
-	 */
-	private $description;
-
-	/**
-	 * The currency
-	 *
-	 * @var string
-	 */
-	private $currency;
-
-	/**
-	 * Payment method
-	 *
-	 * @var string
-	 */
-	private $payment_type;
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Name of the customer
-	 *
-	 * @var string
-	 */
-	private $customer_name;
-
-	/**
-	 * E-mailaddress
-	 *
-	 * @var string
-	 */
-	private $email;
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Owner address
-	 *
-	 * @var string
-	 */
-	private $owner_address;
-
-	/**
-	 * Owner city
-	 *
-	 * @var string
-	 */
-	private $owner_city;
-
-	/**
-	 * Owner ZIP
-	 *
-	 * @var string
-	 */
-	private $owner_zip;
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Accept URL
-	 *
-	 * @var string
-	 */
-	private $accept_url;
-
-	/**
-	 * Decline URL
-	 *
-	 * @var string
-	 */
-	private $decline_url;
-
-	/**
-	 * Exception URL
-	 *
-	 * @var string
-	 */
-	private $exception_url;
-
-	/**
-	 * Cancel URL
-	 *
-	 * @var string
-	 */
-	private $cancel_url;
-
-	/**
-	 * Back URL
-	 *
-	 * @var string
-	 */
-	private $back_url;
-
-	/**
 	 * Home URL
 	 *
 	 * @var string
 	 */
-	private $home_url;
+	private $data;
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initialize a iDEAL easy object
+	 *
+	 * @param string $psp_id
 	 */
-	public function __construct() {
+	public function __construct( $psp_id ) {
+		$this->data = new Pronamic_WP_Pay_Gateways_Ogone_Data();
+		$this->data->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::PSPID, $psp_id );
+
 		$this->set_payment_type( self::PAYMENT_TYPE_IDEAL );
 	}
 
@@ -175,258 +69,16 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	}
 
 	//////////////////////////////////////////////////
-
-	/**
-	 * Get the PSP id
-	 *
-	 * @return an PSP id
-	 */
-	public function get_psp_id() {
-		return $this->pspId;
-	}
-
-	/**
-	 * Set the PSP id
-	 *
-	 * @param string $pspId
-	 */
-	public function set_psp_id( $psp_id ) {
-		$this->pspId = $psp_id;
-	}
-
+	// Data
 	//////////////////////////////////////////////////
 
 	/**
-	 * Get the order id
+	 * Get data
 	 *
-	 * @return an order id
+	 * @return Pronamic_WP_Pay_Gateways_Ogone_Data
 	 */
-	public function get_order_id() {
-		return $this->order_id;
-	}
-
-	/**
-	 * Set the order id
-	 * AN..max16 (AN = Alphanumeric, free text)
-	 *
-	 * @param string $order_id
-	 */
-	public function set_order_id( $order_id ) {
-		$this->order_id = substr( $order_id, 0, 16 );
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Get the language
-	 *
-	 * @return an language
-	 */
-	public function get_language() {
-		return $this->language;
-	}
-
-	/**
-	 * Set the language
-	 *
-	 * @param string $language
-	 */
-	public function set_language( $language ) {
-		$this->language = $language;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Get the description
-	 *
-	 * @return an description
-	 */
-	public function get_description() {
-		return $this->description;
-	}
-
-	/**
-	 * Set the description
-	 * AN..max32 (AN = Alphanumeric, free text)
-	 *
-	 * @param string $description
-	 */
-	public function set_description( $description ) {
-		$this->description = substr( $description, 0, 32 );
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Get the currency
-	 *
-	 * @return string
-	 */
-	public function get_currency() {
-		return $this->currency;
-	}
-
-	/**
-	 * Set the currency
-	 *
-	 * @return string
-	 */
-	public function set_currency( $currency ) {
-		$this->currency = $currency;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Get the payment type
-	 *
-	 * @return an payment type
-	 */
-	public function get_payment_type() {
-		return $this->payment_type;
-	}
-
-	/**
-	 * Set the payment type
-	 * AN..max10
-	 *
-	 * @param string $payment_type an payment type
-	 */
-	public function set_payment_type( $payment_type ) {
-		$this->payment_type = $payment_type;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Get the amount
-	 *
-	 * @return float
-	 */
-	public function get_amount() {
-		return $this->amount;
-	}
-
-	/**
-	 * Set the amount
-	 *
-	 * @param float $amount
-	 */
-	public function set_amount( $amount ) {
-		$this->amount = $amount;
-	}
-
-	//////////////////////////////////////////////////
-
-	public function get_customer_name() {
-		return $this->customer_name;
-	}
-
-	public function set_customer_name( $customer_name ) {
-		$this->customer_name = $customer_name;
-	}
-
-	//////////////////////////////////////////////////
-
-	public function get_email() {
-		return $this->email;
-	}
-
-	public function set_email( $email ) {
-		$this->email = $email;
-	}
-
-	//////////////////////////////////////////////////
-
-	public function get_owner_address() {
-		return $this->owner_address;
-	}
-
-	public function set_owner_address( $owner_address ) {
-		$this->owner_address = $owner_address;
-	}
-
-	//////////////////////////////////////////////////
-
-	public function get_owner_city() {
-		return $this->owner_city;
-	}
-
-	public function set_owner_city( $owner_city ) {
-		$this->owner_city = $owner_city;
-	}
-
-	//////////////////////////////////////////////////
-
-	public function get_owner_zip() {
-		return $this->owner_zip;
-	}
-
-	public function set_owner_zip( $owner_zip ) {
-		$this->owner_zip = $owner_zip;
-	}
-
-	//////////////////////////////////////////////////
-	// URL's
-	//////////////////////////////////////////////////
-
-	public function get_accept_url() {
-		return $this->accept_url;
-	}
-
-	public function set_accept_url( $url ) {
-		$this->accept_url = $url;
-	}
-
-	//////////////////////////////////////////////////
-
-	public function get_decline_url() {
-		return $this->decline_url;
-	}
-
-	public function set_decline_url( $url ) {
-		$this->decline_url = $url;
-	}
-
-	//////////////////////////////////////////////////
-
-	public function get_exception_url() {
-		return $this->exception_url;
-	}
-
-	public function set_exception_url( $url ) {
-		$this->exception_url = $url;
-	}
-
-	//////////////////////////////////////////////////
-
-	public function get_cancel_url() {
-		return $this->cancel_url;
-	}
-
-	public function set_cancel_url( $url ) {
-		$this->cancel_url = $url;
-	}
-
-	//////////////////////////////////////////////////
-
-	public function get_back_url() {
-		return $this->back_url;
-	}
-
-	public function set_back_url( $url ) {
-		$this->back_url = $url;
-	}
-
-	//////////////////////////////////////////////////
-
-	public function get_home_url() {
-		return $this->home_url;
-	}
-
-	public function set_home_url( $url ) {
-		$this->home_url = $url;
+	public function get_data() {
+		return $this->data;
 	}
 
 	//////////////////////////////////////////////////
@@ -435,30 +87,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 * Get the iDEAL HTML
 	 */
 	public function get_html_fields() {
-		return Pronamic_IDeal_IDeal::htmlHiddenFields( array(
-			'PSPID'        => $this->get_psp_id(),
-
-			'orderID'      => $this->get_order_id(),
-			'amount'       => Pronamic_WP_Pay_Util::amount_to_cents( $this->get_amount() ),
-			'currency'     => $this->get_currency(),
-			'language'     => $this->get_language(),
-
-			'COM'          => $this->get_description(),
-			'PM'           => $this->get_payment_type(),
-
-			'CN'           => $this->get_customer_name(),
-			'EMAIL'        => $this->get_email(),
-
-			'owneraddress' => $this->get_owner_address(),
-			'ownertown'    => $this->get_owner_city(),
-			'ownerzip'     => $this->get_owner_zip(),
-
-			'accepturl'    => $this->get_accept_url(),
-			'declineurl'   => $this->get_decline_url(),
-			'exceptionurl' => $this->get_exception_url(),
-			'cancelurl'    => $this->get_cancel_url(),
-			'backurl'      => $this->get_back_url(),
-			'home'         => $this->get_home_url()
-		) );
+		return Pronamic_IDeal_IDeal::htmlHiddenFields( $this->data->get_fields() );
 	}
 }
