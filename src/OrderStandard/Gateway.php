@@ -59,7 +59,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 		$ogone_data_general = new Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper( $ogone_data );
 
 		$ogone_data_general
-			->set_order_id( $data->get_order_id() )
+			->set_order_id( Pronamic_WP_Pay_Gateways_Ogone_Util::get_order_id( $this->config->order_id, $data, $payment ) )
 			->set_order_description( $data->get_description() )
 			->set_currency( $data->get_currency() )
 			->set_amount( $data->get_amount() )
