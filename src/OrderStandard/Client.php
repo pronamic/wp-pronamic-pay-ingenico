@@ -268,7 +268,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @return string
 	 */
-	public function getCurrency() {
+	public function get_currency() {
 		return $this->get_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::CURRENCY );
 	}
 
@@ -387,7 +387,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param string $ownerCountry
 	 */
-	public function setOwnerCountry( $country ) {
+	public function set_owner_country( $country ) {
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::OWNER_COUNTRY, $country );
 	}
 
@@ -398,7 +398,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @return string
 	 */
-	public function getOwnerZip() {
+	public function get_owner_zip() {
 		return $this->get_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::OWNER_ZIP );
 	}
 
@@ -407,7 +407,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param string $ownerZip
 	 */
-	public function setOwnerZip( $zip ) {
+	public function set_owner_zip( $zip ) {
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::OWNER_ZIP, $zip );
 	}
 
@@ -421,7 +421,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @return string
 	 */
-	public function getOrderDescription() {
+	public function get_order_description() {
 		return $this->get_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::COM );
 	}
 
@@ -448,7 +448,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @reutnr string
 	 */
-	public function getAcceptUrl() {
+	public function get_accept_url() {
 		return $this->get_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::ACCEPT_URL );
 	}
 
@@ -496,7 +496,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @return string
 	 */
-	public function getExceptionUrl() {
+	public function get_exception_url() {
 		return $this->get_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::EXCEPTION_URL );
 	}
 
@@ -522,7 +522,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @return string
 	 */
-	public function getDeclineUrl() {
+	public function get_decline_url() {
 		return $this->get_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::DECLINE_URL );
 	}
 
@@ -548,7 +548,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @return string
 	 */
-	public function getSignatureIn() {
+	public function get_signature_in() {
 		$calculation_fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculations_parameters_in();
 
 		$fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $this->fields );
@@ -561,7 +561,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param array $fields
 	 */
-	public function getSignatureOut( $fields ) {
+	public function get_signature_out( $fields ) {
 		$calculation_fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculations_parameters_out();
 
 		$fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $fields );
@@ -576,7 +576,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @return string
 	 */
-	public function getHtmlFields() {
+	public function get_html_fields() {
 		return Pronamic_IDeal_IDeal::htmlHiddenFields( array(
 			// general parameters
 			'PSPID'        => $this->get_psp_id(),
@@ -589,23 +589,23 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 			'EMAIL'        => $this->get_email(),
 
 			'owneraddress' => $this->get_owner_address(),
-			'ownerZIP'     => $this->getOwnerZip(),
+			'ownerZIP'     => $this->get_owner_zip(),
 			'ownertown'    => '',
 			'ownercty'     => $this->get_owner_country(),
 			'ownertelno'   => '',
 
-			'COM'          => $this->getOrderDescription(),
+			'COM'          => $this->get_order_description(),
 
 			// check before the payment: see Security: Check before the Payment
-			'SHASign'      => $this->getSignatureIn(),
+			'SHASign'      => $this->get_signature_in(),
 
 			// layout information: see Look and Feel of the Payment Page
 			// ?
 
 			// post payment redirection: see Transaction Feedback to the Customer
-			'accepturl'    => $this->getAcceptUrl(),
-			'declineurl'   => $this->getDeclineUrl(),
-			'exceptionurl' => $this->getExceptionUrl(),
+			'accepturl'    => $this->get_accept_url(),
+			'declineurl'   => $this->get_decline_url(),
+			'exceptionurl' => $this->get_exception_url(),
 			'cancelurl'    => $this->get_cancel_url(),
 		) );
 	}
@@ -615,7 +615,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	/**
 	 * Verify request
 	 */
-	public function verifyRequest( $data ) {
+	public function verify_request( $data ) {
 		$result = false;
 
 		$data = array_change_key_case( $data, CASE_UPPER );
@@ -623,9 +623,9 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 		if ( isset( $data['SHASIGN'] ) ) {
 			$signature = $data['SHASIGN'];
 
-			$signature_out = $this->getSignatureOut( $data );
+			$signature_out = $this->get_signature_out( $data );
 
-			if ( strcasecmp( $signature, $signature_out ) === 0 ) {
+			if ( 0 === strcasecmp( $signature, $signature_out ) ) {
 				$result = filter_var_array( $data, array(
 					Pronamic_WP_Pay_Gateways_Ogone_Parameters::ORDERID  => FILTER_SANITIZE_STRING,
 					Pronamic_WP_Pay_Gateways_Ogone_Parameters::AMOUNT   => FILTER_VALIDATE_FLOAT,

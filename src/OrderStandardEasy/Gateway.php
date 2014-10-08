@@ -35,7 +35,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_
 	 * @return string
 	 */
 	public function get_output_html() {
-		return $this->client->getHtmlFields();
+		return $this->client->get_html_fields();
 	}
 
 	/////////////////////////////////////////////////
@@ -54,13 +54,13 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_
 		$this->client->set_language( $data->get_language_and_country() );
 		$this->client->set_currency( $data->get_currency() );
 		$this->client->set_order_id( $order_id );
-		$this->client->setDescription( $data->get_description() );
+		$this->client->set_description( $data->get_description() );
 		$this->client->set_amount( $data->get_amount() );
 		$this->client->set_email( $data->get_email() );
 		$this->client->set_customer_name( $data->getCustomerName() );
 		$this->client->set_owner_address( $data->getOwnerAddress() );
-		$this->client->setOwnerCity( $data->getOwnerCity() );
-		$this->client->setOwnerZip( $data->getOwnerZip() );
+		$this->client->set_owner_city( $data->getOwnerCity() );
+		$this->client->set_owner_zip( $data->getOwnerZip() );
 
 		$url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
 

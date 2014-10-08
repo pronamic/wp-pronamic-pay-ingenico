@@ -158,7 +158,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 * Constructs and initialize a iDEAL easy object
 	 */
 	public function __construct() {
-		$this->setPaymentType( self::PAYMENT_TYPE_IDEAL );
+		$this->set_payment_type( self::PAYMENT_TYPE_IDEAL );
 	}
 
 	//////////////////////////////////////////////////
@@ -259,7 +259,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @param string $description
 	 */
-	public function setDescription( $description ) {
+	public function set_description( $description ) {
 		$this->description = substr( $description, 0, 32 );
 	}
 
@@ -290,7 +290,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @return an payment type
 	 */
-	public function getPaymentType() {
+	public function get_payment_type() {
 		return $this->paymentType;
 	}
 
@@ -300,7 +300,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @param string $paymentType an payment type
 	 */
-	public function setPaymentType( $paymentType ) {
+	public function set_payment_type( $paymentType ) {
 		$this->paymentType = $paymentType;
 	}
 
@@ -360,7 +360,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 		return $this->ownerCity;
 	}
 
-	public function setOwnerCity( $ownerCity ) {
+	public function set_owner_city( $ownerCity ) {
 		$this->ownerCity = $ownerCity;
 	}
 
@@ -370,7 +370,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 		return $this->ownerZip;
 	}
 
-	public function setOwnerZip( $ownerZip ) {
+	public function set_owner_zip( $ownerZip ) {
 		$this->ownerZip = $ownerZip;
 	}
 
@@ -441,7 +441,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	/**
 	 * Get the iDEAL HTML
 	 */
-	public function getHtmlFields() {
+	public function get_html_fields() {
 		return Pronamic_IDeal_IDeal::htmlHiddenFields( array(
 			'PSPID'        => $this->get_psp_id(),
 
@@ -451,7 +451,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 			'language'     => $this->get_language(),
 
 			'COM'          => $this->get_description(),
-			'PM'           => $this->getPaymentType(),
+			'PM'           => $this->get_payment_type(),
 
 			'CN'           => $this->get_customer_name(),
 			'EMAIL'        => $this->get_email(),

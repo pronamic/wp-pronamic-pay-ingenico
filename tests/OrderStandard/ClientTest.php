@@ -4,7 +4,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ClientTest extends WP_UnitTes
 	function test_signature_in_empty() {
 		$client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client();
 
-		$signature_in = $client->getSignatureIn();
+		$signature_in = $client->get_signature_in();
 
 		$this->assertEquals( 'DA39A3EE5E6B4B0D3255BFEF95601890AFD80709', $signature_in );
 	}
@@ -20,7 +20,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ClientTest extends WP_UnitTes
 		$client->set_psp_id( 'MyPSPID' );
 		$client->set_pass_phrase_in( 'Mysecretsig1875!?' );
 
-		$signature_in = $client->getSignatureIn();
+		$signature_in = $client->get_signature_in();
 
 		$this->assertEquals( 'F4CC376CD7A834D997B91598FA747825A238BE0A', $signature_in );
 	}
@@ -46,7 +46,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ClientTest extends WP_UnitTes
 		$client->set_psp_id( 'MyPSPID' );
 		$client->set_pass_phrase_out( 'Mysecretsig1875!?' );
 
-		$result = $client->verifyRequest( $_GET );
+		$result = $client->verify_request( $_GET );
 
 		$this->assertNotSame( false, $result );
 	}

@@ -51,7 +51,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 	 * @see Pronamic_WP_Pay_Gateway::get_output_html()
 	 */
 	public function get_output_html() {
-		return $this->client->getHtmlFields();
+		return $this->client->get_html_fields();
 	}
 
 	/////////////////////////////////////////////////
@@ -96,9 +96,9 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 		);
 
 		foreach ( $inputs as $input => $data ) {
-			$data = $this->client->verifyRequest( $data );
+			$data = $this->client->verify_request( $data );
 
-			if ( $data !== false ) {
+			if ( false !== $data ) {
 				$status = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $data[ Pronamic_WP_Pay_Gateways_Ogone_Parameters::STATUS ] );
 
 				$payment->set_status( $status );
