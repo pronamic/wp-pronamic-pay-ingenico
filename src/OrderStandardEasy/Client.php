@@ -28,13 +28,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	//////////////////////////////////////////////////
 
 	/**
-	 * The mercahnt ID
-	 *
-	 * @var string
-	 */
-	private $merchantId;
-
-	/**
 	 * The order ID
 	 *
 	 * @var string
