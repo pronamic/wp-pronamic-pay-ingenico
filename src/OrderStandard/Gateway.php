@@ -90,21 +90,16 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function update_status( Pronamic_Pay_Payment $payment ) {
-		$inputs = array(
-			INPUT_GET  => $_GET,
-			INPUT_POST => $_POST,
-		);
+		$data = Pronamic_WP_Pay_Gateways_Ogone_Security::get_request_data();
 
-		foreach ( $inputs as $input => $data ) {
-			$data = $this->client->verify_request( $data );
+		$data = $this->client->verify_request( $data );
 
-			if ( false !== $data ) {
-				$status = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $data[ Pronamic_WP_Pay_Gateways_Ogone_Parameters::STATUS ] );
+		if ( false !== $data ) {
+			$status = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $data[ Pronamic_WP_Pay_Gateways_Ogone_Parameters::STATUS ] );
 
-				$payment->set_status( $status );
+			$payment->set_status( $status );
 
-				$this->update_status_payment_note( $payment, $data );
-			}
+			$this->update_status_payment_note( $payment, $data );
 		}
 	}
 

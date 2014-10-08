@@ -10,20 +10,7 @@
 */
 class Pronamic_WP_Pay_Gateways_Ogone_Listener implements Pronamic_Pay_Gateways_ListenerInterface {
 	public static function listen() {
-		$method = filter_input( INPUT_SERVER, 'REQUEST_METHOD', FILTER_SANITIZE_STRING );
-
-		$data = array();
-
-		switch ( $method ) {
-			case 'GET':
-				$data = $_GET;
-
-				break;
-			case 'POST':
-				$data = $_POST;
-
-				break;
-		}
+		$data = Pronamic_WP_Pay_Gateways_Ogone_Security::get_request_data();
 
 		$data = array_change_key_case( $data, CASE_UPPER );
 

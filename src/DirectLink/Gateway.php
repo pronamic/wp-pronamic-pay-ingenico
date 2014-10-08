@@ -131,26 +131,21 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function update_status( Pronamic_Pay_Payment $payment ) {
-		$inputs = array(
-			INPUT_GET  => $_GET,
-			INPUT_POST => $_POST,
-		);
+		$data = Pronamic_WP_Pay_Gateways_Ogone_Security::get_request_data();
 
-		foreach ( $inputs as $input => $data ) {
-			$data = array_change_key_case( $data, CASE_UPPER );
+		$data = array_change_key_case( $data, CASE_UPPER );
 
-			$calculation_fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculations_parameters_out();
+		$calculation_fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculations_parameters_out();
 
-			$fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $data );
+		$fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $data );
 
-			$signature = $data['SHASIGN'];
-			$signature_out = Pronamic_WP_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->config->sha_out_pass_phrase, $this->config->hash_algorithm );
+		$signature = $data['SHASIGN'];
+		$signature_out = Pronamic_WP_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->config->sha_out_pass_phrase, $this->config->hash_algorithm );
 
-			if ( 0 === strcasecmp( $signature, $signature_out ) ) {
-				$status = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $data[ Pronamic_WP_Pay_Gateways_Ogone_Parameters::STATUS ] );
+		if ( 0 === strcasecmp( $signature, $signature_out ) ) {
+			$status = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $data[ Pronamic_WP_Pay_Gateways_Ogone_Parameters::STATUS ] );
 
-				$payment->set_status( $status );
-			}
+			$payment->set_status( $status );
 		}
 	}
 }

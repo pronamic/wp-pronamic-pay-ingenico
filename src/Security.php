@@ -61,6 +61,38 @@ class Pronamic_WP_Pay_Gateways_Ogone_Security {
 
 	/////////////////////////////////////////////////
 
+	/**
+	 * Get request data
+	 *
+	 * @return array
+	 */
+	public static function get_request_data() {
+		$method = filter_input( INPUT_SERVER, 'REQUEST_METHOD', FILTER_SANITIZE_STRING );
+
+		$data = array();
+
+		switch ( $method ) {
+			case 'GET':
+				// @codingStandardsIgnoreStart
+				// @todo see how we can improve security around this
+				$data = $_GET; // input var okay
+				// @codingStandardsIgnoreEnd
+
+				break;
+			case 'POST':
+				// @codingStandardsIgnoreStart
+				// @todo see how we can improve security around this
+				$data = $_POST; // input var okay
+				// @codingStandardsIgnoreEnd
+
+				break;
+		}
+
+		return $data;
+	}
+
+	/////////////////////////////////////////////////
+
 	public static function get_calculation_fields( $calculation_fields, $fields ) {
 		$calculation_fields = array_flip( $calculation_fields );
 
