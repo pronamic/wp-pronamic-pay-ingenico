@@ -117,7 +117,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @return string
 	 */
-	public function getPassPhraseIn() {
+	public function get_pass_phrase_in() {
 		return $this->passPhraseIn;
 	}
 
@@ -126,7 +126,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param string $passPhraseIn
 	 */
-	public function setPassPhraseIn( $passPhraseIn ) {
+	public function set_pass_phrase_in( $passPhraseIn ) {
 		$this->passPhraseIn = $passPhraseIn;
 	}
 
@@ -137,7 +137,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @return string
 	 */
-	public function getPassPhraseOut() {
+	public function get_pass_phrase_out() {
 		return $this->passPhraseOut;
 	}
 
@@ -146,7 +146,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param string $passPhraseOut
 	 */
-	public function setPassPhraseOut( $passPhraseOut ) {
+	public function set_pass_phrase_out( $passPhraseOut ) {
 		$this->passPhraseOut = $passPhraseOut;
 	}
 
@@ -201,7 +201,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @return an PSP id
 	 */
-	public function getPspId() {
+	public function get_psp_id() {
 		return $this->get_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::PSPID );
 	}
 
@@ -213,7 +213,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param string PSP id
 	 */
-	public function setPspId( $psp_id ) {
+	public function set_psp_id( $psp_id ) {
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::PSPID, $psp_id );
 	}
 
@@ -313,7 +313,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @return string
 	 */
-	public function getCustomerName() {
+	public function get_customer_name() {
 		return $this->get_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::CUSTOMER_NAME );
 	}
 
@@ -356,7 +356,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @return string
 	 */
-	public function getOwnerAddress() {
+	public function get_owner_address() {
 		return $this->get_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::OWNER_ADDRESS );
 	}
 
@@ -365,7 +365,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param string $ownerAddress
 	 */
-	public function setOwnerAddress( $address ) {
+	public function set_owner_address( $address ) {
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::OWNER_ADDRESS, $address );
 	}
 
@@ -376,7 +376,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @return string
 	 */
-	public function getOwnerCountry() {
+	public function get_owner_country() {
 		return $this->get_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::OWNER_COUNTRY );
 	}
 
@@ -553,7 +553,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 
 		$fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $this->fields );
 
-		return Pronamic_WP_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->getPassPhraseIn(), $this->hash_algorithm );
+		return Pronamic_WP_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->get_pass_phrase_in(), $this->hash_algorithm );
 	}
 
 	/**
@@ -566,7 +566,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 
 		$fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $fields );
 
-		return Pronamic_WP_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->getPassPhraseOut(), $this->hash_algorithm );
+		return Pronamic_WP_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->get_pass_phrase_out(), $this->hash_algorithm );
 	}
 
 	//////////////////////////////////////////////////
@@ -579,19 +579,19 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	public function getHtmlFields() {
 		return Pronamic_IDeal_IDeal::htmlHiddenFields( array(
 			// general parameters
-			'PSPID'        => $this->getPspId(),
+			'PSPID'        => $this->get_psp_id(),
 			'orderID'      => $this->get_order_id(),
 			'amount'       => Pronamic_WP_Pay_Util::amount_to_cents( $this->get_amount() ),
-			'currency'     => $this->getCurrency(),
+			'currency'     => $this->get_currency(),
 			'language'     => $this->get_language(),
 
-			'CN'           => $this->getCustomerName(),
+			'CN'           => $this->get_customer_name(),
 			'EMAIL'        => $this->get_email(),
 
-			'owneraddress' => $this->getOwnerAddress(),
+			'owneraddress' => $this->get_owner_address(),
 			'ownerZIP'     => $this->getOwnerZip(),
 			'ownertown'    => '',
-			'ownercty'     => $this->getOwnerCountry(),
+			'ownercty'     => $this->get_owner_country(),
 			'ownertelno'   => '',
 
 			'COM'          => $this->getOrderDescription(),

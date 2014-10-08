@@ -23,7 +23,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_
 
 		$this->client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client();
 		$this->client->set_payment_server_url( $config->url );
-		$this->client->setPspId( $config->psp_id );
+		$this->client->set_psp_id( $config->psp_id );
 	}
 
 	/////////////////////////////////////////////////
@@ -58,7 +58,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_
 		$this->client->set_amount( $data->get_amount() );
 		$this->client->set_email( $data->get_email() );
 		$this->client->set_customer_name( $data->getCustomerName() );
-		$this->client->setOwnerAddress( $data->getOwnerAddress() );
+		$this->client->set_owner_address( $data->getOwnerAddress() );
 		$this->client->setOwnerCity( $data->getOwnerCity() );
 		$this->client->setOwnerZip( $data->getOwnerZip() );
 

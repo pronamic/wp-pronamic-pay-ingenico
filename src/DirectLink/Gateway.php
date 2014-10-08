@@ -146,7 +146,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 			$signature = $data['SHASIGN'];
 			$signature_out = Pronamic_WP_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->config->sha_out_pass_phrase, $this->config->hash_algorithm );
 
-			if ( strcasecmp( $signature, $signature_out ) === 0 ) {
+			if ( 0 === strcasecmp( $signature, $signature_out ) ) {
 				$status = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $data[ Pronamic_WP_Pay_Gateways_Ogone_Parameters::STATUS ] );
 
 				$payment->set_status( $status );

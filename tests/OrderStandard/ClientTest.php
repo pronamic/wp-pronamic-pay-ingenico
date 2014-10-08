@@ -17,8 +17,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ClientTest extends WP_UnitTes
 		$client->set_currency( 'EUR' );
 		$client->set_language( 'en_US' );
 		$client->set_order_id( '1234' );
-		$client->setPspId( 'MyPSPID' );
-		$client->setPassPhraseIn( 'Mysecretsig1875!?' );
+		$client->set_psp_id( 'MyPSPID' );
+		$client->set_pass_phrase_in( 'Mysecretsig1875!?' );
 
 		$signature_in = $client->getSignatureIn();
 
@@ -43,8 +43,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ClientTest extends WP_UnitTes
 
 		$client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client();
 
-		$client->setPspId( 'MyPSPID' );
-		$client->setPassPhraseOut( 'Mysecretsig1875!?' );
+		$client->set_psp_id( 'MyPSPID' );
+		$client->set_pass_phrase_out( 'Mysecretsig1875!?' );
 
 		$result = $client->verifyRequest( $_GET );
 

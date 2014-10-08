@@ -188,7 +188,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @return an PSP id
 	 */
-	public function getPspId() {
+	public function get_psp_id() {
 		return $this->pspId;
 	}
 
@@ -197,7 +197,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @param string $pspId
 	 */
-	public function setPspId( $psp_id ) {
+	public function set_psp_id( $psp_id ) {
 		$this->pspId = $psp_id;
 	}
 
@@ -270,7 +270,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @return string
 	 */
-	public function getCurrency() {
+	public function get_currency() {
 		return $this->currency;
 	}
 
@@ -326,7 +326,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 
 	//////////////////////////////////////////////////
 
-	public function getCustomerName() {
+	public function get_customer_name() {
 		return $this->customerName;
 	}
 
@@ -346,17 +346,17 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 
 	//////////////////////////////////////////////////
 
-	public function getOwnerAddress() {
+	public function get_owner_address() {
 		return $this->ownerAddress;
 	}
 
-	public function setOwnerAddress( $ownerAddress ) {
+	public function set_owner_address( $ownerAddress ) {
 		$this->ownerAddress = $ownerAddress;
 	}
 
 	//////////////////////////////////////////////////
 
-	public function getOwnerCity() {
+	public function get_owner_city() {
 		return $this->ownerCity;
 	}
 
@@ -366,7 +366,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 
 	//////////////////////////////////////////////////
 
-	public function getOwnerZip() {
+	public function get_owner_zip() {
 		return $this->ownerZip;
 	}
 
@@ -443,22 +443,22 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 */
 	public function getHtmlFields() {
 		return Pronamic_IDeal_IDeal::htmlHiddenFields( array(
-			'PSPID'        => $this->getPspId(),
+			'PSPID'        => $this->get_psp_id(),
 
 			'orderID'      => $this->get_order_id(),
 			'amount'       => Pronamic_WP_Pay_Util::amount_to_cents( $this->get_amount() ),
-			'currency'     => $this->getCurrency(),
+			'currency'     => $this->get_currency(),
 			'language'     => $this->get_language(),
 
 			'COM'          => $this->get_description(),
 			'PM'           => $this->getPaymentType(),
 
-			'CN'           => $this->getCustomerName(),
+			'CN'           => $this->get_customer_name(),
 			'EMAIL'        => $this->get_email(),
 
-			'owneraddress' => $this->getOwnerAddress(),
-			'ownertown'    => $this->getOwnerCity(),
-			'ownerzip'     => $this->getOwnerZip(),
+			'owneraddress' => $this->get_owner_address(),
+			'ownertown'    => $this->get_owner_city(),
+			'ownerzip'     => $this->get_owner_zip(),
 
 			'accepturl'    => $this->get_accept_url(),
 			'declineurl'   => $this->get_decline_url(),
