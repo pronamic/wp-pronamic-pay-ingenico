@@ -13,10 +13,10 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ClientTest extends WP_UnitTes
 		// http://pronamic.nl/wp-content/uploads/2012/02/ABNAMRO_e-Com-BAS_EN.pdf #page 11
 		$client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client();
 
-		$client->setAmount( 15 );
-		$client->setCurrency( 'EUR' );
-		$client->setLanguage( 'en_US' );
-		$client->setOrderId( '1234' );
+		$client->set_amount( 15 );
+		$client->set_currency( 'EUR' );
+		$client->set_language( 'en_US' );
+		$client->set_order_id( '1234' );
 		$client->setPspId( 'MyPSPID' );
 		$client->setPassPhraseIn( 'Mysecretsig1875!?' );
 

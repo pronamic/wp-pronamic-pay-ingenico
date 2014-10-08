@@ -19,17 +19,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 	/////////////////////////////////////////////////
 
 	/**
-	 * Get output HTML
-	 *
-	 * @see Pronamic_WP_Pay_Gateway::get_output_html()
-	 */
-	public function get_output_html() {
-		return $this->client->getHtmlFields();
-	}
-
-	/////////////////////////////////////////////////
-
-	/**
 	 * Constructs and initializes an InternetKassa gateway
 	 *
 	 * @param Pronamic_WordPress_IDeal_Configuration $config
@@ -44,7 +33,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 
 		$this->client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client();
 
-		$this->client->setPaymentServerUrl( $config->url );
+		$this->client->set_payment_server_url( $config->url );
 		$this->client->setPspId( $config->psp_id );
 		$this->client->setPassPhraseIn( $config->sha_in_pass_phrase );
 		$this->client->setPassPhraseOut( $config->sha_out_pass_phrase );
@@ -57,29 +46,40 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 	/////////////////////////////////////////////////
 
 	/**
+	 * Get output HTML
+	 *
+	 * @see Pronamic_WP_Pay_Gateway::get_output_html()
+	 */
+	public function get_output_html() {
+		return $this->client->getHtmlFields();
+	}
+
+	/////////////////////////////////////////////////
+
+	/**
 	 * Start
 	 *
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 * @see Pronamic_WP_Pay_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
-		$payment->set_action_url( $this->client->getPaymentServerUrl() );
+		$payment->set_action_url( $this->client->get_payment_server_url() );
 
-		$this->client->setLanguage( $data->get_language_and_country() );
-		$this->client->setCurrency( $data->get_currency() );
-		$this->client->setOrderId( $payment->get_id() );
-		$this->client->setOrderDescription( $data->get_description() );
-		$this->client->setAmount( $data->get_amount() );
+		$this->client->set_language( $data->get_language_and_country() );
+		$this->client->set_currency( $data->get_currency() );
+		$this->client->set_order_id( $payment->get_id() );
+		$this->client->set_order_description( $data->get_description() );
+		$this->client->set_amount( $data->get_amount() );
 
-		$this->client->setCustomerName( $data->getCustomerName() );
-		$this->client->setEMailAddress( $data->get_email() );
+		$this->client->set_customer_name( $data->getCustomerName() );
+		$this->client->set_email( $data->get_email() );
 
 		$url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
 
-		$this->client->setAcceptUrl( add_query_arg( 'status', 'accept', $url ) );
-		$this->client->setCancelUrl( add_query_arg( 'status', 'cancel', $url ) );
-		$this->client->setDeclineUrl( add_query_arg( 'status', 'decline', $url ) );
-		$this->client->setExceptionUrl( add_query_arg( 'status', 'exception', $url ) );
+		$this->client->set_accept_url( add_query_arg( 'status', 'accept', $url ) );
+		$this->client->set_cancel_url( add_query_arg( 'status', 'cancel', $url ) );
+		$this->client->set_decline_url( add_query_arg( 'status', 'decline', $url ) );
+		$this->client->set_exception_url( add_query_arg( 'status', 'exception', $url ) );
 	}
 
 	/////////////////////////////////////////////////

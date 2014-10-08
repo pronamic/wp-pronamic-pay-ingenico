@@ -14,7 +14,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @var string
 	 */
-	private $paymentServerUrl;
+	private $payment_server_url;
 
 	//////////////////////////////////////////////////
 
@@ -77,8 +77,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @return the payment server URL
 	 */
-	public function getPaymentServerUrl() {
-		return $this->paymentServerUrl;
+	public function get_payment_server_url() {
+		return $this->payment_server_url;
 	}
 
 	/**
@@ -86,8 +86,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param string $url an URL
 	 */
-	public function setPaymentServerUrl( $url ) {
-		$this->paymentServerUrl = $url;
+	public function set_payment_server_url( $url ) {
+		$this->payment_server_url = $url;
 	}
 
 	//////////////////////////////////////////////////
@@ -233,7 +233,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param string $orderId
 	 */
-	public function setOrderId( $order_id ) {
+	public function set_order_id( $order_id ) {
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::ORDERID, $order_id );
 	}
 
@@ -244,7 +244,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @return an language
 	 */
-	public function getLanguage() {
+	public function get_language() {
 		return $this->get_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::LANGUAGE );
 	}
 
@@ -257,7 +257,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param string $language
 	 */
-	public function setLanguage( $language ) {
+	public function set_language( $language ) {
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::LANGUAGE, $language );
 	}
 
@@ -280,7 +280,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @return string $currency
 	 */
-	public function setCurrency( $currency ) {
+	public function set_currency( $currency ) {
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::CURRENCY, $currency );
 	}
 
@@ -300,7 +300,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param float $amount
 	 */
-	public function setAmount( $amount ) {
+	public function set_amount( $amount ) {
 		$this->amount = $amount;
 
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::AMOUNT, Pronamic_WP_Pay_Util::amount_to_cents( $amount ) );
@@ -325,7 +325,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param string $customerName
 	 */
-	public function setCustomerName( $customer_name ) {
+	public function set_customer_name( $customer_name ) {
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::CUSTOMER_NAME, $customer_name );
 	}
 
@@ -345,7 +345,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param string $eMailAddress
 	 */
-	public function setEMailAddress( $email ) {
+	public function set_email( $email ) {
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::EMAIL, $email );
 	}
 
@@ -433,7 +433,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param string $description
 	 */
-	public function setOrderDescription( $description ) {
+	public function set_order_description( $description ) {
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::COM, $description );
 	}
 
@@ -459,7 +459,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param string $url
 	 */
-	public function setAcceptUrl( $url ) {
+	public function set_accept_url( $url ) {
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::ACCEPT_URL, $url );
 	}
 
@@ -483,7 +483,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param string $url
 	 */
-	public function setCancelUrl( $url ) {
+	public function set_cancel_url( $url ) {
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::CANCEL_URL, $url );
 	}
 
@@ -507,7 +507,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param string $url
 	 */
-	public function setExceptionUrl( $url ) {
+	public function set_exception_url( $url ) {
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::EXCEPTION_URL, $url );
 	}
 
@@ -535,7 +535,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param string $url
 	 */
-	public function setDeclineUrl( $url ) {
+	public function set_decline_url( $url ) {
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::DECLINE_URL, $url );
 	}
 
@@ -583,7 +583,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 			'orderID'      => $this->get_order_id(),
 			'amount'       => Pronamic_WP_Pay_Util::amount_to_cents( $this->get_amount() ),
 			'currency'     => $this->getCurrency(),
-			'language'     => $this->getLanguage(),
+			'language'     => $this->get_language(),
 
 			'CN'           => $this->getCustomerName(),
 			'EMAIL'        => $this->get_email(),

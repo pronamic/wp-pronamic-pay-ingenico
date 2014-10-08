@@ -23,7 +23,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @var string
 	 */
-	private $paymentServerUrl;
+	private $payment_server_url;
 
 	//////////////////////////////////////////////////
 
@@ -168,8 +168,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @return the payment server URL
 	 */
-	public function getPaymentServerUrl() {
-		return $this->paymentServerUrl;
+	public function get_payment_server_url() {
+		return $this->payment_server_url;
 	}
 
 	/**
@@ -177,8 +177,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @param string $url an URL
 	 */
-	public function setPaymentServerUrl( $url ) {
-		$this->paymentServerUrl = $url;
+	public function set_payment_server_url( $url ) {
+		$this->payment_server_url = $url;
 	}
 
 	//////////////////////////////////////////////////
@@ -218,7 +218,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @param sub id
 	 */
-	public function setOrderId( $order_id ) {
+	public function set_order_id( $order_id ) {
 		$this->orderId = substr( $order_id, 0, 16 );
 	}
 
@@ -229,7 +229,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @return an language
 	 */
-	public function getLanguage() {
+	public function get_language() {
 		return $this->language;
 	}
 
@@ -238,7 +238,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @param string $language
 	 */
-	public function setLanguage( $language ) {
+	public function set_language( $language ) {
 		$this->language = $language;
 	}
 
@@ -279,7 +279,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @return string
 	 */
-	public function setCurrency( $currency ) {
+	public function set_currency( $currency ) {
 		$this->currency = $currency;
 	}
 
@@ -320,7 +320,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @param float $amount
 	 */
-	public function setAmount( $amount ) {
+	public function set_amount( $amount ) {
 		$this->amount = $amount;
 	}
 
@@ -330,7 +330,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 		return $this->customerName;
 	}
 
-	public function setCustomerName( $customerName ) {
+	public function set_customer_name( $customerName ) {
 		$this->customerName = $customerName;
 	}
 
@@ -340,7 +340,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 		return $this->eMailAddress;
 	}
 
-	public function setEMailAddress( $eMailAddress ) {
+	public function set_email( $eMailAddress ) {
 		$this->eMailAddress = $eMailAddress;
 	}
 
@@ -448,7 +448,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 			'orderID'      => $this->get_order_id(),
 			'amount'       => Pronamic_WP_Pay_Util::amount_to_cents( $this->get_amount() ),
 			'currency'     => $this->getCurrency(),
-			'language'     => $this->getLanguage(),
+			'language'     => $this->get_language(),
 
 			'COM'          => $this->get_description(),
 			'PM'           => $this->getPaymentType(),

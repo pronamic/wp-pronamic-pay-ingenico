@@ -22,7 +22,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_
 		$this->set_amount_minimum( 0.01 );
 
 		$this->client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client();
-		$this->client->setPaymentServerUrl( $config->url );
+		$this->client->set_payment_server_url( $config->url );
 		$this->client->setPspId( $config->psp_id );
 	}
 
@@ -47,17 +47,17 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$payment->set_transaction_id( md5( time() . $data->get_order_id() ) );
-		$payment->set_action_url( $this->client->getPaymentServerUrl() );
+		$payment->set_action_url( $this->client->get_payment_server_url() );
 
 		$order_id = $data->get_order_id() . ' - ' . $payment->get_id();
 
-		$this->client->setLanguage( $data->get_language_and_country() );
-		$this->client->setCurrency( $data->get_currency() );
-		$this->client->setOrderId( $order_id );
+		$this->client->set_language( $data->get_language_and_country() );
+		$this->client->set_currency( $data->get_currency() );
+		$this->client->set_order_id( $order_id );
 		$this->client->setDescription( $data->get_description() );
-		$this->client->setAmount( $data->get_amount() );
-		$this->client->setEMailAddress( $data->get_email() );
-		$this->client->setCustomerName( $data->getCustomerName() );
+		$this->client->set_amount( $data->get_amount() );
+		$this->client->set_email( $data->get_email() );
+		$this->client->set_customer_name( $data->getCustomerName() );
 		$this->client->setOwnerAddress( $data->getOwnerAddress() );
 		$this->client->setOwnerCity( $data->getOwnerCity() );
 		$this->client->setOwnerZip( $data->getOwnerZip() );
