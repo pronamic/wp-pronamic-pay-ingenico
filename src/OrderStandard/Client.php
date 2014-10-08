@@ -28,22 +28,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Signature parameters IN
-	 *
-	 * @var array
-	 */
-	private $calculations_parameters_in;
-
-	/**
-	 * Signature parameters OUT
-	 *
-	 * @var array
-	 */
-	private $calculations_parameters_out;
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * Pass phrase IN
 	 *
 	 * @var string
