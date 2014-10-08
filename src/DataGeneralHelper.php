@@ -113,7 +113,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper {
 	 * @param string $email
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
-	public function set_email_address( $email ) {
+	public function set_email( $email ) {
 		$this->data->set_field( 'EMAIL', $email );
 
 		return $this;
