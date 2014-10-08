@@ -42,13 +42,19 @@ module.exports = function( grunt ) {
 				rulesets: 'phpmd.ruleset.xml'
 			}
 		},
+		
+		// PHPUnit
+		phpunit: {
+			classes: {},
+		},
 	} );
 
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-phpcs' );
 	grunt.loadNpmTasks( 'grunt-phplint' );
 	grunt.loadNpmTasks( 'grunt-phpmd' );
+	grunt.loadNpmTasks( 'grunt-phpunit' );
 
 	// Default task(s).
-	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpmd', 'phpcs' ] );
+	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpmd', 'phpcs', 'phpunit' ] );
 };
