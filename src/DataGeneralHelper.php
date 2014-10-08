@@ -118,4 +118,18 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper {
 
 		return $this;
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Set language
+	 *
+	 * @param string $language
+	 * @return Pronamic_WP_Pay_Gateways_Ogone_DirectLink_DataHelper
+	 */
+	public function set_language( $language ) {
+		$this->data->set_field( 'LANGUAGE', $language );
+
+		return $this;
+	}
 }
