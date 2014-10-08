@@ -32,7 +32,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @var string
 	 */
-	private $orderId;
+	private $order_id;
 
 	/**
 	 * The language
@@ -60,7 +60,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @var string
 	 */
-	private $paymentType;
+	private $payment_type;
 
 	//////////////////////////////////////////////////
 
@@ -69,14 +69,14 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @var string
 	 */
-	private $customerName;
+	private $customer_name;
 
 	/**
 	 * E-mailaddress
 	 *
 	 * @var string
 	 */
-	private $eMailAddress;
+	private $email;
 
 	//////////////////////////////////////////////////
 
@@ -85,21 +85,21 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @var string
 	 */
-	private $ownerAddress;
+	private $owner_address;
 
 	/**
 	 * Owner city
 	 *
 	 * @var string
 	 */
-	private $ownerCity;
+	private $owner_city;
 
 	/**
 	 * Owner ZIP
 	 *
 	 * @var string
 	 */
-	private $ownerZip;
+	private $owner_zip;
 
 	//////////////////////////////////////////////////
 
@@ -202,17 +202,17 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 * @return an order id
 	 */
 	public function get_order_id() {
-		return $this->orderId;
+		return $this->order_id;
 	}
 
 	/**
 	 * Set the order id
 	 * AN..max16 (AN = Alphanumeric, free text)
 	 *
-	 * @param sub id
+	 * @param string $order_id
 	 */
 	public function set_order_id( $order_id ) {
-		$this->orderId = substr( $order_id, 0, 16 );
+		$this->order_id = substr( $order_id, 0, 16 );
 	}
 
 	//////////////////////////////////////////////////
@@ -284,17 +284,17 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 * @return an payment type
 	 */
 	public function get_payment_type() {
-		return $this->paymentType;
+		return $this->payment_type;
 	}
 
 	/**
 	 * Set the payment type
 	 * AN..max10
 	 *
-	 * @param string $paymentType an payment type
+	 * @param string $payment_type an payment type
 	 */
-	public function set_payment_type( $paymentType ) {
-		$this->paymentType = $paymentType;
+	public function set_payment_type( $payment_type ) {
+		$this->payment_type = $payment_type;
 	}
 
 	//////////////////////////////////////////////////
@@ -320,51 +320,51 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	//////////////////////////////////////////////////
 
 	public function get_customer_name() {
-		return $this->customerName;
+		return $this->customer_name;
 	}
 
-	public function set_customer_name( $customerName ) {
-		$this->customerName = $customerName;
+	public function set_customer_name( $customer_name ) {
+		$this->customer_name = $customer_name;
 	}
 
 	//////////////////////////////////////////////////
 
 	public function get_email() {
-		return $this->eMailAddress;
+		return $this->email;
 	}
 
-	public function set_email( $eMailAddress ) {
-		$this->eMailAddress = $eMailAddress;
+	public function set_email( $email ) {
+		$this->email = $email;
 	}
 
 	//////////////////////////////////////////////////
 
 	public function get_owner_address() {
-		return $this->ownerAddress;
+		return $this->owner_address;
 	}
 
-	public function set_owner_address( $ownerAddress ) {
-		$this->ownerAddress = $ownerAddress;
+	public function set_owner_address( $owner_address ) {
+		$this->owner_address = $owner_address;
 	}
 
 	//////////////////////////////////////////////////
 
 	public function get_owner_city() {
-		return $this->ownerCity;
+		return $this->owner_city;
 	}
 
-	public function set_owner_city( $ownerCity ) {
-		$this->ownerCity = $ownerCity;
+	public function set_owner_city( $owner_city ) {
+		$this->owner_city = $owner_city;
 	}
 
 	//////////////////////////////////////////////////
 
 	public function get_owner_zip() {
-		return $this->ownerZip;
+		return $this->owner_zip;
 	}
 
-	public function set_owner_zip( $ownerZip ) {
-		$this->ownerZip = $ownerZip;
+	public function set_owner_zip( $owner_zip ) {
+		$this->owner_zip = $owner_zip;
 	}
 
 	//////////////////////////////////////////////////

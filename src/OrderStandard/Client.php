@@ -32,7 +32,14 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @var string
 	 */
-	public $passPhraseIn;
+	private $pass_phrase_in;
+
+	/**
+	 * Pass phrase OUT
+	 *
+	 * @var string
+	 */
+	private $pass_phrase_out;
 
 	//////////////////////////////////////////////////
 
@@ -102,16 +109,16 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 * @return string
 	 */
 	public function get_pass_phrase_in() {
-		return $this->passPhraseIn;
+		return $this->pass_phrase_in;
 	}
 
 	/**
 	 * Set password phrase IN
 	 *
-	 * @param string $passPhraseIn
+	 * @param string $pass_phrase_in
 	 */
-	public function set_pass_phrase_in( $passPhraseIn ) {
-		$this->passPhraseIn = $passPhraseIn;
+	public function set_pass_phrase_in( $pass_phrase_in ) {
+		$this->pass_phrase_in = $pass_phrase_in;
 	}
 
 	//////////////////////////////////////////////////
@@ -122,16 +129,16 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 * @return string
 	 */
 	public function get_pass_phrase_out() {
-		return $this->passPhraseOut;
+		return $this->pass_phrase_out;
 	}
 
 	/**
 	 * Set password phrase OUT
 	 *
-	 * @param string $passPhraseOut
+	 * @param string $pass_phrase_out
 	 */
-	public function set_pass_phrase_out( $passPhraseOut ) {
-		$this->passPhraseOut = $passPhraseOut;
+	public function set_pass_phrase_out( $pass_phrase_out ) {
+		$this->pass_phrase_out = $pass_phrase_out;
 	}
 
 	//////////////////////////////////////////////////
@@ -215,7 +222,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	/**
 	 * Set the order id
 	 *
-	 * @param string $orderId
+	 * @param string $order_id
 	 */
 	public function set_order_id( $order_id ) {
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::ORDERID, $order_id );
@@ -307,7 +314,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 * Special characters are allowed, but quotes must be avoided. Most acquirers don’t check the
 	 * customer name since names can be written in different ways.
 	 *
-	 * @param string $customerName
+	 * @param string $customer_name
 	 */
 	public function set_customer_name( $customer_name ) {
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::CUSTOMER_NAME, $customer_name );
@@ -327,7 +334,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	/**
 	 * Set e-mailaddress
 	 *
-	 * @param string $eMailAddress
+	 * @param string $email
 	 */
 	public function set_email( $email ) {
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::EMAIL, $email );
@@ -347,7 +354,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	/**
 	 * Set owner address
 	 *
-	 * @param string $ownerAddress
+	 * @param string $address
 	 */
 	public function set_owner_address( $address ) {
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::OWNER_ADDRESS, $address );
@@ -389,7 +396,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	/**
 	 * Set owner ZIP
 	 *
-	 * @param string $ownerZip
+	 * @param string $zip
 	 */
 	public function set_owner_zip( $zip ) {
 		$this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::OWNER_ZIP, $zip );
