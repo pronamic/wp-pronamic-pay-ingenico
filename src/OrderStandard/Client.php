@@ -193,7 +193,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 * @return string
 	 */
 	public function get_html_fields() {
-		Pronamic_WP_Pay_Gateways_Ogone_Security::sign_data( $data, $this->get_pass_phrase_in(), $this->hash_algorithm );
+		Pronamic_WP_Pay_Gateways_Ogone_Security::sign_data( $this->data, $this->get_pass_phrase_in(), $this->hash_algorithm );
 
 		return Pronamic_IDeal_IDeal::htmlHiddenFields( $this->data->get_fields() );
 	}

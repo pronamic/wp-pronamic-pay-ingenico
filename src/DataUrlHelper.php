@@ -32,17 +32,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Get accept URL
-	 *
-	 * URL of the web page to show the customer when the payment is authorized.
-	 *
-	 * @reutnr string
-	 */
-	public function get_accept_url() {
-		return $this->data->get_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::ACCEPT_URL );
-	}
-
-	/**
 	 * Set accept URL
 	 *
 	 * URL of the web page to show the customer when the payment is authorized.
@@ -51,20 +40,11 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper {
 	 */
 	public function set_accept_url( $url ) {
 		$this->data->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::ACCEPT_URL, $url );
+
+		return $this;
 	}
 
 	//////////////////////////////////////////////////
-
-	/**
-	 * Get cancel URL
-	 *
-	 * URL of the web page to show the customer when he cancels the payment.
-	 *
-	 * @return string
-	 */
-	public function get_cancel_url() {
-		return $this->data->get_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::CANCEL_URL );
-	}
 
 	/**
 	 * Set cancel URL
@@ -75,20 +55,11 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper {
 	 */
 	public function set_cancel_url( $url ) {
 		$this->data->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::CANCEL_URL, $url );
+
+		return $this;
 	}
 
 	//////////////////////////////////////////////////
-
-	/**
-	 * Get exception URL
-	 *
-	 * URL of the web page to show the customer when the payment result is uncertain.
-	 *
-	 * @return string
-	 */
-	public function get_exception_url() {
-		return $this->data->get_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::EXCEPTION_URL );
-	}
 
 	/**
 	 * Set exception URL
@@ -99,22 +70,11 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper {
 	 */
 	public function set_exception_url( $url ) {
 		$this->data->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::EXCEPTION_URL, $url );
+
+		return $this;
 	}
 
 	//////////////////////////////////////////////////
-
-	/**
-	 * Get decline URL
-	 *
-	 * URL of the web page to show the customer when the acquirer rejects the authorisation more
-	 * than the maximum of authorised tries (10 by default, but can be changed in the technical
-	 * information page).
-	 *
-	 * @return string
-	 */
-	public function get_decline_url() {
-		return $this->data->get_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::DECLINE_URL );
-	}
 
 	/**
 	 * Set decline URL
@@ -127,19 +87,11 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper {
 	 */
 	public function set_decline_url( $url ) {
 		$this->data->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::DECLINE_URL, $url );
+
+		return $this;
 	}
 
 	//////////////////////////////////////////////////
-
-	/**
-	 * Set home URL
-	 *
-	 * @param string $url
-	 */
-	public function set_home_url( $url ) {
-		$this->data->set_field( 'home', $url );
-	}
-
 	/**
 	 * Set back URL
 	 *
@@ -147,5 +99,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper {
 	 */
 	public function set_back_url( $url ) {
 		$this->data->set_field( 'backurl', $url );
+
+		return $this;
 	}
 }

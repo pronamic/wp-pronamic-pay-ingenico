@@ -135,7 +135,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Security {
 
 		$fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $data->get_fields() );
 
-		$signature = Pronamic_WP_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->get_pass_phrase_in(), $this->hash_algorithm );
+		$signature = Pronamic_WP_Pay_Gateways_Ogone_Security::get_signature( $fields, $pass_phrase, $hash_algorithm );
 
 		$data->set_field( 'SHASign', $signature );
 	}
