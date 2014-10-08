@@ -12,7 +12,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper {
 	/**
 	 * Data
 	 *
-	 * @var Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper
+	 * @var Pronamic_WP_Pay_Gateways_Ogone_Data
 	 */
 	private $data;
 
@@ -21,7 +21,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper {
 	/**
 	 * Constructs and initialize a Ogone data default helper class
 	 */
-	public function __construct( Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper $data ) {
+	public function __construct( Pronamic_WP_Pay_Gateways_Ogone_Data $data ) {
 		$this->data = $data;
 	}
 
