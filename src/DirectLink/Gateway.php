@@ -44,7 +44,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$ogone_data = new Pronamic_WP_Pay_Gateways_Ogone_Data();
 
-		// Default
+		// General
 		$ogone_data_general = new Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper( $ogone_data );
 
 		$ogone_data_general
