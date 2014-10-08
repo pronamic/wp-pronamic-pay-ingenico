@@ -45,7 +45,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 		$ogone_data = new Pronamic_WP_Pay_Gateways_Ogone_Data();
 
 		// Default
-		$ogone_data_general = new Pronamic_Pay_Gateways_Ogone_DataGeneralHelper( $ogone_data );
+		$ogone_data_general = new Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper( $ogone_data );
 
 		$ogone_data_general
 			->set_psp_id( $this->client->psp_id )
