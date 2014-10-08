@@ -80,31 +80,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_
 			->set_exception_url( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::FAILURE, $url ) )
 			->set_back_url( home_url( '/' ) )
 			->set_home_url( home_url( '/' ) );
-
-		// $payment->set_transaction_id( md5( time() . $data->get_order_id() ) );
-		// $payment->set_action_url( $this->client->get_payment_server_url() );
-
-		// $order_id = $data->get_order_id() . ' - ' . $payment->get_id();
-
-		// $this->client->set_language( $data->get_language_and_country() );
-		// $this->client->set_currency( $data->get_currency() );
-		// $this->client->set_order_id( $order_id );
-		// $this->client->set_description( $data->get_description() );
-		// $this->client->set_amount( $data->get_amount() );
-		// $this->client->set_email( $data->get_email() );
-		// $this->client->set_customer_name( $data->getCustomerName() );
-		// $this->client->set_owner_address( $data->getOwnerAddress() );
-		// $this->client->set_owner_city( $data->getOwnerCity() );
-		// $this->client->set_owner_zip( $data->getOwnerZip() );
-
-		// $url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
-
-		// $this->client->set_accept_url( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::SUCCESS, $url ) );
-		// $this->client->set_decline_url( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::FAILURE, $url ) );
-		// $this->client->set_exception_url( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::FAILURE, $url ) );
-		// $this->client->set_cancel_url( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::CANCELLED, $url ) );
-		// $this->client->set_back_url( home_url( '/' ) );
-		// $this->client->set_home_url( home_url( '/' ) );
 	}
 
 	/////////////////////////////////////////////////

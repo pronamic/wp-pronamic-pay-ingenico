@@ -77,20 +77,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 			->set_cancel_url( add_query_arg( 'status', 'cancel', $url ) )
 			->set_decline_url( add_query_arg( 'status', 'decline', $url ) )
 			->set_exception_url( add_query_arg( 'status', 'exception', $url ) );
-
-		// $this->client->set_language( $data->get_language_and_country() );
-		// $this->client->set_currency( $data->get_currency() );
-		// $this->client->set_order_id( $payment->get_id() );
-		// $this->client->set_order_description( $data->get_description() );
-		// $this->client->set_amount( $data->get_amount() );
-
-		// $this->client->set_customer_name( $data->getCustomerName() );
-		// $this->client->set_email( $data->get_email() );
-
-		// $this->client->set_accept_url( add_query_arg( 'status', 'accept', $url ) );
-		// $this->client->set_cancel_url( add_query_arg( 'status', 'cancel', $url ) );
-		// $this->client->set_decline_url( add_query_arg( 'status', 'decline', $url ) );
-		// $this->client->set_exception_url( add_query_arg( 'status', 'exception', $url ) );
 	}
 
 	/////////////////////////////////////////////////
