@@ -54,6 +54,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 			->set_currency( $data->get_currency() )
 			->set_amount( $data->get_amount() )
 			->set_customer_name( $data->getCustomerName() )
+			->set_language( $data->get_language_and_country() )
 			->set_email( $data->get_email() );
 
 		// DirectLink
@@ -92,7 +93,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 			$ogone_data->set_field( 'EXCEPTIONURL', $url );
 			$ogone_data->set_field( 'PARAMPLUS', '' );
 			$ogone_data->set_field( 'COMPLUS', '' );
-			$ogone_data->set_field( 'LANGUAGE', 'en_US' );
 		}
 
 		// Signature
