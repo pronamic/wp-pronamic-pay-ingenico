@@ -21,9 +21,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_
 		$this->set_has_feedback( false );
 		$this->set_amount_minimum( 0.01 );
 
-		$this->client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client();
+		$this->client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client( $config->psp_id );
 		$this->client->set_payment_server_url( $config->url );
-		$this->client->set_psp_id( $config->psp_id );
 	}
 
 	/////////////////////////////////////////////////

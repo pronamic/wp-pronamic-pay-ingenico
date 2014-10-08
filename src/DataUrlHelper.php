@@ -92,6 +92,18 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper {
 	}
 
 	//////////////////////////////////////////////////
+
+	/**
+	 * Set home URL
+	 *
+	 * @param string $url
+	 */
+	public function set_home_url( $url ) {
+		$this->data->set_field( 'home', $url );
+
+		return $this;
+	}
+
 	/**
 	 * Set back URL
 	 *

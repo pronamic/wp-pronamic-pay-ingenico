@@ -44,8 +44,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	public function __construct( $psp_id ) {
 		$this->data = new Pronamic_WP_Pay_Gateways_Ogone_Data();
 		$this->data->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::PSPID, $psp_id );
-
-		$this->set_payment_type( self::PAYMENT_TYPE_IDEAL );
+		$this->data->set_field( 'PM', self::PAYMENT_TYPE_IDEAL );
 	}
 
 	//////////////////////////////////////////////////
