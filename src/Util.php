@@ -10,7 +10,7 @@
  */
 class Pronamic_WP_Pay_Gateways_Ogone_Util {
 	/**
-	 * Transform an Ogone status to an Pronamic Pay status
+	 * Get order ID
 	 *
 	 * @param string $status
 	 */
@@ -37,5 +37,29 @@ class Pronamic_WP_Pay_Gateways_Ogone_Util {
 
 		// Return
 		return $order_id;
+	}
+
+	/**
+	 * Get parameter variable
+	 *
+	 * @param string $param_var
+	 */
+	public static function get_param_var( $param_var ) {
+		// Find and replace
+		// @see https://github.com/woothemes/woocommerce/blob/v2.0.19/classes/emails/class-wc-email-new-order.php
+		$find    = array();
+		$replace = array();
+
+		$find[]    = '{site_url}';
+		$replace[] = site_url();
+
+		$find[]    = '{home_url}';
+		$replace[] = home_url();
+
+		// Parameter Variable
+		$param_var = str_replace( $find, $replace, $param_var );
+
+		// Return
+		return $param_var;
 	}
 }

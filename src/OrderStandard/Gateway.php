@@ -67,6 +67,13 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 			->set_language( $data->get_language_and_country() )
 			->set_email( $data->get_email() );
 
+		// Parameter Variable
+		$param_var = Pronamic_WP_Pay_Gateways_Ogone_Util::get_param_var( $this->config->param_var );
+
+		if ( ! empty( $param_var ) ) {
+			$ogone_data->set_field( 'PARAMVAR', $param_var );
+		}
+
 		// URL's
 		$ogone_url_helper = new Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper( $ogone_data );
 
