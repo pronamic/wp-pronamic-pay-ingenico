@@ -73,10 +73,10 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_
 		$url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
 
 		$ogone_url_helper
-			->set_accept_url( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::SUCCESS, $url ) )
-			->set_cancel_url( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::CANCELLED, $url ) )
-			->set_decline_url( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::FAILURE, $url ) )
-			->set_exception_url( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::FAILURE, $url ) )
+			->set_accept_url( add_query_arg( 'status', Pronamic_WP_Pay_Statuses::SUCCESS, $url ) )
+			->set_cancel_url( add_query_arg( 'status', Pronamic_WP_Pay_Statuses::CANCELLED, $url ) )
+			->set_decline_url( add_query_arg( 'status', Pronamic_WP_Pay_Statuses::FAILURE, $url ) )
+			->set_exception_url( add_query_arg( 'status', Pronamic_WP_Pay_Statuses::FAILURE, $url ) )
 			->set_back_url( home_url( '/' ) )
 			->set_home_url( home_url( '/' ) );
 	}
