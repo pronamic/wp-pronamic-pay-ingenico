@@ -67,11 +67,9 @@ class Pronamic_WP_Pay_Gateways_Ogone_Security {
 	 * @return array
 	 */
 	public static function get_request_data() {
-		$method = filter_input( INPUT_SERVER, 'REQUEST_METHOD', FILTER_SANITIZE_STRING );
-
 		$data = array();
 
-		switch ( $method ) {
+		switch ( $_SERVER['REQUEST_METHOD'] ) {
 			case 'GET':
 				// @codingStandardsIgnoreStart
 				// @todo see how we can improve security around this
