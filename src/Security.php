@@ -69,21 +69,23 @@ class Pronamic_WP_Pay_Gateways_Ogone_Security {
 	public static function get_request_data() {
 		$data = array();
 
-		switch ( $_SERVER['REQUEST_METHOD'] ) {
-			case 'GET':
-				// @codingStandardsIgnoreStart
-				// @todo see how we can improve security around this
-				$data = $_GET; // input var okay
-				// @codingStandardsIgnoreEnd
+		if ( isset( $_SERVER['REQUEST_METHOD'] ) ) {
+			switch ( $_SERVER['REQUEST_METHOD'] ) {
+				case 'GET':
+					// @codingStandardsIgnoreStart
+					// @todo see how we can improve security around this
+					$data = $_GET; // input var okay
+					// @codingStandardsIgnoreEnd
 
-				break;
-			case 'POST':
-				// @codingStandardsIgnoreStart
-				// @todo see how we can improve security around this
-				$data = $_POST; // input var okay
-				// @codingStandardsIgnoreEnd
+					break;
+				case 'POST':
+					// @codingStandardsIgnoreStart
+					// @todo see how we can improve security around this
+					$data = $_POST; // input var okay
+					// @codingStandardsIgnoreEnd
 
-				break;
+					break;
+			}
 		}
 
 		return $data;
