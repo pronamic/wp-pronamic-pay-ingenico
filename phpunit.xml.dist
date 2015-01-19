@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <phpunit
-    bootstrap="vendor/autoload.php"
+    bootstrap="tests/bootstrap.php"
     colors="true"
 >
     <testsuites>
-        <testsuite name="WordPress Pay Ogone Test Suite">
+        <testsuite name="WordPress Pay TargetPay Test Suite">
             <directory>./tests/</directory>
         </testsuite>
     </testsuites>
@@ -15,4 +15,8 @@
             <directory>./src</directory>
         </whitelist>
     </filter>
+
+    <logging>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+    </logging>
 </phpunit>
