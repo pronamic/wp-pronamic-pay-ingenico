@@ -3,10 +3,10 @@
 /**
  * Title: Ogone order standard gateway
  * Description:
- * Copyright: Copyright (c) 2005 - 2011
+ * Copyright: Copyright (c) 2005 - 2015
  * Company: Pronamic
  * @author Remco Tolsma
- * @version 1.0
+ * @version 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_Pay_Gateway {
 	/**
@@ -50,7 +50,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 * @see Pronamic_WP_Pay_Gateway::start()
 	 */
-	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
+	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment, $payment_method = null ) {
 		$payment->set_action_url( $this->client->get_payment_server_url() );
 
 		$ogone_data = $this->client->get_data();
@@ -66,6 +66,17 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 			->set_customer_name( $data->getCustomerName() )
 			->set_language( $data->get_language_and_country() )
 			->set_email( $data->get_email() );
+
+		// Payment method
+		// @see https://github.com/wp-pay-gateways/ogone/wiki/Brands
+		switch ( $payment_method ) {
+			case Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
+				$ogone_data_general
+					->set_brand( Pronamic_WP_Pay_Gateways_Ogone_Brands::BCMC )
+					->set_payment_method( Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::CREDIT_CARD );
+
+				break;
+		}
 
 		// Parameter Variable
 		$param_var = Pronamic_WP_Pay_Gateways_Ogone_Util::get_param_var( $this->config->param_var );

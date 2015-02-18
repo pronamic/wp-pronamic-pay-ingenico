@@ -3,28 +3,20 @@
 /**
  * Title: Ogone data URL helper class
  * Description:
- * Copyright: Copyright (c) 2005 - 2014
+ * Copyright: Copyright (c) 2005 - 2015
  * Company: Pronamic
  * @author Remco Tolsma
- * @since 1.4.0
+ * @version 1.1.0
+ * @since 1.0.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper {
-	/**
-	 * Data
-	 *
-	 * @var Pronamic_WP_Pay_Gateways_Ogone_Data
-	 */
-	private $data;
-
-	//////////////////////////////////////////////////
-
+class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper extends Pronamic_WP_Pay_Gateways_Ogone_DataHelper {
 	/**
 	 * Constructs and initialize a Ogone data default helper class
 	 *
 	 * @param Pronamic_WP_Pay_Gateways_Ogone_Data $data
 	 */
 	public function __construct( Pronamic_WP_Pay_Gateways_Ogone_Data $data ) {
-		$this->data = $data;
+		parent::__construct( $data );
 	}
 
 	//////////////////////////////////////////////////
@@ -39,9 +31,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper {
 	 * @param string $url
 	 */
 	public function set_accept_url( $url ) {
-		$this->data->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::ACCEPT_URL, $url );
-
-		return $this;
+		return $this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::ACCEPT_URL, $url );
 	}
 
 	//////////////////////////////////////////////////
@@ -54,9 +44,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper {
 	 * @param string $url
 	 */
 	public function set_cancel_url( $url ) {
-		$this->data->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::CANCEL_URL, $url );
-
-		return $this;
+		return $this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::CANCEL_URL, $url );
 	}
 
 	//////////////////////////////////////////////////
@@ -69,9 +57,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper {
 	 * @param string $url
 	 */
 	public function set_exception_url( $url ) {
-		$this->data->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::EXCEPTION_URL, $url );
-
-		return $this;
+		return $this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::EXCEPTION_URL, $url );
 	}
 
 	//////////////////////////////////////////////////
@@ -86,9 +72,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper {
 	 * @param string $url
 	 */
 	public function set_decline_url( $url ) {
-		$this->data->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::DECLINE_URL, $url );
-
-		return $this;
+		return $this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::DECLINE_URL, $url );
 	}
 
 	//////////////////////////////////////////////////
@@ -99,9 +83,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper {
 	 * @param string $url
 	 */
 	public function set_home_url( $url ) {
-		$this->data->set_field( 'home', $url );
-
-		return $this;
+		return $this->set_field( 'home', $url );
 	}
 
 	/**
@@ -110,8 +92,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper {
 	 * @param string $url
 	 */
 	public function set_back_url( $url ) {
-		$this->data->set_field( 'backurl', $url );
-
-		return $this;
+		return $this->set_field( 'backurl', $url );
 	}
 }
