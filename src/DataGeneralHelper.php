@@ -27,9 +27,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper extends Pronamic_WP_Pay_G
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
 	public function set_psp_id( $number ) {
-		$this->data->set_field( 'PSPID', $number );
-
-		return $this;
+		return $this->set_field( 'PSPID', $number );
 	}
 
 	//////////////////////////////////////////////////
@@ -41,9 +39,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper extends Pronamic_WP_Pay_G
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
 	public function set_order_id( $order_id ) {
-		$this->data->set_field( 'ORDERID', $order_id );
-
-		return $this;
+		return $this->set_field( 'ORDERID', $order_id );
 	}
 
 	/**
@@ -54,9 +50,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper extends Pronamic_WP_Pay_G
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
 	public function set_order_description( $description ) {
-		$this->data->set_field( 'COM', $description );
-
-		return $this;
+		return $this->set_field( 'COM', $description );
 	}
 
 	//////////////////////////////////////////////////
@@ -68,9 +62,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper extends Pronamic_WP_Pay_G
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
 	public function set_amount( $amount ) {
-		$this->data->set_field( 'AMOUNT', Pronamic_WP_Pay_Util::amount_to_cents( $amount ) );
-
-		return $this;
+		return $this->set_field( 'AMOUNT', Pronamic_WP_Pay_Util::amount_to_cents( $amount ) );
 	}
 
 	/**
@@ -80,9 +72,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper extends Pronamic_WP_Pay_G
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
 	public function set_currency( $currency ) {
-		$this->data->set_field( 'CURRENCY', $currency );
-
-		return $this;
+		return $this->set_field( 'CURRENCY', $currency );
 	}
 
 	//////////////////////////////////////////////////
@@ -94,9 +84,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper extends Pronamic_WP_Pay_G
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
 	public function set_customer_name( $name ) {
-		$this->data->set_field( 'CN', $name );
-
-		return $this;
+		return $this->set_field( 'CN', $name );
 	}
 
 	/**
@@ -106,9 +94,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper extends Pronamic_WP_Pay_G
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
 	public function set_email( $email ) {
-		$this->data->set_field( 'EMAIL', $email );
-
-		return $this;
+		return $this->set_field( 'EMAIL', $email );
 	}
 
 	//////////////////////////////////////////////////
@@ -120,9 +106,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper extends Pronamic_WP_Pay_G
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DirectLink_DataHelper
 	 */
 	public function set_language( $language ) {
-		$this->data->set_field( 'LANGUAGE', $language );
-
-		return $this;
+		return $this->set_field( 'LANGUAGE', $language );
 	}
 
 	//////////////////////////////////////////////////
@@ -134,9 +118,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper extends Pronamic_WP_Pay_G
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DirectLink_DataHelper
 	 */
 	public function set_payment_method( $payment_method ) {
-		$this->data->set_field( 'PM', $payment_method );
-
-		return $this;
+		return $this->set_field( 'PM', $payment_method );
 	}
 
 	//////////////////////////////////////////////////
@@ -148,9 +130,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper extends Pronamic_WP_Pay_G
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DirectLink_DataHelper
 	 */
 	public function set_payment_methods_list( $list ) {
-		$this->data->set_field( 'PMLIST', $list );
-
-		return $this;
+		return $this->set_field( 'PMLIST', $list );
 	}
 
 	//////////////////////////////////////////////////
@@ -165,8 +145,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper extends Pronamic_WP_Pay_G
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DirectLink_DataHelper
 	 */
 	public function set_brand( $brand ) {
-		$this->data->set_field( 'BRAND', $brand );
-
-		return $this;
+		return $this->set_field( 'BRAND', $brand );
 	}
 }
