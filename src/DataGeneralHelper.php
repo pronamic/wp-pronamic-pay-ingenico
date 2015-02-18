@@ -133,4 +133,49 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper {
 
 		return $this;
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Set payment method
+	 *
+	 * @param string $payment_method
+	 * @return Pronamic_WP_Pay_Gateways_Ogone_DirectLink_DataHelper
+	 */
+	public function set_payment_method( $payment_method ) {
+		$this->data->set_field( 'PM', $payment_method );
+
+		return $this;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Set payment methods list
+	 *
+	 * @param string $list
+	 * @return Pronamic_WP_Pay_Gateways_Ogone_DirectLink_DataHelper
+	 */
+	public function set_payment_methods_list( $list ) {
+		$this->data->set_field( 'PMLIST', $list );
+
+		return $this;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Set brand of a credit/debit/purchasing card
+	 *
+	 * If you send the BRAND field without sending a value in the PM field (‘CreditCard’ or ‘Purchasing Card’),
+	 * the BRAND value will not be taken into account.
+	 *
+	 * @param string $brand
+	 * @return Pronamic_WP_Pay_Gateways_Ogone_DirectLink_DataHelper
+	 */
+	public function set_brand( $brand ) {
+		$this->data->set_field( 'BRAND', $brand );
+
+		return $this;
+	}
 }
