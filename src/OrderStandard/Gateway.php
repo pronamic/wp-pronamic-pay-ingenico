@@ -67,6 +67,17 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 			->set_language( $data->get_language_and_country() )
 			->set_email( $data->get_email() );
 
+		// Payment method
+		// @see https://github.com/wp-pay-gateways/ogone/wiki/Brands
+		switch ( $payment_method ) {
+			case Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
+				$ogone_data_general
+					->set_brand( Pronamic_WP_Pay_Gateways_Ogone_Brands::BCMC )
+					->set_payment_method( Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::CREDIT_CARD );
+
+				break;
+		}
+
 		// Parameter Variable
 		$param_var = Pronamic_WP_Pay_Gateways_Ogone_Util::get_param_var( $this->config->param_var );
 
