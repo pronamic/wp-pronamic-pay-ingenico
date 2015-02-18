@@ -27,9 +27,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper extends Pronamic_WP_Pa
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper
 	 */
 	public function set_number( $number ) {
-		$this->data->set_field( 'CARDNO', $number );
-
-		return $this;
+		return $this->set_field( 'CARDNO', $number );
 	}
 
 	/**
@@ -39,9 +37,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper extends Pronamic_WP_Pa
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper
 	 */
 	public function set_expiration_date( DateTime $date ) {
-		$this->data->set_field( 'ED', $date->format( Pronamic_WP_Pay_Gateways_Ogone_Ogone::EXPIRATION_DATE_FORMAT ) );
-
-		return $this;
+		return $this->set_field( 'ED', $date->format( Pronamic_WP_Pay_Gateways_Ogone_Ogone::EXPIRATION_DATE_FORMAT ) );
 	}
 
 	/**
@@ -51,8 +47,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper extends Pronamic_WP_Pa
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper
 	 */
 	public function set_security_code( $security_code ) {
-		$this->data->set_field( 'CVC', $security_code );
-
-		return $this;
+		return $this->set_field( 'CVC', $security_code );
 	}
 }

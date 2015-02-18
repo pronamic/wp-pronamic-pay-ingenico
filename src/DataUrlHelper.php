@@ -30,9 +30,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper extends Pronamic_WP_Pay_Gatew
 	 * @param string $url
 	 */
 	public function set_accept_url( $url ) {
-		$this->data->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::ACCEPT_URL, $url );
-
-		return $this;
+		return $this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::ACCEPT_URL, $url );
 	}
 
 	//////////////////////////////////////////////////
@@ -45,9 +43,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper extends Pronamic_WP_Pay_Gatew
 	 * @param string $url
 	 */
 	public function set_cancel_url( $url ) {
-		$this->data->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::CANCEL_URL, $url );
-
-		return $this;
+		return $this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::CANCEL_URL, $url );
 	}
 
 	//////////////////////////////////////////////////
@@ -60,9 +56,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper extends Pronamic_WP_Pay_Gatew
 	 * @param string $url
 	 */
 	public function set_exception_url( $url ) {
-		$this->data->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::EXCEPTION_URL, $url );
-
-		return $this;
+		return $this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::EXCEPTION_URL, $url );
 	}
 
 	//////////////////////////////////////////////////
@@ -77,9 +71,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper extends Pronamic_WP_Pay_Gatew
 	 * @param string $url
 	 */
 	public function set_decline_url( $url ) {
-		$this->data->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::DECLINE_URL, $url );
-
-		return $this;
+		return $this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::DECLINE_URL, $url );
 	}
 
 	//////////////////////////////////////////////////
@@ -90,9 +82,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper extends Pronamic_WP_Pay_Gatew
 	 * @param string $url
 	 */
 	public function set_home_url( $url ) {
-		$this->data->set_field( 'home', $url );
-
-		return $this;
+		return $this->set_field( 'home', $url );
 	}
 
 	/**
@@ -101,8 +91,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper extends Pronamic_WP_Pay_Gatew
 	 * @param string $url
 	 */
 	public function set_back_url( $url ) {
-		$this->data->set_field( 'backurl', $url );
-
-		return $this;
+		return $this->set_field( 'backurl', $url );
 	}
 }
