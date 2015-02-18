@@ -8,23 +8,14 @@
  * @author Remco Tolsma
  * @since 1.4.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper {
-	/**
-	 * Data
-	 *
-	 * @var Pronamic_WP_Pay_Gateways_Ogone_Data
-	 */
-	private $data;
-
-	//////////////////////////////////////////////////
-
+class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper extends Pronamic_WP_Pay_Gateways_Ogone_DataHelper {
 	/**
 	 * Constructs and initialize a Ogone data default helper class
 	 *
 	 * @param Pronamic_WP_Pay_Gateways_Ogone_Data $data
 	 */
 	public function __construct( Pronamic_WP_Pay_Gateways_Ogone_Data $data ) {
-		$this->data = $data;
+		parent::__construct( $data );
 	}
 
 	//////////////////////////////////////////////////

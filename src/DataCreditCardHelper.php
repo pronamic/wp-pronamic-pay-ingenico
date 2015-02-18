@@ -8,21 +8,12 @@
  * @author Remco Tolsma
  * @since 1.4.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper {
-	/**
-	 * Data
-	 *
-	 * @var array
-	 */
-	private $data;
-
-	//////////////////////////////////////////////////
-
+class Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper extends Pronamic_WP_Pay_Gateways_Ogone_DataHelper {
 	/**
 	 * Constructs and initialize a Ogone data default helper class
 	 */
 	public function __construct( Pronamic_WP_Pay_Gateways_Ogone_Data $data ) {
-		$this->data = $data;
+		parent::__construct( $data );
 	}
 
 	//////////////////////////////////////////////////
