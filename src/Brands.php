@@ -7,6 +7,7 @@
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.1.0
+ * @since 1.1.0
  * @see https://github.com/wp-pay-gateways/ogone/wiki/Brands
  */
 class Pronamic_WP_Pay_Gateways_Ogone_Brands {

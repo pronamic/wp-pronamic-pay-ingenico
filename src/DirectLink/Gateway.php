@@ -3,10 +3,10 @@
 /**
  * Title: Ogone DirectLink gateway
  * Description:
- * Copyright: Copyright (c) 2005 - 2014
+ * Copyright: Copyright (c) 2005 - 2015
  * Company: Pronamic
  * @author Remco Tolsma
- * @since 1.4.0
+ * @since 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_Gateway {
 	/**
