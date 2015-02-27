@@ -6,6 +6,7 @@
  * Copyright: Copyright (c) 2005 - 2015
  * Company: Pronamic
  * @author Remco Tolsma
+ * @version 1.2.0
  * @since 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_Gateway {
@@ -82,8 +83,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 
 			$secure_data_helper
 				->set_3d_secure_flag( true )
-				->set_http_accept( $_SERVER['HTTP_ACCEPT'] )
-				->set_http_user_agent( $_SERVER['HTTP_USER_AGENT'] )
+				->set_http_accept( Pronamic_WP_Pay_Server::get( 'HTTP_ACCEPT' ) )
+				->set_http_user_agent( Pronamic_WP_Pay_Server::get( 'HTTP_USER_AGENT' ) )
 				->set_window( 'MAINW' );
 
 			$url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
