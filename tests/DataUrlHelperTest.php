@@ -24,8 +24,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelperTest extends WP_UnitTestCase {
 			->set_exception_url( 'http://www.example.com/payment/exception/' )
 			->set_decline_url( 'http://www.example.com/payment/declined/' )
 			->set_home_url( 'http://www.example.com/' )
-			->set_back_url( 'http://www.example.com/payment/' )
-		;
+			->set_back_url( 'http://www.example.com/payment/' );
 
 		$this->assertEquals( array(
 			'ACCEPTURL'    => 'http://www.example.com/payment/accepted/',

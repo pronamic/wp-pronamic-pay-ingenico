@@ -6,7 +6,8 @@
  * Copyright: Copyright (c) 2005 - 2015
  * Company: Pronamic
  * @author Remco Tolsma
- * @version 1.0.0
+ * @version 1.2.1
+ * @since 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	/**
@@ -188,14 +189,15 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Get HTML fields
+	 * Get fields
 	 *
-	 * @return string
+	 * @since 1.2.1
+	 * @return array
 	 */
-	public function get_html_fields() {
+	public function get_fields() {
 		Pronamic_WP_Pay_Gateways_Ogone_Security::sign_data( $this->data, $this->get_pass_phrase_in(), $this->hash_algorithm );
 
-		return Pronamic_IDeal_IDeal::htmlHiddenFields( $this->data->get_fields() );
+		return $this->data->get_fields();
 	}
 
 	//////////////////////////////////////////////////

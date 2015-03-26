@@ -6,7 +6,8 @@
  * Copyright: Copyright (c) 2005 - 2015
  * Company: Pronamic
  * @author Remco Tolsma
- * @version 1.0.0
+ * @version 1.2.1
+ * @since 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	/**
@@ -83,9 +84,12 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Get the iDEAL HTML
+	 * Get fields
+	 *
+	 * @since 1.2.1
+	 * @return array
 	 */
-	public function get_html_fields() {
-		return Pronamic_IDeal_IDeal::htmlHiddenFields( $this->data->get_fields() );
+	public function get_fields() {
+		return $this->data->get_fields();
 	}
 }
