@@ -36,7 +36,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ClientTest extends WP_UnitTes
 
 	function test_signature_out_from_documentation() {
 		// http://pronamic.nl/wp-content/uploads/2012/02/ABNAMRO_e-Com-BAS_EN.pdf #page 16
-		$_GET = array(
+		$data = array(
 			'ACCEPTANCE' => '1234',
 			'AMOUNT'     => '15.00',
 			'BRAND'      => 'VISA',
@@ -54,7 +54,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ClientTest extends WP_UnitTes
 
 		$client->set_pass_phrase_out( 'Mysecretsig1875!?' );
 
-		$result = $client->verify_request( $_GET );
+		$result = $client->verify_request( $data );
 
 		$this->assertNotSame( false, $result );
 	}

@@ -23,8 +23,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelperTest extends WP_UnitTes
 		$helper
 			->set_number( '378282246310005' )
 			->set_expiration_date( $ed )
-			->set_security_code( '123' )
-		;
+			->set_security_code( '123' );
 
 		$this->assertEquals( array(
 			'CARDNO' => '378282246310005',

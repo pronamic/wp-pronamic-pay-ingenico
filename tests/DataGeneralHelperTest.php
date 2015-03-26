@@ -35,8 +35,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelperTest extends WP_UnitTestCa
 			->set_language( 'nl' )
 			->set_payment_method( Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::IDEAL )
 			->set_payment_methods_list( $pmlist )
-			->set_brand( Pronamic_WP_Pay_Gateways_Ogone_Brands::IDEAL )
-		;
+			->set_brand( Pronamic_WP_Pay_Gateways_Ogone_Brands::IDEAL );
 
 		$this->assertEquals( array(
 			'PSPID'    => 'test',

@@ -65,5 +65,5 @@ class Pronamic_WP_Pay_Gateways_Ogone_StatusesTest extends PHPUnit_Framework_Test
 			// Other
 			array( 'not existing status', null ),
 		);
-    }
+	}
 }
