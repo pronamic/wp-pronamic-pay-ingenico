@@ -6,7 +6,8 @@
  * Copyright: Copyright (c) 2005 - 2015
  * Company: Pronamic
  * @author Remco Tolsma
- * @version 1.0.0
+ * @version 1.2.1
+ * @since 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_WP_Pay_Gateway {
 	/**
@@ -28,13 +29,14 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_
 	/////////////////////////////////////////////////
 
 	/**
-	 * Get output HTML
+	 * Get output fields
 	 *
+	 * @since 1.2.1
 	 * @see Pronamic_WP_Pay_Gateway::get_output_html()
-	 * @return string
+	 * @return array
 	 */
-	public function get_output_html() {
-		return $this->client->get_html_fields();
+	public function get_output_fields() {
+		return $this->client->get_fields();
 	}
 
 	/////////////////////////////////////////////////
