@@ -31,7 +31,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Util {
 
 		// Make sure there is an dynamic part in the order ID
 		// @see https://secure.ogone.com/ncol/param_cookbook.asp
-		if ( 0 == $count ) {
+		if ( 0 === $count ) {
 			$order_id .= $payment->get_id();
 		}
 

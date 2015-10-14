@@ -1,19 +1,35 @@
-# Changelog
+# Change Log
 
-## 1.2.1
-*	Updated WordPress pay core library to version 1.2.0.
-*	Return array with output fields instead of HTML.
+All notable changes to this project will be documented in this file.
 
-## 1.2.0
-*	Updated WordPress pay core library to version 1.1.0.
-*	Fixed isues with filter_input INPUT_SERVER (https://bugs.php.net/bug.php?id=49184).
+This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a CHANGELOG](http://keepachangelog.com/).
 
-## 1.1.0
-*	Added constant class for the Ogone BRAND parameter.
-*	Added constant class for the Ogone PM (payment method) parameter/
-*	Simplified the Ogone data helper classes.
-*	Added an payment methods list class for the Ogone PMLIST parameter.
-*	Added direct support for the Bancontact/Mister Cash payment method.
+## [Unreleased][unreleased]
+-
 
-## 1.0.0
-*	First release.
+## [1.2.2] - 2015-10-14
+- Added support for the Ogone TP parameter.
+
+## [1.2.1] - 2015-03-26
+- Updated WordPress pay core library to version 1.2.0.
+- Return array with output fields instead of HTML.
+
+## [1.2.0] - 2015-02-27
+- Updated WordPress pay core library to version 1.1.0.
+- Fixed isues with filter_input INPUT_SERVER (https://bugs.php.net/bug.php?id=49184).
+
+## [1.1.0] - 2015-02-18
+- Added constant class for the Ogone BRAND parameter.
+- Added constant class for the Ogone PM (payment method) parameter/
+- Simplified the Ogone data helper classes.
+- Added an payment methods list class for the Ogone PMLIST parameter.
+- Added direct support for the Bancontact/Mister Cash payment method.
+
+## 1.0.0 - 2015-01-19
+- First release.
+
+[unreleased]: https://github.com/wp-pay-gateways/ogone/compare/1.2.2...HEAD
+[1.2.2]: https://github.com/wp-pay-gateways/ogone/compare/1.2.1...1.2.2
+[1.2.1]: https://github.com/wp-pay-gateways/ogone/compare/1.2.0...1.2.1
+[1.2.0]: https://github.com/wp-pay-gateways/ogone/compare/1.1.1...1.2.0
+[1.1.0]: https://github.com/wp-pay-gateways/ogone/compare/1.0.0...1.1.0

@@ -47,7 +47,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods {
 	const DIRECT_EBANKING_NL = 'DirectEbankingNL';
 
 	/**
-	 * iDEAL
+	 * Constant for the iDEAL payment method.
 	 *
 	 * @var string
 	 */

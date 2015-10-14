@@ -47,7 +47,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Brands {
 	const DIRECT_EBANKING_NL = 'DirectEbankingNL';
 
 	/**
-	 * iDEAL
+	 * Constant for the iDEAL brand.
 	 *
 	 * @var string
 	 */

@@ -23,7 +23,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_ConfigFactory extends Pronamic_W
 		$config->order_id            = get_post_meta( $post_id, '_pronamic_gateway_ogone_order_id', true );
 
 		// API URL
-		$is_utf8 = 0 == strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' );
+		$is_utf8 = strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) === 0;
 
 		if ( $is_utf8 ) {
 			$config->api_url = Pronamic_WP_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_UTF8_URL;
@@ -31,7 +31,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_ConfigFactory extends Pronamic_W
 			$config->api_url = Pronamic_WP_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_URL;
 		}
 
-		if ( Pronamic_IDeal_IDeal::MODE_TEST == $config->mode ) {
+		if ( Pronamic_IDeal_IDeal::MODE_TEST === $config->mode ) {
 			if ( $is_utf8 ) {
 				$config->api_url = Pronamic_WP_Pay_Gateways_Ogone_DirectLink::API_TEST_UTF8_URL;
 			} else {
