@@ -86,6 +86,13 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 			$ogone_data->set_field( 'PARAMVAR', $param_var );
 		}
 
+		// Template Page
+		$template_page = $this->config->param_var;
+
+		if ( ! empty( $template_page ) ) {
+			$ogone_data->set_field( 'TP', $template_page );
+		}
+
 		// URL's
 		$ogone_url_helper = new Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper( $ogone_data );
 
