@@ -69,20 +69,16 @@ class Pronamic_WP_Pay_Gateways_Ogone_Security {
 	public static function get_request_data() {
 		$data = array();
 
-		if ( isset( $_SERVER['REQUEST_METHOD'] ) ) {
-			switch ( $_SERVER['REQUEST_METHOD'] ) {
+		if ( isset( $_SERVER['REQUEST_METHOD'] ) ) { // WPCS: input var okay
+			switch ( $_SERVER['REQUEST_METHOD'] ) { // WPCS: input var okay
 				case 'GET':
-					// @codingStandardsIgnoreStart
 					// @todo see how we can improve security around this
-					$data = $_GET; // input var okay
-					// @codingStandardsIgnoreEnd
+					$data = $_GET; // WPCS: input var okay
 
 					break;
 				case 'POST':
-					// @codingStandardsIgnoreStart
 					// @todo see how we can improve security around this
-					$data = $_POST; // input var okay
-					// @codingStandardsIgnoreEnd
+					$data = $_POST; // WPCS: input var okay // WPCS: CSRF OK
 
 					break;
 			}

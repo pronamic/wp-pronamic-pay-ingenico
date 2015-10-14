@@ -168,7 +168,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 		$note .= '<dl>';
 
 		foreach ( $labels as $key => $label ) {
-			if ( isset( $data[ $key ] ) && '' != $data[ $key ] ) {
+			if ( isset( $data[ $key ] ) && '' !== $data[ $key ] ) {
 				$note .= sprintf( '<dt>%s</dt>', esc_html( $label ) );
 				$note .= sprintf( '<dd>%s</dd>', esc_html( $data[ $key ] ) );
 			}
