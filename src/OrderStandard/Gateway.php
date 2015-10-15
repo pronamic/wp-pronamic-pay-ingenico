@@ -6,7 +6,7 @@
  * Copyright: Copyright (c) 2005 - 2015
  * Company: Pronamic
  * @author Remco Tolsma
- * @version 1.2.1
+ * @version 1.2.3
  * @since 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_Pay_Gateway {
@@ -71,6 +71,19 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 		// Payment method
 		// @see https://github.com/wp-pay-gateways/ogone/wiki/Brands
 		switch ( $payment_method ) {
+			case Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD :
+				// @since 1.2.3
+				$ogone_data_general
+					->set_payment_method( Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::CREDIT_CARD );
+
+				break;
+			case Pronamic_WP_Pay_PaymentMethods::IDEAL :
+				// @since 1.2.3
+				$ogone_data_general
+					->set_brand( Pronamic_WP_Pay_Gateways_Ogone_Brands::IDEAL )
+					->set_payment_method( Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::IDEAL );
+
+				break;
 			case Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
 				$ogone_data_general
 					->set_brand( Pronamic_WP_Pay_Gateways_Ogone_Brands::BCMC )
