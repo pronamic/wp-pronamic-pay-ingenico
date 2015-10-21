@@ -7,6 +7,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 -
 
+## [1.2.4] - 2015-10-21
+- Fixed Strict standards: Declaration of Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway should be compatible with Pronamic_WP_Pay_Gateway::start().
+
 ## [1.2.3] - 2015-10-15
 - Added support for the direct payment method credit card.
 - Added support for the direct payment method iDEAL.
@@ -32,7 +35,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## 1.0.0 - 2015-01-19
 - First release.
 
-[unreleased]: https://github.com/wp-pay-gateways/ogone/compare/1.2.3...HEAD
+[unreleased]: https://github.com/wp-pay-gateways/ogone/compare/1.2.4...HEAD
+[1.2.4]: https://github.com/wp-pay-gateways/ogone/compare/1.2.3...1.2.4
 [1.2.3]: https://github.com/wp-pay-gateways/ogone/compare/1.2.2...1.2.3
 [1.2.2]: https://github.com/wp-pay-gateways/ogone/compare/1.2.1...1.2.2
 [1.2.1]: https://github.com/wp-pay-gateways/ogone/compare/1.2.0...1.2.1
