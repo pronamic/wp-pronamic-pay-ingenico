@@ -236,7 +236,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_GatewaySettings extends Pronamic_WP_Pay_Gat
 
 		// 3-D Secure
 		$fields[] = array(
-			'filter'      => FILTER_SANITIZE_STRING,
+			'filter'      => FILTER_VALIDATE_BOOLEAN,
 			'section'     => 'ogone_directlink',
 			'meta_key'    => '_pronamic_gateway_ogone_3d_secure_enabled',
 			'title'       => __( '3-D Secure', 'pronamic_ideal' ),
