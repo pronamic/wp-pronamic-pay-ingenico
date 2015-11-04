@@ -51,6 +51,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_GatewaySettings extends Pronamic_WP_Pay_Gat
 
 		// PSPID
 		$fields[] = array(
+			'filter'      => FILTER_SANITIZE_STRING,
 			'section'     => 'ogone',
 			'meta_key'    => '_pronamic_gateway_ogone_psp_id',
 			'title'       => __( 'PSPID', 'pronamic_ideal' ),
@@ -75,6 +76,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_GatewaySettings extends Pronamic_WP_Pay_Gat
 
 		// Hash algorithm
 		$fields[] = array(
+			'filter'      => FILTER_SANITIZE_STRING,
 			'section'     => 'ogone',
 			'meta_key'    => '_pronamic_gateway_ogone_hash_algorithm',
 			'title'       => __( 'Hash algorithm', 'pronamic_ideal' ),
@@ -89,6 +91,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_GatewaySettings extends Pronamic_WP_Pay_Gat
 
 		// SHA-IN Pass phrase
 		$fields[] = array(
+			'filter'      => FILTER_SANITIZE_STRING,
 			'section'     => 'ogone',
 			'meta_key'    => '_pronamic_gateway_ogone_sha_in_pass_phrase',
 			'title'       => __( 'SHA-IN Pass phrase', 'pronamic_ideal' ),
@@ -100,6 +103,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_GatewaySettings extends Pronamic_WP_Pay_Gat
 
 		// SHA-OUT Pass phrase
 		$fields[] = array(
+			'filter'      => FILTER_SANITIZE_STRING,
 			'section'     => 'ogone',
 			'meta_key'    => '_pronamic_gateway_ogone_sha_out_pass_phrase',
 			'title'       => __( 'SHA-OUT Pass phrase', 'pronamic_ideal' ),
@@ -111,6 +115,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_GatewaySettings extends Pronamic_WP_Pay_Gat
 
 		// User ID
 		$fields[] = array(
+			'filter'      => FILTER_SANITIZE_STRING,
 			'section'     => 'ogone',
 			'meta_key'    => '_pronamic_gateway_ogone_user_id',
 			'title'       => __( 'User ID', 'pronamic_ideal' ),
@@ -121,6 +126,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_GatewaySettings extends Pronamic_WP_Pay_Gat
 
 		// Password
 		$fields[] = array(
+			'filter'      => FILTER_SANITIZE_STRING,
 			'section'     => 'ogone',
 			'meta_key'    => '_pronamic_gateway_ogone_password',
 			'title'       => __( 'Password', 'pronamic_ideal' ),
@@ -131,6 +137,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_GatewaySettings extends Pronamic_WP_Pay_Gat
 
 		// Order ID
 		$fields[] = array(
+			'filter'      => FILTER_SANITIZE_STRING,
 			'section'     => 'ogone',
 			'meta_key'    => '_pronamic_gateway_ogone_order_id',
 			'title'       => __( 'Order ID', 'pronamic_ideal' ),
@@ -176,6 +183,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_GatewaySettings extends Pronamic_WP_Pay_Gat
 
 		// Parameter Variable
 		$fields[] = array(
+			'filter'      => FILTER_SANITIZE_STRING,
 			'section'     => 'ogone_direct',
 			'meta_key'    => '_pronamic_gateway_ogone_param_var',
 			'title'       => __( 'Parameter Variable', 'pronamic_ideal' ),
@@ -198,6 +206,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_GatewaySettings extends Pronamic_WP_Pay_Gat
 
 		// Template Page
 		$fields[] = array(
+			'filter'      => FILTER_SANITIZE_STRING,
 			'section'     => 'ogone_look',
 			'meta_key'    => '_pronamic_gateway_ogone_template_page',
 			'title'       => __( 'Template Page', 'pronamic_ideal' ),
@@ -215,6 +224,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_GatewaySettings extends Pronamic_WP_Pay_Gat
 
 		// SHA-IN Pass phrase
 		$fields[] = array(
+			'filter'      => FILTER_SANITIZE_STRING,
 			'section'     => 'ogone_directlink',
 			'meta_key'    => '_pronamic_gateway_ogone_directlink_sha_in_pass_phrase',
 			'title'       => __( 'SHA-IN Pass phrase', 'pronamic_ideal' ),
@@ -226,6 +236,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_GatewaySettings extends Pronamic_WP_Pay_Gat
 
 		// 3-D Secure
 		$fields[] = array(
+			'filter'      => FILTER_SANITIZE_STRING,
 			'section'     => 'ogone_directlink',
 			'meta_key'    => '_pronamic_gateway_ogone_3d_secure_enabled',
 			'title'       => __( '3-D Secure', 'pronamic_ideal' ),
