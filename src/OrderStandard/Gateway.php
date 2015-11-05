@@ -109,13 +109,11 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 		// URL's
 		$ogone_url_helper = new Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper( $ogone_data );
 
-		$url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
-
 		$ogone_url_helper
-			->set_accept_url( add_query_arg( 'status', 'accept', $url ) )
-			->set_cancel_url( add_query_arg( 'status', 'cancel', $url ) )
-			->set_decline_url( add_query_arg( 'status', 'decline', $url ) )
-			->set_exception_url( add_query_arg( 'status', 'exception', $url ) );
+			->set_accept_url( add_query_arg( 'status', 'accept', $payment->get_return_url() ) )
+			->set_cancel_url( add_query_arg( 'status', 'cancel', $payment->get_return_url() ) )
+			->set_decline_url( add_query_arg( 'status', 'decline', $payment->get_return_url() ) )
+			->set_exception_url( add_query_arg( 'status', 'exception', $payment->get_return_url() ) );
 	}
 
 	/////////////////////////////////////////////////
