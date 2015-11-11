@@ -1,8 +1,11 @@
 <?php
 
-class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_GatewayIntegration {
+class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Integration {
 	public function __construct() {
-		$this->id = 'ogone-directlink';
+		$this->id       = 'ogone-directlink';
+		$this->name     = 'Ingenico/Ogone - DirectLink';
+		$this->url      = 'https://secure.ogone.com/';
+		$this->provider = 'ogone';
 	}
 
 	public function get_config_factory_class() {

@@ -1,7 +1,7 @@
 {
 	"name": "wp-pay-gateways/ogone",
-	"description": "Ogone driver for the WordPress payment processing library.",
-	"keywords": ["wordpress", "wp", "pay", "ogone", "gateway", "pronamic"],
+	"description": "Ingenico/Ogone driver for the WordPress payment processing library.",
+	"keywords": ["wordpress", "wp", "pay", "ogone", "ingenico", "gateway", "pronamic"],
 	"homepage": "http://www.wp-pay.org/gateways/ogone/",
 	"license": "GPL-3.0+",
 	"authors": [
