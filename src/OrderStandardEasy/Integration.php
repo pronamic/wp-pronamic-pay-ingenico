@@ -1,11 +1,11 @@
 <?php
 
-class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Integration {
+class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Integration extends Pronamic_WP_Pay_Gateways_Ogone_AbstractIntegration {
 	public function __construct() {
+		parent::__construct();
+
 		$this->id       = 'ogone-easy';
 		$this->name     = 'Ingenico/Ogone - Easy';
-		$this->url      = 'https://secure.ogone.com/';
-		$this->provider = 'ogone';
 	}
 
 	public function get_config_factory_class() {
