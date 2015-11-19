@@ -4,8 +4,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Integration extends Prona
 	public function __construct() {
 		parent::__construct();
 
-		$this->id       = 'ogone-easy';
-		$this->name     = 'Ingenico/Ogone - Easy';
+		$this->id   = 'ogone-easy';
+		$this->name = 'Ingenico/Ogone - Easy';
 	}
 
 	public function get_config_factory_class() {

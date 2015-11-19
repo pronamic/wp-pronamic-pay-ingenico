@@ -4,8 +4,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration extends Pronamic_
 	public function __construct() {
 		parent::__construct();
 
-		$this->id       = 'ogone-orderstandard';
-		$this->name     = 'Ingenico/Ogone - OrderStandard';
+		$this->id   = 'ogone-orderstandard';
+		$this->name = 'Ingenico/Ogone - OrderStandard';
 	}
 
 	public function get_config_factory_class() {

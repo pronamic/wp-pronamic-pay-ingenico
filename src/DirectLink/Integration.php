@@ -4,8 +4,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Integration extends Pronamic_WP_
 	public function __construct() {
 		parent::__construct();
 
-		$this->id       = 'ogone-directlink';
-		$this->name     = 'Ingenico/Ogone - DirectLink';
+		$this->id   = 'ogone-directlink';
+		$this->name = 'Ingenico/Ogone - DirectLink';
 	}
 
 	public function get_config_factory_class() {
