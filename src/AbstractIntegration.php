@@ -4,6 +4,13 @@ abstract class Pronamic_WP_Pay_Gateways_Ogone_AbstractIntegration extends Pronam
 	public function __construct() {
 		$this->url      = 'https://secure.ogone.com/';
 		$this->provider = 'ogone';
+
+		// Actions
+		$function = array( 'Pronamic_WP_Pay_Gateways_Ogone_Listener', 'listen' );
+
+		if ( ! has_action( 'wp_loaded', $function ) ) {
+			add_action( 'wp_loaded', $function );
+		}
 	}
 
 	public function get_settings_class() {
