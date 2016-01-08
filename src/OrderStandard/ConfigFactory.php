@@ -11,7 +11,7 @@
 class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ConfigFactory extends Pronamic_WP_Pay_GatewayConfigFactory {
 	private $config_class;
 
-	public function __construct( $config_class = 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config', $config_test_class = 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config' ) {
+	public function __construct( $config_class = 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config', $config_test_class = 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_TestConfig' ) {
 		$this->config_class      = $config_class;
 		$this->config_test_class = $config_test_class;
 	}
