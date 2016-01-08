@@ -34,7 +34,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 
 		$this->client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client( $this->config->psp_id );
 
-		$this->client->set_payment_server_url( $config->url );
+		$this->client->set_payment_server_url( $config->get_payment_server_url() );
 		$this->client->set_pass_phrase_in( $config->sha_in_pass_phrase );
 		$this->client->set_pass_phrase_out( $config->sha_out_pass_phrase );
 
