@@ -34,13 +34,28 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 
 		$this->client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client( $this->config->psp_id );
 
-		$this->client->set_payment_server_url( $config->url );
+		$this->client->set_payment_server_url( $config->get_payment_server_url() );
 		$this->client->set_pass_phrase_in( $config->sha_in_pass_phrase );
 		$this->client->set_pass_phrase_out( $config->sha_out_pass_phrase );
 
 		if ( ! empty( $config->hash_algorithm ) ) {
 			$this->client->set_hash_algorithm( $config->hash_algorithm );
 		}
+	}
+
+	/////////////////////////////////////////////////
+
+	/**
+	 * Get supported payment methods
+	 *
+	 * @see Pronamic_WP_Pay_Gateway::get_supported_payment_methods()
+	 */
+	public function get_supported_payment_methods() {
+		return array(
+			Pronamic_WP_Pay_PaymentMethods::IDEAL       => Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::IDEAL,
+			Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD => Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::CREDIT_CARD,
+			Pronamic_WP_Pay_PaymentMethods::MISTER_CASH => Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::CREDIT_CARD,
+		);
 	}
 
 	/////////////////////////////////////////////////
@@ -109,13 +124,11 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 		// URL's
 		$ogone_url_helper = new Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper( $ogone_data );
 
-		$url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
-
 		$ogone_url_helper
-			->set_accept_url( add_query_arg( 'status', 'accept', $url ) )
-			->set_cancel_url( add_query_arg( 'status', 'cancel', $url ) )
-			->set_decline_url( add_query_arg( 'status', 'decline', $url ) )
-			->set_exception_url( add_query_arg( 'status', 'exception', $url ) );
+			->set_accept_url( add_query_arg( 'status', 'accept', $payment->get_return_url() ) )
+			->set_cancel_url( add_query_arg( 'status', 'cancel', $payment->get_return_url() ) )
+			->set_decline_url( add_query_arg( 'status', 'decline', $payment->get_return_url() ) )
+			->set_exception_url( add_query_arg( 'status', 'exception', $payment->get_return_url() ) );
 	}
 
 	/////////////////////////////////////////////////

@@ -9,8 +9,19 @@
  * @version 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ConfigFactory extends Pronamic_WP_Pay_GatewayConfigFactory {
+	private $config_class;
+
+	public function __construct( $config_class = 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config', $config_test_class = 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_TestConfig' ) {
+		$this->config_class      = $config_class;
+		$this->config_test_class = $config_test_class;
+	}
+
 	public function get_config( $post_id ) {
-		$config = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config();
+		$mode = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
+
+		$config_class = ( 'test' === $mode ) ? $this->config_test_class : $this->config_class;
+
+		$config = new $config_class();
 
 		$config->mode                = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
 		$config->psp_id              = get_post_meta( $post_id, '_pronamic_gateway_ogone_psp_id', true );
@@ -20,18 +31,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ConfigFactory extends Pronami
 		$config->order_id            = get_post_meta( $post_id, '_pronamic_gateway_ogone_order_id', true );
 		$config->param_var           = get_post_meta( $post_id, '_pronamic_gateway_ogone_param_var', true );
 		$config->template_page       = get_post_meta( $post_id, '_pronamic_gateway_ogone_template_page', true );
-
-		$gateway_id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
-		$mode       = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
-
-		global $pronamic_pay_gateways;
-
-		$gateway  = $pronamic_pay_gateways[ $gateway_id ];
-		$settings = $gateway[ $mode ];
-
-		$url = $settings['payment_server_url'];
-
-		$config->url = $url;
 
 		return $config;
 	}

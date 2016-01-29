@@ -5,6 +5,7 @@
  * Description:
  * Copyright: Copyright (c) 2005 - 2015
  * Company: Pronamic
+ *
  * @author Remco Tolsma
  * @version 1.0.0
  */
@@ -35,7 +36,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_Util {
 			$order_id .= $payment->get_id();
 		}
 
-		// Return
 		return $order_id;
 	}
 
@@ -59,7 +59,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_Util {
 		// Parameter Variable
 		$param_var = str_replace( $find, $replace, $param_var );
 
-		// Return
 		return $param_var;
 	}
 }

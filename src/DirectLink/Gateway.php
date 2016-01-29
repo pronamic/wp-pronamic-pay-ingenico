@@ -87,11 +87,9 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 				->set_http_user_agent( Pronamic_WP_Pay_Server::get( 'HTTP_USER_AGENT' ) )
 				->set_window( 'MAINW' );
 
-			$url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
-
-			$ogone_data->set_field( 'ACCEPTURL', $url );
-			$ogone_data->set_field( 'DECLINEURL', $url );
-			$ogone_data->set_field( 'EXCEPTIONURL', $url );
+			$ogone_data->set_field( 'ACCEPTURL', $payment->get_return_url() );
+			$ogone_data->set_field( 'DECLINEURL', $payment->get_return_url() );
+			$ogone_data->set_field( 'EXCEPTIONURL', $payment->get_return_url() );
 			$ogone_data->set_field( 'PARAMPLUS', '' );
 			$ogone_data->set_field( 'COMPLUS', '' );
 		}
@@ -114,7 +112,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 			$this->error = $error;
 		} else {
 			$payment->set_transaction_id( $result->pay_id );
-			$payment->set_action_url( add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) ) );
+			$payment->set_action_url( $payment->get_return_url() );
 			$payment->set_status( Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $result->status ) );
 
 			if ( ! empty( $result->html_answer ) ) {

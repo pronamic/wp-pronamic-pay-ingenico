@@ -5,6 +5,7 @@
  * Description:
  * Copyright: Copyright (c) 2005 - 2015
  * Company: Pronamic
+ *
  * @author Remco Tolsma
  * @version 1.0.0
  */
@@ -12,8 +13,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_StatusesTest extends PHPUnit_Framework_Test
 	/**
 	 * @dataProvider statusMatrixProvider
 	 */
-	public function testTransform( $ogoneStatus, $expected ) {
-		$status = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $ogoneStatus );
+	public function testTransform( $ogone_status, $expected ) {
+		$status = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $ogone_status );
 
 		$this->assertEquals( $expected, $status );
 	}
