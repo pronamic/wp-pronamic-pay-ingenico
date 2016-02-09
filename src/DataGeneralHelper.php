@@ -149,4 +149,17 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper extends Pronamic_WP_Pay_G
 	public function set_brand( $brand ) {
 		return $this->set_field( 'BRAND', $brand );
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Set PARAMPLUS feedback parameters
+	 *
+	 * @see https://payment-services.ingenico.com/int/en/ogone/support/guides/integration%20guides/e-commerce/transaction-feedback#feedbackparameters_variablefeedbackparameters
+	 * @param string $paramplus
+	 * @return Pronamic_WP_Pay_Gateways_Ogone_DirectLink_DataHelper
+	 */
+	public function set_paramplus( $paramplus ) {
+		return $this->set_field( 'PARAMPLUS', $paramplus );
+	}
 }
