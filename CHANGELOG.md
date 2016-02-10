@@ -7,6 +7,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [1.2.6] - 2016-02-10
+- Use PARAMPLUS for the payment ID.
+
 ## [1.2.5] - 2016-01-29
 - Added an gateway settings class.
 
