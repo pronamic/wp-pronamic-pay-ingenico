@@ -14,8 +14,4 @@
 		<exclude name="WordPress.VIP.RestrictedFunctions.wp_remote_get" />
 		<exclude name="WordPress.VIP.SlowDBQuery.slow_db_query" />
 	</rule>
-
-	<rule ref="WordPress.NamingConventions.ValidVariableName">
-		<exclude-pattern>src/XML/OrderResponseParser.php</exclude-pattern>
-	</rule>
 </ruleset>
