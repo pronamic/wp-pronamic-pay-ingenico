@@ -3,10 +3,10 @@
 /**
  * Title: Ogone order standard gateway
  * Description:
- * Copyright: Copyright (c) 2005 - 2015
+ * Copyright: Copyright (c) 2005 - 2016
  * Company: Pronamic
  * @author Remco Tolsma
- * @version 1.2.3
+ * @version 1.2.6
  * @since 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_Pay_Gateway {
@@ -77,6 +77,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 		$ogone_data_general
 			->set_order_id( Pronamic_WP_Pay_Gateways_Ogone_Util::get_order_id( $this->config->order_id, $data, $payment ) )
 			->set_order_description( $data->get_description() )
+			->set_param_plus( 'payment_id=' . $payment->get_id() )
 			->set_currency( $data->get_currency() )
 			->set_amount( $data->get_amount() )
 			->set_customer_name( $data->getCustomerName() )

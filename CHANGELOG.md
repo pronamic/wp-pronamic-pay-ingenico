@@ -7,6 +7,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [1.2.6] - 2016-02-10
+- Use PARAMPLUS for the payment ID.
+
 ## [1.2.5] - 2016-01-29
 - Added an gateway settings class.
 
@@ -38,7 +41,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## 1.0.0 - 2015-01-19
 - First release.
 
-[unreleased]: https://github.com/wp-pay-gateways/ogone/compare/1.2.5...HEAD
+[unreleased]: https://github.com/wp-pay-gateways/ogone/compare/1.2.6...HEAD
+[1.2.6]: https://github.com/wp-pay-gateways/ogone/compare/1.2.5...1.2.6
 [1.2.5]: https://github.com/wp-pay-gateways/ogone/compare/1.2.4...1.2.5
 [1.2.4]: https://github.com/wp-pay-gateways/ogone/compare/1.2.3...1.2.4
 [1.2.3]: https://github.com/wp-pay-gateways/ogone/compare/1.2.2...1.2.3

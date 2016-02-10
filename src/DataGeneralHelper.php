@@ -3,11 +3,11 @@
 /**
  * Title: Ogone data default helper class
  * Description:
- * Copyright: Copyright (c) 2005 - 2015
+ * Copyright: Copyright (c) 2005 - 2016
  * Company: Pronamic
  *
  * @author Remco Tolsma
- * @version 1.1.0
+ * @version 1.2.6
  * @since 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper extends Pronamic_WP_Pay_Gateways_Ogone_DataHelper {
@@ -148,5 +148,19 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper extends Pronamic_WP_Pay_G
 	 */
 	public function set_brand( $brand ) {
 		return $this->set_field( 'BRAND', $brand );
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Set PARAMPLUS feedback parameters
+	 *
+	 * @see https://payment-services.ingenico.com/int/en/ogone/support/guides/integration%20guides/e-commerce/transaction-feedback#feedbackparameters_variablefeedbackparameters
+	 * @since 1.2.6
+	 * @param string $paramplus
+	 * @return Pronamic_WP_Pay_Gateways_Ogone_DirectLink_DataHelper
+	 */
+	public function set_param_plus( $param_plus ) {
+		return $this->set_field( 'PARAMPLUS', $param_plus );
 	}
 }
