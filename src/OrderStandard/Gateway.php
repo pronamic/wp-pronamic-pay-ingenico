@@ -91,8 +91,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 			->set_address( $data->get_address() )
 			->set_zip( $data->get_zip() )
 			->set_town( $data->get_city() )
-			->set_country( null )
-			->set_telephone_number( null );
+			->set_country( $data->get_country() )
+			->set_telephone_number( $data->get_telephone_number() );
 
 		// Payment method
 		// @see https://github.com/wp-pay-gateways/ogone/wiki/Brands

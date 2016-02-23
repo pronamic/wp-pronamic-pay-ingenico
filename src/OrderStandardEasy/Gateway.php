@@ -71,8 +71,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_
 			->set_address( $data->get_address() )
 			->set_zip( $data->get_zip() )
 			->set_town( $data->get_city() )
-			->set_country( null )
-			->set_telephone_number( null );
+			->set_country( $data->get_country() )
+			->set_telephone_number( $data->get_telephone_number() );
 
 		// URL's
 		$ogone_url_helper = new Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper( $ogone_data );

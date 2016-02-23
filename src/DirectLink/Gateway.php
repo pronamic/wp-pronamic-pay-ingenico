@@ -66,8 +66,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 			->set_address( $data->get_address() )
 			->set_zip( $data->get_zip() )
 			->set_town( $data->get_city() )
-			->set_country( null )
-			->set_telephone_number( null );
+			->set_country( $data->get_country() )
+			->set_telephone_number( $data->get_telephone_number() );
 
 		// DirectLink
 		$ogone_data_directlink = new Pronamic_WP_Pay_Gateways_Ogone_DirectLink_DataHelper( $ogone_data );
