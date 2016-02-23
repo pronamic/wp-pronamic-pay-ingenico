@@ -101,7 +101,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 			$ogone_data->set_field( 'ACCEPTURL', $payment->get_return_url() );
 			$ogone_data->set_field( 'DECLINEURL', $payment->get_return_url() );
 			$ogone_data->set_field( 'EXCEPTIONURL', $payment->get_return_url() );
-			$ogone_data->set_field( 'PARAMPLUS', '' );
 			$ogone_data->set_field( 'COMPLUS', '' );
 		}
 
