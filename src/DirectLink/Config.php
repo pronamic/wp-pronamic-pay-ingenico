@@ -25,4 +25,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Config extends Pronamic_WP_Pay_G
 	public function __construct() {
 		$this->api_url = Pronamic_WP_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_URL;
 	}
+
+	public function get_gateway_class() {
+		return 'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway';
+	}
 }

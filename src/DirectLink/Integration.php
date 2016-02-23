@@ -16,10 +16,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Integration extends Pronamic_WP_
 		return 'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Config';
 	}
 
-	public function get_gateway_class() {
-		return 'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway';
-	}
-
 	/**
 	 * Get required settings for this integration.
 	 *

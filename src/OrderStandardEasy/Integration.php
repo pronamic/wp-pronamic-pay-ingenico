@@ -16,10 +16,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Integration extends Prona
 		return 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Config';
 	}
 
-	public function get_gateway_class() {
-		return 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway';
-	}
-
 	/**
 	 * Get required settings for this integration.
 	 *
