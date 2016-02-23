@@ -7,7 +7,7 @@
  * Company: Pronamic
  *
  * @author Remco Tolsma
- * @version 1.2.6
+ * @version 1.3.0
  * @since 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper extends Pronamic_WP_Pay_Gateways_Ogone_DataHelper {
@@ -82,6 +82,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper extends Pronamic_WP_Pay_G
 	/**
 	 * Set customer name
 	 *
+	 * @deprecated since 1.3.0
 	 * @param string $name
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
@@ -92,6 +93,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper extends Pronamic_WP_Pay_G
 	/**
 	 * Set email address
 	 *
+	 * @deprecated since 1.3.0
 	 * @param string $email
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
