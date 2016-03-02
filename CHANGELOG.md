@@ -7,6 +7,14 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [1.2.7] - 2016-03-02
+- Added support for get_settings().
+- Moved get_gateway_class() function to the configuration class.
+- Removed get_config_class(), no longer required.
+- Added an new customer data helper class and use in the gateways.
+- Don't set the PARAMPLUS parameter, we already set it earlier in the gateway.
+- Also set country and telephone number.
+
 ## [1.2.6] - 2016-02-10
 - Use PARAMPLUS for the payment ID.
 
@@ -41,7 +49,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## 1.0.0 - 2015-01-19
 - First release.
 
-[unreleased]: https://github.com/wp-pay-gateways/ogone/compare/1.2.6...HEAD
+[unreleased]: https://github.com/wp-pay-gateways/ogone/compare/1.2.7...HEAD
+[1.2.7]: https://github.com/wp-pay-gateways/ogone/compare/1.2.6...1.2.7
 [1.2.6]: https://github.com/wp-pay-gateways/ogone/compare/1.2.5...1.2.6
 [1.2.5]: https://github.com/wp-pay-gateways/ogone/compare/1.2.4...1.2.5
 [1.2.4]: https://github.com/wp-pay-gateways/ogone/compare/1.2.3...1.2.4
