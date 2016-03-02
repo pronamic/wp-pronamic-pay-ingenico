@@ -6,7 +6,7 @@
  * Copyright: Copyright (c) 2005 - 2016
  * Company: Pronamic
  * @author Remco Tolsma
- * @version 1.2.6
+ * @version 1.3.0
  * @since 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_Gateway {
@@ -55,9 +55,19 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 			->set_param_plus( 'payment_id=' . $payment->get_id() )
 			->set_currency( $data->get_currency() )
 			->set_amount( $data->get_amount() )
-			->set_customer_name( $data->getCustomerName() )
-			->set_language( $data->get_language_and_country() )
-			->set_email( $data->get_email() );
+			->set_language( $data->get_language_and_country() );
+
+		// Customer
+		$ogone_data_customer = new Pronamic_WP_Pay_Gateways_Ogone_DataCustomerHelper( $ogone_data );
+
+		$ogone_data_customer
+			->set_name( $data->get_customer_name() )
+			->set_email( $data->get_email() )
+			->set_address( $data->get_address() )
+			->set_zip( $data->get_zip() )
+			->set_town( $data->get_city() )
+			->set_country( $data->get_country() )
+			->set_telephone_number( $data->get_telephone_number() );
 
 		// DirectLink
 		$ogone_data_directlink = new Pronamic_WP_Pay_Gateways_Ogone_DirectLink_DataHelper( $ogone_data );
@@ -91,7 +101,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 			$ogone_data->set_field( 'ACCEPTURL', $payment->get_return_url() );
 			$ogone_data->set_field( 'DECLINEURL', $payment->get_return_url() );
 			$ogone_data->set_field( 'EXCEPTIONURL', $payment->get_return_url() );
-			$ogone_data->set_field( 'PARAMPLUS', '' );
 			$ogone_data->set_field( 'COMPLUS', '' );
 		}
 

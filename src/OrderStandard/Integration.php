@@ -12,11 +12,18 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration extends Pronamic_
 		return 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ConfigFactory';
 	}
 
-	public function get_config_class() {
-		return 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config';
-	}
+	/**
+	 * Get required settings for this integration.
+	 *
+	 * @see https://github.com/wp-premium/gravityforms/blob/1.9.16/includes/fields/class-gf-field-multiselect.php#L21-L42
+	 * @since 1.1.3
+	 * @return array
+	 */
+	public function get_settings() {
+		$settings = parent::get_settings();
 
-	public function get_gateway_class() {
-		return 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway';
+		$settings[] = 'ogone_orderstandard';
+
+		return $settings;
 	}
 }
