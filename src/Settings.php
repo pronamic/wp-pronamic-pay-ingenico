@@ -158,7 +158,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Settings extends Pronamic_WP_Pay_GatewaySet
 			'type'     => 'description',
 			'methods'   => array( 'ogone_orderstandard_easy' ),
 			'html'     => sprintf(
-				'<span class="dashicons dashicons-no pronamic-pay-no"></span> %s',
+				'<span class="dashicons dashicons-no"></span> %s',
 				__( 'Payment status updates are not supported by this payment provider.', 'pronamic_ideal' )
 			),
 		);
@@ -169,7 +169,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Settings extends Pronamic_WP_Pay_GatewaySet
 			'type'          => 'description',
 			'methods'   => array( 'ogone_orderstandard', 'ogone_directlink' ),
 			'html'          => sprintf(
-				'<span class="dashicons dashicons-warning pronamic-pay-maybe"></span> %s',
+				'<span class="dashicons dashicons-warning"></span> %s',
 				__( 'Receiving payment status updates needs additional configuration, if not yet completed.', 'pronamic_ideal' )
 			),
 		);
