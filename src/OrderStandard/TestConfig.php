@@ -16,6 +16,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_TestConfig extends Pronamic_W
 			return 'https://secure.ogone.com/ncol/test/orderstandard_utf8.asp';
 		} else {
 			return 'https://secure.ogone.com/ncol/test/orderstandard.asp';
-		}		
+		}
 	}
 }
