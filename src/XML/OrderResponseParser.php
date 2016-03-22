@@ -35,7 +35,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser {
 		$order_response->brand         = Pronamic_WP_Pay_XML_Security::filter( $xml['BRAND'] );
 
 		if ( $xml->HTML_ANSWER ) {
-			$order_response->html_answer   = base64_decode( Pronamic_WP_Pay_XML_Security::filter( $xml->HTML_ANSWER ) );
+			$order_response->html_answer = base64_decode( Pronamic_WP_Pay_XML_Security::filter( $xml->HTML_ANSWER ) );
 		}
 
 		return $order_response;
