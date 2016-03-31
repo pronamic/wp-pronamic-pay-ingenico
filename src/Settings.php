@@ -186,7 +186,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Settings extends Pronamic_WP_Pay_GatewaySet
 			'title'       => __( 'Form Action URL', 'pronamic_ideal' ),
 			'type'        => 'text',
 			'classes'     => array( 'regular-text', 'code' ),
-			'tooltip'     => __( 'The Ogone form action URL.', 'pronamic_ideal' ),
+			'tooltip'     => __( 'With this setting you can override the default Ogone e-Commerce form action URL to the payment processing page.', 'pronamic_ideal' ),
 			'methods'     => array( 'ogone_orderstandard_easy', 'ogone_orderstandard' ),
 		);
 
