@@ -2,8 +2,6 @@
 
 <ruleset name="WordPress Pay Gateway Ogone rules">
 	<rule ref="WordPress">
-		<exclude name="Generic.CodeAnalysis.UselessOverridingMethod.Found" />
-
 		<exclude name="Generic.Files.LowercasedFilename.NotFound" />
 
 		<exclude name="Squiz.Commenting" />

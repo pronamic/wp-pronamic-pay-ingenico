@@ -12,17 +12,6 @@
  */
 class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper extends Pronamic_WP_Pay_Gateways_Ogone_DataHelper {
 	/**
-	 * Constructs and initialize a Ogone data default helper class
-	 */
-	public function __construct( Pronamic_WP_Pay_Gateways_Ogone_Data $data ) {
-		parent::__construct( $data );
-	}
-
-	//////////////////////////////////////////////////
-	// Helper functions
-	//////////////////////////////////////////////////
-
-	/**
 	 * Set PSP ID
 	 *
 	 * @param int $number
