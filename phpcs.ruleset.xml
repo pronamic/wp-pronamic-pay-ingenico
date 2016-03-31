@@ -4,7 +4,7 @@
 	<rule ref="WordPress">
 		<exclude name="Generic.CodeAnalysis.UselessOverridingMethod.Found" />
 		<exclude name="Generic.Commenting.DocComment.MissingShort" />
-		<exclude name="Generic.Commenting.DocComment.SpacingBeforeTags" />
+
 		<exclude name="Generic.Files.LowercasedFilename.NotFound" />
 
 		<exclude name="Squiz.Commenting" />

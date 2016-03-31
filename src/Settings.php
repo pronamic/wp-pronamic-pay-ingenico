@@ -19,22 +19,22 @@ class Pronamic_WP_Pay_Gateways_Ogone_Settings extends Pronamic_WP_Pay_GatewaySet
 	public function sections( array $sections ) {
 		// General
 		$sections['ogone'] = array(
-			'title'   => __( 'Ogone', 'pronamic_ideal' ),
-			'methods' => array( 'ogone_orderstandard_easy', 'ogone_orderstandard', 'ogone_directlink' ),
+			'title'       => __( 'Ogone', 'pronamic_ideal' ),
+			'methods'     => array( 'ogone_orderstandard_easy', 'ogone_orderstandard', 'ogone_directlink' ),
 			'description' => __( 'Account details are provided by the payment provider after registration. These settings need to match with the payment provider dashboard.', 'pronamic_ideal' ),
 		);
 
 		// Payment page look and feel
 		$sections['ogone_advanced'] = array(
-			'title'   => __( 'Advanced', 'pronamic_ideal' ),
-			'methods' => array( 'ogone_orderstandard_easy', 'ogone_orderstandard', 'ogone_directlink' ),
+			'title'       => __( 'Advanced', 'pronamic_ideal' ),
+			'methods'     => array( 'ogone_orderstandard_easy', 'ogone_orderstandard', 'ogone_directlink' ),
 			'description' => __( 'Optional settings for advanced usage only.', 'pronamic_ideal' ),
 		);
 
 		// Direct HTTP server-to-server request
 		$sections['ogone_feedback'] = array(
-			'title'   => __( 'Transaction feedback', 'pronamic_ideal' ),
-			'methods' => array( 'ogone_orderstandard', 'ogone_directlink' ),
+			'title'       => __( 'Transaction feedback', 'pronamic_ideal' ),
+			'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' ),
 			'description' => __( 'The URLs below need to be copied to the payment provider dashboard to receive automatic transaction status updates.', 'pronamic_ideal' ),
 		);
 
@@ -177,6 +177,18 @@ class Pronamic_WP_Pay_Gateways_Ogone_Settings extends Pronamic_WP_Pay_GatewaySet
 		/*
 		 * Advanced settings
 		 */
+
+		// Form Action URL
+		$fields[] = array(
+			'filter'      => FILTER_SANITIZE_STRING,
+			'section'     => 'ogone_advanced',
+			'meta_key'    => '_pronamic_gateway_ogone_form_action_url',
+			'title'       => __( 'Form Action URL', 'pronamic_ideal' ),
+			'type'        => 'text',
+			'classes'     => array( 'regular-text', 'code' ),
+			'tooltip'     => __( 'The Ogone form action URL.', 'pronamic_ideal' ),
+			'methods'     => array( 'ogone_orderstandard_easy', 'ogone_orderstandard' ),
+		);
 
 		// Order ID
 		$fields[] = array(
