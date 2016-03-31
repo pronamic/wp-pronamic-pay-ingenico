@@ -14,8 +14,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config extends Pronamic_WP_Pa
 	/**
 	 * Hash algorithm.
 	 *
-	 * To verify the data that is submitted to its system (in case of e-Commerce the hidden fields to the payment page), 
-	 * Ogone requires the secure data verification method SHA. For each order, your server generates a unique character 
+	 * To verify the data that is submitted to its system (in case of e-Commerce the hidden fields to the payment page),
+	 * Ogone requires the secure data verification method SHA. For each order, your server generates a unique character
 	 * string (=digest), hashed with the SHA algorithm of your choice: SHA-1, SHA-256 or SHA-512.
 	 *
 	 * @see https://payment-services.ingenico.com/int/en/ogone/support/guides/integration%20guides/e-commerce/security-pre-payment-check

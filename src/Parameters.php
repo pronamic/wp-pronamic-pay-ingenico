@@ -15,31 +15,36 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Indicator for the PSPID parameter
+	 * Indicator for the PSPID parameter.
+	 *
 	 * @var string
 	 */
 	const PSPID = 'PSPID';
 
 	/**
-	 * Indicator for the ORDERID parameter
+	 * Indicator for the ORDERID parameter.
+	 *
 	 * @var string
 	 */
 	const ORDERID = 'ORDERID';
 
 	/**
-	 * Indicator for the AMOUNT parameter
+	 * Indicator for the AMOUNT parameter.
+	 *
 	 * @var string
 	 */
 	const AMOUNT = 'AMOUNT';
 
 	/**
-	 * Indicator for the CURRENCY parameter
+	 * Indicator for the CURRENCY parameter.
+	 *
 	 * @var string
 	 */
 	const CURRENCY = 'CURRENCY';
 
 	/**
-	 * Indicator for the AMOUNT parameter
+	 * Indicator for the AMOUNT parameter.
+	 *
 	 * @var string
 	 */
 	const LANGUAGE = 'LANGUAGE';
@@ -47,13 +52,15 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Indicator for the CN parameter
+	 * Indicator for the CN parameter.
+	 *
 	 * @var string
 	 */
 	const CUSTOMER_NAME = 'CN';
 
 	/**
-	 * Indicator for the EMAIL parameter
+	 * Indicator for the EMAIL parameter.
+	 *
 	 * @var string
 	 */
 	const EMAIL = 'EMAIL';
@@ -61,37 +68,43 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Indicator for the OWNERADDRESS parameter
+	 * Indicator for the OWNERADDRESS parameter.
+	 *
 	 * @var string
 	 */
 	const OWNER_ADDRESS = 'OWNERADDRESS';
 
 	/**
-	 * Indicator for the OWNERADDRESS2 parameter
+	 * Indicator for the OWNERADDRESS2 parameter.
+	 *
 	 * @var string
 	 */
 	const OWNER_ADDRESS_2 = 'OWNERADDRESS2';
 
 	/**
-	 * Indicator for the OWNERCTY parameter
+	 * Indicator for the OWNERCTY parameter.
+	 *
 	 * @var string
 	 */
 	const OWNER_COUNTRY = 'OWNERCTY';
 
 	/**
-	 * Indicator for the OWNERTELNO parameter
+	 * Indicator for the OWNERTELNO parameter.
+	 *
 	 * @var string
 	 */
 	const OWNER_TELNO = 'OWNERTELNO';
 
 	/**
-	 * Indicator for the OWNERTOWN parameter
+	 * Indicator for the OWNERTOWN parameter.
+	 *
 	 * @var string
 	 */
 	const OWNER_TOWN = 'OWNERTOWN';
 
 	/**
-	 * Indicator for the OWNERZIP parameter
+	 * Indicator for the OWNERZIP parameter.
+	 *
 	 * @var string
 	 */
 	const OWNER_ZIP = 'OWNERZIP';
@@ -99,7 +112,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Indicator for the COM parameter
+	 * Indicator for the COM parameter.
+	 *
 	 * @var string
 	 */
 	const COM = 'COM';
@@ -107,25 +121,29 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Indicator for the ACCEPTURL parameter
+	 * Indicator for the ACCEPTURL parameter.
+	 *
 	 * @var string
 	 */
 	const ACCEPT_URL = 'ACCEPTURL';
 
 	/**
-	 * Indicator for the DECLINEURL parameter
+	 * Indicator for the DECLINEURL parameter.
+	 *
 	 * @var string
 	 */
 	const DECLINE_URL = 'DECLINEURL';
 
 	/**
-	 * Indicator for the EXCEPTIONURL parameter
+	 * Indicator for the EXCEPTIONURL parameter.
+	 *
 	 * @var string
 	 */
 	const EXCEPTION_URL = 'EXCEPTIONURL';
 
 	/**
-	 * Indicator for the CANCELURL parameter
+	 * Indicator for the CANCELURL parameter.
+	 *
 	 * @var string
 	 */
 	const CANCEL_URL = 'CANCELURL';
@@ -133,7 +151,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Indicator for the PARAMPLUS parameter
+	 * Indicator for the PARAMPLUS parameter.
+	 *
 	 * @var string
 	 */
 	const PARAM_PLUS = 'PARAMPLUS';
@@ -143,7 +162,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Indicator for the STATUS parameter
+	 * Indicator for the STATUS parameter.
+	 *
 	 * @var string
 	 */
 	const STATUS = 'STATUS';
@@ -153,7 +173,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Indicator for the NCSTATUS parameter
+	 * Indicator for the NCSTATUS parameter.
 	 *
 	 * Error status. In general this is the first digit of the NCERROR.
 	 *
@@ -162,7 +182,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	const NC_STATUS = 'NCSTATUS';
 
 	/**
-	 * Indicator for the NCERROR parameter
+	 * Indicator for the NCERROR parameter.
 	 *
 	 * Error code.
 	 * The value of this parameter is 0 or empty if not applicable.
@@ -172,7 +192,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	const NC_ERROR = 'NCERROR';
 
 	/**
-	 * Indicator for the NCERRORPLUS parameter
+	 * Indicator for the NCERRORPLUS parameter.
 	 *
 	 * Error description of the NCERROR code.
 	 * The value of this parameter is 0 or empty if not applicable.
