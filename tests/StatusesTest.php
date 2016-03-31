@@ -11,15 +11,22 @@
  */
 class Pronamic_WP_Pay_Gateways_Ogone_StatusesTest extends PHPUnit_Framework_TestCase {
 	/**
-	 * @dataProvider statusMatrixProvider
+	 * Test transform.
+	 *
+	 * @dataProvider status_matrix_provider
 	 */
-	public function testTransform( $ogone_status, $expected ) {
+	public function test_transform( $ogone_status, $expected ) {
 		$status = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $ogone_status );
 
 		$this->assertEquals( $expected, $status );
 	}
 
-	public function statusMatrixProvider() {
+	/**
+	 * Stats matrix provider.
+	 *
+	 * @return array
+	 */
+	public function status_matrix_provider() {
 		return array(
 			// Failture
 			array( Pronamic_WP_Pay_Gateways_Ogone_Statuses::INCOMPLETE_OR_INVALID, Pronamic_WP_Pay_Statuses::FAILURE ),
