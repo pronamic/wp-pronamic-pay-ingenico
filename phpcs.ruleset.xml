@@ -8,7 +8,6 @@
 		<exclude name="Generic.Files.LowercasedFilename.NotFound" />
 
 		<exclude name="Squiz.Commenting" />
-		<exclude name="Squiz.PHP.CommentedOutCode.Found" />
 
 		<exclude name="WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar" />
 

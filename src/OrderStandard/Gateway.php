@@ -99,13 +99,19 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 		// @see https://github.com/wp-pay-gateways/ogone/wiki/Brands
 		switch ( $payment_method ) {
 			case Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD :
-				// @since 1.2.3
+				/*
+				 * Set credit card payment method.
+				 * @since 1.2.3
+				 */
 				$ogone_data_general
 					->set_payment_method( Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::CREDIT_CARD );
 
 				break;
 			case Pronamic_WP_Pay_PaymentMethods::IDEAL :
-				// @since 1.2.3
+				/*
+				 * Set iDEAL payment method.
+				 * @since 1.2.3
+				 */
 				$ogone_data_general
 					->set_brand( Pronamic_WP_Pay_Gateways_Ogone_Brands::IDEAL )
 					->set_payment_method( Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::IDEAL );

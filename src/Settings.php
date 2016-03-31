@@ -38,7 +38,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Settings extends Pronamic_WP_Pay_GatewaySet
 			'description' => __( 'The URLs below need to be copied to the payment provider dashboard to receive automatic transaction status updates.', 'pronamic_ideal' ),
 		);
 
-		// Return
+		// Return sections
 		return $sections;
 	}
 
@@ -269,7 +269,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Settings extends Pronamic_WP_Pay_GatewaySet
 			'readonly'    => true,
 		);
 
-		// Return
+		// Return fields
 		return $fields;
 	}
 }
