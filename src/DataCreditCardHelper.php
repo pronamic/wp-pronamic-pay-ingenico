@@ -12,18 +12,7 @@
  */
 class Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper extends Pronamic_WP_Pay_Gateways_Ogone_DataHelper {
 	/**
-	 * Constructs and initialize a Ogone data default helper class
-	 */
-	public function __construct( Pronamic_WP_Pay_Gateways_Ogone_Data $data ) {
-		parent::__construct( $data );
-	}
-
-	//////////////////////////////////////////////////
-	// Helper functions
-	//////////////////////////////////////////////////
-
-	/**
-	 * Set credit card number
+	 * Set credit card number.
 	 *
 	 * @param int $number
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper
@@ -33,7 +22,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper extends Pronamic_WP_Pa
 	}
 
 	/**
-	 * Set expiration date
+	 * Set expiration date.
 	 *
 	 * @param DateTime $date
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper
@@ -43,7 +32,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper extends Pronamic_WP_Pa
 	}
 
 	/**
-	 * Set security code
+	 * Set security code.
 	 *
 	 * @param string $security_code
 	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper

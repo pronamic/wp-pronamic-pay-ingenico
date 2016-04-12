@@ -12,19 +12,6 @@
  */
 class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper extends Pronamic_WP_Pay_Gateways_Ogone_DataHelper {
 	/**
-	 * Constructs and initialize a Ogone data default helper class
-	 *
-	 * @param Pronamic_WP_Pay_Gateways_Ogone_Data $data
-	 */
-	public function __construct( Pronamic_WP_Pay_Gateways_Ogone_Data $data ) {
-		parent::__construct( $data );
-	}
-
-	//////////////////////////////////////////////////
-	// Helper functions
-	//////////////////////////////////////////////////
-
-	/**
 	 * Set accept URL
 	 *
 	 * URL of the web page to show the customer when the payment is authorized.

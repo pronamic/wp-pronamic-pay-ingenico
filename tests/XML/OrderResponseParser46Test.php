@@ -1,6 +1,11 @@
 <?php
 
 class Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser46Test extends WP_UnitTestCase {
+	/**
+	 * Test initialize.
+	 *
+	 * @return SimpleXMLElement
+	 */
 	function test_init() {
 		$filename = dirname( __FILE__ ) . '/../Mock/response-status-46.xml';
 
@@ -12,7 +17,11 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser46Test extends WP_UnitTe
 	}
 
 	/**
+	 * Test parser.
+	 *
 	 * @depends test_init
+	 * @param SimpleXMLElement $simplexml
+	 * @return Pronamic_WP_Pay_Gateways_Ogone_DirectLink_OrderResponse
 	 */
 	function test_parser( $simplexml ) {
 		$order_response = Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser::parse( $simplexml );
@@ -23,7 +32,10 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser46Test extends WP_UnitTe
 	}
 
 	/**
+	 * Test values.
+	 *
 	 * @depends test_parser
+	 * @param Pronamic_WP_Pay_Gateways_Ogone_DirectLink_OrderResponse $order_response
 	 */
 	function test_values( $order_response ) {
 		$filename = dirname( __FILE__ ) . '/../Mock/response-status-46-html-answer.html';

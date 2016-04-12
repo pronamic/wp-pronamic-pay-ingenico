@@ -13,20 +13,6 @@
  */
 class Pronamic_WP_Pay_Gateways_Ogone_DataCustomerHelper extends Pronamic_WP_Pay_Gateways_Ogone_DataHelper {
 	/**
-	 * Constructs and initialize a Ogone data customer helper class.
-	 *
-	 * @see https://payment-services.ingenico.com/int/en/ogone/support/guides/integration%20guides/e-commerce
-	 * @param Pronamic_WP_Pay_Gateways_Ogone_Data $data
-	 */
-	public function __construct( Pronamic_WP_Pay_Gateways_Ogone_Data $data ) {
-		parent::__construct( $data );
-	}
-
-	//////////////////////////////////////////////////
-	// Helper functions
-	//////////////////////////////////////////////////
-
-	/**
 	 * Set customer name.
 	 *
 	 * Will be pre-initialised (but still editable) in the Customer Name field of the credit card details.
