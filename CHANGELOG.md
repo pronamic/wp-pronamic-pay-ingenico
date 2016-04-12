@@ -7,8 +7,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
-## [1.2.9] - 2016-03-31
+## [1.2.9] - 2016-04-12
 - Added support for custom Ogone e-Commerce form action URL.
+- Renamed OrderStandard to 'e-Commerce'.
 
 ## [1.2.8] - 2016-03-22
 - Added product and dashboard URLs.
