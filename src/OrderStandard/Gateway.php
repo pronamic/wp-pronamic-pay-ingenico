@@ -47,6 +47,30 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 	/////////////////////////////////////////////////
 
 	/**
+	 * Get payment methods
+	 *
+	 * @since unreleased
+	 * @return mixed an array or null
+	 */
+	public function get_payment_methods() {
+		$methods_class = 'Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods';
+
+		if ( class_exists( $methods_class ) ) {
+			$payment_methods = new ReflectionClass( $methods_class );
+
+			$groups = array(
+				array(
+					'options' => $payment_methods->getConstants(),
+				),
+			);
+
+			return $groups;
+		}
+
+		return null;
+	}
+
+	/**
 	 * Get supported payment methods
 	 *
 	 * @see Pronamic_WP_Pay_Gateway::get_supported_payment_methods()
