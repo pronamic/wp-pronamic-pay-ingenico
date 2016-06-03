@@ -47,7 +47,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_
 	 *
 	 * @see Pronamic_WP_Pay_Gateway::start()
 	 */
-	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment, $payment_method = null ) {
+	public function start( Pronamic_Pay_Payment $payment ) {
 		$payment->set_action_url( $this->client->get_payment_server_url() );
 
 		$ogone_data = $this->client->get_data();
@@ -56,24 +56,24 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_
 		$ogone_data_general = new Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper( $ogone_data );
 
 		$ogone_data_general
-			->set_order_id( Pronamic_WP_Pay_Gateways_Ogone_Util::get_order_id( $this->config->order_id, $data, $payment ) )
-			->set_order_description( $data->get_description() )
+			->set_order_id( Pronamic_WP_Pay_Gateways_Ogone_Util::get_order_id( $this->config->order_id, $payment ) )
+			->set_order_description( $payment->get_description() )
 			->set_param_plus( 'payment_id=' . $payment->get_id() )
-			->set_currency( $data->get_currency() )
-			->set_amount( $data->get_amount() )
-			->set_language( $data->get_language_and_country() );
+			->set_currency( $payment->get_currency() )
+			->set_amount( $payment->get_amount() )
+			->set_language( $payment->get_language_and_country() );
 
 		// Customer
 		$ogone_data_customer = new Pronamic_WP_Pay_Gateways_Ogone_DataCustomerHelper( $ogone_data );
 
 		$ogone_data_customer
-			->set_name( $data->get_customer_name() )
-			->set_email( $data->get_email() )
-			->set_address( $data->get_address() )
-			->set_zip( $data->get_zip() )
-			->set_town( $data->get_city() )
-			->set_country( $data->get_country() )
-			->set_telephone_number( $data->get_telephone_number() );
+			->set_name( $payment->get_customer_name() )
+			->set_email( $payment->get_email() )
+			->set_address( $payment->get_address() )
+			->set_zip( $payment->get_zip() )
+			->set_town( $payment->get_city() )
+			->set_country( $payment->get_country() )
+			->set_telephone_number( $payment->get_telephone_number() );
 
 		// URL's
 		$ogone_url_helper = new Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper( $ogone_data );
