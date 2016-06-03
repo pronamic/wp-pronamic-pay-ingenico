@@ -61,7 +61,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_
 			->set_param_plus( 'payment_id=' . $payment->get_id() )
 			->set_currency( $payment->get_currency() )
 			->set_amount( $payment->get_amount() )
-			->set_language( $payment->get_language_and_country() );
+			->set_language( $payment->get_locale() );
 
 		// Customer
 		$ogone_data_customer = new Pronamic_WP_Pay_Gateways_Ogone_DataCustomerHelper( $ogone_data );
