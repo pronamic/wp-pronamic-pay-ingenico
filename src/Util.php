@@ -7,7 +7,8 @@
  * Company: Pronamic
  *
  * @author Remco Tolsma
- * @version 1.0.0
+ * @version 1.3.0
+ * @since 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_Util {
 	/**
@@ -15,14 +16,14 @@ class Pronamic_WP_Pay_Gateways_Ogone_Util {
 	 *
 	 * @param string $status
 	 */
-	public static function get_order_id( $order_id, $data, $payment ) {
+	public static function get_order_id( $order_id, $payment ) {
 		// Find and replace
 		// @see https://github.com/woothemes/woocommerce/blob/v2.0.19/classes/emails/class-wc-email-new-order.php
 		$find    = array();
 		$replace = array();
 
 		$find[]    = '{order_id}';
-		$replace[] = $data->get_order_id();
+		$replace[] = $payment->get_order_id();
 
 		$find[]    = '{payment_id}';
 		$replace[] = $payment->get_id();
