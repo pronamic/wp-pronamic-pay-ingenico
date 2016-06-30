@@ -24,8 +24,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_Listener implements Pronamic_Pay_Gateways_L
 		) ) {
 			$payment_id = $data[ Pronamic_WP_Pay_Gateways_Ogone_Parameters::ORDERID ];
 
-			if ( filter_has_var( INPUT_GET, 'payment_id' ) ) {
-				$payment_id = filter_input( INPUT_GET, 'payment_id', FILTER_SANITIZE_NUMBER_INT );
+			if ( isset( $data['PAYMENT_ID'] ) ) {
+				$payment_id = filter_var( $data['PAYMENT_ID'], FILTER_SANITIZE_NUMBER_INT );
 			}
 
 			$payment = get_pronamic_payment( $payment_id );
