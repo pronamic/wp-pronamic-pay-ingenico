@@ -26,11 +26,12 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ConfigFactory extends Pronami
 		$config = new $config_class();
 
 		$form_action_url = get_post_meta( $post_id, '_pronamic_gateway_ogone_form_action_url', true );
+
 		if ( '' !== $form_action_url ) {
 			$config->set_form_action_url( $form_action_url );
 		}
 
-		$config->mode                = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
+		$config->mode                = $mode;
 		$config->psp_id              = get_post_meta( $post_id, '_pronamic_gateway_ogone_psp_id', true );
 		$config->hash_algorithm      = get_post_meta( $post_id, '_pronamic_gateway_ogone_hash_algorithm', true );
 		$config->sha_in_pass_phrase  = get_post_meta( $post_id, '_pronamic_gateway_ogone_sha_in_pass_phrase', true );
