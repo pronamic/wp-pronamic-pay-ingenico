@@ -45,7 +45,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Config extends Pronamic_WP_Pay_GatewayConfi
 	 * @since 1.2.9
 	 * @return string
 	 */
-	private function get_default_form_action_url() {
+	protected function get_default_form_action_url() {
 		$is_utf8 = strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) === 0;
 
 		if ( $is_utf8 ) {
