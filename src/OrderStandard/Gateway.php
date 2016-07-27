@@ -79,7 +79,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 		return array(
 			Pronamic_WP_Pay_PaymentMethods::IDEAL       => Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::IDEAL,
 			Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD => Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::CREDIT_CARD,
-			Pronamic_WP_Pay_PaymentMethods::MISTER_CASH => Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::CREDIT_CARD,
+			Pronamic_WP_Pay_PaymentMethods::BANCONTACT  => Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::CREDIT_CARD,
 		);
 	}
 
@@ -140,6 +140,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 					->set_payment_method( Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::IDEAL );
 
 				break;
+			case Pronamic_WP_Pay_PaymentMethods::BANCONTACT :
 			case Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
 				$ogone_data_general
 					->set_brand( Pronamic_WP_Pay_Gateways_Ogone_Brands::BCMC )
