@@ -77,9 +77,9 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 	 */
 	public function get_supported_payment_methods() {
 		return array(
-			Pronamic_WP_Pay_PaymentMethods::IDEAL       => Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::IDEAL,
-			Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD => Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::CREDIT_CARD,
-			Pronamic_WP_Pay_PaymentMethods::BANCONTACT  => Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::CREDIT_CARD,
+			Pronamic_WP_Pay_PaymentMethods::IDEAL,
+			Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD,
+			Pronamic_WP_Pay_PaymentMethods::BANCONTACT,
 		);
 	}
 
