@@ -84,4 +84,17 @@ class Pronamic_WP_Pay_Gateways_Ogone_Config extends Pronamic_WP_Pay_GatewayConfi
 	public function get_payment_server_url() {
 		return $this->get_form_action_url();
 	}
+
+	/**
+	 * Get Direct Query URL.
+	 *
+	 * @return string
+	 */
+	public function get_direct_query_url() {
+		if ( 'test' === $this->mode ) {
+			return 'https://secure.ogone.com/ncol/test/querydirect.asp';
+		}
+
+		return 'https://secure.ogone.com/ncol/prod/querydirect.asp';
+	}
 }

@@ -63,6 +63,30 @@ class Pronamic_WP_Pay_Gateways_Ogone_Settings extends Pronamic_WP_Pay_GatewaySet
 			'methods'     => array( 'ogone_orderstandard_easy', 'ogone_orderstandard', 'ogone_directlink' ),
 		);
 
+		// API user ID
+		$fields[] = array(
+			'filter'      => FILTER_SANITIZE_STRING,
+			'section'     => 'ogone',
+			'meta_key'    => '_pronamic_gateway_ogone_user_id',
+			'title'       => __( 'API user ID', 'pronamic_ideal' ),
+			'type'        => 'text',
+			'classes'     => array( 'regular-text', 'code' ),
+			'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' ),
+			'tooltip'     => __( 'User ID of the API user in the payment provider dashboard: Configuration &raquo; Users', 'pronamic_ideal' ),
+		);
+
+		// API user password
+		$fields[] = array(
+			'filter'      => FILTER_SANITIZE_STRING,
+			'section'     => 'ogone',
+			'meta_key'    => '_pronamic_gateway_ogone_password',
+			'title'       => __( 'API user password', 'pronamic_ideal' ),
+			'type'        => 'password',
+			'classes'     => array( 'regular-text', 'code' ),
+			'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' ),
+			'tooltip'     => __( 'Password of the API user in the payment provider dashboard: Configuration &raquo; Users', 'pronamic_ideal' ),
+		);
+
 		// SHA-IN Pass phrase
 		$fields[] = array(
 			'filter'   => FILTER_SANITIZE_STRING,
@@ -114,30 +138,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_Settings extends Pronamic_WP_Pay_GatewaySet
 			),
 			'default'  => Pronamic_WP_Pay_Gateways_Ogone_HashAlgorithms::SHA_1,
 			'methods'  => array( 'ogone_orderstandard', 'ogone_directlink' ),
-		);
-
-		// User ID
-		$fields[] = array(
-			'filter'      => FILTER_SANITIZE_STRING,
-			'section'     => 'ogone',
-			'meta_key'    => '_pronamic_gateway_ogone_user_id',
-			'title'       => __( 'User ID', 'pronamic_ideal' ),
-			'type'        => 'text',
-			'classes'     => array( 'regular-text', 'code' ),
-			'methods'     => array( 'ogone_directlink' ),
-			'tooltip'     => __( 'DirectLink User ID.', 'pronamic_ideal' ),
-		);
-
-		// Password
-		$fields[] = array(
-			'filter'      => FILTER_SANITIZE_STRING,
-			'section'     => 'ogone',
-			'meta_key'    => '_pronamic_gateway_ogone_password',
-			'title'       => __( 'Password', 'pronamic_ideal' ),
-			'type'        => 'password',
-			'classes'     => array( 'regular-text', 'code' ),
-			'methods'     => array( 'ogone_directlink' ),
-			'tooltip'     => __( 'DirectLink password for the user.', 'pronamic_ideal' ),
 		);
 
 		// 3-D Secure

@@ -40,6 +40,20 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config extends Pronamic_WP_Pa
 	public $sha_out_pass_phrase;
 
 	/**
+	 * API user ID.
+	 *
+	 * @var string
+	 */
+	public $user_id;
+
+	/**
+	 * API user password.
+	 *
+	 * @var string
+	 */
+	public $password;
+
+	/**
 	 * Get gateway class.
 	 *
 	 * @return string

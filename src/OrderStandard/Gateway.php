@@ -36,8 +36,11 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 		$this->client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client( $this->config->psp_id );
 
 		$this->client->set_payment_server_url( $config->get_form_action_url() );
+		$this->client->set_direct_query_url( $config->get_direct_query_url() );
 		$this->client->set_pass_phrase_in( $config->sha_in_pass_phrase );
 		$this->client->set_pass_phrase_out( $config->sha_out_pass_phrase );
+		$this->client->set_user_id( $config->user_id );
+		$this->client->set_password( $config->password );
 
 		if ( ! empty( $config->hash_algorithm ) ) {
 			$this->client->set_hash_algorithm( $config->hash_algorithm );
@@ -175,6 +178,17 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 
 	/////////////////////////////////////////////////
 
+	public function payment( Pronamic_Pay_Payment $payment ) {
+		// Schedule status requests
+
+		$time = time();
+
+		// 30 seconds after a transaction request is sent
+		wp_schedule_single_event( $time + 30, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' => 30 ) );
+	}
+
+	/////////////////////////////////////////////////
+
 	/**
 	 * Get output fields
 	 *
@@ -203,6 +217,16 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 			$payment->set_status( $status );
 
 			$this->update_status_payment_note( $payment, $data );
+
+			return;
+		}
+
+		$order_id = Pronamic_WP_Pay_Gateways_Ogone_Util::get_order_id( $this->config->order_id, $payment );
+
+		$status = $this->client->get_order_status( $order_id );
+
+		if ( null !== $status ) {
+			$payment->set_status( $status );
 		}
 	}
 

@@ -200,4 +200,22 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	 * @var string
 	 */
 	const NC_ERROR_PLUS = 'NCERRORPLUS';
+
+	//////////////////////////////////////////////////
+	// API user parameters
+	//////////////////////////////////////////////////
+
+	/**
+	 * Indicator for the USERID parameter.
+	 *
+	 * @var string
+	 */
+	const USER_ID = 'USERID';
+
+	/**
+	 * Indicator for the PSWD parameter.
+	 *
+	 * @var string
+	 */
+	const PASSWORD = 'PSWD';
 }
