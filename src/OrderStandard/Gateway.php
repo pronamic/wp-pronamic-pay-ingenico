@@ -178,17 +178,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 
 	/////////////////////////////////////////////////
 
-	public function payment( Pronamic_Pay_Payment $payment ) {
-		// Schedule status requests
-
-		$time = time();
-
-		// 30 seconds after a transaction request is sent
-		wp_schedule_single_event( $time + 30, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' => 30 ) );
-	}
-
-	/////////////////////////////////////////////////
-
 	/**
 	 * Get output fields
 	 *
