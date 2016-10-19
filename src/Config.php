@@ -7,7 +7,8 @@
  * Company: Pronamic
  *
  * @author Remco Tolsma
- * @version 1.0.0
+ * @version 1.3.2
+ * @since 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_Config extends Pronamic_WP_Pay_GatewayConfig {
 	/**
@@ -88,6 +89,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Config extends Pronamic_WP_Pay_GatewayConfi
 	/**
 	 * Get Direct Query URL.
 	 *
+	 * @since 1.3.2
 	 * @return string
 	 */
 	public function get_direct_query_url() {

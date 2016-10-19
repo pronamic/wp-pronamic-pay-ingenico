@@ -7,6 +7,7 @@
  * Company: Pronamic
  *
  * @author Remco Tolsma
+ * @version 1.3.2
  * @since 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
@@ -208,6 +209,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	/**
 	 * Indicator for the USERID parameter.
 	 *
+	 * @since 1.3.2
 	 * @var string
 	 */
 	const USER_ID = 'USERID';
@@ -215,6 +217,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	/**
 	 * Indicator for the PSWD parameter.
 	 *
+	 * @since 1.3.2
 	 * @var string
 	 */
 	const PASSWORD = 'PSWD';

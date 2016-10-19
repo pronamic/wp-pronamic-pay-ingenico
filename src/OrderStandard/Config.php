@@ -7,7 +7,7 @@
  * Company: Pronamic
  *
  * @author Remco Tolsma
- * @version 1.2.9
+ * @version 1.3.2
  * @since 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config extends Pronamic_WP_Pay_Gateways_Ogone_Config {
@@ -42,6 +42,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config extends Pronamic_WP_Pa
 	/**
 	 * API user ID.
 	 *
+	 * @since 1.3.2
 	 * @var string
 	 */
 	public $user_id;
@@ -49,6 +50,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config extends Pronamic_WP_Pa
 	/**
 	 * API user password.
 	 *
+	 * @since 1.3.2
 	 * @var string
 	 */
 	public $password;

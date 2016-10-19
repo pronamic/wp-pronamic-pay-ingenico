@@ -23,6 +23,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	/**
 	 * Direct Query URL.
 	 *
+	 * @since 1.3.2
 	 * @var string
 	 */
 	private $direct_query_url;
