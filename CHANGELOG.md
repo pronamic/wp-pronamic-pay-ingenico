@@ -7,7 +7,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
-## [1.3.2] - 2016-10-19
+## [1.3.2] - 2016-10-20
 - Added `payment_status_request` feature support.
 - Updated SHA-IN parameters list from ingenico.com.
 - Updated SHA-OUT parameters list from ingenico.com.
