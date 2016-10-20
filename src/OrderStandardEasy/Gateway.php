@@ -7,7 +7,7 @@
  * Company: Pronamic
  *
  * @author Remco Tolsma
- * @version 1.3.0
+ * @version 1.3.2
  * @since 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_WP_Pay_Gateway {
@@ -24,7 +24,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_
 		$this->set_amount_minimum( 0.01 );
 
 		$this->client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client( $config->psp_id );
-		$this->client->set_payment_server_url( $config->get_payment_server_url() );
+		$this->client->set_payment_server_url( $config->get_form_action_url() );
 	}
 
 	/////////////////////////////////////////////////
@@ -56,7 +56,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_
 		$ogone_data_general = new Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper( $ogone_data );
 
 		$ogone_data_general
-			->set_order_id( Pronamic_WP_Pay_Gateways_Ogone_Util::get_order_id( $this->config->order_id, $payment ) )
+			->set_order_id( $payment->format_string( $this->config->order_id ) )
 			->set_order_description( $payment->get_description() )
 			->set_param_plus( 'payment_id=' . $payment->get_id() )
 			->set_currency( $payment->get_currency() )

@@ -7,7 +7,7 @@
  * Company: Pronamic
  *
  * @author Remco Tolsma
- * @version 1.3.0
+ * @version 1.3.2
  * @since 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_Pay_Gateway {
@@ -28,6 +28,10 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 	public function __construct( Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config $config ) {
 		parent::__construct( $config );
 
+		$this->supports = array(
+			'payment_status_request',
+		);
+
 		$this->set_method( Pronamic_WP_Pay_Gateway::METHOD_HTML_FORM );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 0.01 );
@@ -36,8 +40,11 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 		$this->client = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client( $this->config->psp_id );
 
 		$this->client->set_payment_server_url( $config->get_form_action_url() );
+		$this->client->set_direct_query_url( $config->get_direct_query_url() );
 		$this->client->set_pass_phrase_in( $config->sha_in_pass_phrase );
 		$this->client->set_pass_phrase_out( $config->sha_out_pass_phrase );
+		$this->client->set_user_id( $config->user_id );
+		$this->client->set_password( $config->password );
 
 		if ( ! empty( $config->hash_algorithm ) ) {
 			$this->client->set_hash_algorithm( $config->hash_algorithm );
@@ -77,9 +84,9 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 	 */
 	public function get_supported_payment_methods() {
 		return array(
-			Pronamic_WP_Pay_PaymentMethods::IDEAL       => Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::IDEAL,
-			Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD => Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::CREDIT_CARD,
-			Pronamic_WP_Pay_PaymentMethods::MISTER_CASH => Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::CREDIT_CARD,
+			Pronamic_WP_Pay_PaymentMethods::IDEAL,
+			Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD,
+			Pronamic_WP_Pay_PaymentMethods::BANCONTACT,
 		);
 	}
 
@@ -99,7 +106,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 		$ogone_data_general = new Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper( $ogone_data );
 
 		$ogone_data_general
-			->set_order_id( Pronamic_WP_Pay_Gateways_Ogone_Util::get_order_id( $this->config->order_id, $payment ) )
+			->set_order_id( $payment->format_string( $this->config->order_id ) )
 			->set_order_description( $payment->get_description() )
 			->set_param_plus( 'payment_id=' . $payment->get_id() )
 			->set_currency( $payment->get_currency() )
@@ -140,6 +147,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 					->set_payment_method( Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::IDEAL );
 
 				break;
+			case Pronamic_WP_Pay_PaymentMethods::BANCONTACT :
 			case Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
 				$ogone_data_general
 					->set_brand( Pronamic_WP_Pay_Gateways_Ogone_Brands::BCMC )
@@ -202,6 +210,16 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_P
 			$payment->set_status( $status );
 
 			$this->update_status_payment_note( $payment, $data );
+
+			return;
+		}
+
+		$order_id = $payment->format_string( $this->config->order_id );
+
+		$status = $this->client->get_order_status( $order_id );
+
+		if ( null !== $status ) {
+			$payment->set_status( $status );
 		}
 	}
 

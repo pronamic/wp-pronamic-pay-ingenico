@@ -21,6 +21,16 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Direct Query URL.
+	 *
+	 * @since 1.3.2
+	 * @var string
+	 */
+	private $direct_query_url;
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * The amount
 	 *
 	 * @var int
@@ -42,6 +52,22 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 * @var string
 	 */
 	private $pass_phrase_out;
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * API user ID.
+	 *
+	 * @var string
+	 */
+	private $user_id;
+
+	/**
+	 * API user password.
+	 *
+	 * @var string
+	 */
+	private $password;
 
 	//////////////////////////////////////////////////
 
@@ -82,6 +108,26 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 */
 	public function set_payment_server_url( $url ) {
 		$this->payment_server_url = $url;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get the Direct Query URL.
+	 *
+	 * @return string
+	 */
+	public function get_direct_query_url() {
+		return $this->direct_query_url;
+	}
+
+	/**
+	 * Set the Direct Query URL.
+	 *
+	 * @param string $url
+	 */
+	public function set_direct_query_url( $url ) {
+		$this->direct_query_url = $url;
 	}
 
 	//////////////////////////////////////////////////
@@ -145,6 +191,46 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	}
 
 	//////////////////////////////////////////////////
+
+	/**
+	 * Get API user ID.
+	 *
+	 * @return string
+	 */
+	public function get_user_id() {
+		return $this->user_id;
+	}
+
+	/**
+	 * Set API user ID.
+	 *
+	 * @param string $user_id
+	 */
+	public function set_user_id( $user_id ) {
+		$this->user_id = $user_id;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get API user password.
+	 *
+	 * @return string
+	 */
+	public function get_password() {
+		return $this->password;
+	}
+
+	/**
+	 * Set API user password.
+	 *
+	 * @param string $pass_phrase_out
+	 */
+	public function set_password( $password ) {
+		$this->password = $password;
+	}
+
+	//////////////////////////////////////////////////
 	// Data
 	//////////////////////////////////////////////////
 
@@ -199,6 +285,46 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 		Pronamic_WP_Pay_Gateways_Ogone_Security::sign_data( $this->data, $this->get_pass_phrase_in(), $this->hash_algorithm );
 
 		return $this->data->get_fields();
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get order status
+	 */
+	public function get_order_status( $order_id ) {
+		$return = null;
+
+		// API user ID and password
+		$user_id  = $this->get_user_id();
+		$password = $this->get_password();
+
+		if ( '' === $user_id || '' === $password ) {
+			return $return;
+		}
+
+		$result = Pronamic_WP_Pay_Util::remote_get_body( $this->get_direct_query_url(), 200, array(
+			'method'  => 'POST',
+			'body'    => array(
+				Pronamic_WP_Pay_Gateways_Ogone_Parameters::ORDERID  => $order_id,
+				Pronamic_WP_Pay_Gateways_Ogone_Parameters::PSPID    => $this->data->get_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::PSPID ),
+				Pronamic_WP_Pay_Gateways_Ogone_Parameters::USER_ID  => $user_id,
+				Pronamic_WP_Pay_Gateways_Ogone_Parameters::PASSWORD => $password,
+			),
+			'timeout' => 30,
+		) );
+
+		$xml = Pronamic_WP_Pay_Util::simplexml_load_string( $result );
+
+		if ( ! is_wp_error( $xml ) ) {
+			$order_response = Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser::parse( $xml );
+
+			$status = Pronamic_WP_Pay_XML_Security::filter( $order_response->status );
+
+			$return = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $status );
+		}
+
+		return $return;
 	}
 
 	//////////////////////////////////////////////////

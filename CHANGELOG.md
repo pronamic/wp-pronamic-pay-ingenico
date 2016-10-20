@@ -7,6 +7,16 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [1.3.2] - 2016-10-20
+- Added `payment_status_request` feature support.
+- Updated SHA-IN parameters list from ingenico.com.
+- Updated SHA-OUT parameters list from ingenico.com.
+- Removed schedule status check event, this will be part of the Pronamic iDEAL plugin.
+- Use new $payment->format_string() function, and remove util function.
+- Added support for new Bancontact constant.
+- Fixed method `get_default_form_action_url()` visibility.
+- Added support for form action URL for OrderStandard Easy.
+
 ## [1.3.1] - 2016-07-06
 - Get payment ID from request data.
 
@@ -65,7 +75,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## 1.0.0 - 2015-01-19
 - First release.
 
-[unreleased]: https://github.com/wp-pay-gateways/ogone/compare/1.3.1...HEAD
+[unreleased]: https://github.com/wp-pay-gateways/ogone/compare/1.3.2...HEAD
+[1.3.2]: https://github.com/wp-pay-gateways/ogone/compare/1.3.1...1.3.2
 [1.3.1]: https://github.com/wp-pay-gateways/ogone/compare/1.3.0...1.3.1
 [1.3.0]: https://github.com/wp-pay-gateways/ogone/compare/1.2.9...1.3.0
 [1.2.9]: https://github.com/wp-pay-gateways/ogone/compare/1.2.8...1.2.9

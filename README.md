@@ -8,7 +8,7 @@
 [![Total Downloads](https://poser.pugx.org/wp-pay-gateways/ogone/downloads.svg)](https://packagist.org/packages/wp-pay-gateways/ogone)
 [![Latest Unstable Version](https://poser.pugx.org/wp-pay-gateways/ogone/v/unstable.svg)](https://packagist.org/packages/wp-pay-gateways/ogone)
 [![License](https://poser.pugx.org/wp-pay-gateways/ogone/license.svg)](https://packagist.org/packages/wp-pay-gateways/ogone)
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](http://gruntjs.com/)
 
 ## Production Environment
 

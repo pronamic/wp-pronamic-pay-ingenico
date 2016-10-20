@@ -43,7 +43,13 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 
 	/////////////////////////////////////////////////
 
-	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment, $payment_method = null ) {
+	/**
+	 * Start
+	 *
+	 * @see Pronamic_WP_Pay_Gateway::start()
+	 * @param Pronamic_Pay_Payment $payment
+	 */
+	public function start( Pronamic_Pay_Payment $payment ) {
 		$ogone_data = new Pronamic_WP_Pay_Gateways_Ogone_Data();
 
 		// General
@@ -51,7 +57,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 
 		$ogone_data_general
 			->set_psp_id( $this->client->psp_id )
-			->set_order_id( Pronamic_WP_Pay_Gateways_Ogone_Util::get_order_id( $this->config->order_id, $payment ) )
+			->set_order_id( $payment->format_string( $this->config->order_id ) )
 			->set_order_description( $payment->get_description() )
 			->set_param_plus( 'payment_id=' . $payment->get_id() )
 			->set_currency( $payment->get_currency() )
@@ -78,16 +84,14 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 			->set_password( $this->client->password );
 
 		// Credit card
-		/*
 		$ogone_data_credit_card = new Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper( $ogone_data );
 
-		$credit_card = $data->get_credit_card();
+		$credit_card = $payment->get_credit_card();
 
 		$ogone_data_credit_card
 			->set_number( $credit_card->get_number() )
 			->set_expiration_date( $credit_card->get_expiration_date() )
 			->set_security_code( $credit_card->get_security_code() );
-		*/
 
 		$ogone_data->set_field( 'OPERATION', 'SAL' );
 

@@ -7,7 +7,8 @@
  * Company: Pronamic
  *
  * @author Remco Tolsma
- * @version 1.0.0
+ * @version 1.3.2
+ * @since 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_Config extends Pronamic_WP_Pay_GatewayConfig {
 	/**
@@ -45,7 +46,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Config extends Pronamic_WP_Pay_GatewayConfi
 	 * @since 1.2.9
 	 * @return string
 	 */
-	private function get_default_form_action_url() {
+	protected function get_default_form_action_url() {
 		$is_utf8 = strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) === 0;
 
 		if ( $is_utf8 ) {
@@ -83,5 +84,19 @@ class Pronamic_WP_Pay_Gateways_Ogone_Config extends Pronamic_WP_Pay_GatewayConfi
 	 */
 	public function get_payment_server_url() {
 		return $this->get_form_action_url();
+	}
+
+	/**
+	 * Get Direct Query URL.
+	 *
+	 * @since 1.3.2
+	 * @return string
+	 */
+	public function get_direct_query_url() {
+		if ( 'test' === $this->mode ) {
+			return 'https://secure.ogone.com/ncol/test/querydirect.asp';
+		}
+
+		return 'https://secure.ogone.com/ncol/prod/querydirect.asp';
 	}
 }

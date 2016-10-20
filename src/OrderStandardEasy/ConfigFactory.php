@@ -7,7 +7,8 @@
  * Company: Pronamic
  *
  * @author Remco Tolsma
- * @version 1.0.0
+ * @version 1.3.2
+ * @since 1.0.0
  */
 class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_ConfigFactory extends Pronamic_WP_Pay_GatewayConfigFactory {
 	private $config_class;
@@ -24,8 +25,14 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_ConfigFactory extends Pro
 
 		$config = new $config_class();
 
+		$form_action_url = get_post_meta( $post_id, '_pronamic_gateway_ogone_form_action_url', true );
+
+		if ( '' !== $form_action_url ) {
+			$config->set_form_action_url( $form_action_url );
+		}
+
+		$config->mode     = $mode;
 		$config->psp_id   = get_post_meta( $post_id, '_pronamic_gateway_ogone_psp_id', true );
-		$config->mode     = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
 		$config->order_id = get_post_meta( $post_id, '_pronamic_gateway_ogone_order_id', true );
 
 		return $config;
