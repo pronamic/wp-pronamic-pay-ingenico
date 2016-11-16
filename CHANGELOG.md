@@ -7,6 +7,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [1.3.3] - 2016-11-16
+- Removed specific ABN AMRO iDEAL Easy PSPID test description.
+
 ## [1.3.2] - 2016-10-20
 - Added `payment_status_request` feature support.
 - Updated SHA-IN parameters list from ingenico.com.
@@ -75,7 +78,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## 1.0.0 - 2015-01-19
 - First release.
 
-[unreleased]: https://github.com/wp-pay-gateways/ogone/compare/1.3.2...HEAD
+[unreleased]: https://github.com/wp-pay-gateways/ogone/compare/1.3.3...HEAD
+[1.3.3]: https://github.com/wp-pay-gateways/ogone/compare/1.3.2...1.3.3
 [1.3.2]: https://github.com/wp-pay-gateways/ogone/compare/1.3.1...1.3.2
 [1.3.1]: https://github.com/wp-pay-gateways/ogone/compare/1.3.0...1.3.1
 [1.3.0]: https://github.com/wp-pay-gateways/ogone/compare/1.2.9...1.3.0
