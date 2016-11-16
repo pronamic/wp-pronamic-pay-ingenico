@@ -1,6 +1,6 @@
 {
   "name": "ogone",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Ogone driver for the WordPress payment processing library.",
   "repository": {
     "type": "git",
