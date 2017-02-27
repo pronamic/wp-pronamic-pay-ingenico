@@ -88,10 +88,12 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 
 		$credit_card = $payment->get_credit_card();
 
-		$ogone_data_credit_card
-			->set_number( $credit_card->get_number() )
-			->set_expiration_date( $credit_card->get_expiration_date() )
-			->set_security_code( $credit_card->get_security_code() );
+		if ( ! $credit_card ) {
+			$ogone_data_credit_card
+				->set_number( $credit_card->get_number() )
+				->set_expiration_date( $credit_card->get_expiration_date() )
+				->set_security_code( $credit_card->get_security_code() );
+		}
 
 		$ogone_data->set_field( 'OPERATION', 'SAL' );
 
