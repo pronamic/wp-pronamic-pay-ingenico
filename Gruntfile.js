@@ -18,7 +18,7 @@ module.exports = function( grunt ) {
 					'**/*.php',
 					'!node_modules/**',
 					'!vendor/**'
-				],
+				]
 			},
 			options: {
 				bin: 'vendor/bin/phpcs',
@@ -55,8 +55,11 @@ module.exports = function( grunt ) {
 		
 		// PHPUnit
 		phpunit: {
-			classes: {},
-		},
+			options: {
+				bin: 'vendor/bin/phpunit'
+			},
+			classes: {}
+		}
 	} );
 
 	// Default task(s).
