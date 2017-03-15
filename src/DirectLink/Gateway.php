@@ -88,7 +88,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_
 
 		$credit_card = $payment->get_credit_card();
 
-		if ( ! $credit_card ) {
+		if ( $credit_card ) {
 			$ogone_data_credit_card
 				->set_number( $credit_card->get_number() )
 				->set_expiration_date( $credit_card->get_expiration_date() )
