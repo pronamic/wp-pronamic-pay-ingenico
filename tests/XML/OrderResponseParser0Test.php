@@ -1,12 +1,14 @@
 <?php
 
+use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\OrderResponse;
+
 class Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser0Test extends WP_UnitTestCase {
 	/**
 	 * Test initialize.
 	 *
 	 * @return SimpleXMLElement
 	 */
-	function test_init() {
+	public function test_init() {
 		$filename = dirname( __FILE__ ) . '/../Mock/response-status-0-50001123.xml';
 
 		$simplexml = simplexml_load_file( $filename );
@@ -20,13 +22,15 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser0Test extends WP_UnitTes
 	 * Test parser.
 	 *
 	 * @depends test_init
+	 *
 	 * @param SimpleXMLElement $simplexml
-	 * @return Pronamic_WP_Pay_Gateways_Ogone_DirectLink_OrderResponse
+	 *
+	 * @return OrderResponse
 	 */
-	function test_parser( $simplexml ) {
+	public function test_parser( $simplexml ) {
 		$order_response = Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser::parse( $simplexml );
 
-		$this->assertInstanceOf( 'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_OrderResponse', $order_response );
+		$this->assertInstanceOf( 'Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\OrderResponse', $order_response );
 
 		return $order_response;
 	}
@@ -35,10 +39,11 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser0Test extends WP_UnitTes
 	 * Test values.
 	 *
 	 * @depends test_parser
-	 * @param Pronamic_WP_Pay_Gateways_Ogone_DirectLink_OrderResponse $order_response
+	 *
+	 * @param OrderResponse $order_response
 	 */
-	function test_values( $order_response ) {
-		$expected = new Pronamic_WP_Pay_Gateways_Ogone_DirectLink_OrderResponse();
+	public function test_values( $order_response ) {
+		$expected                = new OrderResponse();
 		$expected->order_id      = '52';
 		$expected->pay_id        = '0';
 		$expected->nc_error      = '50001123';

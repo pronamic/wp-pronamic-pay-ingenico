@@ -1,7 +1,11 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
+
+use Pronamic\WordPress\Pay\Gateways\Ingenico\Parameters;
+
 /**
- * Title: Ogone data URL helper class
+ * Title: Ingenico data URL helper class
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
@@ -10,7 +14,7 @@
  * @version 1.1.0
  * @since 1.0.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper extends Pronamic_WP_Pay_Gateways_Ogone_DataHelper {
+class DataUrlHelper extends DataHelper {
 	/**
 	 * Set accept URL
 	 *
@@ -19,7 +23,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper extends Pronamic_WP_Pay_Gatew
 	 * @param string $url
 	 */
 	public function set_accept_url( $url ) {
-		return $this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::ACCEPT_URL, $url );
+		return $this->set_field( Parameters::ACCEPT_URL, $url );
 	}
 
 	//////////////////////////////////////////////////
@@ -32,7 +36,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper extends Pronamic_WP_Pay_Gatew
 	 * @param string $url
 	 */
 	public function set_cancel_url( $url ) {
-		return $this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::CANCEL_URL, $url );
+		return $this->set_field( Parameters::CANCEL_URL, $url );
 	}
 
 	//////////////////////////////////////////////////
@@ -45,7 +49,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper extends Pronamic_WP_Pay_Gatew
 	 * @param string $url
 	 */
 	public function set_exception_url( $url ) {
-		return $this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::EXCEPTION_URL, $url );
+		return $this->set_field( Parameters::EXCEPTION_URL, $url );
 	}
 
 	//////////////////////////////////////////////////
@@ -60,7 +64,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper extends Pronamic_WP_Pay_Gatew
 	 * @param string $url
 	 */
 	public function set_decline_url( $url ) {
-		return $this->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::DECLINE_URL, $url );
+		return $this->set_field( Parameters::DECLINE_URL, $url );
 	}
 
 	//////////////////////////////////////////////////

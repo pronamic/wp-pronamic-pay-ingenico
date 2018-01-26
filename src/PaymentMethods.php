@@ -1,7 +1,9 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
+
 /**
- * Title: Ogone payment methods (PM parameter)
+ * Title: Ingenico payment methods (PM parameter)
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
@@ -11,7 +13,7 @@
  * @since 1.1.0
  * @see https://github.com/wp-pay-gateways/ogone/wiki/Brands
  */
-class Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods {
+class PaymentMethods {
 	/**
 	 * Acceptgiro
 	 *

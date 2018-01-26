@@ -1,7 +1,9 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
+
 /**
- * Title: Ogone parameters constants
+ * Title: Ingenico parameters constants
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
@@ -10,7 +12,7 @@
  * @version 1.3.2
  * @since 1.0.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
+class Parameters {
 	//////////////////////////////////////////////////
 	// IN
 	//////////////////////////////////////////////////
@@ -197,7 +199,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	 *
 	 * Error description of the NCERROR code.
 	 * The value of this parameter is 0 or empty if not applicable.
-
+	 *
 	 * @var string
 	 */
 	const NC_ERROR_PLUS = 'NCERRORPLUS';

@@ -1,7 +1,9 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
+
 /**
- * Title: Ogone utility
+ * Title: Ingenico utility
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
@@ -10,7 +12,7 @@
  * @version 1.3.0
  * @since 1.0.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_Util {
+class Util {
 	/**
 	 * Get parameter variable
 	 *

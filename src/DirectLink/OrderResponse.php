@@ -1,7 +1,9 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink;
+
 /**
- * Title: Ogone DirectLink order response
+ * Title: Ingenico DirectLink order response
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
@@ -9,7 +11,7 @@
  * @author Remco Tolsma
  * @since 1.0.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_OrderResponse {
+class OrderResponse {
 	public $order_id;
 
 	public $pay_id;

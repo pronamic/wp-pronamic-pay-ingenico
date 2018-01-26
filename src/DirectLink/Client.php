@@ -1,7 +1,16 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink;
+
+use Pronamic\WordPress\Pay\Core\Util;
+use Pronamic\WordPress\Pay\Core\XML\Security;
+use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink;
+use Pronamic\WordPress\Pay\Gateways\Ingenico\Error;
+use Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser;
+use WP_Error;
+
 /**
- * Title: Ogone DirectLink
+ * Title: Ingenico DirectLink client
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
@@ -9,7 +18,7 @@
  * @author Remco Tolsma
  * @since 1.0.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Client {
+class Client {
 	/**
 	 * Error
 	 *
@@ -32,7 +41,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Client {
 	 * Constructs and initializes an Ogone DirectLink client
 	 */
 	public function __construct() {
-		$this->api_url = Pronamic_WP_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_URL;
+		$this->api_url = DirectLink::API_PRODUCTION_URL;
 	}
 
 	/////////////////////////////////////////////////
@@ -52,11 +61,13 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Client {
 	 * Order direct
 	 *
 	 * @param array $data
+	 *
+	 * @return bool|OrderResponse
 	 */
 	public function order_direct( array $data = array() ) {
 		$order_response = false;
 
-		$result = Pronamic_WP_Pay_Util::remote_get_body( $this->api_url, 200, array(
+		$result = Util::remote_get_body( $this->api_url, 200, array(
 			'method'    => 'POST',
 			'sslverify' => false,
 			'body'      => $data,
@@ -65,7 +76,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Client {
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;
 		} else {
-			$xml = Pronamic_WP_Pay_Util::simplexml_load_string( $result );
+			$xml = Util::simplexml_load_string( $result );
 
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
@@ -73,9 +84,9 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Client {
 				$order_response = Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser::parse( $xml );
 
 				if ( ! empty( $order_response->nc_error ) ) {
-					$ogone_error = new Pronamic_WP_Pay_Gateways_Ogone_Error(
-						Pronamic_WP_Pay_XML_Security::filter( $order_response->nc_error ),
-						Pronamic_WP_Pay_XML_Security::filter( $order_response->nc_error_plus )
+					$ogone_error = new Error(
+						Security::filter( $order_response->nc_error ),
+						Security::filter( $order_response->nc_error_plus )
 					);
 
 					$this->error = new WP_Error( 'ogone_error', (string) $ogone_error, $ogone_error );

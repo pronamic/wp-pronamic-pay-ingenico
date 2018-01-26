@@ -24,7 +24,9 @@
 		"source": "https://github.com/wp-pay-gateways/ogone"
 	},
 	"autoload": {
-		"classmap": ["src/"]
+		"psr-4": {
+			"Pronamic\\WordPress\\Pay\\Gateways\\Ingenico\\": "src/"
+		}
 	},
 	"config": {
 		"platform": {

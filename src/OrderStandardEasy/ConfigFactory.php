@@ -1,7 +1,11 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandardEasy;
+
+use Pronamic\WordPress\Pay\Core\GatewayConfigFactory;
+
 /**
- * Title: Ogone order standard easy config factory
+ * Title: Ingenico order standard easy config factory
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
@@ -10,10 +14,10 @@
  * @version 1.3.2
  * @since 1.0.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_ConfigFactory extends Pronamic_WP_Pay_GatewayConfigFactory {
+class ConfigFactory extends GatewayConfigFactory {
 	private $config_class;
 
-	public function __construct( $config_class = 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Config', $config_test_class = 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Config' ) {
+	public function __construct( $config_class = __NAMESPACE__ . '\Config', $config_test_class = __NAMESPACE__ . '\Config' ) {
 		$this->config_class      = $config_class;
 		$this->config_test_class = $config_test_class;
 	}

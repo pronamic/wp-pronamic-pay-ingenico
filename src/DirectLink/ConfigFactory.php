@@ -1,7 +1,12 @@
 <?php
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink;
+
+use Pronamic\WordPress\Pay\Core\Gateway;
+use Pronamic\WordPress\Pay\Core\GatewayConfigFactory;
+use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink;
 
 /**
- * Title: Ogone DirectLink config factory
+ * Title: Ingenico DirectLink config factory
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
@@ -9,9 +14,9 @@
  * @author Remco Tolsma
  * @version 1.0.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_ConfigFactory extends Pronamic_WP_Pay_GatewayConfigFactory {
+class ConfigFactory extends GatewayConfigFactory {
 	public function get_config( $post_id ) {
-		$config = new Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Config();
+		$config = new Config();
 
 		$config->mode                = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
 		$config->psp_id              = get_post_meta( $post_id, '_pronamic_gateway_ogone_psp_id', true );
@@ -26,18 +31,21 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_ConfigFactory extends Pronamic_W
 		// API URL
 		$is_utf8 = strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) === 0;
 
-		if ( $is_utf8 ) {
-			$config->api_url = Pronamic_WP_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_UTF8_URL;
-		} else {
-			$config->api_url = Pronamic_WP_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_URL;
-		}
+		switch ( $config->mode ) {
+			case Gateway::MODE_TEST:
+				if ( $is_utf8 ) {
+					$config->api_url = DirectLink::API_TEST_UTF8_URL;
+				} else {
+					$config->api_url = DirectLink::API_TEST_URL;
+				}
 
-		if ( Pronamic_IDeal_IDeal::MODE_TEST === $config->mode ) {
-			if ( $is_utf8 ) {
-				$config->api_url = Pronamic_WP_Pay_Gateways_Ogone_DirectLink::API_TEST_UTF8_URL;
-			} else {
-				$config->api_url = Pronamic_WP_Pay_Gateways_Ogone_DirectLink::API_TEST_URL;
-			}
+				break;
+			default:
+				if ( $is_utf8 ) {
+					$config->api_url = DirectLink::API_PRODUCTION_UTF8_URL;
+				} else {
+					$config->api_url = DirectLink::API_PRODUCTION_URL;
+				}
 		}
 
 		return $config;

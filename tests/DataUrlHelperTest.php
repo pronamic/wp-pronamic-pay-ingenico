@@ -1,4 +1,6 @@
 <?php
+use Pronamic\WordPress\Pay\Gateways\Ingenico\Data;
+use Pronamic\WordPress\Pay\Gateways\Ingenico\DataUrlHelper;
 
 /**
  * Title: Ogone data URL helper class test
@@ -15,9 +17,9 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelperTest extends WP_UnitTestCase {
 	 * Test helper
 	 */
 	function test_helper() {
-		$data = new Pronamic_WP_Pay_Gateways_Ogone_Data();
+		$data = new Data();
 
-		$helper = new Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelper( $data );
+		$helper = new DataUrlHelper( $data );
 
 		$helper
 			->set_accept_url( 'http://www.example.com/payment/accepted/' )

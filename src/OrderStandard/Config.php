@@ -1,7 +1,11 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard;
+
+use Pronamic\WordPress\Pay\Gateways\Ingenico\Config as Ingenico_Config;
+
 /**
- * Title: Ogone OrderStandard config
+ * Title: Ingenico OrderStandard config
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
@@ -10,7 +14,7 @@
  * @version 1.3.2
  * @since 1.0.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config extends Pronamic_WP_Pay_Gateways_Ogone_Config {
+class Config extends Ingenico_Config {
 	/**
 	 * Hash algorithm.
 	 *

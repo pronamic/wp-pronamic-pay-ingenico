@@ -1,4 +1,7 @@
 <?php
+use Pronamic\WordPress\Pay\Gateways\Ingenico\Data;
+use Pronamic\WordPress\Pay\Gateways\Ingenico\DataCreditCardHelper;
+use Pronamic\WordPress\Pay\Gateways\Ingenico\Ingenico;
 
 /**
  * Title: Ogone data default helper class test
@@ -15,9 +18,9 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelperTest extends WP_UnitTes
 	 * Test helper
 	 */
 	function test_helper() {
-		$data = new Pronamic_WP_Pay_Gateways_Ogone_Data();
+		$data = new Data();
 
-		$helper = new Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper( $data );
+		$helper = new DataCreditCardHelper( $data );
 
 		$ed = new DateTime();
 
@@ -28,7 +31,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelperTest extends WP_UnitTes
 
 		$this->assertEquals( array(
 			'CARDNO' => '378282246310005',
-			'ED'     => $ed->format( Pronamic_WP_Pay_Gateways_Ogone_Ogone::EXPIRATION_DATE_FORMAT ),
+			'ED'     => $ed->format( Ingenico::EXPIRATION_DATE_FORMAT ),
 			'CVC'    => '123',
 		), $data->get_fields() );
 	}

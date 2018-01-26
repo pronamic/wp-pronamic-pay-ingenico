@@ -1,7 +1,9 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
+
 /**
- * Title: Ogone data
+ * Title: Ingenico data
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
@@ -9,7 +11,7 @@
  * @author Remco Tolsma
  * @since 1.0.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_Data {
+class Data {
 	/**
 	 * Fields
 	 *
@@ -59,7 +61,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_Data {
 	 *
 	 * @param string $name
 	 * @param string $value
-	 * @return Pronamic_WP_Pay_Gateways_Ogone_Data
+	 *
+	 * @return Data
 	 */
 	public function set_field( $name, $value ) {
 		$this->fields[ $name ] = $value;

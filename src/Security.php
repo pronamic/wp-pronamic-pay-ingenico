@@ -1,15 +1,16 @@
 <?php
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
 /**
- * Title: Ogone security class
-* Description:
-* Copyright: Copyright (c) 2005 - 2016
-* Company: Pronamic
+ * Title: Ingenico security class
+ * Description:
+ * Copyright: Copyright (c) 2005 - 2016
+ * Company: Pronamic
  *
-* @author Remco Tolsma
-* @version 1.0.0
-*/
-class Pronamic_WP_Pay_Gateways_Ogone_Security {
+ * @author Remco Tolsma
+ * @version 1.0.0
+ */
+class Security {
 	/**
 	 * The Ogone calculations parameters in
 	 *
@@ -127,12 +128,12 @@ class Pronamic_WP_Pay_Gateways_Ogone_Security {
 
 	/////////////////////////////////////////////////
 
-	public static function sign_data( Pronamic_WP_Pay_Gateways_Ogone_Data $data, $pass_phrase, $hash_algorithm ) {
-		$calculation_fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculations_parameters_in();
+	public static function sign_data( Data $data, $pass_phrase, $hash_algorithm ) {
+		$calculation_fields = Security::get_calculations_parameters_in();
 
-		$fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $data->get_fields() );
+		$fields = Security::get_calculation_fields( $calculation_fields, $data->get_fields() );
 
-		$signature = Pronamic_WP_Pay_Gateways_Ogone_Security::get_signature( $fields, $pass_phrase, $hash_algorithm );
+		$signature = Security::get_signature( $fields, $pass_phrase, $hash_algorithm );
 
 		$data->set_field( 'SHASign', $signature );
 	}

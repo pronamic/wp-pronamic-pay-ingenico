@@ -1,7 +1,9 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard;
+
 /**
- * Title: Ogone OrderStandard test config
+ * Title: Ingenico OrderStandard test config
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
@@ -10,7 +12,7 @@
  * @version 1.2.9
  * @since 1.0.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_TestConfig extends Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config {
+class TestConfig extends Config {
 	/**
 	 * Get the default Ogone e-Commerce form action URL.
 	 *

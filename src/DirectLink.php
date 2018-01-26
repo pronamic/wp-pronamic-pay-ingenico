@@ -1,7 +1,9 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
+
 /**
- * Title: Ogone DirectLink
+ * Title: Ingenico DirectLink
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
@@ -9,7 +11,7 @@
  * @author Remco Tolsma
  * @since 1.0.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_DirectLink {
+class DirectLink {
 	/**
 	 * Ogone DirectLink test API endpoint URL
 	 *

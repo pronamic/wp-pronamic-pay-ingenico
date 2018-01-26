@@ -1,7 +1,11 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
+
+use Pronamic\WordPress\Pay\Core\Statuses as Core_Statuses;
+
 /**
- * Title: Ogone statuses constants
+ * Title: Ingenico statuses constants
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
@@ -10,7 +14,7 @@
  * @version 1.0.0
  * @see http://pronamic.nl/wp-content/uploads/2012/11/ABN-AMRO-List-of-the-payment-statuses-and-error-codes.pdf
  */
-class Pronamic_WP_Pay_Gateways_Ogone_Statuses {
+class Statuses {
 	/**
 	 * Incomplete or invalid.
 	 *
@@ -306,11 +310,11 @@ class Pronamic_WP_Pay_Gateways_Ogone_Statuses {
 			case self::PAYMENT_DECLIEND_BY_THE_ACQUIRER :
 			case self::PAYMENT_REFUSED :
 			case self::REFUND_DECLINED_BY_THE_ACQUIRER :
-				return Pronamic_WP_Pay_Statuses::FAILURE;
+				return Core_Statuses::FAILURE;
 			case self::CANCELLED_BY_CLIENT :
 			case self::AUTHORIZED_AND_CANCELLED :
 			case self::AUTHORIZED_AND_CANCELLED_64 :
-				return Pronamic_WP_Pay_Statuses::CANCELLED;
+				return Core_Statuses::CANCELLED;
 			case self::ORDER_STORED :
 			case self::STORED_WAITING_EXTERNAL_RESULT :
 			case self::WAITING_CLIENT_PAYMENT :
@@ -332,14 +336,14 @@ class Pronamic_WP_Pay_Gateways_Ogone_Statuses {
 			case self::PAYMENT_UNCERTAIN :
 			case self::PAYMENT_PROCESSING :
 			case self::BEING_PROCESSED :
-				return Pronamic_WP_Pay_Statuses::OPEN;
+				return Core_Statuses::OPEN;
 			case self::AUTHORIZED :
 			case self::PAYMENT_DELETED :
 			case self::REFUND :
 			case self::REFUND_PROCESSED_BY_MERCHANT :
 			case self::PAYMENT_REQUESTED :
 			case self::PAYMENT_PROCESSED_BY_MERCHANT :
-				return Pronamic_WP_Pay_Statuses::SUCCESS;
+				return Core_Statuses::SUCCESS;
 			default :
 				return null;
 		}

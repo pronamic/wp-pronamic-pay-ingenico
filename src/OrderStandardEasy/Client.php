@@ -1,7 +1,12 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandardEasy;
+
+use Pronamic\WordPress\Pay\Gateways\Ingenico\Data;
+use Pronamic\WordPress\Pay\Gateways\Ingenico\Parameters;
+
 /**
- * Title: Ogone OrderStandard easy client
+ * Title: Ingenico OrderStandard easy client
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
@@ -10,7 +15,7 @@
  * @version 1.2.1
  * @since 1.0.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
+class Client {
 	/**
 	 * An payment type indicator for iDEAL
 	 *
@@ -44,8 +49,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 * @param string $psp_id
 	 */
 	public function __construct( $psp_id ) {
-		$this->data = new Pronamic_WP_Pay_Gateways_Ogone_Data();
-		$this->data->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::PSPID, $psp_id );
+		$this->data = new Data();
+		$this->data->set_field( Parameters::PSPID, $psp_id );
 		$this->data->set_field( 'PM', self::PAYMENT_TYPE_IDEAL );
 	}
 
@@ -54,7 +59,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	/**
 	 * Get the payment server URL
 	 *
-	 * @return the payment server URL
+	 * @return string the payment server URL
 	 */
 	public function get_payment_server_url() {
 		return $this->payment_server_url;
@@ -76,7 +81,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	/**
 	 * Get data
 	 *
-	 * @return Pronamic_WP_Pay_Gateways_Ogone_Data
+	 * @return Data
 	 */
 	public function get_data() {
 		return $this->data;

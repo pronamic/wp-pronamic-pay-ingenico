@@ -1,7 +1,12 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
+
+use Pronamic\WordPress\Pay\Gateways\Ingenico\DataGeneralHelper;
+use Pronamic\WordPress\Pay\Gateways\Ingenico\DataHelper;
+
 /**
- * Title: Ogone data customer helper class
+ * Title: Ingenico data customer helper class
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
@@ -11,14 +16,15 @@
  * @version 1.3.0
  * @since 1.3.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_DataCustomerHelper extends Pronamic_WP_Pay_Gateways_Ogone_DataHelper {
+class DataCustomerHelper extends DataHelper {
 	/**
 	 * Set customer name.
 	 *
 	 * Will be pre-initialised (but still editable) in the Customer Name field of the credit card details.
 	 *
 	 * @param string $email
-	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
+	 *
+	 * @return DataGeneralHelper
 	 */
 	public function set_name( $name ) {
 		return $this->set_field( 'CN', $name );
@@ -28,7 +34,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataCustomerHelper extends Pronamic_WP_Pay_
 	 * Set customer email address.
 	 *
 	 * @param string $email
-	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
+	 *
+	 * @return DataGeneralHelper
 	 */
 	public function set_email( $email ) {
 		return $this->set_field( 'EMAIL', $email );
@@ -38,7 +45,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataCustomerHelper extends Pronamic_WP_Pay_
 	 * Set customer street name and number.
 	 *
 	 * @param string $adress
-	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
+	 *
+	 * @return DataGeneralHelper
 	 */
 	public function set_address( $address ) {
 		return $this->set_field( 'OWNERADDRESS', $address );
@@ -48,7 +56,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataCustomerHelper extends Pronamic_WP_Pay_
 	 * Set customer postcode or ZIP code.
 	 *
 	 * @param string $zip
-	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
+	 *
+	 * @return DataGeneralHelper
 	 */
 	public function set_zip( $zip ) {
 		return $this->set_field( 'OWNERZIP', $zip );
@@ -58,7 +67,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataCustomerHelper extends Pronamic_WP_Pay_
 	 * Set customer town/city/...
 	 *
 	 * @param string $town
-	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
+	 *
+	 * @return DataGeneralHelper
 	 */
 	public function set_town( $town ) {
 		return $this->set_field( 'OWNERTOWN', $town );
@@ -68,7 +78,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataCustomerHelper extends Pronamic_WP_Pay_
 	 * Set customer country.
 	 *
 	 * @param string $city
-	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
+	 *
+	 * @return DataGeneralHelper
 	 */
 	public function set_country( $country ) {
 		return $this->set_field( 'OWNERCTY', $country );
@@ -78,7 +89,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataCustomerHelper extends Pronamic_WP_Pay_
 	 * Set customer telephone number.
 	 *
 	 * @param string $number
-	 * @return Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper
+	 *
+	 * @return DataGeneralHelper
 	 */
 	public function set_telephone_number( $number ) {
 		return $this->set_field( 'OWNERTELNO', $number );

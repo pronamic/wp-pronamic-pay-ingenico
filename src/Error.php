@@ -1,15 +1,17 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
+
 /**
- * Title: Ogone error
+ * Title: Ingenico error
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
  *
  * @author Remco Tolsma
  * @since 1.0.0
-*/
-class Pronamic_WP_Pay_Gateways_Ogone_Error {
+ */
+class Error {
 	/**
 	 * Error code
 	 *

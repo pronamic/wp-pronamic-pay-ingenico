@@ -1,7 +1,9 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
+
 /**
- * Title: Ogone payment methods list (PMLIST parameter)
+ * Title: Ingenico payment methods list (PMLIST parameter)
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
@@ -10,7 +12,7 @@
  * @version 1.1.0
  * @since 1.1.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_PaymentMethodsList {
+class PaymentMethodsList {
 	/**
 	 * List
 	 *

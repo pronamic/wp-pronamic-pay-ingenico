@@ -1,7 +1,18 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard;
+
+use Pronamic\WordPress\Pay\Core\Util;
+use Pronamic\WordPress\Pay\Core\XML\Security as XML_Security;
+use Pronamic\WordPress\Pay\Gateways\Ingenico\Data;
+use Pronamic\WordPress\Pay\Gateways\Ingenico\Ingenico;
+use Pronamic\WordPress\Pay\Gateways\Ingenico\Parameters;
+use Pronamic\WordPress\Pay\Gateways\Ingenico\Statuses;
+use Pronamic\WordPress\Pay\Gateways\Ingenico\Security;
+use Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser;
+
 /**
- * Title: Ogone order standard client
+ * Title: Ingenico order standard client
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
@@ -10,7 +21,7 @@
  * @version 1.2.1
  * @since 1.0.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
+class Client {
 	/**
 	 * The payment server URL
 	 *
@@ -74,7 +85,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	/**
 	 * Data
 	 *
-	 * @var Pronamic_WP_Pay_Gateways_Ogone_Data
+	 * @var Data
 	 */
 	private $data;
 
@@ -84,10 +95,10 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 * Constructs and initialize a iDEAL kassa object
 	 */
 	public function __construct( $psp_id ) {
-		$this->data = new Pronamic_WP_Pay_Gateways_Ogone_Data();
-		$this->data->set_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::PSPID, $psp_id );
+		$this->data = new Data();
+		$this->data->set_field( Parameters::PSPID, $psp_id );
 
-		$this->hash_algorithm = Pronamic_WP_Pay_Gateways_Ogone_HashAlgorithms::SHA_1;
+		$this->hash_algorithm = Ingenico::SHA_1;
 	}
 
 	//////////////////////////////////////////////////
@@ -237,7 +248,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	/**
 	 * Get data
 	 *
-	 * @return Pronamic_WP_Pay_Gateways_Ogone_Data
+	 * @return Data
 	 */
 	public function get_data() {
 		return $this->data;
@@ -253,24 +264,26 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 * @return string
 	 */
 	public function get_signature_in() {
-		$calculation_fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculations_parameters_in();
+		$calculation_fields = Security::get_calculations_parameters_in();
 
-		$fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $this->data->get_fields() );
+		$fields = Security::get_calculation_fields( $calculation_fields, $this->data->get_fields() );
 
-		return Pronamic_WP_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->get_pass_phrase_in(), $this->hash_algorithm );
+		return Security::get_signature( $fields, $this->get_pass_phrase_in(), $this->hash_algorithm );
 	}
 
 	/**
 	 * Get signature OUT
 	 *
 	 * @param array $fields
+	 *
+	 * @return string
 	 */
 	public function get_signature_out( $fields ) {
-		$calculation_fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculations_parameters_out();
+		$calculation_fields = Security::get_calculations_parameters_out();
 
-		$fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $fields );
+		$fields = Security::get_calculation_fields( $calculation_fields, $fields );
 
-		return Pronamic_WP_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->get_pass_phrase_out(), $this->hash_algorithm );
+		return Security::get_signature( $fields, $this->get_pass_phrase_out(), $this->hash_algorithm );
 	}
 
 	//////////////////////////////////////////////////
@@ -282,7 +295,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 	 * @return array
 	 */
 	public function get_fields() {
-		Pronamic_WP_Pay_Gateways_Ogone_Security::sign_data( $this->data, $this->get_pass_phrase_in(), $this->hash_algorithm );
+		Security::sign_data( $this->data, $this->get_pass_phrase_in(), $this->hash_algorithm );
 
 		return $this->data->get_fields();
 	}
@@ -303,25 +316,25 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 			return $return;
 		}
 
-		$result = Pronamic_WP_Pay_Util::remote_get_body( $this->get_direct_query_url(), 200, array(
+		$result = Util::remote_get_body( $this->get_direct_query_url(), 200, array(
 			'method'  => 'POST',
 			'body'    => array(
-				Pronamic_WP_Pay_Gateways_Ogone_Parameters::ORDERID  => $order_id,
-				Pronamic_WP_Pay_Gateways_Ogone_Parameters::PSPID    => $this->data->get_field( Pronamic_WP_Pay_Gateways_Ogone_Parameters::PSPID ),
-				Pronamic_WP_Pay_Gateways_Ogone_Parameters::USER_ID  => $user_id,
-				Pronamic_WP_Pay_Gateways_Ogone_Parameters::PASSWORD => $password,
+				Parameters::ORDERID  => $order_id,
+				Parameters::PSPID    => $this->data->get_field( Parameters::PSPID ),
+				Parameters::USER_ID  => $user_id,
+				Parameters::PASSWORD => $password,
 			),
 			'timeout' => 30,
 		) );
 
-		$xml = Pronamic_WP_Pay_Util::simplexml_load_string( $result );
+		$xml = Util::simplexml_load_string( $result );
 
 		if ( ! is_wp_error( $xml ) ) {
 			$order_response = Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser::parse( $xml );
 
-			$status = Pronamic_WP_Pay_XML_Security::filter( $order_response->status );
+			$status = XML_Security::filter( $order_response->status );
 
-			$return = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $status );
+			$return = Statuses::transform( $status );
 		}
 
 		return $return;
@@ -344,17 +357,17 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Client {
 
 			if ( 0 === strcasecmp( $signature, $signature_out ) ) {
 				$result = filter_var_array( $data, array(
-					Pronamic_WP_Pay_Gateways_Ogone_Parameters::ORDERID  => FILTER_SANITIZE_STRING,
-					Pronamic_WP_Pay_Gateways_Ogone_Parameters::AMOUNT   => FILTER_VALIDATE_FLOAT,
-					Pronamic_WP_Pay_Gateways_Ogone_Parameters::CURRENCY => FILTER_SANITIZE_STRING,
-					'PM'         => FILTER_SANITIZE_STRING,
-					'ACCEPTANCE' => FILTER_SANITIZE_STRING,
-					'STATUS'     => FILTER_VALIDATE_INT,
-					'CARDNO'     => FILTER_SANITIZE_STRING,
-					'PAYID'      => FILTER_VALIDATE_INT,
-					'NCERROR'    => FILTER_SANITIZE_STRING,
-					'BRAND'      => FILTER_SANITIZE_STRING,
-					'SHASIGN'    => FILTER_SANITIZE_STRING,
+					Parameters::ORDERID  => FILTER_SANITIZE_STRING,
+					Parameters::AMOUNT   => FILTER_VALIDATE_FLOAT,
+					Parameters::CURRENCY => FILTER_SANITIZE_STRING,
+					'PM'                 => FILTER_SANITIZE_STRING,
+					'ACCEPTANCE'         => FILTER_SANITIZE_STRING,
+					'STATUS'             => FILTER_VALIDATE_INT,
+					'CARDNO'             => FILTER_SANITIZE_STRING,
+					'PAYID'              => FILTER_VALIDATE_INT,
+					'NCERROR'            => FILTER_SANITIZE_STRING,
+					'BRAND'              => FILTER_SANITIZE_STRING,
+					'SHASIGN'            => FILTER_SANITIZE_STRING,
 				) );
 			}
 		}
