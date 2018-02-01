@@ -58,13 +58,4 @@ class Config extends Ingenico_Config {
 	 * @var string
 	 */
 	public $password;
-
-	/**
-	 * Get gateway class.
-	 *
-	 * @return string
-	 */
-	public function get_gateway_class() {
-		return 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway';
-	}
 }

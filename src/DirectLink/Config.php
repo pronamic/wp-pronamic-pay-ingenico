@@ -31,8 +31,4 @@ class Config extends Ingenico_Config {
 	public function __construct() {
 		$this->api_url = DirectLink::API_PRODUCTION_URL;
 	}
-
-	public function get_gateway_class() {
-		return __NAMESPACE__ . '\Gateway';
-	}
 }

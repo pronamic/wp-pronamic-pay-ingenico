@@ -14,7 +14,4 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\Config as Ingenico_Config;
  * @version 1.0.0
  */
 class Config extends Ingenico_Config {
-	public function get_gateway_class() {
-		return __NAMESPACE__ . '\Gateway';
-	}
 }
