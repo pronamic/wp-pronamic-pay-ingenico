@@ -1,7 +1,11 @@
 <?php
+
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico\XML;
+
 use Pronamic\WordPress\Pay\Core\XML\Security;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\OrderResponse;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Parameters;
+use SimpleXMLElement;
 
 /**
  * Title: Ingenico DirectLink order response XML parser
@@ -9,15 +13,17 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\Parameters;
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
  *
- * @author Remco Tolsma
+ * @author  Remco Tolsma
  * @version 1.0.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser {
+class OrderResponseParser {
 	/**
 	 * Parse the specified XML element into an iDEAL transaction object
 	 *
 	 * @param SimpleXMLElement $xml
-	 * @param OrderResponse $order_response
+	 * @param OrderResponse    $order_response
+	 *
+	 * @return null|OrderResponse
 	 */
 	public static function parse( SimpleXMLElement $xml, $order_response = null ) {
 		if ( ! $order_response instanceof OrderResponse ) {

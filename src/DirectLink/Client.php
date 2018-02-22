@@ -6,7 +6,7 @@ use Pronamic\WordPress\Pay\Core\Util;
 use Pronamic\WordPress\Pay\Core\XML\Security;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Error;
-use Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser;
+use Pronamic\WordPress\Pay\Gateways\Ingenico\XML\OrderResponseParser;
 use WP_Error;
 
 /**
@@ -81,7 +81,7 @@ class Client {
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
 			} else {
-				$order_response = Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser::parse( $xml );
+				$order_response = OrderResponseParser::parse( $xml );
 
 				if ( ! empty( $order_response->nc_error ) ) {
 					$ogone_error = new Error(

@@ -9,7 +9,7 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\Ingenico;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Parameters;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Statuses;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Security;
-use Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser;
+use Pronamic\WordPress\Pay\Gateways\Ingenico\XML\OrderResponseParser;
 
 /**
  * Title: Ingenico order standard client
@@ -330,7 +330,7 @@ class Client {
 		$xml = Util::simplexml_load_string( $result );
 
 		if ( ! is_wp_error( $xml ) ) {
-			$order_response = Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser::parse( $xml );
+			$order_response = OrderResponseParser::parse( $xml );
 
 			$status = XML_Security::filter( $order_response->status );
 

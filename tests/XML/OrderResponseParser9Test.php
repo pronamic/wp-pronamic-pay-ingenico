@@ -1,6 +1,7 @@
 <?php
 
 use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\OrderResponse;
+use Pronamic\WordPress\Pay\Gateways\Ingenico\XML\OrderResponseParser;
 
 class Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser9Test extends WP_UnitTestCase {
 	/**
@@ -28,7 +29,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser9Test extends WP_UnitTes
 	 * @return OrderResponse
 	 */
 	public function test_parser( $simplexml ) {
-		$order_response = Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser::parse( $simplexml );
+		$order_response = OrderResponseParser::parse( $simplexml );
 
 		$this->assertInstanceOf( 'Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\OrderResponse', $order_response );
 
