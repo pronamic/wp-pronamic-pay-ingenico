@@ -1,6 +1,6 @@
 <?php
-use Pronamic\WordPress\Pay\Gateways\Ingenico\Brands;
-use Pronamic\WordPress\Pay\Gateways\Ingenico\PaymentMethodsList;
+
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
 /**
  * Title: Ogone payment methods list (PMLIST parameter) test
@@ -12,7 +12,7 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\PaymentMethodsList;
  * @version 1.1.0
  * @since 1.1.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_PaymentMethodsListTest extends WP_UnitTestCase {
+class PaymentMethodsListTest extends \WP_UnitTestCase {
 	/**
 	 * Test constructor
 	 */

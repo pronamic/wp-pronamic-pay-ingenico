@@ -1,9 +1,8 @@
 <?php
 
-use Pronamic\WordPress\Pay\Gateways\Ingenico\Parameters;
-use Pronamic\WordPress\Pay\Gateways\Ingenico\Security;
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
-class Pronamic_WP_Pay_Gateways_Ogone_SecurityTest extends WP_UnitTestCase {
+class SecurityTest extends \WP_UnitTestCase {
 	function test_get_calculations_parameters_in() {
 		$parameters = Security::get_calculations_parameters_in();
 

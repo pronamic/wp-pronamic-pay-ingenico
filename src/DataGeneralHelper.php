@@ -1,9 +1,9 @@
 <?php
+
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
 use Pronamic\WordPress\Pay\Core\Util;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\DataHelper;
-use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\DataHelper;
 
 /**
  * Title: Ingenico data default helper class

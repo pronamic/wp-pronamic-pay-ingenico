@@ -1,9 +1,10 @@
 <?php
 
-use Pronamic\WordPress\Pay\Gateways\Ingenico\DataGeneralHelper;
-use Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard\Client;
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard;
 
-class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ClientTest extends WP_UnitTestCase {
+use Pronamic\WordPress\Pay\Gateways\Ingenico\DataGeneralHelper;
+
+class ClientTest extends \WP_UnitTestCase {
 	function test_signature_in_empty() {
 		$client = new Client( '' );
 

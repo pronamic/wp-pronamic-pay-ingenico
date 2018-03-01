@@ -1,9 +1,10 @@
 <?php
 
-use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\OrderResponse;
-use Pronamic\WordPress\Pay\Gateways\Ingenico\XML\OrderResponseParser;
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico\XML;
 
-class Pronamic_WP_Pay_Gateways_Ogone_OrderResponseParser9Test extends WP_UnitTestCase {
+use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\OrderResponse;
+
+class OrderResponseParser9Test extends \WP_UnitTestCase {
 	/**
 	 * Test initialize.
 	 *

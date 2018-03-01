@@ -1,9 +1,6 @@
 <?php
-use Pronamic\WordPress\Pay\Gateways\Ingenico\Brands;
-use Pronamic\WordPress\Pay\Gateways\Ingenico\Data;
-use Pronamic\WordPress\Pay\Gateways\Ingenico\DataGeneralHelper;
-use Pronamic\WordPress\Pay\Gateways\Ingenico\PaymentMethods;
-use Pronamic\WordPress\Pay\Gateways\Ingenico\PaymentMethodsList;
+
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
 /**
  * Title: Ogone data default helper class test
@@ -15,7 +12,7 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\PaymentMethodsList;
  * @version 1.1.0
  * @since 1.1.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelperTest extends WP_UnitTestCase {
+class DataGeneralHelperTest extends \WP_UnitTestCase {
 	/**
 	 * Test helper
 	 */

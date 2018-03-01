@@ -1,7 +1,8 @@
 <?php
-use Pronamic\WordPress\Pay\Gateways\Ingenico\Data;
-use Pronamic\WordPress\Pay\Gateways\Ingenico\DataCreditCardHelper;
-use Pronamic\WordPress\Pay\Gateways\Ingenico\Ingenico;
+
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
+
+use DateTime;
 
 /**
  * Title: Ogone data default helper class test
@@ -13,7 +14,7 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\Ingenico;
  * @version 1.1.0
  * @since 1.1.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelperTest extends WP_UnitTestCase {
+class DataCreditCardHelperTest extends \WP_UnitTestCase {
 	/**
 	 * Test helper
 	 */

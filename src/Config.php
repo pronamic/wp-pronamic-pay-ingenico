@@ -1,4 +1,5 @@
 <?php
+
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
 use Pronamic\WordPress\Pay\Core\GatewayConfig;

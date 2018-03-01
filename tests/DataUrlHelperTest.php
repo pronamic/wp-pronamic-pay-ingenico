@@ -1,6 +1,6 @@
 <?php
-use Pronamic\WordPress\Pay\Gateways\Ingenico\Data;
-use Pronamic\WordPress\Pay\Gateways\Ingenico\DataUrlHelper;
+
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
 /**
  * Title: Ogone data URL helper class test
@@ -12,7 +12,7 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\DataUrlHelper;
  * @version 1.1.0
  * @since 1.1.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_DataUrlHelperTest extends WP_UnitTestCase {
+class DataUrlHelperTest extends \WP_UnitTestCase {
 	/**
 	 * Test helper
 	 */
