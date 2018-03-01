@@ -26,8 +26,6 @@ class Client {
 	 */
 	private $error;
 
-	/////////////////////////////////////////////////
-
 	/**
 	 * API URL
 	 *
@@ -35,16 +33,12 @@ class Client {
 	 */
 	public $api_url;
 
-	/////////////////////////////////////////////////
-
 	/**
 	 * Constructs and initializes an Ogone DirectLink client
 	 */
 	public function __construct() {
 		$this->api_url = DirectLink::API_PRODUCTION_URL;
 	}
-
-	/////////////////////////////////////////////////
 
 	/**
 	 * Get error
@@ -54,8 +48,6 @@ class Client {
 	public function get_error() {
 		return $this->error;
 	}
-
-	/////////////////////////////////////////////////
 
 	/**
 	 * Order direct

@@ -29,8 +29,6 @@ class Client {
 	 */
 	private $payment_server_url;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Direct Query URL.
 	 *
@@ -39,16 +37,12 @@ class Client {
 	 */
 	private $direct_query_url;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * The amount
 	 *
 	 * @var int
 	 */
 	private $amount;
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Pass phrase IN
@@ -64,8 +58,6 @@ class Client {
 	 */
 	private $pass_phrase_out;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * API user ID.
 	 *
@@ -80,16 +72,12 @@ class Client {
 	 */
 	private $password;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Data
 	 *
 	 * @var Data
 	 */
 	private $data;
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initialize a iDEAL kassa object
@@ -100,8 +88,6 @@ class Client {
 
 		$this->hash_algorithm = Ingenico::SHA_1;
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Get the payment server URL
@@ -121,8 +107,6 @@ class Client {
 		$this->payment_server_url = $url;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Get the Direct Query URL.
 	 *
@@ -140,8 +124,6 @@ class Client {
 	public function set_direct_query_url( $url ) {
 		$this->direct_query_url = $url;
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Get hash algorithm
@@ -161,8 +143,6 @@ class Client {
 		$this->hash_algorithm = $hash_algorithm;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Get password phrase IN
 	 *
@@ -180,8 +160,6 @@ class Client {
 	public function set_pass_phrase_in( $pass_phrase_in ) {
 		$this->pass_phrase_in = $pass_phrase_in;
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Get password phrase OUT
@@ -201,8 +179,6 @@ class Client {
 		$this->pass_phrase_out = $pass_phrase_out;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Get API user ID.
 	 *
@@ -220,8 +196,6 @@ class Client {
 	public function set_user_id( $user_id ) {
 		$this->user_id = $user_id;
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Get API user password.
@@ -241,10 +215,6 @@ class Client {
 		$this->password = $password;
 	}
 
-	//////////////////////////////////////////////////
-	// Data
-	//////////////////////////////////////////////////
-
 	/**
 	 * Get data
 	 *
@@ -253,10 +223,6 @@ class Client {
 	public function get_data() {
 		return $this->data;
 	}
-
-	//////////////////////////////////////////////////
-	// Signature functions
-	//////////////////////////////////////////////////
 
 	/**
 	 * Get signature IN
@@ -286,8 +252,6 @@ class Client {
 		return Security::get_signature( $fields, $this->get_pass_phrase_out(), $this->hash_algorithm );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Get fields
 	 *
@@ -299,8 +263,6 @@ class Client {
 
 		return $this->data->get_fields();
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Get order status
@@ -339,8 +301,6 @@ class Client {
 
 		return $return;
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Verify request

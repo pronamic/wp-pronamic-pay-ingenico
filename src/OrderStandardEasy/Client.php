@@ -23,8 +23,6 @@ class Client {
 	 */
 	const PAYMENT_TYPE_IDEAL = 'iDEAL';
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * The URL for testing
 	 *
@@ -32,16 +30,12 @@ class Client {
 	 */
 	private $payment_server_url;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Home URL
 	 *
 	 * @var string
 	 */
 	private $data;
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initialize a iDEAL easy object
@@ -53,8 +47,6 @@ class Client {
 		$this->data->set_field( Parameters::PSPID, $psp_id );
 		$this->data->set_field( 'PM', self::PAYMENT_TYPE_IDEAL );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Get the payment server URL
@@ -74,10 +66,6 @@ class Client {
 		$this->payment_server_url = $url;
 	}
 
-	//////////////////////////////////////////////////
-	// Data
-	//////////////////////////////////////////////////
-
 	/**
 	 * Get data
 	 *
@@ -86,8 +74,6 @@ class Client {
 	public function get_data() {
 		return $this->data;
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Get fields

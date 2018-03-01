@@ -19,16 +19,12 @@ abstract class DataHelper {
 	 */
 	protected $data;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Constructs and initialize a Ogone data default helper class
 	 */
 	public function __construct( Data $data ) {
 		$this->data = $data;
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Set field

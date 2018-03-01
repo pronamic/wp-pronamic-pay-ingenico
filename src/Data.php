@@ -19,18 +19,12 @@ class Data {
 	 */
 	private $fields;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Constructs and initialize a iDEAL kassa object
 	 */
 	public function __construct() {
 		$this->fields = array();
 	}
-
-	//////////////////////////////////////////////////
-	// Fields
-	//////////////////////////////////////////////////
 
 	/**
 	 * Get all the fields

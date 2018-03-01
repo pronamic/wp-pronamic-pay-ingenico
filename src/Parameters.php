@@ -13,10 +13,6 @@ namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
  * @since 1.0.0
  */
 class Parameters {
-	//////////////////////////////////////////////////
-	// IN
-	//////////////////////////////////////////////////
-
 	/**
 	 * Indicator for the PSPID parameter.
 	 *
@@ -52,8 +48,6 @@ class Parameters {
 	 */
 	const LANGUAGE = 'LANGUAGE';
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Indicator for the CN parameter.
 	 *
@@ -67,8 +61,6 @@ class Parameters {
 	 * @var string
 	 */
 	const EMAIL = 'EMAIL';
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Indicator for the OWNERADDRESS parameter.
@@ -112,16 +104,12 @@ class Parameters {
 	 */
 	const OWNER_ZIP = 'OWNERZIP';
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Indicator for the COM parameter.
 	 *
 	 * @var string
 	 */
 	const COM = 'COM';
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Indicator for the ACCEPTURL parameter.
@@ -151,8 +139,6 @@ class Parameters {
 	 */
 	const CANCEL_URL = 'CANCELURL';
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Indicator for the PARAMPLUS parameter.
 	 *
@@ -160,20 +146,12 @@ class Parameters {
 	 */
 	const PARAM_PLUS = 'PARAMPLUS';
 
-	//////////////////////////////////////////////////
-	// OUT
-	//////////////////////////////////////////////////
-
 	/**
 	 * Indicator for the STATUS parameter.
 	 *
 	 * @var string
 	 */
 	const STATUS = 'STATUS';
-
-	//////////////////////////////////////////////////
-	// Network computer (nc) parameters
-	//////////////////////////////////////////////////
 
 	/**
 	 * Indicator for the NCSTATUS parameter.
@@ -203,10 +181,6 @@ class Parameters {
 	 * @var string
 	 */
 	const NC_ERROR_PLUS = 'NCERRORPLUS';
-
-	//////////////////////////////////////////////////
-	// API user parameters
-	//////////////////////////////////////////////////
 
 	/**
 	 * Indicator for the USERID parameter.

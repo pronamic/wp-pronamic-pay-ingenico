@@ -40,8 +40,6 @@ class DirectLink {
 	 */
 	const API_PRODUCTION_UTF8_URL = 'https://secure.ogone.com/ncol/prod/orderdirect_utf8.asp';
 
-	/////////////////////////////////////////////////
-
 	/**
 	 * Constructs and initializes an Ogone DirectLink object
 	 */

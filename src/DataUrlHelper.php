@@ -26,8 +26,6 @@ class DataUrlHelper extends DataHelper {
 		return $this->set_field( Parameters::ACCEPT_URL, $url );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Set cancel URL
 	 *
@@ -39,8 +37,6 @@ class DataUrlHelper extends DataHelper {
 		return $this->set_field( Parameters::CANCEL_URL, $url );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Set exception URL
 	 *
@@ -51,8 +47,6 @@ class DataUrlHelper extends DataHelper {
 	public function set_exception_url( $url ) {
 		return $this->set_field( Parameters::EXCEPTION_URL, $url );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Set decline URL
@@ -66,8 +60,6 @@ class DataUrlHelper extends DataHelper {
 	public function set_decline_url( $url ) {
 		return $this->set_field( Parameters::DECLINE_URL, $url );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Set home URL

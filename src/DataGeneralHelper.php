@@ -27,8 +27,6 @@ class DataGeneralHelper extends DataHelper {
 		return $this->set_field( 'PSPID', $number );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Set order ID
 	 *
@@ -52,8 +50,6 @@ class DataGeneralHelper extends DataHelper {
 		return $this->set_field( 'COM', $description );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Set amount
 	 *
@@ -75,8 +71,6 @@ class DataGeneralHelper extends DataHelper {
 	public function set_currency( $currency ) {
 		return $this->set_field( 'CURRENCY', $currency );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Set customer name
@@ -104,8 +98,6 @@ class DataGeneralHelper extends DataHelper {
 		return $this->set_field( 'EMAIL', $email );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Set language
 	 *
@@ -116,8 +108,6 @@ class DataGeneralHelper extends DataHelper {
 	public function set_language( $language ) {
 		return $this->set_field( 'LANGUAGE', $language );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Set payment method
@@ -130,8 +120,6 @@ class DataGeneralHelper extends DataHelper {
 		return $this->set_field( 'PM', $payment_method );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Set payment methods list
 	 *
@@ -142,8 +130,6 @@ class DataGeneralHelper extends DataHelper {
 	public function set_payment_methods_list( $list ) {
 		return $this->set_field( 'PMLIST', $list );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Set brand of a credit/debit/purchasing card
@@ -158,8 +144,6 @@ class DataGeneralHelper extends DataHelper {
 	public function set_brand( $brand ) {
 		return $this->set_field( 'BRAND', $brand );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Set PARAMPLUS feedback parameters

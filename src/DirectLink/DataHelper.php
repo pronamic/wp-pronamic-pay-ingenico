@@ -21,18 +21,12 @@ class DataHelper {
 	 */
 	private $data;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Constructs and initialize a Ogone data default helper class
 	 */
 	public function __construct( Data $data ) {
 		$this->data = $data;
 	}
-
-	//////////////////////////////////////////////////
-	// Helper functions
-	//////////////////////////////////////////////////
 
 	/**
 	 * Set user id

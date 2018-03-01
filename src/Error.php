@@ -26,8 +26,6 @@ class Error {
 	 */
 	private $explanation;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Constructs and intializes an Ogone error
 	 *
@@ -39,11 +37,7 @@ class Error {
 		$this->explanation = $explanation;
 	}
 
-	//////////////////////////////////////////////////
-
 	// @todo getters and setters
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Create an string representation of this object

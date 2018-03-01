@@ -32,8 +32,6 @@ class Gateway extends Core_Gateway {
 	 */
 	const SLUG = 'ogone-directlink';
 
-	/////////////////////////////////////////////////
-
 	/**
 	 * Constructs and initializes an Ogone DirectLink gateway
 	 *
@@ -54,8 +52,6 @@ class Gateway extends Core_Gateway {
 		$this->client->password = $config->password;
 		$this->client->api_url  = $config->api_url;
 	}
-
-	/////////////////////////////////////////////////
 
 	/**
 	 * Start
@@ -155,8 +151,6 @@ class Gateway extends Core_Gateway {
 			}
 		}
 	}
-
-	/////////////////////////////////////////////////
 
 	/**
 	 * Update status of the specified payment

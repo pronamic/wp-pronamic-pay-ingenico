@@ -25,8 +25,6 @@ class Security {
 	 */
 	private static $calculations_parameters_out;
 
-	/////////////////////////////////////////////////
-
 	/**
 	 * Get calculations parameters in
 	 */
@@ -43,8 +41,6 @@ class Security {
 		return self::$calculations_parameters_in;
 	}
 
-	/////////////////////////////////////////////////
-
 	/**
 	 * Get calculations parameters in
 	 */
@@ -60,8 +56,6 @@ class Security {
 
 		return self::$calculations_parameters_out;
 	}
-
-	/////////////////////////////////////////////////
 
 	/**
 	 * Get request data
@@ -88,8 +82,6 @@ class Security {
 
 		return $data;
 	}
-
-	/////////////////////////////////////////////////
 
 	public static function get_calculation_fields( $calculation_fields, $fields ) {
 		$calculation_fields = array_flip( $calculation_fields );
@@ -125,8 +117,6 @@ class Security {
 
 		return $result;
 	}
-
-	/////////////////////////////////////////////////
 
 	public static function sign_data( Data $data, $pass_phrase, $hash_algorithm ) {
 		$calculation_fields = Security::get_calculations_parameters_in();

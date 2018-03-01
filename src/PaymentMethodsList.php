@@ -20,16 +20,12 @@ class PaymentMethodsList {
 	 */
 	private $list;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Constructs and initialize a payment methods list
 	 */
 	public function __construct( array $list = array() ) {
 		$this->list = $list;
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Add payment method
@@ -39,8 +35,6 @@ class PaymentMethodsList {
 	public function add_payment_method( $payment_method ) {
 		$this->list[] = $payment_method;
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Create a string representation of this payment methods list

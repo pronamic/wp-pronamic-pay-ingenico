@@ -21,18 +21,12 @@ class SecureDataHelper {
 	 */
 	private $data;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Constructs and initialize a Ogone data default helper class
 	 */
 	public function __construct( Data $data ) {
 		$this->data = $data;
 	}
-
-	//////////////////////////////////////////////////
-	// Helper functions
-	//////////////////////////////////////////////////
 
 	/**
 	 * Set 3-D Secure flag

@@ -36,8 +36,6 @@ class Statuses {
 	 */
 	const AUTHORIZATION_REFUSED = '2';
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Order stored.
 	 *
@@ -58,8 +56,6 @@ class Statuses {
 	 * @var string
 	 */
 	const WAITING_CLIENT_PAYMENT = '41';
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Authorized.
@@ -117,8 +113,6 @@ class Statuses {
 	 */
 	const AUHORIZ_TO_GET_MANUALLY = '59';
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Authorized and cancelled.
 	 *
@@ -153,8 +147,6 @@ class Statuses {
 	 * @var string
 	 */
 	const AUTHORIZED_AND_CANCELLED_64 = '64';
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Payment deleted.
@@ -198,8 +190,6 @@ class Statuses {
 	 */
 	const DELETION_PROCESSED_BY_MERCHANT = '75';
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Refund.
 	 *
@@ -241,8 +231,6 @@ class Statuses {
 	 * @var string
 	 */
 	const REFUND_PROCESSED_BY_MERCHANT = '85';
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Payment requested.
@@ -292,8 +280,6 @@ class Statuses {
 	 * @var string
 	 */
 	const BEING_PROCESSED = '99';
-
-	/////////////////////////////////////////////////
 
 	/**
 	 * Transform an Ogone status to an Pronamic Pay status.

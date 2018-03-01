@@ -36,8 +36,6 @@ class OrderResponse {
 
 	public $brand;
 
-	/////////////////////////////////////////////////
-
 	/**
 	 * Constructs and initializes an Ogone DirectLink order response
 	 */

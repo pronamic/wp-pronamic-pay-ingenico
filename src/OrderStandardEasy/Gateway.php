@@ -37,8 +37,6 @@ class Gateway extends Core_Gateway {
 		$this->client->set_payment_server_url( $config->get_form_action_url() );
 	}
 
-	/////////////////////////////////////////////////
-
 	/**
 	 * Get payment methods
 	 *
@@ -59,8 +57,6 @@ class Gateway extends Core_Gateway {
 		);
 	}
 
-	/////////////////////////////////////////////////
-
 	/**
 	 * Get output fields
 	 *
@@ -71,8 +67,6 @@ class Gateway extends Core_Gateway {
 	public function get_output_fields() {
 		return $this->client->get_fields();
 	}
-
-	/////////////////////////////////////////////////
 
 	/**
 	 * Start transaction with the specified data
@@ -118,8 +112,6 @@ class Gateway extends Core_Gateway {
 			->set_back_url( home_url( '/' ) )
 			->set_home_url( home_url( '/' ) );
 	}
-
-	/////////////////////////////////////////////////
 
 	/**
 	 * Update status of the specified payment

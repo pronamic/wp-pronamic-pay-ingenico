@@ -34,8 +34,6 @@ class Gateway extends Core_Gateway {
 	 */
 	const SLUG = 'ogone_orderstandard';
 
-	/////////////////////////////////////////////////
-
 	/**
 	 * Constructs and initializes an InternetKassa gateway
 	 *
@@ -66,8 +64,6 @@ class Gateway extends Core_Gateway {
 			$this->client->set_hash_algorithm( $config->hash_algorithm );
 		}
 	}
-
-	/////////////////////////////////////////////////
 
 	/**
 	 * Get payment methods
@@ -105,8 +101,6 @@ class Gateway extends Core_Gateway {
 			Core_PaymentMethods::BANCONTACT,
 		);
 	}
-
-	/////////////////////////////////////////////////
 
 	/**
 	 * Start
@@ -196,8 +190,6 @@ class Gateway extends Core_Gateway {
 			->set_exception_url( add_query_arg( 'status', 'exception', $payment->get_return_url() ) );
 	}
 
-	/////////////////////////////////////////////////
-
 	/**
 	 * Get output fields
 	 *
@@ -207,8 +199,6 @@ class Gateway extends Core_Gateway {
 	public function get_output_fields() {
 		return $this->client->get_fields();
 	}
-
-	/////////////////////////////////////////////////
 
 	/**
 	 * Update status of the specified payment
@@ -238,8 +228,6 @@ class Gateway extends Core_Gateway {
 			$payment->set_status( $status );
 		}
 	}
-
-	/////////////////////////////////////////////////
 
 	/**
 	 * Update status payment note

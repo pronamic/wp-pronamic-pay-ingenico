@@ -23,8 +23,6 @@ class Config extends Ingenico_Config {
 
 	public $api_url;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Constructs and initializes an Ogone DirectLink config object
 	 */
