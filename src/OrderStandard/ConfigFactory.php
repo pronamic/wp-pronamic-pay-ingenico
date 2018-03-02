@@ -18,7 +18,7 @@ class ConfigFactory extends GatewayConfigFactory {
 	private $config_class;
 
 	public function __construct( $config_class = null, $config_test_class = null ) {
-		$this->config_class      = is_null(  $config_class ) ? __NAMESPACE__ . '\Config' : $config_class;
+		$this->config_class      = is_null( $config_class ) ? __NAMESPACE__ . '\Config' : $config_class;
 		$this->config_test_class = is_null( $config_test_class ) ? __NAMESPACE__ . '\TestConfig' : $config_test_class;
 	}
 
