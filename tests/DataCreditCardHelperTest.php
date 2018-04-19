@@ -2,7 +2,7 @@
 
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
-use Pronamic\WordPress\Pay\Core\DateTime;
+use Pronamic\WordPress\DateTime\DateTime;
 
 /**
  * Title: Ogone data default helper class test

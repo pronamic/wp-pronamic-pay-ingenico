@@ -2,7 +2,7 @@
 
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
-use Pronamic\WordPress\Pay\Core\DateTime;
+use Pronamic\WordPress\DateTime\DateTime;
 
 /**
  * Title: Ingenico data default helper class
