@@ -77,7 +77,7 @@ class Gateway extends Core_Gateway {
 			->set_order_description( $payment->get_description() )
 			->set_param_plus( 'payment_id=' . $payment->get_id() )
 			->set_currency( $payment->get_currency() )
-			->set_amount( $payment->get_amount() )
+			->set_amount( $payment->get_amount()->get_amount() )
 			->set_language( $payment->get_locale() );
 
 		// Customer
