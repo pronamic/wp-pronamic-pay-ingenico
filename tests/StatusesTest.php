@@ -10,8 +10,8 @@ use Pronamic\WordPress\Pay\Core\Statuses as Core_Statuses;
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
  *
- * @author Remco Tolsma
- * @version 1.0.0
+ * @author  Remco Tolsma
+ * @version 2.0.0
  */
 class StatusesTest extends \PHPUnit_Framework_TestCase {
 	/**

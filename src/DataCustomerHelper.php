@@ -11,10 +11,10 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\DataHelper;
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
  *
- * @see https://payment-services.ingenico.com/int/en/ogone/support/guides/integration%20guides/e-commerce
- * @author Remco Tolsma
- * @version 1.3.0
- * @since 1.3.0
+ * @see     https://payment-services.ingenico.com/int/en/ogone/support/guides/integration%20guides/e-commerce
+ * @author  Remco Tolsma
+ * @version 2.0.0
+ * @since   1.3.0
  */
 class DataCustomerHelper extends DataHelper {
 	/**

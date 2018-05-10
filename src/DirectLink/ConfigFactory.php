@@ -11,8 +11,8 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink;
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
  *
- * @author Remco Tolsma
- * @version 1.0.0
+ * @author  Remco Tolsma
+ * @version 2.0.0
  */
 class ConfigFactory extends GatewayConfigFactory {
 	public function get_config( $post_id ) {

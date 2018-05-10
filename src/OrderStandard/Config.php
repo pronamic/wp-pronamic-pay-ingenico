@@ -10,9 +10,9 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\Config as Ingenico_Config;
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
  *
- * @author Remco Tolsma
- * @version 1.3.2
- * @since 1.0.0
+ * @author  Remco Tolsma
+ * @version 2.0.0
+ * @since   1.0.0
  */
 class Config extends Ingenico_Config {
 	/**
