@@ -1,15 +1,18 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
+
 /**
- * Title: Ogone error
+ * Title: Ingenico error
  * Description:
- * Copyright: Copyright (c) 2005 - 2016
+ * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
  *
- * @author Remco Tolsma
- * @since 1.0.0
-*/
-class Pronamic_WP_Pay_Gateways_Ogone_Error {
+ * @author  Remco Tolsma
+ * @version 2.0.0
+ * @since   1.0.0
+ */
+class Error {
 	/**
 	 * Error code
 	 *
@@ -24,8 +27,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_Error {
 	 */
 	private $explanation;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Constructs and intializes an Ogone error
 	 *
@@ -37,11 +38,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_Error {
 		$this->explanation = $explanation;
 	}
 
-	//////////////////////////////////////////////////
-
 	// @todo getters and setters
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Create an string representation of this object

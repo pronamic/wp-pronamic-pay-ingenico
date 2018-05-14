@@ -1,23 +1,27 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
+
+use DateTime;
+
 /**
  * Title: Ogone data default helper class test
  * Description:
- * Copyright: Copyright (c) 2005 - 2016
+ * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
  *
- * @author Remco Tolsma
- * @version 1.1.0
- * @since 1.1.0
+ * @author  Remco Tolsma
+ * @version 2.0.0
+ * @since   1.1.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelperTest extends WP_UnitTestCase {
+class DataCreditCardHelperTest extends \WP_UnitTestCase {
 	/**
 	 * Test helper
 	 */
 	function test_helper() {
-		$data = new Pronamic_WP_Pay_Gateways_Ogone_Data();
+		$data = new Data();
 
-		$helper = new Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelper( $data );
+		$helper = new DataCreditCardHelper( $data );
 
 		$ed = new DateTime();
 
@@ -28,7 +32,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataCreditCardHelperTest extends WP_UnitTes
 
 		$this->assertEquals( array(
 			'CARDNO' => '378282246310005',
-			'ED'     => $ed->format( Pronamic_WP_Pay_Gateways_Ogone_Ogone::EXPIRATION_DATE_FORMAT ),
+			'ED'     => $ed->format( Ingenico::EXPIRATION_DATE_FORMAT ),
 			'CVC'    => '123',
 		), $data->get_fields() );
 	}

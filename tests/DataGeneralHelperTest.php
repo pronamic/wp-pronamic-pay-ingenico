@@ -1,28 +1,30 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
+
 /**
  * Title: Ogone data default helper class test
  * Description:
- * Copyright: Copyright (c) 2005 - 2016
+ * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
  *
- * @author Remco Tolsma
- * @version 1.1.0
- * @since 1.1.0
+ * @author  Remco Tolsma
+ * @version 2.0.0
+ * @since   1.1.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelperTest extends WP_UnitTestCase {
+class DataGeneralHelperTest extends \WP_UnitTestCase {
 	/**
 	 * Test helper
 	 */
 	function test_helper() {
-		$data = new Pronamic_WP_Pay_Gateways_Ogone_Data();
+		$data = new Data();
 
-		$helper = new Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelper( $data );
+		$helper = new DataGeneralHelper( $data );
 
-		$pmlist = new Pronamic_WP_Pay_Gateways_Ogone_PaymentMethodsList( array(
-			Pronamic_WP_Pay_Gateways_Ogone_Brands::VISA,
-			Pronamic_WP_Pay_Gateways_Ogone_Brands::MASTERCARD,
-			Pronamic_WP_Pay_Gateways_Ogone_Brands::AMERICAN_EXPRESS,
+		$pmlist = new PaymentMethodsList( array(
+			Brands::VISA,
+			Brands::MASTERCARD,
+			Brands::AMERICAN_EXPRESS,
 		) );
 
 		$helper
@@ -34,9 +36,9 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelperTest extends WP_UnitTestCa
 			->set_customer_name( 'Mr. Test' )
 			->set_email( 'test@example.com' )
 			->set_language( 'nl' )
-			->set_payment_method( Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::IDEAL )
+			->set_payment_method( PaymentMethods::IDEAL )
 			->set_payment_methods_list( $pmlist )
-			->set_brand( Pronamic_WP_Pay_Gateways_Ogone_Brands::IDEAL );
+			->set_brand( Brands::IDEAL );
 
 		$this->assertEquals( array(
 			'PSPID'    => 'test',
@@ -47,9 +49,9 @@ class Pronamic_WP_Pay_Gateways_Ogone_DataGeneralHelperTest extends WP_UnitTestCa
 			'CN'       => 'Mr. Test',
 			'EMAIL'    => 'test@example.com',
 			'LANGUAGE' => 'nl',
-			'PM'       => Pronamic_WP_Pay_Gateways_Ogone_PaymentMethods::IDEAL,
+			'PM'       => PaymentMethods::IDEAL,
 			'PMLIST'   => (string) $pmlist,
-			'BRAND'    => Pronamic_WP_Pay_Gateways_Ogone_Brands::IDEAL,
+			'BRAND'    => Brands::IDEAL,
 		), $data->get_fields() );
 	}
 }

@@ -1,8 +1,10 @@
 <?php
 
-class Pronamic_WP_Pay_Gateways_Ogone_ErrorTest extends WP_UnitTestCase {
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
+
+class ErrorTest extends \WP_UnitTestCase {
 	function test_error() {
-		$error = new Pronamic_WP_Pay_Gateways_Ogone_Error( 'code', 'explanation' );
+		$error = new Error( 'code', 'explanation' );
 
 		$string = (string) $error;
 

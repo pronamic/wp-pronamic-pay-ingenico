@@ -1,15 +1,17 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
+
 /**
- * Title: Ogone security class
-* Description:
-* Copyright: Copyright (c) 2005 - 2016
-* Company: Pronamic
+ * Title: Ingenico security class
+ * Description:
+ * Copyright: Copyright (c) 2005 - 2016
+ * Company: Pronamic
  *
-* @author Remco Tolsma
-* @version 1.0.0
-*/
-class Pronamic_WP_Pay_Gateways_Ogone_Security {
+ * @author  Remco Tolsma
+ * @version 2.0.0
+ */
+class Security {
 	/**
 	 * The Ogone calculations parameters in
 	 *
@@ -23,8 +25,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_Security {
 	 * @var array
 	 */
 	private static $calculations_parameters_out;
-
-	/////////////////////////////////////////////////
 
 	/**
 	 * Get calculations parameters in
@@ -42,8 +42,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_Security {
 		return self::$calculations_parameters_in;
 	}
 
-	/////////////////////////////////////////////////
-
 	/**
 	 * Get calculations parameters in
 	 */
@@ -59,8 +57,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_Security {
 
 		return self::$calculations_parameters_out;
 	}
-
-	/////////////////////////////////////////////////
 
 	/**
 	 * Get request data
@@ -87,8 +83,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_Security {
 
 		return $data;
 	}
-
-	/////////////////////////////////////////////////
 
 	public static function get_calculation_fields( $calculation_fields, $fields ) {
 		$calculation_fields = array_flip( $calculation_fields );
@@ -125,14 +119,12 @@ class Pronamic_WP_Pay_Gateways_Ogone_Security {
 		return $result;
 	}
 
-	/////////////////////////////////////////////////
+	public static function sign_data( Data $data, $pass_phrase, $hash_algorithm ) {
+		$calculation_fields = Security::get_calculations_parameters_in();
 
-	public static function sign_data( Pronamic_WP_Pay_Gateways_Ogone_Data $data, $pass_phrase, $hash_algorithm ) {
-		$calculation_fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculations_parameters_in();
+		$fields = Security::get_calculation_fields( $calculation_fields, $data->get_fields() );
 
-		$fields = Pronamic_WP_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $data->get_fields() );
-
-		$signature = Pronamic_WP_Pay_Gateways_Ogone_Security::get_signature( $fields, $pass_phrase, $hash_algorithm );
+		$signature = Security::get_signature( $fields, $pass_phrase, $hash_algorithm );
 
 		$data->set_field( 'SHASign', $signature );
 	}

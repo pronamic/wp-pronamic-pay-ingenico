@@ -1,20 +1,18 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
+
 /**
- * Title: Ogone parameters constants
+ * Title: Ingenico parameters constants
  * Description:
- * Copyright: Copyright (c) 2005 - 2016
+ * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
  *
- * @author Remco Tolsma
- * @version 1.3.2
- * @since 1.0.0
+ * @author  Remco Tolsma
+ * @version 2.0.0
+ * @since   1.0.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
-	//////////////////////////////////////////////////
-	// IN
-	//////////////////////////////////////////////////
-
+class Parameters {
 	/**
 	 * Indicator for the PSPID parameter.
 	 *
@@ -50,8 +48,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	 */
 	const LANGUAGE = 'LANGUAGE';
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Indicator for the CN parameter.
 	 *
@@ -65,8 +61,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	 * @var string
 	 */
 	const EMAIL = 'EMAIL';
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Indicator for the OWNERADDRESS parameter.
@@ -110,16 +104,12 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	 */
 	const OWNER_ZIP = 'OWNERZIP';
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Indicator for the COM parameter.
 	 *
 	 * @var string
 	 */
 	const COM = 'COM';
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Indicator for the ACCEPTURL parameter.
@@ -149,8 +139,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	 */
 	const CANCEL_URL = 'CANCELURL';
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Indicator for the PARAMPLUS parameter.
 	 *
@@ -158,20 +146,12 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	 */
 	const PARAM_PLUS = 'PARAMPLUS';
 
-	//////////////////////////////////////////////////
-	// OUT
-	//////////////////////////////////////////////////
-
 	/**
 	 * Indicator for the STATUS parameter.
 	 *
 	 * @var string
 	 */
 	const STATUS = 'STATUS';
-
-	//////////////////////////////////////////////////
-	// Network computer (nc) parameters
-	//////////////////////////////////////////////////
 
 	/**
 	 * Indicator for the NCSTATUS parameter.
@@ -197,14 +177,10 @@ class Pronamic_WP_Pay_Gateways_Ogone_Parameters {
 	 *
 	 * Error description of the NCERROR code.
 	 * The value of this parameter is 0 or empty if not applicable.
-
+	 *
 	 * @var string
 	 */
 	const NC_ERROR_PLUS = 'NCERRORPLUS';
-
-	//////////////////////////////////////////////////
-	// API user parameters
-	//////////////////////////////////////////////////
 
 	/**
 	 * Indicator for the USERID parameter.

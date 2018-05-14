@@ -1,21 +1,25 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard;
+
+use Pronamic\WordPress\Pay\Core\GatewayConfigFactory;
+
 /**
- * Title: Ogone order standard config factory
+ * Title: Ingenico order standard config factory
  * Description:
- * Copyright: Copyright (c) 2005 - 2016
+ * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
  *
- * @author Remco Tolsma
- * @version 1.3.2
- * @since 1.0.0
+ * @author  Remco Tolsma
+ * @version 2.0.0
+ * @since   1.0.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ConfigFactory extends Pronamic_WP_Pay_GatewayConfigFactory {
+class ConfigFactory extends GatewayConfigFactory {
 	private $config_class;
 
-	public function __construct( $config_class = 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config', $config_test_class = 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_TestConfig' ) {
-		$this->config_class      = $config_class;
-		$this->config_test_class = $config_test_class;
+	public function __construct( $config_class = null, $config_test_class = null ) {
+		$this->config_class      = is_null( $config_class ) ? __NAMESPACE__ . '\Config' : $config_class;
+		$this->config_test_class = is_null( $config_test_class ) ? __NAMESPACE__ . '\TestConfig' : $config_test_class;
 	}
 
 	public function get_config( $post_id ) {

@@ -1,6 +1,10 @@
 <?php
 
-class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration extends Pronamic_WP_Pay_Gateways_Ogone_AbstractIntegration {
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard;
+
+use Pronamic\WordPress\Pay\Gateways\Ingenico\AbstractIntegration;
+
+class Integration extends AbstractIntegration {
 	public function __construct() {
 		parent::__construct();
 
@@ -9,7 +13,7 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration extends Pronamic_
 	}
 
 	public function get_config_factory_class() {
-		return 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ConfigFactory';
+		return __NAMESPACE__ . '\ConfigFactory';
 	}
 
 	/**

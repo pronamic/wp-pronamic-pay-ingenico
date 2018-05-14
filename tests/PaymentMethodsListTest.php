@@ -1,24 +1,26 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
+
 /**
  * Title: Ogone payment methods list (PMLIST parameter) test
  * Description:
- * Copyright: Copyright (c) 2005 - 2016
+ * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
  *
- * @author Remco Tolsma
- * @version 1.1.0
- * @since 1.1.0
+ * @author  Remco Tolsma
+ * @version 2.0.0
+ * @since   1.1.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_PaymentMethodsListTest extends WP_UnitTestCase {
+class PaymentMethodsListTest extends \WP_UnitTestCase {
 	/**
 	 * Test constructor
 	 */
 	function test_constructor() {
-		$list = new Pronamic_WP_Pay_Gateways_Ogone_PaymentMethodsList( array(
-			Pronamic_WP_Pay_Gateways_Ogone_Brands::VISA,
-			Pronamic_WP_Pay_Gateways_Ogone_Brands::MASTERCARD,
-			Pronamic_WP_Pay_Gateways_Ogone_Brands::AMERICAN_EXPRESS,
+		$list = new PaymentMethodsList( array(
+			Brands::VISA,
+			Brands::MASTERCARD,
+			Brands::AMERICAN_EXPRESS,
 		) );
 
 		$string = (string) $list;
@@ -30,10 +32,10 @@ class Pronamic_WP_Pay_Gateways_Ogone_PaymentMethodsListTest extends WP_UnitTestC
 	 * Test add payment method
 	 */
 	function test_add_payment_method() {
-		$list = new Pronamic_WP_Pay_Gateways_Ogone_PaymentMethodsList();
-		$list->add_payment_method( Pronamic_WP_Pay_Gateways_Ogone_Brands::VISA );
-		$list->add_payment_method( Pronamic_WP_Pay_Gateways_Ogone_Brands::MASTERCARD );
-		$list->add_payment_method( Pronamic_WP_Pay_Gateways_Ogone_Brands::AMERICAN_EXPRESS );
+		$list = new PaymentMethodsList();
+		$list->add_payment_method( Brands::VISA );
+		$list->add_payment_method( Brands::MASTERCARD );
+		$list->add_payment_method( Brands::AMERICAN_EXPRESS );
 
 		$string = (string) $list;
 

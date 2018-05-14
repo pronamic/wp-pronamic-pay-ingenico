@@ -1,15 +1,20 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink;
+
+use Pronamic\WordPress\Pay\Gateways\Ingenico\Config as Ingenico_Config;
+use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink;
+
 /**
- * Title: Ogone DirectLink config
+ * Title: Ingenico DirectLink config
  * Description:
- * Copyright: Copyright (c) 2005 - 2016
+ * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
  *
- * @author Remco Tolsma
- * @version 1.0.0
+ * @author  Remco Tolsma
+ * @version 2.0.0
  */
-class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Config extends Pronamic_WP_Pay_Gateways_Ogone_Config {
+class Config extends Ingenico_Config {
 	public $user_id;
 
 	public $password;
@@ -18,16 +23,10 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Config extends Pronamic_WP_Pay_G
 
 	public $api_url;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Constructs and initializes an Ogone DirectLink config object
 	 */
 	public function __construct() {
-		$this->api_url = Pronamic_WP_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_URL;
-	}
-
-	public function get_gateway_class() {
-		return 'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway';
+		$this->api_url = DirectLink::API_PRODUCTION_URL;
 	}
 }

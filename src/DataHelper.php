@@ -1,16 +1,18 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
+
 /**
- * Title: Ogone data helper class
+ * Title: Ingenico data helper class
  * Description:
- * Copyright: Copyright (c) 2005 - 2016
+ * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
  *
- * @author Remco Tolsma
- * @version 1.1.0
- * @since 1.1.0
+ * @author  Remco Tolsma
+ * @version 2.0.0
+ * @since   1.1.0
  */
-abstract class Pronamic_WP_Pay_Gateways_Ogone_DataHelper {
+abstract class DataHelper {
 	/**
 	 * Data
 	 *
@@ -18,16 +20,12 @@ abstract class Pronamic_WP_Pay_Gateways_Ogone_DataHelper {
 	 */
 	protected $data;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Constructs and initialize a Ogone data default helper class
 	 */
-	public function __construct( Pronamic_WP_Pay_Gateways_Ogone_Data $data ) {
+	public function __construct( Data $data ) {
 		$this->data = $data;
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Set field
