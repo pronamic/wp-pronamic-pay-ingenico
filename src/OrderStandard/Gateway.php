@@ -47,8 +47,6 @@ class Gateway extends Core_Gateway {
 		);
 
 		$this->set_method( Gateway::METHOD_HTML_FORM );
-		$this->set_has_feedback( true );
-		$this->set_amount_minimum( 0.01 );
 		$this->set_slug( self::SLUG );
 
 		$this->client = new Client( $this->config->psp_id );
