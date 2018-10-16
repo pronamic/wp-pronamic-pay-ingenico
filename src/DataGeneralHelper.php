@@ -58,7 +58,7 @@ class DataGeneralHelper extends DataHelper {
 	 * @return DataGeneralHelper
 	 */
 	public function set_amount( $amount ) {
-		return $this->set_field( 'AMOUNT', Util::amount_to_cents( $amount ) );
+		return $this->set_field( 'AMOUNT', $amount );
 	}
 
 	/**
