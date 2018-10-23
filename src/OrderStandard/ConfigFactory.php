@@ -2,7 +2,6 @@
 
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard;
 
-use Pronamic\WordPress\Pay\Core\Gateway as Core_Gateway;
 use Pronamic\WordPress\Pay\Core\GatewayConfigFactory;
 
 /**
@@ -26,7 +25,7 @@ class ConfigFactory extends GatewayConfigFactory {
 	public function get_config( $post_id ) {
 		$mode = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
 
-		$config_class = ( Core_Gateway::MODE_TEST === $mode ) ? $this->config_test_class : $this->config_class;
+		$config_class = ( Gateway::MODE_TEST === $mode ) ? $this->config_test_class : $this->config_class;
 
 		$config = new $config_class();
 

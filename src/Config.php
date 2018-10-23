@@ -2,6 +2,7 @@
 
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
+use Pronamic\WordPress\Pay\Core\Gateway as Core_Gateway;
 use Pronamic\WordPress\Pay\Core\GatewayConfig;
 
 /**
@@ -98,7 +99,7 @@ class Config extends GatewayConfig {
 	 * @return string
 	 */
 	public function get_direct_query_url() {
-		if ( 'test' === $this->mode ) {
+		if ( Core_Gateway::MODE_TEST === $this->mode ) {
 			return 'https://secure.ogone.com/ncol/test/querydirect.asp';
 		}
 

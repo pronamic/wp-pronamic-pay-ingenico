@@ -29,7 +29,7 @@ class Gateway extends Core_Gateway {
 	public function __construct( Config $config ) {
 		parent::__construct( $config );
 
-		$this->set_method( Gateway::METHOD_HTML_FORM );
+		$this->set_method( self::METHOD_HTML_FORM );
 
 		$this->client = new Client( $config->psp_id );
 		$this->client->set_payment_server_url( $config->get_form_action_url() );

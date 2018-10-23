@@ -46,7 +46,7 @@ class Gateway extends Core_Gateway {
 			'payment_status_request',
 		);
 
-		$this->set_method( Gateway::METHOD_HTML_FORM );
+		$this->set_method( self::METHOD_HTML_FORM );
 		$this->set_slug( self::SLUG );
 
 		$this->client = new Client( $this->config->psp_id );
