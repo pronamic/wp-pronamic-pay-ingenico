@@ -110,7 +110,7 @@ class Gateway extends Core_Gateway {
 			->set_telephone_number( $payment->get_telephone_number() );
 
 		// Payment method
-		// @see https://github.com/wp-pay-gateways/ogone/wiki/Brands
+		// @link https://github.com/wp-pay-gateways/ogone/wiki/Brands
 		switch ( $payment->get_method() ) {
 			case Core_PaymentMethods::CREDIT_CARD :
 				/*

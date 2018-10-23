@@ -19,7 +19,7 @@ class Integration extends AbstractIntegration {
 	/**
 	 * Get required settings for this integration.
 	 *
-	 * @see https://github.com/wp-premium/gravityforms/blob/1.9.16/includes/fields/class-gf-field-multiselect.php#L21-L42
+	 * @link https://github.com/wp-premium/gravityforms/blob/1.9.16/includes/fields/class-gf-field-multiselect.php#L21-L42
 	 * @since 1.1.3
 	 * @return array
 	 */

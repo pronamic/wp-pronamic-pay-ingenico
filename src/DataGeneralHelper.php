@@ -148,7 +148,7 @@ class DataGeneralHelper extends DataHelper {
 	/**
 	 * Set PARAMPLUS feedback parameters
 	 *
-	 * @see https://payment-services.ingenico.com/int/en/ogone/support/guides/integration%20guides/e-commerce/transaction-feedback#feedbackparameters_variablefeedbackparameters
+	 * @link https://payment-services.ingenico.com/int/en/ogone/support/guides/integration%20guides/e-commerce/transaction-feedback#feedbackparameters_variablefeedbackparameters
 	 * @since 1.2.6
 	 *
 	 * @param string $paramplus
