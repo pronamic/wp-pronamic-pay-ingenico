@@ -93,7 +93,7 @@ class Gateway extends Core_Gateway {
 			->set_order_id( $payment->format_string( $this->config->order_id ) )
 			->set_order_description( $payment->get_description() )
 			->set_param_plus( 'payment_id=' . $payment->get_id() )
-			->set_currency( $payment->get_currency() )
+			->set_currency( $payment->get_total_amount()->get_currency()->get_alphabetic_code() )
 			->set_amount( $payment->get_total_amount()->get_cents() )
 			->set_language( $payment->get_locale() );
 
