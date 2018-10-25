@@ -84,20 +84,38 @@ class Gateway extends Core_Gateway {
 			->set_order_description( $payment->get_description() )
 			->set_param_plus( 'payment_id=' . $payment->get_id() )
 			->set_currency( $payment->get_total_amount()->get_currency()->get_alphabetic_code() )
-			->set_amount( $payment->get_total_amount()->get_cents() )
-			->set_language( $payment->get_locale() );
+			->set_amount( $payment->get_total_amount()->get_cents() );
 
-		// Customer
+		$customer = $payment->get_customer();
+
+		if ( null !== $customer ) {
+			// Localised language.
+			$ogone_data_general->set_language( $customer->get_locale() );
+		}
+
+		// Customer.
 		$ogone_data_customer = new DataCustomerHelper( $ogone_data );
 
-		$ogone_data_customer
-			->set_name( $payment->get_customer_name() )
-			->set_email( $payment->get_email() )
-			->set_address( $payment->get_address() )
-			->set_zip( $payment->get_zip() )
-			->set_town( $payment->get_city() )
-			->set_country( $payment->get_country() )
-			->set_telephone_number( $payment->get_telephone_number() );
+		if ( null !== $customer ) {
+			$name = $customer->get_name();
+
+			if ( null !== $name ) {
+				$ogone_data_customer->set_name( strval( $name ) );
+			}
+
+			$ogone_data_customer->set_email( $customer->get_email() );
+		}
+
+		$billing_address = $payment->get_billing_address();
+
+		if ( null !== $billing_address ) {
+			$ogone_data_customer
+				->set_address( $billing_address->get_line_1() )
+				->set_zip( $billing_address->get_postal_code() )
+				->set_town( $billing_address->get_city() )
+				->set_country( $billing_address->get_country_code() )
+				->set_telephone_number( $billing_address->get_phone() );
+		}
 
 		// URLs.
 		$ogone_url_helper = new DataUrlHelper( $ogone_data );
