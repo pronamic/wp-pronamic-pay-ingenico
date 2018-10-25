@@ -2,9 +2,6 @@
 
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
-use Pronamic\WordPress\Pay\Core\Util;
-use Pronamic\WordPress\Pay\Gateways\Ingenico\DataHelper;
-
 /**
  * Title: Ingenico data default helper class
  * Description:
@@ -19,7 +16,7 @@ class DataGeneralHelper extends DataHelper {
 	/**
 	 * Set PSP ID
 	 *
-	 * @param int $number
+	 * @param int $number PSP ID.
 	 *
 	 * @return DataGeneralHelper
 	 */
@@ -30,7 +27,7 @@ class DataGeneralHelper extends DataHelper {
 	/**
 	 * Set order ID
 	 *
-	 * @param string $order_id
+	 * @param string $order_id Order ID.
 	 *
 	 * @return DataGeneralHelper
 	 */
@@ -42,7 +39,7 @@ class DataGeneralHelper extends DataHelper {
 	 * Set order description
 	 * AN..max32 (AN = Alphanumeric, free text)
 	 *
-	 * @param string $description
+	 * @param string $description Description.
 	 *
 	 * @return DataGeneralHelper
 	 */
@@ -53,7 +50,7 @@ class DataGeneralHelper extends DataHelper {
 	/**
 	 * Set amount
 	 *
-	 * @param float $amount
+	 * @param float $amount Amount.
 	 *
 	 * @return DataGeneralHelper
 	 */
@@ -64,7 +61,7 @@ class DataGeneralHelper extends DataHelper {
 	/**
 	 * Set currency
 	 *
-	 * @param string $currency
+	 * @param string $currency Currency.
 	 *
 	 * @return DataGeneralHelper
 	 */
@@ -77,7 +74,7 @@ class DataGeneralHelper extends DataHelper {
 	 *
 	 * @deprecated since 1.3.0
 	 *
-	 * @param string $name
+	 * @param string $name Customer name.
 	 *
 	 * @return DataGeneralHelper
 	 */
@@ -90,7 +87,7 @@ class DataGeneralHelper extends DataHelper {
 	 *
 	 * @deprecated since 1.3.0
 	 *
-	 * @param string $email
+	 * @param string $email Email address.
 	 *
 	 * @return DataGeneralHelper
 	 */
@@ -101,9 +98,9 @@ class DataGeneralHelper extends DataHelper {
 	/**
 	 * Set language
 	 *
-	 * @param string $language
+	 * @param string $language Language.
 	 *
-	 * @return DataHelper
+	 * @return DataGeneralHelper
 	 */
 	public function set_language( $language ) {
 		return $this->set_field( 'LANGUAGE', $language );
@@ -112,9 +109,9 @@ class DataGeneralHelper extends DataHelper {
 	/**
 	 * Set payment method
 	 *
-	 * @param string $payment_method
+	 * @param string $payment_method Payment method.
 	 *
-	 * @return DataHelper
+	 * @return DataGeneralHelper
 	 */
 	public function set_payment_method( $payment_method ) {
 		return $this->set_field( 'PM', $payment_method );
@@ -123,9 +120,9 @@ class DataGeneralHelper extends DataHelper {
 	/**
 	 * Set payment methods list
 	 *
-	 * @param string $list
+	 * @param string $list Payment method list.
 	 *
-	 * @return DataHelper
+	 * @return DataGeneralHelper
 	 */
 	public function set_payment_methods_list( $list ) {
 		return $this->set_field( 'PMLIST', $list );
@@ -137,9 +134,9 @@ class DataGeneralHelper extends DataHelper {
 	 * If you send the BRAND field without sending a value in the PM field (‘CreditCard’ or ‘Purchasing Card’),
 	 * the BRAND value will not be taken into account.
 	 *
-	 * @param string $brand
+	 * @param string $brand Brand of card.
 	 *
-	 * @return DataHelper
+	 * @return DataGeneralHelper
 	 */
 	public function set_brand( $brand ) {
 		return $this->set_field( 'BRAND', $brand );
@@ -151,9 +148,9 @@ class DataGeneralHelper extends DataHelper {
 	 * @link https://payment-services.ingenico.com/int/en/ogone/support/guides/integration%20guides/e-commerce/transaction-feedback#feedbackparameters_variablefeedbackparameters
 	 * @since 1.2.6
 	 *
-	 * @param string $paramplus
+	 * @param string $param_plus `PARAMPLUS` parameter value.
 	 *
-	 * @return DataHelper
+	 * @return DataGeneralHelper
 	 */
 	public function set_param_plus( $param_plus ) {
 		return $this->set_field( 'PARAMPLUS', $param_plus );

@@ -24,6 +24,8 @@ class DataHelper {
 
 	/**
 	 * Constructs and initialize a Ogone data default helper class
+	 *
+	 * @param Data $data Data.
 	 */
 	public function __construct( Data $data ) {
 		$this->data = $data;
@@ -32,7 +34,7 @@ class DataHelper {
 	/**
 	 * Set user id
 	 *
-	 * @param string $user_id
+	 * @param string $user_id User ID.
 	 *
 	 * @return DataHelper
 	 */
@@ -45,7 +47,7 @@ class DataHelper {
 	/**
 	 * Set password
 	 *
-	 * @param string $password
+	 * @param string $password Password.
 	 *
 	 * @return DataHelper
 	 */

@@ -22,6 +22,8 @@ abstract class DataHelper {
 
 	/**
 	 * Constructs and initialize a Ogone data default helper class
+	 *
+	 * @param Data $data Data.
 	 */
 	public function __construct( Data $data ) {
 		$this->data = $data;
@@ -30,8 +32,10 @@ abstract class DataHelper {
 	/**
 	 * Set field
 	 *
-	 * @param string $name
-	 * @param string $value
+	 * @param string $name  Name.
+	 * @param string $value Value.
+	 *
+	 * @return mixed
 	 */
 	public function set_field( $name, $value ) {
 		$this->data->set_field( $name, $value );

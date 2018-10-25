@@ -14,7 +14,6 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\Statuses;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Util;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Security;
 use Pronamic\WordPress\Pay\Payments\Payment;
-use ReflectionClass;
 
 /**
  * Title: Ingenico order standard gateway
@@ -35,9 +34,16 @@ class Gateway extends Core_Gateway {
 	const SLUG = 'ogone_orderstandard';
 
 	/**
-	 * Constructs and initializes an InternetKassa gateway
+	 * Client.
 	 *
-	 * @param Config $config
+	 * @var Client
+	 */
+	protected $client;
+
+	/**
+	 * Constructs and initializes an OrderStandard gateway
+	 *
+	 * @param Config $config Config.
 	 */
 	public function __construct( Config $config ) {
 		parent::__construct( $config );
@@ -80,13 +86,15 @@ class Gateway extends Core_Gateway {
 	 * Start
 	 *
 	 * @see Pronamic_WP_Pay_Gateway::start()
+	 *
+	 * @param Payment $payment Payment.
 	 */
 	public function start( Payment $payment ) {
 		$payment->set_action_url( $this->client->get_payment_server_url() );
 
 		$ogone_data = $this->client->get_data();
 
-		// General
+		// General.
 		$ogone_data_general = new DataGeneralHelper( $ogone_data );
 
 		$ogone_data_general
@@ -109,10 +117,13 @@ class Gateway extends Core_Gateway {
 			->set_country( $payment->get_country() )
 			->set_telephone_number( $payment->get_telephone_number() );
 
-		// Payment method
-		// @link https://github.com/wp-pay-gateways/ogone/wiki/Brands
+		/*
+		 * Payment method.
+		 *
+		 * @link https://github.com/wp-pay-gateways/ogone/wiki/Brands
+		 */
 		switch ( $payment->get_method() ) {
-			case Core_PaymentMethods::CREDIT_CARD :
+			case Core_PaymentMethods::CREDIT_CARD:
 				/*
 				 * Set credit card payment method.
 				 * @since 1.2.3
@@ -121,7 +132,7 @@ class Gateway extends Core_Gateway {
 					->set_payment_method( PaymentMethods::CREDIT_CARD );
 
 				break;
-			case Core_PaymentMethods::IDEAL :
+			case Core_PaymentMethods::IDEAL:
 				/*
 				 * Set iDEAL payment method.
 				 * @since 1.2.3
@@ -131,8 +142,8 @@ class Gateway extends Core_Gateway {
 					->set_payment_method( PaymentMethods::IDEAL );
 
 				break;
-			case Core_PaymentMethods::BANCONTACT :
-			case Core_PaymentMethods::MISTER_CASH :
+			case Core_PaymentMethods::BANCONTACT:
+			case Core_PaymentMethods::MISTER_CASH:
 				$ogone_data_general
 					->set_brand( Brands::BCMC )
 					->set_payment_method( PaymentMethods::CREDIT_CARD );
@@ -140,21 +151,21 @@ class Gateway extends Core_Gateway {
 				break;
 		}
 
-		// Parameter Variable
+		// Parameter Variable.
 		$param_var = Util::get_param_var( $this->config->param_var );
 
 		if ( ! empty( $param_var ) ) {
 			$ogone_data->set_field( 'PARAMVAR', $param_var );
 		}
 
-		// Template Page
+		// Template Page.
 		$template_page = $this->config->param_var;
 
 		if ( ! empty( $template_page ) ) {
 			$ogone_data->set_field( 'TP', $template_page );
 		}
 
-		// URL's
+		// URLs.
 		$ogone_url_helper = new DataUrlHelper( $ogone_data );
 
 		$ogone_url_helper
@@ -177,7 +188,7 @@ class Gateway extends Core_Gateway {
 	/**
 	 * Update status of the specified payment
 	 *
-	 * @param Payment $payment
+	 * @param Payment $payment Payment.
 	 */
 	public function update_status( Payment $payment ) {
 		$data = Security::get_request_data();
@@ -206,8 +217,8 @@ class Gateway extends Core_Gateway {
 	/**
 	 * Update status payment note
 	 *
-	 * @param Payment $payment
-	 * @param array $data
+	 * @param Payment $payment Payment.
+	 * @param array   $data    Data.
 	 */
 	private function update_status_payment_note( Payment $payment, $data ) {
 		$labels = array(
@@ -217,7 +228,6 @@ class Gateway extends Core_Gateway {
 			'AMOUNT'     => __( 'Amount', 'pronamic_ideal' ),
 			'PM'         => __( 'Payment Method', 'pronamic_ideal' ),
 			'ACCEPTANCE' => __( 'Acceptance', 'pronamic_ideal' ),
-			'STATUS'     => __( 'Status', 'pronamic_ideal' ),
 			'CARDNO'     => __( 'Card Number', 'pronamic_ideal' ),
 			'ED'         => __( 'End Date', 'pronamic_ideal' ),
 			'CN'         => __( 'Customer Name', 'pronamic_ideal' ),

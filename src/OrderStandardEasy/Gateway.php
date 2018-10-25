@@ -22,9 +22,16 @@ use Pronamic\WordPress\Pay\Payments\Payment;
  */
 class Gateway extends Core_Gateway {
 	/**
+	 * Client.
+	 *
+	 * @var Client
+	 */
+	protected $client;
+
+	/**
 	 * Construct and intialize an iDEAL Easy gateway
 	 *
-	 * @param Config $config
+	 * @param Config $config Config.
 	 */
 	public function __construct( Config $config ) {
 		parent::__construct( $config );
@@ -60,14 +67,16 @@ class Gateway extends Core_Gateway {
 	/**
 	 * Start transaction with the specified data
 	 *
-	 * @see Pronamic_WP_Pay_Gateway::start()
+	 * @see Core_Gateway::start()
+	 *
+	 * @param Payment $payment Payment.
 	 */
 	public function start( Payment $payment ) {
 		$payment->set_action_url( $this->client->get_payment_server_url() );
 
 		$ogone_data = $this->client->get_data();
 
-		// General
+		// General.
 		$ogone_data_general = new DataGeneralHelper( $ogone_data );
 
 		$ogone_data_general
@@ -90,7 +99,7 @@ class Gateway extends Core_Gateway {
 			->set_country( $payment->get_country() )
 			->set_telephone_number( $payment->get_telephone_number() );
 
-		// URL's
+		// URLs.
 		$ogone_url_helper = new DataUrlHelper( $ogone_data );
 
 		$ogone_url_helper
@@ -105,7 +114,7 @@ class Gateway extends Core_Gateway {
 	/**
 	 * Update status of the specified payment
 	 *
-	 * @param Payment $payment
+	 * @param Payment $payment Payment.
 	 */
 	public function update_status( Payment $payment ) {
 		if ( ! filter_has_var( INPUT_GET, 'status' ) ) {

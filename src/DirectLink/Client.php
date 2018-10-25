@@ -21,18 +21,46 @@ use WP_Error;
  */
 class Client {
 	/**
-	 * Error
+	 * Error.
 	 *
 	 * @var WP_Error
 	 */
 	private $error;
 
 	/**
-	 * API URL
+	 * API URL.
 	 *
 	 * @var string
 	 */
 	public $api_url;
+
+	/**
+	 * PSP ID.
+	 *
+	 * @var string
+	 */
+	public $psp_id;
+
+	/**
+	 * SHA IN.
+	 *
+	 * @var string
+	 */
+	public $sha_in;
+
+	/**
+	 * User ID.
+	 *
+	 * @var string
+	 */
+	public $user_id;
+
+	/**
+	 * Password.
+	 *
+	 * @var string
+	 */
+	public $password;
 
 	/**
 	 * Constructs and initializes an Ogone DirectLink client
@@ -53,18 +81,22 @@ class Client {
 	/**
 	 * Order direct
 	 *
-	 * @param array $data
+	 * @param array $data Data.
 	 *
 	 * @return bool|OrderResponse
 	 */
 	public function order_direct( array $data = array() ) {
 		$order_response = false;
 
-		$result = Util::remote_get_body( $this->api_url, 200, array(
-			'method'    => 'POST',
-			'sslverify' => false,
-			'body'      => $data,
-		) );
+		$result = Util::remote_get_body(
+			$this->api_url,
+			200,
+			array(
+				'method'    => 'POST',
+				'sslverify' => false,
+				'body'      => $data,
+			)
+		);
 
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;

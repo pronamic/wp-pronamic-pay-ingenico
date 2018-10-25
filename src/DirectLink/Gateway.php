@@ -33,9 +33,16 @@ class Gateway extends Core_Gateway {
 	const SLUG = 'ogone-directlink';
 
 	/**
+	 * Client.
+	 *
+	 * @var Client
+	 */
+	protected $client;
+
+	/**
 	 * Constructs and initializes an Ogone DirectLink gateway
 	 *
-	 * @param Config $config
+	 * @param Config $config Config.
 	 */
 	public function __construct( Config $config ) {
 		parent::__construct( $config );
@@ -56,12 +63,12 @@ class Gateway extends Core_Gateway {
 	 *
 	 * @see Pronamic_WP_Pay_Gateway::start()
 	 *
-	 * @param Payment $payment
+	 * @param Payment $payment Payment.
 	 */
 	public function start( Payment $payment ) {
 		$ogone_data = new Data();
 
-		// General
+		// General.
 		$ogone_data_general = new DataGeneralHelper( $ogone_data );
 
 		$ogone_data_general
@@ -85,14 +92,14 @@ class Gateway extends Core_Gateway {
 			->set_country( $payment->get_country() )
 			->set_telephone_number( $payment->get_telephone_number() );
 
-		// DirectLink
+		// DirectLink.
 		$ogone_data_directlink = new DataHelper( $ogone_data );
 
 		$ogone_data_directlink
 			->set_user_id( $this->client->user_id )
 			->set_password( $this->client->password );
 
-		// Credit card
+		// Credit card.
 		$ogone_data_credit_card = new DataCreditCardHelper( $ogone_data );
 
 		$credit_card = $payment->get_credit_card();
@@ -122,7 +129,7 @@ class Gateway extends Core_Gateway {
 			$ogone_data->set_field( 'COMPLUS', '' );
 		}
 
-		// Signature
+		// Signature.
 		$calculation_fields = Security::get_calculations_parameters_in();
 
 		$fields = Security::get_calculation_fields( $calculation_fields, $ogone_data->get_fields() );
@@ -131,7 +138,7 @@ class Gateway extends Core_Gateway {
 
 		$ogone_data->set_field( 'SHASIGN', $signature );
 
-		// Order
+		// Order.
 		$result = $this->client->order_direct( $ogone_data->get_fields() );
 
 		$error = $this->client->get_error();
@@ -153,7 +160,7 @@ class Gateway extends Core_Gateway {
 	/**
 	 * Update status of the specified payment
 	 *
-	 * @param Payment $payment
+	 * @param Payment $payment Payment.
 	 */
 	public function update_status( Payment $payment ) {
 		$data = Security::get_request_data();

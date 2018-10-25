@@ -18,7 +18,7 @@ class DataCreditCardHelper extends DataHelper {
 	/**
 	 * Set credit card number.
 	 *
-	 * @param int $number
+	 * @param int $number Credit card number.
 	 *
 	 * @return DataCreditCardHelper
 	 */
@@ -29,7 +29,7 @@ class DataCreditCardHelper extends DataHelper {
 	/**
 	 * Set expiration date.
 	 *
-	 * @param DateTime $date
+	 * @param DateTime $date Expiration date.
 	 *
 	 * @return DataCreditCardHelper
 	 */
@@ -40,7 +40,7 @@ class DataCreditCardHelper extends DataHelper {
 	/**
 	 * Set security code.
 	 *
-	 * @param string $security_code
+	 * @param string $security_code Security code.
 	 *
 	 * @return DataCreditCardHelper
 	 */
