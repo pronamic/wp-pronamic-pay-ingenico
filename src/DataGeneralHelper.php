@@ -50,7 +50,7 @@ class DataGeneralHelper extends DataHelper {
 	/**
 	 * Set amount
 	 *
-	 * @param float $amount Amount.
+	 * @param float $amount Amount in cents.
 	 *
 	 * @return DataGeneralHelper
 	 */

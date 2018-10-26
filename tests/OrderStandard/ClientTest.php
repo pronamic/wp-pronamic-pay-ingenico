@@ -4,8 +4,21 @@ namespace Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard;
 
 use Pronamic\WordPress\Pay\Gateways\Ingenico\DataGeneralHelper;
 
+/**
+ * Title: Ogone client class test
+ * Description:
+ * Copyright: Copyright (c) 2005 - 2018
+ * Company: Pronamic
+ *
+ * @author  Remco Tolsma
+ * @version 2.0.0
+ * @since   1.1.0
+ */
 class ClientTest extends \WP_UnitTestCase {
-	function test_signature_in_empty() {
+	/**
+	 * Test signature in empty.
+	 */
+	public function test_signature_in_empty() {
 		$client = new Client( '' );
 
 		$signature_in = $client->get_signature_in();
@@ -13,33 +26,38 @@ class ClientTest extends \WP_UnitTestCase {
 		$this->assertEquals( 'DA39A3EE5E6B4B0D3255BFEF95601890AFD80709', $signature_in );
 	}
 
-	function test_signature_in_from_documentation() {
-		// http://pronamic.nl/wp-content/uploads/2012/02/ABNAMRO_e-Com-BAS_EN.pdf #page 11
+	/**
+	 * Test signature in from documentation.
+	 */
+	public function test_signature_in_from_documentation() {
+		/* @link http://pronamic.nl/wp-content/uploads/2012/02/ABNAMRO_e-Com-BAS_EN.pdf #page 11 */
 		$client = new Client( 'MyPSPID' );
 
 		$client->set_pass_phrase_in( 'Mysecretsig1875!?' );
 
-		// Data
+		// Data.
 		$ogone_data = $client->get_data();
 
-		// General
+		// General.
 		$ogone_data_general = new DataGeneralHelper( $ogone_data );
 
 		$ogone_data_general
-			->set_amount( 15 )
+			->set_amount( 1500 )
 			->set_currency( 'EUR' )
 			->set_language( 'en_US' )
 			->set_order_id( '1234' );
 
-		// Signature
-
+		// Signature.
 		$signature_in = $client->get_signature_in();
 
 		$this->assertEquals( 'F4CC376CD7A834D997B91598FA747825A238BE0A', $signature_in );
 	}
 
-	function test_signature_out_from_documentation() {
-		// http://pronamic.nl/wp-content/uploads/2012/02/ABNAMRO_e-Com-BAS_EN.pdf #page 16
+	/**
+	 * Test signature out from documentation.
+	 */
+	public function test_signature_out_from_documentation() {
+		/* @link http://pronamic.nl/wp-content/uploads/2012/02/ABNAMRO_e-Com-BAS_EN.pdf #page 16 */
 		$data = array(
 			'ACCEPTANCE' => '1234',
 			'AMOUNT'     => '15.00',
