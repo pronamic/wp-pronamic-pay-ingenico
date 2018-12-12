@@ -20,7 +20,7 @@ class Util {
 	 */
 	public static function get_param_var( $param_var ) {
 		// Find and replace
-		// @see https://github.com/woothemes/woocommerce/blob/v2.0.19/classes/emails/class-wc-email-new-order.php
+		// @link https://github.com/woothemes/woocommerce/blob/v2.0.19/classes/emails/class-wc-email-new-order.php
 		$find    = array();
 		$replace = array();
 

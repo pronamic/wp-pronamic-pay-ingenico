@@ -17,21 +17,26 @@ use Pronamic\WordPress\Pay\Payments\Payment;
  * Company: Pronamic
  *
  * @author  Remco Tolsma
- * @version 2.0.0
+ * @version 2.0.1
  * @since   1.0.0
  */
 class Gateway extends Core_Gateway {
 	/**
+	 * Client.
+	 *
+	 * @var Client
+	 */
+	protected $client;
+
+	/**
 	 * Construct and intialize an iDEAL Easy gateway
 	 *
-	 * @param Config $config
+	 * @param Config $config Config.
 	 */
 	public function __construct( Config $config ) {
 		parent::__construct( $config );
 
-		$this->set_method( Gateway::METHOD_HTML_FORM );
-		$this->set_has_feedback( false );
-		$this->set_amount_minimum( 0.01 );
+		$this->set_method( self::METHOD_HTML_FORM );
 
 		$this->client = new Client( $config->psp_id );
 		$this->client->set_payment_server_url( $config->get_form_action_url() );
@@ -62,37 +67,57 @@ class Gateway extends Core_Gateway {
 	/**
 	 * Start transaction with the specified data
 	 *
-	 * @see Pronamic_WP_Pay_Gateway::start()
+	 * @see Core_Gateway::start()
+	 *
+	 * @param Payment $payment Payment.
 	 */
 	public function start( Payment $payment ) {
 		$payment->set_action_url( $this->client->get_payment_server_url() );
 
 		$ogone_data = $this->client->get_data();
 
-		// General
+		// General.
 		$ogone_data_general = new DataGeneralHelper( $ogone_data );
 
 		$ogone_data_general
 			->set_order_id( $payment->format_string( $this->config->order_id ) )
 			->set_order_description( $payment->get_description() )
 			->set_param_plus( 'payment_id=' . $payment->get_id() )
-			->set_currency( $payment->get_currency() )
-			->set_amount( $payment->get_amount()->get_amount() )
-			->set_language( $payment->get_locale() );
+			->set_currency( $payment->get_total_amount()->get_currency()->get_alphabetic_code() )
+			->set_amount( $payment->get_total_amount()->get_cents() );
 
-		// Customer
+		$customer = $payment->get_customer();
+
+		if ( null !== $customer ) {
+			// Localised language.
+			$ogone_data_general->set_language( $customer->get_locale() );
+		}
+
+		// Customer.
 		$ogone_data_customer = new DataCustomerHelper( $ogone_data );
 
-		$ogone_data_customer
-			->set_name( $payment->get_customer_name() )
-			->set_email( $payment->get_email() )
-			->set_address( $payment->get_address() )
-			->set_zip( $payment->get_zip() )
-			->set_town( $payment->get_city() )
-			->set_country( $payment->get_country() )
-			->set_telephone_number( $payment->get_telephone_number() );
+		if ( null !== $customer ) {
+			$name = $customer->get_name();
 
-		// URL's
+			if ( null !== $name ) {
+				$ogone_data_customer->set_name( strval( $name ) );
+			}
+
+			$ogone_data_customer->set_email( $customer->get_email() );
+		}
+
+		$billing_address = $payment->get_billing_address();
+
+		if ( null !== $billing_address ) {
+			$ogone_data_customer
+				->set_address( $billing_address->get_line_1() )
+				->set_zip( $billing_address->get_postal_code() )
+				->set_town( $billing_address->get_city() )
+				->set_country( $billing_address->get_country_code() )
+				->set_telephone_number( $billing_address->get_phone() );
+		}
+
+		// URLs.
 		$ogone_url_helper = new DataUrlHelper( $ogone_data );
 
 		$ogone_url_helper
@@ -107,7 +132,7 @@ class Gateway extends Core_Gateway {
 	/**
 	 * Update status of the specified payment
 	 *
-	 * @param Payment $payment
+	 * @param Payment $payment Payment.
 	 */
 	public function update_status( Payment $payment ) {
 		if ( ! filter_has_var( INPUT_GET, 'status' ) ) {

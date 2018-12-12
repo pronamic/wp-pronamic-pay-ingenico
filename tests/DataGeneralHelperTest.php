@@ -16,22 +16,24 @@ class DataGeneralHelperTest extends \WP_UnitTestCase {
 	/**
 	 * Test helper
 	 */
-	function test_helper() {
+	public function test_helper() {
 		$data = new Data();
 
 		$helper = new DataGeneralHelper( $data );
 
-		$pmlist = new PaymentMethodsList( array(
-			Brands::VISA,
-			Brands::MASTERCARD,
-			Brands::AMERICAN_EXPRESS,
-		) );
+		$pmlist = new PaymentMethodsList(
+			array(
+				Brands::VISA,
+				Brands::MASTERCARD,
+				Brands::AMERICAN_EXPRESS,
+			)
+		);
 
 		$helper
 			->set_psp_id( 'test' )
 			->set_order_id( '1234' )
 			->set_order_description( 'order description' )
-			->set_amount( 10.50 )
+			->set_amount( 1050 )
 			->set_currency( 'EUR' )
 			->set_customer_name( 'Mr. Test' )
 			->set_email( 'test@example.com' )
@@ -40,18 +42,21 @@ class DataGeneralHelperTest extends \WP_UnitTestCase {
 			->set_payment_methods_list( $pmlist )
 			->set_brand( Brands::IDEAL );
 
-		$this->assertEquals( array(
-			'PSPID'    => 'test',
-			'ORDERID'  => '1234',
-			'COM'      => 'order description',
-			'AMOUNT'   => 1050,
-			'CURRENCY' => 'EUR',
-			'CN'       => 'Mr. Test',
-			'EMAIL'    => 'test@example.com',
-			'LANGUAGE' => 'nl',
-			'PM'       => PaymentMethods::IDEAL,
-			'PMLIST'   => (string) $pmlist,
-			'BRAND'    => Brands::IDEAL,
-		), $data->get_fields() );
+		$this->assertEquals(
+			array(
+				'PSPID'    => 'test',
+				'ORDERID'  => '1234',
+				'COM'      => 'order description',
+				'AMOUNT'   => 1050,
+				'CURRENCY' => 'EUR',
+				'CN'       => 'Mr. Test',
+				'EMAIL'    => 'test@example.com',
+				'LANGUAGE' => 'nl',
+				'PM'       => PaymentMethods::IDEAL,
+				'PMLIST'   => (string) $pmlist,
+				'BRAND'    => Brands::IDEAL,
+			),
+			$data->get_fields()
+		);
 	}
 }

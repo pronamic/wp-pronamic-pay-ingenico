@@ -22,7 +22,7 @@ class Config extends Ingenico_Config {
 	 * Ogone requires the secure data verification method SHA. For each order, your server generates a unique character
 	 * string (=digest), hashed with the SHA algorithm of your choice: SHA-1, SHA-256 or SHA-512.
 	 *
-	 * @see https://payment-services.ingenico.com/int/en/ogone/support/guides/integration%20guides/e-commerce/security-pre-payment-check
+	 * @link https://payment-services.ingenico.com/int/en/ogone/support/guides/integration%20guides/e-commerce/security-pre-payment-check
 	 * @var string
 	 */
 	public $hash_algorithm;
@@ -30,7 +30,7 @@ class Config extends Ingenico_Config {
 	/**
 	 * SHA-IN passphrase.
 	 *
-	 * @see https://payment-services.ingenico.com/int/en/ogone/support/guides/integration%20guides/e-commerce/security-pre-payment-check
+	 * @link https://payment-services.ingenico.com/int/en/ogone/support/guides/integration%20guides/e-commerce/security-pre-payment-check
 	 * @var string
 	 */
 	public $sha_in_pass_phrase;
@@ -38,7 +38,7 @@ class Config extends Ingenico_Config {
 	/**
 	 * SHA-OUT passphrase.
 	 *
-	 * @see https://payment-services.ingenico.com/int/en/ogone/support/guides/integration%20guides/e-commerce/transaction-feedback#SC_7_3
+	 * @link https://payment-services.ingenico.com/int/en/ogone/support/guides/integration%20guides/e-commerce/transaction-feedback#SC_7_3
 	 * @var string
 	 */
 	public $sha_out_pass_phrase;

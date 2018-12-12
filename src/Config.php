@@ -2,6 +2,7 @@
 
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
+use Pronamic\WordPress\Pay\Core\Gateway as Core_Gateway;
 use Pronamic\WordPress\Pay\Core\GatewayConfig;
 
 /**
@@ -23,7 +24,7 @@ class Config extends GatewayConfig {
 	 *
 	 * When configured in your shopping cart, our system will use the PSPID to identify you as a registered merchant.
 	 *
-	 * @see https://payment-services.ingenico.com/int/en/ogone/support/guides/user%20guides/shopping-carts/what-is-a-pspid
+	 * @link https://payment-services.ingenico.com/int/en/ogone/support/guides/user%20guides/shopping-carts/what-is-a-pspid
 	 * @var string
 	 */
 	public $psp_id;
@@ -32,7 +33,7 @@ class Config extends GatewayConfig {
 	 * The Ogone e-Commerce form action URL.
 	 *
 	 * @since 1.2.9
-	 * @see https://payment-services.ingenico.com/int/en/ogone/support/guides/integration%20guides/e-commerce/link-your-website-to-the-payment-page#formaction
+	 * @link https://payment-services.ingenico.com/int/en/ogone/support/guides/integration%20guides/e-commerce/link-your-website-to-the-payment-page#formaction
 	 * @var string
 	 */
 	public $form_action_url;
@@ -98,7 +99,7 @@ class Config extends GatewayConfig {
 	 * @return string
 	 */
 	public function get_direct_query_url() {
-		if ( 'test' === $this->mode ) {
+		if ( Core_Gateway::MODE_TEST === $this->mode ) {
 			return 'https://secure.ogone.com/ncol/test/querydirect.asp';
 		}
 

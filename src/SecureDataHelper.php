@@ -2,8 +2,6 @@
 
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
-use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\DataHelper;
-
 /**
  * Title: Ingenico 3D Secure data helper
  * Description:
@@ -24,6 +22,8 @@ class SecureDataHelper {
 
 	/**
 	 * Constructs and initialize a Ogone data default helper class
+	 *
+	 * @param Data $data Data.
 	 */
 	public function __construct( Data $data ) {
 		$this->data = $data;
@@ -32,9 +32,9 @@ class SecureDataHelper {
 	/**
 	 * Set 3-D Secure flag
 	 *
-	 * @param string $flag
+	 * @param string $flag 3-D Secure flag.
 	 *
-	 * @return DataHelper
+	 * @return SecureDataHelper
 	 */
 	public function set_3d_secure_flag( $flag ) {
 		$this->data->set_field( 'FLAG3D', $flag ? 'Y' : 'N' );
@@ -45,9 +45,9 @@ class SecureDataHelper {
 	/**
 	 * Set HTTP Accept
 	 *
-	 * @param string $http_accept
+	 * @param string $http_accept HTTP accept.
 	 *
-	 * @return DataHelper
+	 * @return SecureDataHelper
 	 */
 	public function set_http_accept( $http_accept ) {
 		$this->data->set_field( 'HTTP_ACCEPT', $http_accept );
@@ -58,9 +58,9 @@ class SecureDataHelper {
 	/**
 	 * Set HTTP User-Agent
 	 *
-	 * @param string $user_agent
+	 * @param string $user_agent User agent.
 	 *
-	 * @return DataHelper
+	 * @return SecureDataHelper
 	 */
 	public function set_http_user_agent( $user_agent ) {
 		$this->data->set_field( 'HTTP_USER_AGENT', $user_agent );
@@ -71,9 +71,9 @@ class SecureDataHelper {
 	/**
 	 * Set window
 	 *
-	 * @param string $window
+	 * @param string $window Window.
 	 *
-	 * @return DataHelper
+	 * @return SecureDataHelper
 	 */
 	public function set_window( $window ) {
 		$this->data->set_field( 'WIN3DS', $window );
