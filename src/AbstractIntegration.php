@@ -11,7 +11,7 @@ abstract class AbstractIntegration extends Common_AbstractIntegration {
 		$this->dashboard_url = 'https://secure.ogone.com/';
 		$this->provider      = 'ogone';
 
-		// Actions
+		// Actions.
 		$function = array( __NAMESPACE__ . '\Listener', 'listen' );
 
 		if ( ! has_action( 'wp_loaded', $function ) ) {
