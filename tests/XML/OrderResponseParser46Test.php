@@ -53,7 +53,7 @@ class OrderResponseParser46Test extends \WP_UnitTestCase {
 		$expected->nc_error      = '0';
 		$expected->status        = '46';
 		$expected->nc_error_plus = 'Identification requested';
-		$expected->html_answer   = file_get_contents( $filename );
+		$expected->html_answer   = file_get_contents( $filename, true );
 
 		$this->assertEquals( $expected, $order_response );
 	}
