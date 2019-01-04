@@ -7,7 +7,7 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\DataGeneralHelper;
 /**
  * Title: Ogone client class test
  * Description:
- * Copyright: Copyright (c) 2005 - 2018
+ * Copyright: 2005-2019 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma
