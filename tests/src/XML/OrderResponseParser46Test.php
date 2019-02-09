@@ -4,14 +4,14 @@ namespace Pronamic\WordPress\Pay\Gateways\Ingenico\XML;
 
 use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\OrderResponse;
 
-class OrderResponseParser0Test extends \WP_UnitTestCase {
+class OrderResponseParser46Test extends \WP_UnitTestCase {
 	/**
 	 * Test initialize.
 	 *
 	 * @return SimpleXMLElement
 	 */
 	public function test_init() {
-		$filename = dirname( __FILE__ ) . '/../Mock/response-status-0-50001123.xml';
+		$filename = dirname( __FILE__ ) . '/../../Mock/response-status-46.xml';
 
 		$simplexml = simplexml_load_file( $filename );
 
@@ -45,12 +45,15 @@ class OrderResponseParser0Test extends \WP_UnitTestCase {
 	 * @param OrderResponse $order_response
 	 */
 	public function test_values( $order_response ) {
+		$filename = dirname( __FILE__ ) . '/../../Mock/response-status-46-html-answer.html';
+
 		$expected                = new OrderResponse();
-		$expected->order_id      = '52';
-		$expected->pay_id        = '0';
-		$expected->nc_error      = '50001123';
-		$expected->status        = '0';
-		$expected->nc_error_plus = 'Card type not active for the merchant';
+		$expected->order_id      = '1387195001';
+		$expected->pay_id        = '26187584';
+		$expected->nc_error      = '0';
+		$expected->status        = '46';
+		$expected->nc_error_plus = 'Identification requested';
+		$expected->html_answer   = file_get_contents( $filename, true );
 
 		$this->assertEquals( $expected, $order_response );
 	}

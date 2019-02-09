@@ -35,20 +35,26 @@
 	},
 	"require": {
 		"php": "^5.3",
-		"wp-pay/core": "^2.0",
-		"wp-pay-gateways/common": "^2.0"
+		"wp-pay/core": "^2.1"
 	},
 	"require-dev": {
-		"phpmd/phpmd": "^2.2.3",
-		"phpunit/phpunit": "^4.5",
-		"satooshi/php-coveralls": "^0.7.1",
-		"squizlabs/php_codesniffer": "^2.7",
-		"wp-coding-standards/wpcs": "^0.10.0",
-		"wp-cli/wp-cli": "^0.21.1"
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.5",
+		"php-coveralls/php-coveralls": "^1.1",
+		"phpcompatibility/php-compatibility": "^9.1",
+		"phpcompatibility/phpcompatibility-wp": "^2.0",
+		"phpmd/phpmd": "^2.4",
+		"phpunit/phpunit": "^4.8",
+		"roots/wordpress": "^5.0",
+		"squizlabs/php_codesniffer": "^2.9",
+		"wp-coding-standards/wpcs": "^1.2",
+		"wp-phpunit/wp-phpunit": "^5.0"
 	},
 	"scripts": {
-		"post-autoload-dump": [
-			"if [ -d vendor/wp-coding-standards/wpcs ]; then vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs; fi"
-		]
+		"coveralls": "vendor/bin/coveralls -v",
+		"phpcbf": "vendor/bin/phpcbf",
+		"phpcs": "vendor/bin/phpcs -s -v",
+		"phplint": "ls src/**/*.php tests/**/*.php | xargs -n 1 -P 4 php -l",
+		"phpmd": "vendor/bin/phpmd src,tests text phpmd.ruleset.xml --suffixes php",
+		"phpunit": "vendor/bin/phpunit"
 	}
 }
