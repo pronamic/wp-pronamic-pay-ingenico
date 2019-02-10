@@ -17,12 +17,14 @@ module.exports = function( grunt ) {
 				src: [
 					'**/*.php',
 					'!node_modules/**',
-					'!vendor/**'
+					'!vendor/**',
+					'!wordpress/**',
+					'!wp-content/**'
 				]
 			},
 			options: {
 				bin: 'vendor/bin/phpcs',
-				standard: 'phpcs.ruleset.xml',
+				standard: 'phpcs.xml.dist',
 				showSniffCodes: true
 			}
 		},
