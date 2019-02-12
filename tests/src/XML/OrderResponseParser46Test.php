@@ -25,7 +25,7 @@ class OrderResponseParser46Test extends \WP_UnitTestCase {
 	 *
 	 * @depends test_init
 	 *
-	 * @param SimpleXMLElement $simplexml
+	 * @param SimpleXMLElement $simplexml XML element.
 	 *
 	 * @return OrderResponse
 	 */
@@ -42,7 +42,7 @@ class OrderResponseParser46Test extends \WP_UnitTestCase {
 	 *
 	 * @depends test_parser
 	 *
-	 * @param OrderResponse $order_response
+	 * @param OrderResponse $order_response Order response.
 	 */
 	public function test_values( $order_response ) {
 		$filename = dirname( dirname( dirname( __FILE__ ) ) ) . '/Mock/response-status-46-html-answer.html';

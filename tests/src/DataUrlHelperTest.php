@@ -14,9 +14,9 @@ namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
  */
 class DataUrlHelperTest extends \WP_UnitTestCase {
 	/**
-	 * Test helper
+	 * Test URL helper.
 	 */
-	function test_helper() {
+	public function test_helper() {
 		$data = new Data();
 
 		$helper = new DataUrlHelper( $data );
@@ -29,13 +29,16 @@ class DataUrlHelperTest extends \WP_UnitTestCase {
 			->set_home_url( 'http://www.example.com/' )
 			->set_back_url( 'http://www.example.com/payment/' );
 
-		$this->assertEquals( array(
-			'ACCEPTURL'    => 'http://www.example.com/payment/accepted/',
-			'CANCELURL'    => 'http://www.example.com/payment/cancelled/',
-			'EXCEPTIONURL' => 'http://www.example.com/payment/exception/',
-			'DECLINEURL'   => 'http://www.example.com/payment/declined/',
-			'home'         => 'http://www.example.com/',
-			'backurl'      => 'http://www.example.com/payment/',
-		), $data->get_fields() );
+		$this->assertEquals(
+			array(
+				'ACCEPTURL'    => 'http://www.example.com/payment/accepted/',
+				'CANCELURL'    => 'http://www.example.com/payment/cancelled/',
+				'EXCEPTIONURL' => 'http://www.example.com/payment/exception/',
+				'DECLINEURL'   => 'http://www.example.com/payment/declined/',
+				'home'         => 'http://www.example.com/',
+				'backurl'      => 'http://www.example.com/payment/',
+			),
+			$data->get_fields()
+		);
 	}
 }

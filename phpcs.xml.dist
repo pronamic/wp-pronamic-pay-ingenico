@@ -23,6 +23,9 @@
 	<rule ref="WordPress">
 		<exclude name="Generic.Files.LowercasedFilename.NotFound" />
 
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
+
 		<exclude name="Squiz.Commenting" />
 	</rule>
 
@@ -30,11 +33,7 @@
 		<exclude-pattern>/src/XML/OrderResponseParser.php</exclude-pattern>
 	</rule>
 
-	<rule ref="WordPress.VIP.RestrictedFunctions.file_get_contents">
-		<exclude-pattern>/tests/XML/OrderResponseParser46Test.php</exclude-pattern>
-	</rule>
-
-	<rule ref="WordPress.VIP.SlowDBQuery.slow_db_query">
+	<rule ref="WordPress.DB.SlowDBQuery.slow_db_query_meta_key">
 		<exclude-pattern>/src/Settings.php</exclude-pattern>
 	</rule>
 </ruleset>

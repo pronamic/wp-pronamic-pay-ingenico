@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c69ed950cd2d13da5bc5108f1b980139",
+    "content-hash": "a9c120ba3cc4350063c9253ad772663c",
     "packages": [
         {
             "name": "composer/installers",
@@ -1412,8 +1412,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/WordPress/WordPress/zipball/5.0.3",
-                "reference": null,
-                "shasum": null
+                "reference": "5.0.3"
             },
             "require": {
                 "php": ">=5.3.2",
@@ -2417,6 +2416,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
+        "ext-simplexml": "*",
         "php": "^5.3"
     },
     "platform-dev": [],

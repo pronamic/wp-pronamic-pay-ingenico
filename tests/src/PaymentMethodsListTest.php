@@ -14,14 +14,16 @@ namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
  */
 class PaymentMethodsListTest extends \WP_UnitTestCase {
 	/**
-	 * Test constructor
+	 * Test constructor.
 	 */
-	function test_constructor() {
-		$list = new PaymentMethodsList( array(
-			Brands::VISA,
-			Brands::MASTERCARD,
-			Brands::AMERICAN_EXPRESS,
-		) );
+	public function test_constructor() {
+		$list = new PaymentMethodsList(
+			array(
+				Brands::VISA,
+				Brands::MASTERCARD,
+				Brands::AMERICAN_EXPRESS,
+			)
+		);
 
 		$string = (string) $list;
 
@@ -29,9 +31,9 @@ class PaymentMethodsListTest extends \WP_UnitTestCase {
 	}
 
 	/**
-	 * Test add payment method
+	 * Test add payment method.
 	 */
-	function test_add_payment_method() {
+	public function test_add_payment_method() {
 		$list = new PaymentMethodsList();
 		$list->add_payment_method( Brands::VISA );
 		$list->add_payment_method( Brands::MASTERCARD );

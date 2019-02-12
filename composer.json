@@ -34,6 +34,7 @@
 		}
 	},
 	"require": {
+		"ext-simplexml": "*",
 		"php": "^5.3",
 		"wp-pay/core": "^2.1"
 	},

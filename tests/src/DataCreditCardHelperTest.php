@@ -16,9 +16,9 @@ use DateTime;
  */
 class DataCreditCardHelperTest extends \WP_UnitTestCase {
 	/**
-	 * Test helper
+	 * Test helper.
 	 */
-	function test_helper() {
+	public function test_helper() {
 		$data = new Data();
 
 		$helper = new DataCreditCardHelper( $data );
@@ -30,10 +30,13 @@ class DataCreditCardHelperTest extends \WP_UnitTestCase {
 			->set_expiration_date( $ed )
 			->set_security_code( '123' );
 
-		$this->assertEquals( array(
-			'CARDNO' => '378282246310005',
-			'ED'     => $ed->format( Ingenico::EXPIRATION_DATE_FORMAT ),
-			'CVC'    => '123',
-		), $data->get_fields() );
+		$this->assertEquals(
+			array(
+				'CARDNO' => '378282246310005',
+				'ED'     => $ed->format( Ingenico::EXPIRATION_DATE_FORMAT ),
+				'CVC'    => '123',
+			),
+			$data->get_fields()
+		);
 	}
 }
