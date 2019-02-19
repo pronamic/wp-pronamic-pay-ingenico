@@ -257,6 +257,35 @@ class Settings extends GatewaySettings {
 			'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' ),
 		);
 
+		// Alias.
+		$fields[] = array(
+			'filter'   => FILTER_VALIDATE_BOOLEAN,
+			'section'  => 'ogone_advanced',
+			'meta_key' => '_pronamic_gateway_ogone_alias_enabled',
+			'title'    => __( 'Alias', 'pronamic_ideal' ),
+			'type'     => 'checkbox',
+			'label'    => __( 'Enable alias registration', 'pronamic_ideal' ),
+			'tooltip'  => __( 'Enable alias creation as reference for batch payments. Requires the Alias Manager option (`REQ1`) to be enabled for the Ingenico account.', 'pronamic_ideal' ),
+			'methods'  => array( 'ogone_directlink', 'ogone_orderstandard' ),
+		);
+
+		// Alias usage.
+		$fields[] = array(
+			'filter'      => FILTER_SANITIZE_STRING,
+			'section'     => 'ogone_advanced',
+			'meta_key'    => '_pronamic_gateway_ogone_alias_usage',
+			'title'       => __( 'Alias Usage', 'pronamic_ideal' ),
+			'type'        => 'text',
+			'classes'     => array( 'regular-text', 'code' ),
+			'tooltip'     => sprintf(
+				/* translators: %s: <code>ALIASUSAGE</code> */
+				__( 'The Ogone %s parameter.', 'pronamic_ideal' ),
+				sprintf( '<code>%s</code>', 'ALIASUSAGE' )
+			),
+			'description' => __( 'Description on payment page of how aliases are used.', 'pronamic_ideal' ),
+			'methods'     => array( 'ogone_directlink', 'ogone_orderstandard' ),
+		);
+
 		// Template Page.
 		$fields[] = array(
 			'filter'   => FILTER_SANITIZE_STRING,

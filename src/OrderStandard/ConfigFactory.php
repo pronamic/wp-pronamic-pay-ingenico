@@ -45,6 +45,8 @@ class ConfigFactory extends GatewayConfigFactory {
 		$config->order_id            = get_post_meta( $post_id, '_pronamic_gateway_ogone_order_id', true );
 		$config->param_var           = get_post_meta( $post_id, '_pronamic_gateway_ogone_param_var', true );
 		$config->template_page       = get_post_meta( $post_id, '_pronamic_gateway_ogone_template_page', true );
+		$config->alias_enabled       = get_post_meta( $post_id, '_pronamic_gateway_ogone_alias_enabled', true );
+		$config->alias_usage         = get_post_meta( $post_id, '_pronamic_gateway_ogone_alias_usage', true );
 
 		return $config;
 	}

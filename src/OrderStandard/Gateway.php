@@ -104,6 +104,16 @@ class Gateway extends Core_Gateway {
 			->set_currency( $payment->get_total_amount()->get_currency()->get_alphabetic_code() )
 			->set_amount( $payment->get_total_amount()->get_cents() );
 
+		// Alias.
+		if ( $this->config->alias_enabled ) {
+			$alias = uniqid();
+
+			$payment->set_meta( 'ogone_alias', $alias );
+
+			$ogone_data_general->set_alias( $alias )
+				->set_alias_usage( $this->config->alias_usage );
+		}
+
 		$customer = $payment->get_customer();
 
 		if ( null !== $customer ) {
