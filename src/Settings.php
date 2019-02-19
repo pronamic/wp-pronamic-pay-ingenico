@@ -264,6 +264,7 @@ class Settings extends GatewaySettings {
 			'meta_key' => '_pronamic_gateway_ogone_template_page',
 			'title'    => __( 'Template Page', 'pronamic_ideal' ),
 			'type'     => 'text',
+			'classes'  => array( 'regular-text', 'code' ),
 			'tooltip'  => sprintf(
 				/* translators: %s: <code>TP</code> */
 				__( 'The Ogone %s parameter.', 'pronamic_ideal' ),
