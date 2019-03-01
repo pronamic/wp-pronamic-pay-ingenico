@@ -56,6 +56,10 @@ class Gateway extends Core_Gateway {
 		$this->client->user_id  = $config->user_id;
 		$this->client->password = $config->password;
 		$this->client->api_url  = $config->api_url;
+
+		$this->supports = array(
+			'payment_redirect',
+		);
 	}
 
 	/**
@@ -181,6 +185,23 @@ class Gateway extends Core_Gateway {
 				$payment->set_meta( 'ogone_directlink_html_answer', $result->html_answer );
 				$payment->set_action_url( $payment->get_pay_redirect_url() );
 			}
+		}
+	}
+
+	/**
+	 * Payment redirect.
+	 *
+	 * @param Payment $payment Payment.
+	 *
+	 * @return void
+	 */
+	public function payment_redirect( Payment $payment ) {
+		$html_answer = $payment->get_meta( 'ogone_directlink_html_answer' );
+
+		if ( ! empty( $html_answer ) ) {
+			echo $html_answer; // WPCS: XSS ok.
+
+			exit;
 		}
 	}
 
