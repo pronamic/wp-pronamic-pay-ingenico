@@ -179,7 +179,7 @@ class Gateway extends Core_Gateway {
 
 			if ( ! empty( $result->html_answer ) ) {
 				$payment->set_meta( 'ogone_directlink_html_answer', $result->html_answer );
-				$payment->set_action_url( add_query_arg( 'payment_redirect', $payment->get_id(), home_url( '/' ) ) );
+				$payment->set_action_url( $payment->get_pay_redirect_url() );
 			}
 		}
 	}
