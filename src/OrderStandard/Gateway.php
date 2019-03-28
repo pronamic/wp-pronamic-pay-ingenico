@@ -48,13 +48,13 @@ class Gateway extends Core_Gateway {
 	public function __construct( Config $config ) {
 		parent::__construct( $config );
 
-		$this->supports = array(
-			'payment_status_request',
-		);
-
 		$this->set_method( self::METHOD_HTML_FORM );
 		$this->set_slug( self::SLUG );
 
+		// Supported features.
+		$this->supports = self::get_supported_features();
+
+		// Client.
 		$this->client = new Client( $this->config->psp_id );
 
 		$this->client->set_payment_server_url( $config->get_form_action_url() );
@@ -67,6 +67,17 @@ class Gateway extends Core_Gateway {
 		if ( ! empty( $config->hash_algorithm ) ) {
 			$this->client->set_hash_algorithm( $config->hash_algorithm );
 		}
+	}
+
+	/**
+	 * Get supported features.
+	 *
+	 * @return array
+	 */
+	public static function get_supported_features() {
+		return array(
+			'payment_status_request',
+		);
 	}
 
 	/**
