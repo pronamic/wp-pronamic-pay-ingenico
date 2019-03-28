@@ -7,7 +7,7 @@ use Pronamic\WordPress\Pay\Core\Statuses as Core_Statuses;
 /**
  * Title: Ingenico statuses constants
  * Description:
- * Copyright: Copyright (c) 2005 - 2018
+ * Copyright: 2005-2019 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma
@@ -284,53 +284,53 @@ class Statuses {
 	/**
 	 * Transform an Ogone status to an Pronamic Pay status.
 	 *
-	 * @param string $status
+	 * @param string $status Status.
 	 */
 	public static function transform( $status ) {
 		switch ( $status ) {
-			case self::INCOMPLETE_OR_INVALID :
-			case self::AUTHORIZATION_REFUSED :
-			case self::AUTHOR_DELETION_REFUSED :
-			case self::PAYMENT_DELETION_REFUSED :
-			case self::REFUND_REFUSED :
-			case self::PAYMENT_DECLIEND_BY_THE_ACQUIRER :
-			case self::PAYMENT_REFUSED :
-			case self::REFUND_DECLINED_BY_THE_ACQUIRER :
+			case self::INCOMPLETE_OR_INVALID:
+			case self::AUTHORIZATION_REFUSED:
+			case self::AUTHOR_DELETION_REFUSED:
+			case self::PAYMENT_DELETION_REFUSED:
+			case self::REFUND_REFUSED:
+			case self::PAYMENT_DECLIEND_BY_THE_ACQUIRER:
+			case self::PAYMENT_REFUSED:
+			case self::REFUND_DECLINED_BY_THE_ACQUIRER:
 				return Core_Statuses::FAILURE;
-			case self::CANCELLED_BY_CLIENT :
-			case self::AUTHORIZED_AND_CANCELLED :
-			case self::AUTHORIZED_AND_CANCELLED_64 :
+			case self::CANCELLED_BY_CLIENT:
+			case self::AUTHORIZED_AND_CANCELLED:
+			case self::AUTHORIZED_AND_CANCELLED_64:
 				return Core_Statuses::CANCELLED;
-			case self::ORDER_STORED :
-			case self::STORED_WAITING_EXTERNAL_RESULT :
-			case self::WAITING_CLIENT_PAYMENT :
-			case self::AUHTORIZED_WAITING_EXTERNAL_RESULT :
-			case self::AUTHORIZATION_WAITING :
-			case self::AUTHORIZATION_NOT_KNOWN :
-			case self::STAND_BY :
-			case self::OK_WITH_SCHEDULED_PAYMENTS :
-			case self::ERROR_IN_SCHEDULED_PAYMENTS :
-			case self::AUHORIZ_TO_GET_MANUALLY :
-			case self::AUTHOR_DELETION_WAITING :
-			case self::AUTHOR_DELETION_UNCERTAIN :
-			case self::PAYMENT_DELETION_PENDING :
-			case self::PAYMENT_DELETION_UNCERTAIN :
-			case self::PAYMENT_DELETED_74 :
-			case self::DELETION_PROCESSED_BY_MERCHANT :
-			case self::REFUND_PENDING :
-			case self::REFUND_UNCERTAIN :
-			case self::PAYMENT_UNCERTAIN :
-			case self::PAYMENT_PROCESSING :
-			case self::BEING_PROCESSED :
+			case self::ORDER_STORED:
+			case self::STORED_WAITING_EXTERNAL_RESULT:
+			case self::WAITING_CLIENT_PAYMENT:
+			case self::AUHTORIZED_WAITING_EXTERNAL_RESULT:
+			case self::AUTHORIZATION_WAITING:
+			case self::AUTHORIZATION_NOT_KNOWN:
+			case self::STAND_BY:
+			case self::OK_WITH_SCHEDULED_PAYMENTS:
+			case self::ERROR_IN_SCHEDULED_PAYMENTS:
+			case self::AUHORIZ_TO_GET_MANUALLY:
+			case self::AUTHOR_DELETION_WAITING:
+			case self::AUTHOR_DELETION_UNCERTAIN:
+			case self::PAYMENT_DELETION_PENDING:
+			case self::PAYMENT_DELETION_UNCERTAIN:
+			case self::PAYMENT_DELETED_74:
+			case self::DELETION_PROCESSED_BY_MERCHANT:
+			case self::REFUND_PENDING:
+			case self::REFUND_UNCERTAIN:
+			case self::PAYMENT_UNCERTAIN:
+			case self::PAYMENT_PROCESSING:
+			case self::BEING_PROCESSED:
 				return Core_Statuses::OPEN;
-			case self::AUTHORIZED :
-			case self::PAYMENT_DELETED :
-			case self::REFUND :
-			case self::REFUND_PROCESSED_BY_MERCHANT :
-			case self::PAYMENT_REQUESTED :
-			case self::PAYMENT_PROCESSED_BY_MERCHANT :
+			case self::AUTHORIZED:
+			case self::PAYMENT_DELETED:
+			case self::REFUND:
+			case self::REFUND_PROCESSED_BY_MERCHANT:
+			case self::PAYMENT_REQUESTED:
+			case self::PAYMENT_PROCESSED_BY_MERCHANT:
 				return Core_Statuses::SUCCESS;
-			default :
+			default:
 				return null;
 		}
 	}

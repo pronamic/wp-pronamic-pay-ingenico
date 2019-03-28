@@ -5,7 +5,7 @@ namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 /**
  * Title: Ingenico data default helper class
  * Description:
- * Copyright: Copyright (c) 2005 - 2018
+ * Copyright: 2005-2019 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma
@@ -13,6 +13,28 @@ namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
  * @since   1.0.0
  */
 class DataGeneralHelper extends DataHelper {
+	/**
+	 * Set alias.
+	 *
+	 * @param string $alias Alias.
+	 *
+	 * @return DataGeneralHelper
+	 */
+	public function set_alias( $alias ) {
+		return $this->set_field( 'ALIAS', $alias );
+	}
+
+	/**
+	 * Set alias usage.
+	 *
+	 * @param string $alias_usage Alias usage.
+	 *
+	 * @return DataGeneralHelper
+	 */
+	public function set_alias_usage( $alias_usage ) {
+		return $this->set_field( 'ALIASUSAGE', $alias_usage );
+	}
+
 	/**
 	 * Set PSP ID
 	 *

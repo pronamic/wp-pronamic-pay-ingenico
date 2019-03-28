@@ -17,11 +17,11 @@ use Pronamic\WordPress\Pay\Payments\Payment;
 /**
  * Title: Ingenico DirectLink gateway
  * Description:
- * Copyright: Copyright (c) 2005 - 2018
+ * Copyright: 2005-2019 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma
- * @version 2.0.1
+ * @version 2.0.2
  * @since   1.0.0
  */
 class Gateway extends Core_Gateway {
@@ -78,6 +78,15 @@ class Gateway extends Core_Gateway {
 			->set_param_plus( 'payment_id=' . $payment->get_id() )
 			->set_currency( $payment->get_total_amount()->get_currency()->get_alphabetic_code() )
 			->set_amount( $payment->get_total_amount()->get_cents() );
+
+		// Alias.
+		if ( $this->config->alias_enabled ) {
+			$alias = uniqid();
+
+			$payment->set_meta( 'ogone_alias', $alias );
+
+			$ogone_data_general->set_alias( $alias );
+		}
 
 		$customer = $payment->get_customer();
 
@@ -170,8 +179,25 @@ class Gateway extends Core_Gateway {
 
 			if ( ! empty( $result->html_answer ) ) {
 				$payment->set_meta( 'ogone_directlink_html_answer', $result->html_answer );
-				$payment->set_action_url( add_query_arg( 'payment_redirect', $payment->get_id(), home_url( '/' ) ) );
+				$payment->set_action_url( $payment->get_pay_redirect_url() );
 			}
+		}
+	}
+
+	/**
+	 * Payment redirect.
+	 *
+	 * @param Payment $payment Payment.
+	 *
+	 * @return void
+	 */
+	public function payment_redirect( Payment $payment ) {
+		$html_answer = $payment->get_meta( 'ogone_directlink_html_answer' );
+
+		if ( ! empty( $html_answer ) ) {
+			echo $html_answer; // WPCS: XSS ok.
+
+			exit;
 		}
 	}
 

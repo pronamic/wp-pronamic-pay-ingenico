@@ -7,7 +7,7 @@ use Pronamic\WordPress\Pay\Core\GatewayConfigFactory;
 /**
  * Title: Ingenico order standard easy config factory
  * Description:
- * Copyright: Copyright (c) 2005 - 2018
+ * Copyright: 2005-2019 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma

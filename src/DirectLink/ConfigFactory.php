@@ -8,11 +8,11 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink;
 /**
  * Title: Ingenico DirectLink config factory
  * Description:
- * Copyright: Copyright (c) 2005 - 2018
+ * Copyright: 2005-2019 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma
- * @version 2.0.0
+ * @version 2.0.2
  */
 class ConfigFactory extends GatewayConfigFactory {
 	public function get_config( $post_id ) {
@@ -27,6 +27,8 @@ class ConfigFactory extends GatewayConfigFactory {
 		$config->sha_in_pass_phrase  = get_post_meta( $post_id, '_pronamic_gateway_ogone_directlink_sha_in_pass_phrase', true );
 		$config->enabled_3d_secure   = get_post_meta( $post_id, '_pronamic_gateway_ogone_3d_secure_enabled', true );
 		$config->order_id            = get_post_meta( $post_id, '_pronamic_gateway_ogone_order_id', true );
+		$config->alias_enabled       = get_post_meta( $post_id, '_pronamic_gateway_ogone_alias_enabled', true );
+		$config->alias_usage         = get_post_meta( $post_id, '_pronamic_gateway_ogone_alias_usage', true );
 
 		// API URL
 		$is_utf8 = strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) === 0;

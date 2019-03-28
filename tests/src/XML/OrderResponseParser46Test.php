@@ -11,7 +11,7 @@ class OrderResponseParser46Test extends \WP_UnitTestCase {
 	 * @return SimpleXMLElement
 	 */
 	public function test_init() {
-		$filename = dirname( __FILE__ ) . '/../Mock/response-status-46.xml';
+		$filename = dirname( dirname( dirname( __FILE__ ) ) ) . '/Mock/response-status-46.xml';
 
 		$simplexml = simplexml_load_file( $filename );
 
@@ -25,7 +25,7 @@ class OrderResponseParser46Test extends \WP_UnitTestCase {
 	 *
 	 * @depends test_init
 	 *
-	 * @param SimpleXMLElement $simplexml
+	 * @param SimpleXMLElement $simplexml XML element.
 	 *
 	 * @return OrderResponse
 	 */
@@ -42,10 +42,10 @@ class OrderResponseParser46Test extends \WP_UnitTestCase {
 	 *
 	 * @depends test_parser
 	 *
-	 * @param OrderResponse $order_response
+	 * @param OrderResponse $order_response Order response.
 	 */
 	public function test_values( $order_response ) {
-		$filename = dirname( __FILE__ ) . '/../Mock/response-status-46-html-answer.html';
+		$filename = dirname( dirname( dirname( __FILE__ ) ) ) . '/Mock/response-status-46-html-answer.html';
 
 		$expected                = new OrderResponse();
 		$expected->order_id      = '1387195001';
@@ -53,7 +53,7 @@ class OrderResponseParser46Test extends \WP_UnitTestCase {
 		$expected->nc_error      = '0';
 		$expected->status        = '46';
 		$expected->nc_error_plus = 'Identification requested';
-		$expected->html_answer   = file_get_contents( $filename );
+		$expected->html_answer   = file_get_contents( $filename, true );
 
 		$this->assertEquals( $expected, $order_response );
 	}

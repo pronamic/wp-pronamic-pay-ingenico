@@ -7,51 +7,68 @@ use Pronamic\WordPress\Pay\Core\GatewaySettings;
 /**
  * Title: Ingenico gateway settings
  * Description:
- * Copyright: Copyright (c) 2005 - 2018
+ * Copyright: 2005-2019 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma
- * @version 2.0.0
+ * @version 2.0.2
  * @since   1.3.0
  */
 class Settings extends GatewaySettings {
+	/**
+	 * Settings constructor.
+	 */
 	public function __construct() {
 		add_filter( 'pronamic_pay_gateway_sections', array( $this, 'sections' ) );
 		add_filter( 'pronamic_pay_gateway_fields', array( $this, 'fields' ) );
 	}
 
+	/**
+	 * Sections.
+	 *
+	 * @param array $sections Settings sections.
+	 *
+	 * @return array
+	 */
 	public function sections( array $sections ) {
-		// General
+		// General.
 		$sections['ogone'] = array(
 			'title'       => __( 'Ogone', 'pronamic_ideal' ),
 			'methods'     => array( 'ogone_orderstandard_easy', 'ogone_orderstandard', 'ogone_directlink' ),
 			'description' => __( 'Account details are provided by the payment provider after registration. These settings need to match with the payment provider dashboard.', 'pronamic_ideal' ),
 		);
 
-		// Payment page look and feel
+		// Payment page look and feel.
 		$sections['ogone_advanced'] = array(
 			'title'       => __( 'Advanced', 'pronamic_ideal' ),
 			'methods'     => array( 'ogone_orderstandard_easy', 'ogone_orderstandard', 'ogone_directlink' ),
 			'description' => __( 'Optional settings for advanced usage only.', 'pronamic_ideal' ),
 		);
 
-		// Direct HTTP server-to-server request
+		// Direct HTTP server-to-server request.
 		$sections['ogone_feedback'] = array(
 			'title'       => __( 'Transaction feedback', 'pronamic_ideal' ),
 			'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' ),
 			'description' => __( 'The URLs below need to be copied to the payment provider dashboard to receive automatic transaction status updates.', 'pronamic_ideal' ),
 		);
 
-		// Return sections
+		// Return sections.
 		return $sections;
 	}
 
+	/**
+	 * Fields.
+	 *
+	 * @param array $fields Settings fields.
+	 *
+	 * @return array
+	 */
 	public function fields( array $fields ) {
 		/*
 		 * General
 		 */
 
-		// PSPID
+		// PSPID.
 		$fields[] = array(
 			'filter'   => FILTER_SANITIZE_STRING,
 			'section'  => 'ogone',
@@ -63,7 +80,7 @@ class Settings extends GatewaySettings {
 			'methods'  => array( 'ogone_orderstandard_easy', 'ogone_orderstandard', 'ogone_directlink' ),
 		);
 
-		// API user ID
+		// API user ID.
 		$fields[] = array(
 			'filter'   => FILTER_SANITIZE_STRING,
 			'section'  => 'ogone',
@@ -75,7 +92,7 @@ class Settings extends GatewaySettings {
 			'tooltip'  => __( 'User ID of the API user in the payment provider dashboard: Configuration &raquo; Users', 'pronamic_ideal' ),
 		);
 
-		// API user password
+		// API user password.
 		$fields[] = array(
 			'filter'   => FILTER_SANITIZE_STRING,
 			'section'  => 'ogone',
@@ -87,7 +104,7 @@ class Settings extends GatewaySettings {
 			'tooltip'  => __( 'Password of the API user in the payment provider dashboard: Configuration &raquo; Users', 'pronamic_ideal' ),
 		);
 
-		// SHA-IN Pass phrase
+		// SHA-IN Pass phrase.
 		$fields[] = array(
 			'filter'   => FILTER_SANITIZE_STRING,
 			'section'  => 'ogone',
@@ -99,7 +116,7 @@ class Settings extends GatewaySettings {
 			'methods'  => array( 'ogone_orderstandard' ),
 		);
 
-		// SHA-IN Pass phrase
+		// SHA-IN Pass phrase.
 		$fields[] = array(
 			'filter'   => FILTER_SANITIZE_STRING,
 			'section'  => 'ogone',
@@ -111,7 +128,7 @@ class Settings extends GatewaySettings {
 			'methods'  => array( 'ogone_directlink' ),
 		);
 
-		// SHA-OUT Pass phrase
+		// SHA-OUT Pass phrase.
 		$fields[] = array(
 			'filter'   => FILTER_SANITIZE_STRING,
 			'section'  => 'ogone',
@@ -123,7 +140,7 @@ class Settings extends GatewaySettings {
 			'methods'  => array( 'ogone_orderstandard', 'ogone_directlink' ),
 		);
 
-		// Hash algorithm
+		// Hash algorithm.
 		$fields[] = array(
 			'filter'   => FILTER_SANITIZE_STRING,
 			'section'  => 'ogone',
@@ -151,7 +168,7 @@ class Settings extends GatewaySettings {
 			'methods'  => array( 'ogone_directlink' ),
 		);
 
-		// Transaction feedback fields
+		// Transaction feedback fields.
 		$fields[] = array(
 			'section' => 'ogone',
 			'title'   => __( 'Transaction feedback', 'pronamic_ideal' ),
@@ -178,7 +195,7 @@ class Settings extends GatewaySettings {
 		 * Advanced settings
 		 */
 
-		// Form Action URL
+		// Form Action URL.
 		$fields[] = array(
 			'filter'   => FILTER_SANITIZE_STRING,
 			'section'  => 'ogone_advanced',
@@ -190,7 +207,7 @@ class Settings extends GatewaySettings {
 			'methods'  => array( 'ogone_orderstandard_easy', 'ogone_orderstandard' ),
 		);
 
-		// Order ID
+		// Order ID.
 		$fields[] = array(
 			'filter'      => FILTER_SANITIZE_STRING,
 			'section'     => 'ogone_advanced',
@@ -199,18 +216,27 @@ class Settings extends GatewaySettings {
 			'type'        => 'text',
 			'classes'     => array( 'regular-text', 'code' ),
 			'tooltip'     => sprintf(
+				/* translators: %s: <code>ORDERID</code> */
 				__( 'The Ogone %s parameter.', 'pronamic_ideal' ),
 				sprintf( '<code>%s</code>', 'ORDERID' )
 			),
 			'description' => sprintf(
 				'%s<br />%s',
-				sprintf( __( 'Available tags: %s', 'pronamic_ideal' ), sprintf( '<code>%s</code> <code>%s</code>', '{order_id}', '{payment_id}' ) ),
-				sprintf( __( 'Default: <code>%s</code>', 'pronamic_ideal' ), '{payment_id}' )
+				sprintf(
+					/* translators: %s: <code>{order_id}</code> <code>{payment_id}</code> */
+					__( 'Available tags: %s', 'pronamic_ideal' ),
+					sprintf( '<code>%s</code> <code>%s</code>', '{order_id}', '{payment_id}' )
+				),
+				sprintf(
+					/* translators: %s: {payment_id} */
+					__( 'Default: <code>%s</code>', 'pronamic_ideal' ),
+					'{payment_id}'
+				)
 			),
 			'methods'     => array( 'ogone_orderstandard_easy', 'ogone_orderstandard', 'ogone_directlink' ),
 		);
 
-		// Parameter Variable
+		// Parameter Variable.
 		$fields[] = array(
 			'filter'      => FILTER_SANITIZE_STRING,
 			'section'     => 'ogone_advanced',
@@ -219,24 +245,57 @@ class Settings extends GatewaySettings {
 			'type'        => 'text',
 			'classes'     => array( 'regular-text', 'code' ),
 			'tooltip'     => sprintf(
+				/* translators: %s: <code>PARAMVAR</code> */
 				__( 'The Ogone %s parameter.', 'pronamic_ideal' ),
 				sprintf( '<code>%s</code>', 'PARAMVAR' )
 			),
 			'description' => sprintf(
+				/* translators: %s: <code>{site_url}</code> <code>{home_url}</code> */
 				__( 'Available tags: %s', 'pronamic_ideal' ),
 				sprintf( '<code>%s</code> <code>%s</code>', '{site_url}', '{home_url}' )
 			),
 			'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' ),
 		);
 
-		// Template Page
+		// Alias.
+		$fields[] = array(
+			'filter'   => FILTER_VALIDATE_BOOLEAN,
+			'section'  => 'ogone_advanced',
+			'meta_key' => '_pronamic_gateway_ogone_alias_enabled',
+			'title'    => __( 'Alias', 'pronamic_ideal' ),
+			'type'     => 'checkbox',
+			'label'    => __( 'Enable alias registration', 'pronamic_ideal' ),
+			'tooltip'  => __( 'Enable alias creation as reference for batch payments. Requires the Alias Manager option (`REQ1`) to be enabled for the Ingenico account.', 'pronamic_ideal' ),
+			'methods'  => array( 'ogone_directlink', 'ogone_orderstandard' ),
+		);
+
+		// Alias usage.
+		$fields[] = array(
+			'filter'      => FILTER_SANITIZE_STRING,
+			'section'     => 'ogone_advanced',
+			'meta_key'    => '_pronamic_gateway_ogone_alias_usage',
+			'title'       => __( 'Alias Usage', 'pronamic_ideal' ),
+			'type'        => 'text',
+			'classes'     => array( 'regular-text', 'code' ),
+			'tooltip'     => sprintf(
+				/* translators: %s: <code>ALIASUSAGE</code> */
+				__( 'The Ogone %s parameter.', 'pronamic_ideal' ),
+				sprintf( '<code>%s</code>', 'ALIASUSAGE' )
+			),
+			'description' => __( 'Description on payment page of how aliases are used.', 'pronamic_ideal' ),
+			'methods'     => array( 'ogone_directlink', 'ogone_orderstandard' ),
+		);
+
+		// Template Page.
 		$fields[] = array(
 			'filter'   => FILTER_SANITIZE_STRING,
 			'section'  => 'ogone_advanced',
 			'meta_key' => '_pronamic_gateway_ogone_template_page',
 			'title'    => __( 'Template Page', 'pronamic_ideal' ),
 			'type'     => 'text',
+			'classes'  => array( 'regular-text', 'code' ),
 			'tooltip'  => sprintf(
+				/* translators: %s: <code>TP</code> */
 				__( 'The Ogone %s parameter.', 'pronamic_ideal' ),
 				sprintf( '<code>%s</code>', 'TP' )
 			),
@@ -247,7 +306,7 @@ class Settings extends GatewaySettings {
 		 * Transaction feedback - Direct HTTP server-to-server request URLs
 		 */
 
-		// URL accepted, on hold or uncertain
+		// URL accepted, on hold or uncertain.
 		$fields[] = array(
 			'section'  => 'ogone_feedback',
 			'title'    => __( 'URL accepted, on hold or uncertain', 'pronamic_ideal' ),
@@ -258,7 +317,7 @@ class Settings extends GatewaySettings {
 			'readonly' => true,
 		);
 
-		// URL cancel or deny
+		// URL cancel or deny.
 		$fields[] = array(
 			'section'  => 'ogone_feedback',
 			'title'    => __( 'URL cancel or deny', 'pronamic_ideal' ),
@@ -269,7 +328,7 @@ class Settings extends GatewaySettings {
 			'readonly' => true,
 		);
 
-		// Return fields
+		// Return fields.
 		return $fields;
 	}
 }
