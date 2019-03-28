@@ -34,7 +34,8 @@ module.exports = function( grunt ) {
 			all: [
 				'**/*.php',
 				'!node_modules/**',
-				'!vendor/**'
+				'!vendor/**',
+				'!wordpress/**',
 			]
 		},
 

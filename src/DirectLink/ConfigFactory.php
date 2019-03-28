@@ -12,7 +12,7 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink;
  * Company: Pronamic
  *
  * @author  Remco Tolsma
- * @version 2.0.0
+ * @version 2.0.2
  */
 class ConfigFactory extends GatewayConfigFactory {
 	public function get_config( $post_id ) {

@@ -7,6 +7,12 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [2.0.2] - 2019-03-28
+- Moved custom payment redirect from plugin to gateway.
+- Make use of payment `get_pay_redirect_url()` method.
+- Added initial support for Ogone alias creation.
+- Added HTML/CSS classes to `TP` parameter settings field.
+
 ## [2.0.1] - 2018-12-12
 - Updated deprecated function calls.
 
@@ -87,7 +93,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## 1.0.0 - 2015-01-19
 - First release.
 
-[unreleased]: https://github.com/wp-pay-gateways/ogone/compare/2.0.1...HEAD
+[unreleased]: https://github.com/wp-pay-gateways/ogone/compare/2.0.2...HEAD
+[2.0.2]: https://github.com/wp-pay-gateways/ogone/compare/2.0.1...2.0.2
 [2.0.1]: https://github.com/wp-pay-gateways/ogone/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/wp-pay-gateways/ogone/compare/1.3.4...2.0.0
 [1.3.4]: https://github.com/wp-pay-gateways/ogone/compare/1.3.3...1.3.4
