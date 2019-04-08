@@ -3,6 +3,7 @@
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
 use Pronamic\WordPress\Pay\Core\GatewaySettings;
+use Pronamic\WordPress\Pay\WebhookManager;
 
 /**
  * Title: Ingenico gateway settings
@@ -50,6 +51,7 @@ class Settings extends GatewaySettings {
 			'title'       => __( 'Transaction feedback', 'pronamic_ideal' ),
 			'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' ),
 			'description' => __( 'The URLs below need to be copied to the payment provider dashboard to receive automatic transaction status updates.', 'pronamic_ideal' ),
+			'features'    => array( 'webhook_manual_config' ),
 		);
 
 		// Return sections.
@@ -181,14 +183,12 @@ class Settings extends GatewaySettings {
 		);
 
 		$fields[] = array(
-			'section' => 'ogone',
-			'title'   => __( 'Transaction feedback', 'pronamic_ideal' ),
-			'type'    => 'description',
-			'methods' => array( 'ogone_orderstandard', 'ogone_directlink' ),
-			'html'    => sprintf(
-				'<span class="dashicons dashicons-warning"></span> %s',
-				__( 'Receiving payment status updates needs additional configuration, if not yet completed.', 'pronamic_ideal' )
-			),
+			'section'  => 'ogone',
+			'title'    => __( 'Transaction feedback', 'pronamic_ideal' ),
+			'type'     => 'description',
+			'methods'  => array( 'ogone_orderstandard', 'ogone_directlink' ),
+			'html'     => __( 'Receiving payment status updates needs additional configuration.', 'pronamic_ideal' ),
+			'features' => array( 'webhook_manual_config' ),
 		);
 
 		/*
@@ -328,7 +328,28 @@ class Settings extends GatewaySettings {
 			'readonly' => true,
 		);
 
+		// Webhook status.
+		$fields[] = array(
+			'section'  => 'ogone_feedback',
+			'methods'  => array( 'ogone_orderstandard_easy', 'ogone_orderstandard', 'ogone_directlink' ),
+			'title'    => __( 'Status', 'pronamic_ideal' ),
+			'type'     => 'description',
+			'features' => array( 'webhook_manual_config' ),
+			'callback' => array( $this, 'feedback_status' ),
+		);
+
 		// Return fields.
 		return $fields;
+	}
+
+	/**
+	 * Transaction feedback status.
+	 *
+	 * @param array $field Settings field.
+	 */
+	public function feedback_status( $field ) {
+		$features = array( 'webhook_manual_config' );
+
+		WebhookManager::settings_status( $field, $features );
 	}
 }
