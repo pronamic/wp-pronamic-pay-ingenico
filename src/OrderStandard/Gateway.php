@@ -187,7 +187,7 @@ class Gateway extends Core_Gateway {
 		}
 
 		// Template Page.
-		$template_page = $this->config->param_var;
+		$template_page = $this->config->template_page;
 
 		if ( ! empty( $template_page ) ) {
 			$ogone_data->set_field( 'TP', $template_page );
