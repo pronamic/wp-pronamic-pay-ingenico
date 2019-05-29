@@ -52,7 +52,9 @@ class Gateway extends Core_Gateway {
 		$this->set_slug( self::SLUG );
 
 		// Supported features.
-		$this->supports = self::get_supported_features();
+		$this->supports = array(
+			'payment_status_request',
+		);
 
 		// Client.
 		$this->client = new Client( $this->config->psp_id );
@@ -68,18 +70,6 @@ class Gateway extends Core_Gateway {
 			$this->client->set_hash_algorithm( $config->hash_algorithm );
 		}
 	}
-
-	/**
-	 * Get supported features.
-	 *
-	 * @return array
-	 */
-	public static function get_supported_features() {
-		return array(
-			'payment_status_request',
-		);
-	}
-
 	/**
 	 * Get supported payment methods
 	 *

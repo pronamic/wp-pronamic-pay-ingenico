@@ -17,17 +17,11 @@ class Integration extends AbstractIntegration {
 	}
 
 	/**
-	 * Get required settings for this integration.
+	 * Get settings fields.
 	 *
-	 * @link https://github.com/wp-premium/gravityforms/blob/1.9.16/includes/fields/class-gf-field-multiselect.php#L21-L42
-	 * @since 1.1.3
 	 * @return array
 	 */
-	public function get_settings() {
-		$settings = parent::get_settings();
-
-		$settings[] = 'ogone_orderstandard_easy';
-
-		return $settings;
+	public function get_settings_fields() {
+		return Settings::get_settings_fields( 'easy' );
 	}
 }
