@@ -10,6 +10,9 @@ abstract class AbstractIntegration extends Common_AbstractIntegration {
 		$this->product_url   = __( 'https://payment-services.ingenico.com/nl/en', 'pronamic_ideal' );
 		$this->dashboard_url = 'https://secure.ogone.com/';
 		$this->provider      = 'ogone';
+		$this->supports      = array(
+			'webhook',
+		);
 
 		// Actions.
 		$function = array( __NAMESPACE__ . '\Listener', 'listen' );
@@ -17,9 +20,5 @@ abstract class AbstractIntegration extends Common_AbstractIntegration {
 		if ( ! has_action( 'wp_loaded', $function ) ) {
 			add_action( 'wp_loaded', $function );
 		}
-	}
-
-	public function get_settings_class() {
-		return __NAMESPACE__ . '\Settings';
 	}
 }
