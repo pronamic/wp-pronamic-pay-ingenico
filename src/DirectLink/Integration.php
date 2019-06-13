@@ -8,10 +8,13 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\Settings;
 
 class Integration extends AbstractIntegration {
 	public function __construct( $args = array() ) {
-		$args = wp_parse_args( $args, array(
-			'id'   => 'ogone-directlink',
-			'name' => 'Ingenico/Ogone - DirectLink',
-		) );
+		$args = wp_parse_args(
+			$args,
+			array(
+				'id'   => 'ogone-directlink',
+				'name' => 'Ingenico/Ogone - DirectLink',
+			)
+		);
 
 		parent::__construct( $args );
 	}

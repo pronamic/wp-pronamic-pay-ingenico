@@ -6,14 +6,17 @@ use Pronamic\WordPress\Pay\Gateways\Common\AbstractIntegration as Common_Abstrac
 
 abstract class AbstractIntegration extends Common_AbstractIntegration {
 	public function __construct( $args = array() ) {
-		$args = wp_parse_args( $args, array(
-			'id'            => null,
-			'name'          => null,
-			'url'           => 'https://secure.ogone.com/',
-			'product_url'   => __( 'https://payment-services.ingenico.com/nl/en', 'pronamic_ideal' ),
-			'dashboard_url' => 'https://secure.ogone.com/',
-			'provider'      => 'ogone',
-		) );
+		$args = wp_parse_args(
+			$args,
+			array(
+				'id'            => null,
+				'name'          => null,
+				'url'           => 'https://secure.ogone.com/',
+				'product_url'   => __( 'https://payment-services.ingenico.com/nl/en', 'pronamic_ideal' ),
+				'dashboard_url' => 'https://secure.ogone.com/',
+				'provider'      => 'ogone',
+			)
+		);
 
 		$this->id            = $args['id'];
 		$this->name          = $args['name'];
@@ -23,7 +26,7 @@ abstract class AbstractIntegration extends Common_AbstractIntegration {
 		$this->provider      = $args['provider'];
 
 		// Supports.
-		$this->supports      = array(
+		$this->supports = array(
 			'webhook',
 		);
 

@@ -7,10 +7,13 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\Settings;
 
 class Integration extends AbstractIntegration {
 	public function __construct( $args = array() ) {
-		$args = wp_parse_args( $args, array(
-			'id'            => 'ogone-orderstandard',
-			'name'          => 'Ingenico/Ogone - e-Commerce',
-		) );
+		$args = wp_parse_args(
+			$args,
+			array(
+				'id'   => 'ogone-orderstandard',
+				'name' => 'Ingenico/Ogone - e-Commerce',
+			)
+		);
 
 		parent::__construct( $args );
 	}
