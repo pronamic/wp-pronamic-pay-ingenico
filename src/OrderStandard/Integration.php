@@ -30,7 +30,9 @@ class Integration extends AbstractIntegration {
 	public function get_config( $post_id ) {
 		$mode = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
 
-		$config = new Config();
+		$config_class = ( Gateway::MODE_TEST === $mode ) ? __NAMESPACE__ . '\TestConfig' : __NAMESPACE__ . '\Config';
+
+		$config = new $config_class();
 
 		$form_action_url = get_post_meta( $post_id, '_pronamic_gateway_ogone_form_action_url', true );
 
