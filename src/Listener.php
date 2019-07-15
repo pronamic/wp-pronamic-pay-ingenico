@@ -3,7 +3,6 @@
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
 use Pronamic\WordPress\Pay\Plugin;
-use Pronamic\WordPress\Pay\WebhookManager;
 
 /**
  * Title: OmniKassa listener
@@ -43,7 +42,7 @@ class Listener {
 			$payment->add_note( __( 'Webhook requested.', 'pronamic_ideal' ) );
 
 			// Log webhook request.
-			WebhookManager::log_payment( $payment );
+			do_action( 'pronamic_pay_webhook_log_payment', $payment );
 
 			// Update payment.
 			Plugin::update_payment( $payment );

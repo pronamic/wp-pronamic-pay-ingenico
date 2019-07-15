@@ -28,6 +28,7 @@ abstract class AbstractIntegration extends Common_AbstractIntegration {
 		// Supports.
 		$this->supports = array(
 			'webhook',
+			'webhook_log',
 		);
 
 		// Actions.
