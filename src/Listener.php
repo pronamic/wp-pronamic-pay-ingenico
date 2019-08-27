@@ -41,6 +41,9 @@ class Listener {
 			// Add note.
 			$payment->add_note( __( 'Webhook requested.', 'pronamic_ideal' ) );
 
+			// Log webhook request.
+			do_action( 'pronamic_pay_webhook_log_payment', $payment );
+
 			// Update payment.
 			Plugin::update_payment( $payment );
 		}

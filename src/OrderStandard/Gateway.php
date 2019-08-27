@@ -27,13 +27,6 @@ use Pronamic\WordPress\Pay\Payments\Payment;
  */
 class Gateway extends Core_Gateway {
 	/**
-	 * Slug of this gateway
-	 *
-	 * @var string
-	 */
-	const SLUG = 'ogone_orderstandard';
-
-	/**
 	 * Client.
 	 *
 	 * @var Client
@@ -48,13 +41,14 @@ class Gateway extends Core_Gateway {
 	public function __construct( Config $config ) {
 		parent::__construct( $config );
 
+		$this->set_method( self::METHOD_HTML_FORM );
+
+		// Supported features.
 		$this->supports = array(
 			'payment_status_request',
 		);
 
-		$this->set_method( self::METHOD_HTML_FORM );
-		$this->set_slug( self::SLUG );
-
+		// Client.
 		$this->client = new Client( $this->config->psp_id );
 
 		$this->client->set_payment_server_url( $config->get_form_action_url() );
@@ -68,7 +62,6 @@ class Gateway extends Core_Gateway {
 			$this->client->set_hash_algorithm( $config->hash_algorithm );
 		}
 	}
-
 	/**
 	 * Get supported payment methods
 	 *
@@ -187,7 +180,7 @@ class Gateway extends Core_Gateway {
 		}
 
 		// Template Page.
-		$template_page = $this->config->param_var;
+		$template_page = $this->config->template_page;
 
 		if ( ! empty( $template_page ) ) {
 			$ogone_data->set_field( 'TP', $template_page );

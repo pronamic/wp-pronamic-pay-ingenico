@@ -44,6 +44,7 @@ class OrderResponseParser {
 		$order_response->brand         = Security::filter( $xml['BRAND'] );
 
 		if ( $xml->HTML_ANSWER ) {
+			// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
 			$order_response->html_answer = base64_decode( Security::filter( $xml->HTML_ANSWER ) );
 		}
 

@@ -26,13 +26,6 @@ use Pronamic\WordPress\Pay\Payments\Payment;
  */
 class Gateway extends Core_Gateway {
 	/**
-	 * Slug of this gateway
-	 *
-	 * @var string
-	 */
-	const SLUG = 'ogone-directlink';
-
-	/**
 	 * Client.
 	 *
 	 * @var Client
@@ -48,7 +41,6 @@ class Gateway extends Core_Gateway {
 		parent::__construct( $config );
 
 		$this->set_method( self::METHOD_HTTP_REDIRECT );
-		$this->set_slug( self::SLUG );
 
 		$this->client           = new Client();
 		$this->client->psp_id   = $config->psp_id;
@@ -195,7 +187,8 @@ class Gateway extends Core_Gateway {
 		$html_answer = $payment->get_meta( 'ogone_directlink_html_answer' );
 
 		if ( ! empty( $html_answer ) ) {
-			echo $html_answer; // WPCS: XSS ok.
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo $html_answer;
 
 			exit;
 		}
