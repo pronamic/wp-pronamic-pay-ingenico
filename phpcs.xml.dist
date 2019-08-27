@@ -29,7 +29,7 @@
 		<exclude name="Squiz.Commenting" />
 	</rule>
 
-	<rule ref="WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar">
+	<rule ref="WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase">
 		<exclude-pattern>/src/XML/OrderResponseParser.php</exclude-pattern>
 	</rule>
 

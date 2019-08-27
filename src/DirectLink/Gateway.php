@@ -187,7 +187,8 @@ class Gateway extends Core_Gateway {
 		$html_answer = $payment->get_meta( 'ogone_directlink_html_answer' );
 
 		if ( ! empty( $html_answer ) ) {
-			echo $html_answer; // WPCS: XSS ok.
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo $html_answer;
 
 			exit;
 		}

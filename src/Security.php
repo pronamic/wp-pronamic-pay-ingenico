@@ -70,12 +70,14 @@ class Security {
 			switch ( $_SERVER['REQUEST_METHOD'] ) { // WPCS: input var ok.
 				case 'GET':
 					// @todo see how we can improve security around this
-					$data = $_GET; // WPCS: input var ok, CSRF ok.
+					// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+					$data = $_GET;
 
 					break;
 				case 'POST':
 					// @todo see how we can improve security around this
-					$data = $_POST; // WPCS: input var ok, CSRF ok.
+					// phpcs:ignore WordPress.Security.NonceVerification.Missing
+					$data = $_POST;
 
 					break;
 			}
