@@ -299,13 +299,11 @@ class Client {
 
 		$xml = Util::simplexml_load_string( $result );
 
-		if ( ! is_wp_error( $xml ) ) {
-			$order_response = OrderResponseParser::parse( $xml );
+		$order_response = OrderResponseParser::parse( $xml );
 
-			$status = XML_Security::filter( $order_response->status );
+		$status = XML_Security::filter( $order_response->status );
 
-			$return = Statuses::transform( $status );
-		}
+		$return = Statuses::transform( $status );
 
 		return $return;
 	}
