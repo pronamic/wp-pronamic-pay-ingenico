@@ -85,6 +85,24 @@ class Gateway extends Core_Gateway {
 	public function start( Payment $payment ) {
 		$payment->set_action_url( $this->client->get_payment_server_url() );
 
+		if ( $this->config->alias_enabled ) {
+			$alias = uniqid();
+
+			$payment->set_meta( 'ogone_alias', $alias );
+		}
+	}
+
+	/**
+	 * Get output fields
+	 *
+	 * @param Payment $payment Payment.
+	 *
+	 * @return array
+	 * @since   1.2.1
+	 * @version 2.0.4
+	 * @see     Core_Gateway::get_output_html()
+	 */
+	public function get_output_fields( Payment $payment ) {
 		$ogone_data = $this->client->get_data();
 
 		// General.
@@ -95,16 +113,12 @@ class Gateway extends Core_Gateway {
 			->set_order_description( $payment->get_description() )
 			->set_param_plus( 'payment_id=' . $payment->get_id() )
 			->set_currency( $payment->get_total_amount()->get_currency()->get_alphabetic_code() )
-			->set_amount( $payment->get_total_amount()->get_cents() );
+			->set_amount( $payment->get_total_amount()->get_minor_units() );
 
 		// Alias.
 		if ( $this->config->alias_enabled ) {
-			$alias = uniqid();
-
-			$payment->set_meta( 'ogone_alias', $alias );
-
-			$ogone_data_general->set_alias( $alias )
-				->set_alias_usage( $this->config->alias_usage );
+			$ogone_data_general->set_alias( $payment->get_meta( 'ogone_alias' ) )
+			                   ->set_alias_usage( $this->config->alias_usage );
 		}
 
 		$customer = $payment->get_customer();
@@ -194,15 +208,7 @@ class Gateway extends Core_Gateway {
 			->set_cancel_url( add_query_arg( 'status', 'cancel', $payment->get_return_url() ) )
 			->set_decline_url( add_query_arg( 'status', 'decline', $payment->get_return_url() ) )
 			->set_exception_url( add_query_arg( 'status', 'exception', $payment->get_return_url() ) );
-	}
 
-	/**
-	 * Get output fields
-	 *
-	 * @since 1.2.1
-	 * @see Pronamic_WP_Pay_Gateway::get_output_html()
-	 */
-	public function get_output_fields() {
 		return $this->client->get_fields();
 	}
 
