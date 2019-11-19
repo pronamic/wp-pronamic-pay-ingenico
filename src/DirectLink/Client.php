@@ -91,7 +91,7 @@ class Client {
 				Security::filter( $order_response->nc_error_plus )
 			);
 
-			throw new \Pronamic\WordPress\Pay\GatewayException( 'ogone', (string) $ogone_error, $ogone_error );
+			throw new \Exception( (string) $ogone_error );
 		}
 
 		return $order_response;
