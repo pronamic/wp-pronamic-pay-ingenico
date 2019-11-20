@@ -118,7 +118,7 @@ class Gateway extends Core_Gateway {
 		// Alias.
 		if ( $this->config->alias_enabled ) {
 			$ogone_data_general->set_alias( $payment->get_meta( 'ogone_alias' ) )
-			                   ->set_alias_usage( $this->config->alias_usage );
+								->set_alias_usage( $this->config->alias_usage );
 		}
 
 		$customer = $payment->get_customer();
