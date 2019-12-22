@@ -21,7 +21,7 @@ use Pronamic\WordPress\Pay\Payments\Payment;
  * Company: Pronamic
  *
  * @author  Remco Tolsma
- * @version 2.0.2
+ * @version 2.0.4
  * @since   1.0.0
  */
 class Gateway extends Core_Gateway {
@@ -160,19 +160,13 @@ class Gateway extends Core_Gateway {
 		// Order.
 		$result = $this->client->order_direct( $ogone_data->get_fields() );
 
-		$error = $this->client->get_error();
+		$payment->set_transaction_id( $result->pay_id );
+		$payment->set_action_url( $payment->get_return_url() );
+		$payment->set_status( Statuses::transform( $result->status ) );
 
-		if ( is_wp_error( $error ) ) {
-			$this->error = $error;
-		} else {
-			$payment->set_transaction_id( $result->pay_id );
-			$payment->set_action_url( $payment->get_return_url() );
-			$payment->set_status( Statuses::transform( $result->status ) );
-
-			if ( ! empty( $result->html_answer ) ) {
-				$payment->set_meta( 'ogone_directlink_html_answer', $result->html_answer );
-				$payment->set_action_url( $payment->get_pay_redirect_url() );
-			}
+		if ( ! empty( $result->html_answer ) ) {
+			$payment->set_meta( 'ogone_directlink_html_answer', $result->html_answer );
+			$payment->set_action_url( $payment->get_pay_redirect_url() );
 		}
 	}
 

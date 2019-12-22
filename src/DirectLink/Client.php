@@ -7,7 +7,6 @@ use Pronamic\WordPress\Pay\Core\XML\Security;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Error;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\XML\OrderResponseParser;
-use WP_Error;
 
 /**
  * Title: Ingenico DirectLink client
@@ -16,17 +15,10 @@ use WP_Error;
  * Company: Pronamic
  *
  * @author  Remco Tolsma
- * @version 2.0.0
+ * @version 2.0.4
  * @since   1.0.0
  */
 class Client {
-	/**
-	 * Error.
-	 *
-	 * @var WP_Error
-	 */
-	private $error;
-
 	/**
 	 * API URL.
 	 *
@@ -70,15 +62,6 @@ class Client {
 	}
 
 	/**
-	 * Get error
-	 *
-	 * @return WP_Error
-	 */
-	public function get_error() {
-		return $this->error;
-	}
-
-	/**
 	 * Order direct
 	 *
 	 * @param array $data Data.
@@ -98,25 +81,17 @@ class Client {
 			)
 		);
 
-		if ( is_wp_error( $result ) ) {
-			$this->error = $result;
-		} else {
-			$xml = Util::simplexml_load_string( $result );
+		$xml = Util::simplexml_load_string( $result );
 
-			if ( is_wp_error( $xml ) ) {
-				$this->error = $xml;
-			} else {
-				$order_response = OrderResponseParser::parse( $xml );
+		$order_response = OrderResponseParser::parse( $xml );
 
-				if ( ! empty( $order_response->nc_error ) ) {
-					$ogone_error = new Error(
-						Security::filter( $order_response->nc_error ),
-						Security::filter( $order_response->nc_error_plus )
-					);
+		if ( ! empty( $order_response->nc_error ) ) {
+			$ogone_error = new Error(
+				Security::filter( $order_response->nc_error ),
+				Security::filter( $order_response->nc_error_plus )
+			);
 
-					$this->error = new WP_Error( 'ogone_error', (string) $ogone_error, $ogone_error );
-				}
-			}
+			throw new \Exception( (string) $ogone_error );
 		}
 
 		return $order_response;

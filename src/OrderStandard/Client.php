@@ -18,7 +18,7 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\XML\OrderResponseParser;
  * Company: Pronamic
  *
  * @author  Remco Tolsma
- * @version 2.0.0
+ * @version 2.0.4
  * @since   1.0.0
  */
 class Client {
@@ -299,13 +299,11 @@ class Client {
 
 		$xml = Util::simplexml_load_string( $result );
 
-		if ( ! is_wp_error( $xml ) ) {
-			$order_response = OrderResponseParser::parse( $xml );
+		$order_response = OrderResponseParser::parse( $xml );
 
-			$status = XML_Security::filter( $order_response->status );
+		$status = XML_Security::filter( $order_response->status );
 
-			$return = Statuses::transform( $status );
-		}
+		$return = Statuses::transform( $status );
 
 		return $return;
 	}
