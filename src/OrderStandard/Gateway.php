@@ -116,9 +116,11 @@ class Gateway extends Core_Gateway {
 			->set_amount( $payment->get_total_amount()->get_minor_units() );
 
 		// Alias.
-		if ( $this->config->alias_enabled ) {
-			$ogone_data_general->set_alias( $payment->get_meta( 'ogone_alias' ) )
-								->set_alias_usage( $this->config->alias_usage );
+		$alias = $payment->get_meta( 'ogone_alias' );
+
+		if ( $this->config->alias_enabled && false !== $alias ) {
+			$ogone_data_general->set_alias( $alias )
+			                   ->set_alias_usage( $this->config->alias_usage );
 		}
 
 		$customer = $payment->get_customer();
@@ -232,9 +234,16 @@ class Gateway extends Core_Gateway {
 			return;
 		}
 
+		// Get order status with direct query.
 		$order_id = $payment->format_string( $this->config->order_id );
 
-		$status = $this->client->get_order_status( $order_id );
+		try {
+			$status = $this->client->get_order_status( $order_id );
+		} catch ( \Exception $e ) {
+			$payment->add_note( $e->getMessage() );
+
+			return;
+		}
 
 		if ( null !== $status ) {
 			$payment->set_status( $status );

@@ -67,10 +67,9 @@ class Client {
 	 * @param array $data Data.
 	 *
 	 * @return bool|OrderResponse
+	 * @throws \Exception Throws exception if DirectLink request fails.
 	 */
 	public function order_direct( array $data = array() ) {
-		$order_response = false;
-
 		$result = Util::remote_get_body(
 			$this->api_url,
 			200,
@@ -80,6 +79,15 @@ class Client {
 				'body'      => $data,
 			)
 		);
+
+		if ( $result instanceof \WP_Error ) {
+			throw new \Exception(
+				\sprintf(
+					'Ogone DirectLink HTTP request failed: %s.',
+					$result->get_error_message()
+				)
+			);
+		}
 
 		$xml = Util::simplexml_load_string( $result );
 
