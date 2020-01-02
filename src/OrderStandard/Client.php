@@ -14,7 +14,7 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\XML\OrderResponseParser;
 /**
  * Title: Ingenico order standard client
  * Description:
- * Copyright: 2005-2019 Pronamic
+ * Copyright: 2005-2020 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma
