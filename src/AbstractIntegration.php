@@ -19,6 +19,8 @@ abstract class AbstractIntegration extends Common_AbstractIntegration {
 			)
 		);
 
+		parent::__construct( $args );
+
 		$this->id            = $args['id'];
 		$this->name          = $args['name'];
 		$this->url           = $args['url'];
