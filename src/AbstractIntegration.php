@@ -2,9 +2,9 @@
 
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
-use Pronamic\WordPress\Pay\Gateways\Common\AbstractIntegration as Common_AbstractIntegration;
+use Pronamic\WordPress\Pay\AbstractGatewayIntegration;
 
-abstract class AbstractIntegration extends Common_AbstractIntegration {
+abstract class AbstractIntegration extends AbstractGatewayIntegration {
 	public function __construct( $args = array() ) {
 		$args = wp_parse_args(
 			$args,
@@ -12,27 +12,18 @@ abstract class AbstractIntegration extends Common_AbstractIntegration {
 				'id'            => null,
 				'name'          => null,
 				'url'           => 'https://secure.ogone.com/',
-				'product_url'   => __( 'https://payment-services.ingenico.com/nl/en', 'pronamic_ideal' ),
-				'manual_url'    => __( 'https://www.pronamic.eu/support/how-to-connect-ingenico-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
+				'product_url'   => \__( 'https://payment-services.ingenico.com/nl/en', 'pronamic_ideal' ),
+				'manual_url'    => \__( 'https://www.pronamic.eu/support/how-to-connect-ingenico-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
 				'dashboard_url' => 'https://secure.ogone.com/',
 				'provider'      => 'ogone',
+				'supports'      => array(
+					'webhook',
+					'webhook_log',
+				),
 			)
 		);
 
 		parent::__construct( $args );
-
-		$this->id            = $args['id'];
-		$this->name          = $args['name'];
-		$this->url           = $args['url'];
-		$this->product_url   = $args['product_url'];
-		$this->dashboard_url = $args['dashboard_url'];
-		$this->provider      = $args['provider'];
-
-		// Supports.
-		$this->supports = array(
-			'webhook',
-			'webhook_log',
-		);
 
 		// Actions.
 		$function = array( __NAMESPACE__ . '\Listener', 'listen' );
