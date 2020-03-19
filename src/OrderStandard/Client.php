@@ -14,7 +14,7 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\XML\OrderResponseParser;
 /**
  * Title: Ingenico order standard client
  * Description:
- * Copyright: 2005-2019 Pronamic
+ * Copyright: 2005-2020 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma
@@ -270,6 +270,9 @@ class Client {
 	 * Get order status
 	 *
 	 * @param string $order_id Order ID.
+	 *
+	 * @return string|null
+	 * @throws \Exception Throw exception on error in retrieving order status.
 	 */
 	public function get_order_status( $order_id ) {
 		$return = null;
@@ -296,6 +299,10 @@ class Client {
 				'timeout' => 30,
 			)
 		);
+
+		if ( $result instanceof \WP_Error ) {
+			throw new \Exception( sprintf( 'Could not get order status for order ID %s.', $order_id ) );
+		}
 
 		$xml = Util::simplexml_load_string( $result );
 

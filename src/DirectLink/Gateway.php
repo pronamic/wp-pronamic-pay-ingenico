@@ -17,7 +17,7 @@ use Pronamic\WordPress\Pay\Payments\Payment;
 /**
  * Title: Ingenico DirectLink gateway
  * Description:
- * Copyright: 2005-2019 Pronamic
+ * Copyright: 2005-2020 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma
@@ -53,9 +53,11 @@ class Gateway extends Core_Gateway {
 	/**
 	 * Start
 	 *
+	 * @param Payment $payment Payment.
+	 *
 	 * @see Pronamic_WP_Pay_Gateway::start()
 	 *
-	 * @param Payment $payment Payment.
+	 * @throws \Exception Throws exception if DirectLink request fails.
 	 */
 	public function start( Payment $payment ) {
 		$ogone_data = new Data();

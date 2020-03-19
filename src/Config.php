@@ -8,7 +8,7 @@ use Pronamic\WordPress\Pay\Core\GatewayConfig;
 /**
  * Title: Ingenico config
  * Description:
- * Copyright: 2005-2019 Pronamic
+ * Copyright: 2005-2020 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma

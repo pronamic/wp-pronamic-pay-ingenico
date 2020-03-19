@@ -5,7 +5,7 @@ namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 /**
  * Title: Ogone payment methods list (PMLIST parameter) test
  * Description:
- * Copyright: 2005-2019 Pronamic
+ * Copyright: 2005-2020 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma
