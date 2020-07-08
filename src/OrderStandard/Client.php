@@ -5,6 +5,7 @@ namespace Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard;
 use Pronamic\WordPress\Pay\Core\Util;
 use Pronamic\WordPress\Pay\Core\XML\Security as XML_Security;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Data;
+use Pronamic\WordPress\Pay\Gateways\Ingenico\Error;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Ingenico;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Parameters;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Statuses;
@@ -18,7 +19,7 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\XML\OrderResponseParser;
  * Company: Pronamic
  *
  * @author  Remco Tolsma
- * @version 2.0.4
+ * @version 2.1.1
  * @since   1.0.0
  */
 class Client {
@@ -307,6 +308,21 @@ class Client {
 		$xml = Util::simplexml_load_string( $result );
 
 		$order_response = OrderResponseParser::parse( $xml );
+
+		if ( ! empty( $order_response->nc_error ) ) {
+			$ogone_error = new Error(
+				XML_Security::filter( $order_response->nc_error ),
+				XML_Security::filter( $order_response->nc_error_plus )
+			);
+
+			throw new \Exception(
+				\sprintf(
+					'%s<br>%s',
+					sprintf( 'Could not get order status for order ID %s.', $order_id ),
+					(string) $ogone_error
+				)
+			);
+		}
 
 		$status = XML_Security::filter( $order_response->status );
 
