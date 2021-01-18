@@ -7,7 +7,7 @@ use DateTime;
 /**
  * Title: Ingenico data default helper class
  * Description:
- * Copyright: 2005-2020 Pronamic
+ * Copyright: 2005-2021 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma

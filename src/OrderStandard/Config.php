@@ -7,7 +7,7 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\Config as Ingenico_Config;
 /**
  * Title: Ingenico OrderStandard config
  * Description:
- * Copyright: 2005-2020 Pronamic
+ * Copyright: 2005-2021 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma
