@@ -28,7 +28,7 @@ class Error {
 	private $explanation;
 
 	/**
-	 * Constructs and intializes an Ogone error
+	 * Construct and initialize an Ogone error
 	 *
 	 * @param string $code
 	 * @param string $explanation

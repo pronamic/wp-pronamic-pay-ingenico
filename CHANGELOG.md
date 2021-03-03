@@ -55,7 +55,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [1.3.0] - 2016-06-08
 - Use `get_form_action_url()` instead of deprecated `get_payment_server_url()`.
-- Simplified the gateay payment start function.
+- Simplified the gateway payment start function.
 
 ## [1.2.9] - 2016-04-12
 - Added support for custom Ogone e-Commerce form action URL.
@@ -96,7 +96,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [1.2.0] - 2015-02-27
 - Updated WordPress pay core library to version 1.1.0.
-- Fixed isues with filter_input INPUT_SERVER (https://bugs.php.net/bug.php?id=49184).
+- Fixed issues with filter_input INPUT_SERVER (https://bugs.php.net/bug.php?id=49184).
 
 ## [1.1.0] - 2015-02-18
 - Added constant class for the Ogone BRAND parameter.
