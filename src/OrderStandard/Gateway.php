@@ -69,6 +69,7 @@ class Gateway extends Core_Gateway {
 	 */
 	public function get_supported_payment_methods() {
 		return array(
+			Core_PaymentMethods::BANK_TRANSFER,
 			Core_PaymentMethods::IDEAL,
 			Core_PaymentMethods::CREDIT_CARD,
 			Core_PaymentMethods::BANCONTACT,
@@ -160,6 +161,15 @@ class Gateway extends Core_Gateway {
 		 * @link https://github.com/wp-pay-gateways/ogone/wiki/Brands
 		 */
 		switch ( $payment->get_method() ) {
+			case Core_PaymentMethods::BANK_TRANSFER:
+				/*
+				 * Set bank transfer payment method.
+				 * @since 2.2.0
+				 */
+				$ogone_data_general
+					->set_payment_method( PaymentMethods::BANK_TRANSFER );
+
+				break;
 			case Core_PaymentMethods::CREDIT_CARD:
 				/*
 				 * Set credit card payment method.
