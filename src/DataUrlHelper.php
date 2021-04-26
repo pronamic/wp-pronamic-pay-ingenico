@@ -7,7 +7,7 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\Parameters;
 /**
  * Title: Ingenico data URL helper class
  * Description:
- * Copyright: 2005-2020 Pronamic
+ * Copyright: 2005-2021 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma

@@ -5,7 +5,7 @@ namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 /**
  * Title: Ingenico gateway settings
  * Description:
- * Copyright: 2005-2020 Pronamic
+ * Copyright: 2005-2021 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma
@@ -162,19 +162,19 @@ class Settings {
 			'type'        => 'text',
 			'classes'     => array( 'regular-text', 'code' ),
 			'tooltip'     => sprintf(
-				/* translators: %s: <code>ORDERID</code> */
+				/* translators: %s: <code>PARAMETER</code> */
 				__( 'The Ingenico %s parameter.', 'pronamic_ideal' ),
 				sprintf( '<code>%s</code>', 'ORDERID' )
 			),
 			'description' => sprintf(
 				'%s<br />%s',
 				sprintf(
-					/* translators: %s: <code>{order_id}</code> <code>{payment_id}</code> */
+					/* translators: %s: <code>{tag}</code> */
 					__( 'Available tags: %s', 'pronamic_ideal' ),
 					sprintf( '<code>%s</code> <code>%s</code>', '{order_id}', '{payment_id}' )
 				),
 				sprintf(
-					/* translators: %s: {payment_id} */
+					/* translators: %s: default code */
 					__( 'Default: <code>%s</code>', 'pronamic_ideal' ),
 					'{payment_id}'
 				)
@@ -190,12 +190,12 @@ class Settings {
 			'type'        => 'text',
 			'classes'     => array( 'regular-text', 'code' ),
 			'tooltip'     => sprintf(
-				/* translators: %s: <code>PARAMVAR</code> */
+				/* translators: %s: <code>PARAMETER</code> */
 				__( 'The Ingenico %s parameter.', 'pronamic_ideal' ),
 				sprintf( '<code>%s</code>', 'PARAMVAR' )
 			),
 			'description' => sprintf(
-				/* translators: %s: <code>{site_url}</code> <code>{home_url}</code> */
+				/* translators: %s: <code>{tag}</code> */
 				__( 'Available tags: %s', 'pronamic_ideal' ),
 				sprintf( '<code>%s</code> <code>%s</code>', '{site_url}', '{home_url}' )
 			),
@@ -221,7 +221,7 @@ class Settings {
 			'type'        => 'text',
 			'classes'     => array( 'regular-text', 'code' ),
 			'tooltip'     => sprintf(
-				/* translators: %s: <code>ALIASUSAGE</code> */
+				/* translators: %s: <code>PARAMETER</code> */
 				__( 'The Ingenico %s parameter.', 'pronamic_ideal' ),
 				sprintf( '<code>%s</code>', 'ALIASUSAGE' )
 			),
@@ -237,7 +237,7 @@ class Settings {
 			'type'     => 'text',
 			'classes'  => array( 'regular-text', 'code' ),
 			'tooltip'  => sprintf(
-				/* translators: %s: <code>TP</code> */
+				/* translators: %s: <code>PARAMETER</code> */
 				__( 'The Ingenico %s parameter.', 'pronamic_ideal' ),
 				sprintf( '<code>%s</code>', 'TP' )
 			),

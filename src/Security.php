@@ -20,7 +20,7 @@ class Security {
 	private static $calculations_parameters_in;
 
 	/**
-	 * The Ogone calucations parameters out
+	 * The Ogone calculations parameters out
 	 *
 	 * @var array
 	 */

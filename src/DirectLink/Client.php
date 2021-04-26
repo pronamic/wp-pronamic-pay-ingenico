@@ -11,7 +11,7 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\XML\OrderResponseParser;
 /**
  * Title: Ingenico DirectLink client
  * Description:
- * Copyright: 2005-2020 Pronamic
+ * Copyright: 2005-2021 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma
