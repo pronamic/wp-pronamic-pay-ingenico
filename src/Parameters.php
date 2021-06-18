@@ -197,4 +197,12 @@ class Parameters {
 	 * @var string
 	 */
 	const PASSWORD = 'PSWD';
+
+	/**
+	 * Indicator for the PAYID parameter.
+	 *
+	 * @since 2.2.0
+	 * @var string
+	 */
+	const PAY_ID = 'PAYID';
 }

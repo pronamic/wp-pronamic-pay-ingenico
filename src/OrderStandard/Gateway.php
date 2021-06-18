@@ -239,6 +239,12 @@ class Gateway extends Core_Gateway {
 
 			$payment->set_status( $status );
 
+			// Update transaction ID.
+			if ( \array_key_exists( Parameters::PAY_ID, $data ) ) {
+				$payment->set_transaction_id( $data[ Parameters::PAY_ID ] );
+			}
+
+			// Add payment note.
 			$this->update_status_payment_note( $payment, $data );
 
 			return;
