@@ -55,7 +55,7 @@ class Gateway extends Core_Gateway {
 	 *
 	 * @param Payment $payment Payment.
 	 *
-	 * @see Pronamic_WP_Pay_Gateway::start()
+	 * @see Core_Gateway::start()
 	 *
 	 * @throws \Exception Throws exception if DirectLink request fails.
 	 */
