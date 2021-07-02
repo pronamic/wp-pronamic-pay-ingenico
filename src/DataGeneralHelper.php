@@ -72,8 +72,7 @@ class DataGeneralHelper extends DataHelper {
 	/**
 	 * Set amount
 	 *
-	 * @param float $amount Amount in cents.
-	 *
+	 * @param string $amount Amount in cents.
 	 * @return DataGeneralHelper
 	 */
 	public function set_amount( $amount ) {

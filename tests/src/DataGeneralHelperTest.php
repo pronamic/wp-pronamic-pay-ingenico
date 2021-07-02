@@ -33,7 +33,7 @@ class DataGeneralHelperTest extends \WP_UnitTestCase {
 			->set_psp_id( 'test' )
 			->set_order_id( '1234' )
 			->set_order_description( 'order description' )
-			->set_amount( 1050 )
+			->set_amount( '1050' )
 			->set_currency( 'EUR' )
 			->set_customer_name( 'Mr. Test' )
 			->set_email( 'test@example.com' )
@@ -47,7 +47,7 @@ class DataGeneralHelperTest extends \WP_UnitTestCase {
 				'PSPID'    => 'test',
 				'ORDERID'  => '1234',
 				'COM'      => 'order description',
-				'AMOUNT'   => 1050,
+				'AMOUNT'   => '1050',
 				'CURRENCY' => 'EUR',
 				'CN'       => 'Mr. Test',
 				'EMAIL'    => 'test@example.com',
