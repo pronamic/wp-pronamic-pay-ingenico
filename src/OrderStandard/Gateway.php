@@ -73,6 +73,7 @@ class Gateway extends Core_Gateway {
 			Core_PaymentMethods::IDEAL,
 			Core_PaymentMethods::CREDIT_CARD,
 			Core_PaymentMethods::BANCONTACT,
+			Core_PaymentMethods::PAYPAL,
 		);
 	}
 
@@ -194,6 +195,11 @@ class Gateway extends Core_Gateway {
 				$ogone_data_general
 					->set_brand( Brands::BCMC )
 					->set_payment_method( PaymentMethods::CREDIT_CARD );
+
+				break;
+			case Core_PaymentMethods::PAYPAL:
+				$ogone_data_general
+					->set_payment_method( PaymentMethods::PAYPAL );
 
 				break;
 		}
