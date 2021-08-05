@@ -65,7 +65,7 @@ class Gateway extends Core_Gateway {
 	/**
 	 * Get supported payment methods
 	 *
-	 * @see Pronamic_WP_Pay_Gateway::get_supported_payment_methods()
+	 * @see Core_Gateway::get_supported_payment_methods()
 	 */
 	public function get_supported_payment_methods() {
 		return array(
@@ -73,13 +73,14 @@ class Gateway extends Core_Gateway {
 			Core_PaymentMethods::IDEAL,
 			Core_PaymentMethods::CREDIT_CARD,
 			Core_PaymentMethods::BANCONTACT,
+			Core_PaymentMethods::PAYPAL,
 		);
 	}
 
 	/**
 	 * Start
 	 *
-	 * @see Pronamic_WP_Pay_Gateway::start()
+	 * @see Core_Gateway::start()
 	 *
 	 * @param Payment $payment Payment.
 	 */
@@ -114,7 +115,7 @@ class Gateway extends Core_Gateway {
 			->set_order_description( $payment->get_description() )
 			->set_param_plus( 'payment_id=' . $payment->get_id() )
 			->set_currency( $payment->get_total_amount()->get_currency()->get_alphabetic_code() )
-			->set_amount( $payment->get_total_amount()->get_minor_units() );
+			->set_amount( $payment->get_total_amount()->get_minor_units()->format( 0, '', '' ) );
 
 		// Alias.
 		$alias = $payment->get_meta( 'ogone_alias' );
@@ -194,6 +195,11 @@ class Gateway extends Core_Gateway {
 				$ogone_data_general
 					->set_brand( Brands::BCMC )
 					->set_payment_method( PaymentMethods::CREDIT_CARD );
+
+				break;
+			case Core_PaymentMethods::PAYPAL:
+				$ogone_data_general
+					->set_payment_method( PaymentMethods::PAYPAL );
 
 				break;
 		}

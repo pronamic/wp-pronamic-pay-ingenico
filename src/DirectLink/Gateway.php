@@ -55,7 +55,7 @@ class Gateway extends Core_Gateway {
 	 *
 	 * @param Payment $payment Payment.
 	 *
-	 * @see Pronamic_WP_Pay_Gateway::start()
+	 * @see Core_Gateway::start()
 	 *
 	 * @throws \Exception Throws exception if DirectLink request fails.
 	 */
@@ -71,7 +71,7 @@ class Gateway extends Core_Gateway {
 			->set_order_description( $payment->get_description() )
 			->set_param_plus( 'payment_id=' . $payment->get_id() )
 			->set_currency( $payment->get_total_amount()->get_currency()->get_alphabetic_code() )
-			->set_amount( $payment->get_total_amount()->get_cents() );
+			->set_amount( $payment->get_total_amount()->get_minor_units()->format( 0, '', '' ) );
 
 		// Alias.
 		if ( $this->config->alias_enabled ) {

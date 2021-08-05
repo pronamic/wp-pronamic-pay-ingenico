@@ -42,7 +42,7 @@ class ClientTest extends \WP_UnitTestCase {
 		$ogone_data_general = new DataGeneralHelper( $ogone_data );
 
 		$ogone_data_general
-			->set_amount( 1500 )
+			->set_amount( '1500' )
 			->set_currency( 'EUR' )
 			->set_language( 'en_US' )
 			->set_order_id( '1234' );
