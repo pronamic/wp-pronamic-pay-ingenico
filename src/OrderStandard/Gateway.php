@@ -161,7 +161,7 @@ class Gateway extends Core_Gateway {
 		 *
 		 * @link https://github.com/wp-pay-gateways/ogone/wiki/Brands
 		 */
-		switch ( $payment->get_method() ) {
+		switch ( $payment->get_payment_method() ) {
 			case Core_PaymentMethods::BANK_TRANSFER:
 				/*
 				 * Set bank transfer payment method.
