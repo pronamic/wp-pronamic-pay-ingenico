@@ -83,16 +83,6 @@ class Config extends GatewayConfig {
 	}
 
 	/**
-	 * Get Ogone payment server URL.
-	 *
-	 * @return string
-	 * @deprecated deprecated since version 1.2.9, use get_form_action_url() instead.
-	 */
-	public function get_payment_server_url() {
-		return $this->get_form_action_url();
-	}
-
-	/**
 	 * Get Direct Query URL.
 	 *
 	 * @since 1.3.2
