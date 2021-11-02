@@ -5,7 +5,7 @@ namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 use Pronamic\WordPress\Pay\Plugin;
 
 /**
- * Title: OmniKassa listener
+ * Title: Ogone listener
  * Description:
  * Copyright: 2005-2021 Pronamic
  * Company: Pronamic
