@@ -8,7 +8,7 @@ use Pronamic\WordPress\Pay\Core\GatewayConfig;
 /**
  * Title: Ingenico config
  * Description:
- * Copyright: 2005-2021 Pronamic
+ * Copyright: 2005-2022 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma
@@ -80,16 +80,6 @@ class Config extends GatewayConfig {
 	 */
 	public function set_form_action_url( $url ) {
 		$this->form_action_url = $url;
-	}
-
-	/**
-	 * Get Ogone payment server URL.
-	 *
-	 * @return string
-	 * @deprecated deprecated since version 1.2.9, use get_form_action_url() instead.
-	 */
-	public function get_payment_server_url() {
-		return $this->get_form_action_url();
 	}
 
 	/**

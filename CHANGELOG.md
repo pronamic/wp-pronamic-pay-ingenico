@@ -7,6 +7,10 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [4.0.0] - 2022-01-11
+### Changed
+- Updated to https://github.com/pronamic/wp-pay-core/releases/tag/4.0.0.
+
 ## [3.0.0] - 2021-08-05
 - Updated to `pronamic/wp-pay-core`  version `3.0.0`.
 - Updated to `pronamic/wp-money`  version `2.0.0`.
@@ -119,7 +123,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## 1.0.0 - 2015-01-19
 - First release.
 
-[unreleased]: https://github.com/wp-pay-gateways/ogone/compare/2.1.3...HEAD
+[unreleased]: https://github.com/wp-pay-gateways/ogone/compare/4s.0.0...HEAD
+[4.0.0]: https://github.com/wp-pay-gateways/ogone/compare/3.0.0...4.0.0
+[3.0.0]: https://github.com/wp-pay-gateways/ogone/compare/2.1.3...3.0.0
 [2.1.3]: https://github.com/wp-pay-gateways/ogone/compare/2.1.2...2.1.3
 [2.1.2]: https://github.com/wp-pay-gateways/ogone/compare/2.1.1...2.1.2
 [2.1.1]: https://github.com/wp-pay-gateways/ogone/compare/2.1.0...2.1.1

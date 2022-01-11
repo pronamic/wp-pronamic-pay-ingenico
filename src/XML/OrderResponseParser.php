@@ -10,7 +10,7 @@ use SimpleXMLElement;
 /**
  * Title: Ingenico DirectLink order response XML parser
  * Description:
- * Copyright: 2005-2021 Pronamic
+ * Copyright: 2005-2022 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma

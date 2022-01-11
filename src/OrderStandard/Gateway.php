@@ -18,7 +18,7 @@ use Pronamic\WordPress\Pay\Payments\Payment;
 /**
  * Title: Ingenico order standard gateway
  * Description:
- * Copyright: 2005-2021 Pronamic
+ * Copyright: 2005-2022 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma
@@ -127,10 +127,19 @@ class Gateway extends Core_Gateway {
 
 		$customer = $payment->get_customer();
 
+		// Language.
+		$locale = \get_locale();
+
 		if ( null !== $customer ) {
-			// Localised language.
-			$ogone_data_general->set_language( $customer->get_locale() );
+			$customer_locale = $customer->get_locale();
+
+			// Locale not always contains `_`, e.g. "Nederlands" in Firefox.
+			if ( null !== $customer_locale && false !== \strpos( $customer_locale, '_' ) ) {
+				$locale = $customer_locale;
+			}
 		}
+
+		$ogone_data_general->set_language( $locale );
 
 		// Customer.
 		$ogone_data_customer = new DataCustomerHelper( $ogone_data );
@@ -161,7 +170,7 @@ class Gateway extends Core_Gateway {
 		 *
 		 * @link https://github.com/wp-pay-gateways/ogone/wiki/Brands
 		 */
-		switch ( $payment->get_method() ) {
+		switch ( $payment->get_payment_method() ) {
 			case Core_PaymentMethods::BANK_TRANSFER:
 				/*
 				 * Set bank transfer payment method.
