@@ -13,19 +13,34 @@ class Integration extends AbstractIntegration {
 	 */
 	private $action_url;
 
+	/**
+	 * Direct query URL.
+	 *
+	 * @var string
+	 */
+	private $direct_query_url;
+
+	/**
+	 * Integration constructor.
+	 *
+	 * @param array<string, string> $args Arguments.
+	 * @return void
+	 */
 	public function __construct( $args = array() ) {
 		$args = wp_parse_args(
 			$args,
 			array(
-				'id'         => 'ogone-orderstandard',
-				'name'       => 'Ingenico/Ogone - e-Commerce',
-				'action_url' => 'https://secure.ogone.com/ncol/prod/orderstandard.asp',
+				'id'               => 'ogone-orderstandard',
+				'name'             => 'Ingenico/Ogone - e-Commerce',
+				'action_url'       => 'https://secure.ogone.com/ncol/prod/orderstandard.asp',
+				'direct_query_url' => 'https://secure.ogone.com/ncol/prod/querydirect.asp',
 			)
 		);
 
 		parent::__construct( $args );
 
-		$this->action_url = $args['action_url'];
+		$this->action_url       = $args['action_url'];
+		$this->direct_query_url = $args['direct_query_url'];
 	}
 
 	/**
@@ -41,6 +56,7 @@ class Integration extends AbstractIntegration {
 		$config = new Config();
 
 		$config->set_form_action_url( $this->action_url );
+		$config->set_direct_query_url( $this->direct_query_url );
 
 		$form_action_url = get_post_meta( $post_id, '_pronamic_gateway_ogone_form_action_url', true );
 
