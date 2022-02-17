@@ -6,16 +6,26 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\AbstractIntegration;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Settings;
 
 class Integration extends AbstractIntegration {
+	/**
+	 * Action URL.
+	 * 
+	 * @var string
+	 */
+	private $action_url;
+
 	public function __construct( $args = array() ) {
 		$args = wp_parse_args(
 			$args,
 			array(
-				'id'   => 'ogone-orderstandard',
-				'name' => 'Ingenico/Ogone - e-Commerce',
+				'id'         => 'ogone-orderstandard',
+				'name'       => 'Ingenico/Ogone - e-Commerce',
+				'action_url' => 'https://secure.ogone.com/ncol/prod/orderstandard.asp',
 			)
 		);
 
 		parent::__construct( $args );
+
+		$this->action_url = $action_url;
 	}
 
 	/**
@@ -28,11 +38,9 @@ class Integration extends AbstractIntegration {
 	}
 
 	public function get_config( $post_id ) {
-		$mode = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
+		$config = new Config();
 
-		$config_class = ( Gateway::MODE_TEST === $mode ) ? __NAMESPACE__ . '\TestConfig' : __NAMESPACE__ . '\Config';
-
-		$config = new $config_class();
+		$config->set_form_action_url( $this->action_url );
 
 		$form_action_url = get_post_meta( $post_id, '_pronamic_gateway_ogone_form_action_url', true );
 
@@ -40,7 +48,6 @@ class Integration extends AbstractIntegration {
 			$config->set_form_action_url( $form_action_url );
 		}
 
-		$config->mode                = $mode;
 		$config->psp_id              = get_post_meta( $post_id, '_pronamic_gateway_ogone_psp_id', true );
 		$config->hash_algorithm      = get_post_meta( $post_id, '_pronamic_gateway_ogone_hash_algorithm', true );
 		$config->sha_in_pass_phrase  = get_post_meta( $post_id, '_pronamic_gateway_ogone_sha_in_pass_phrase', true );
@@ -63,6 +70,10 @@ class Integration extends AbstractIntegration {
 	 * @return Gateway
 	 */
 	public function get_gateway( $post_id ) {
-		return new Gateway( $this->get_config( $post_id ) );
+		$gateway = new Gateway( $this->get_config( $post_id ) );
+
+		$gateway->set_mode( $this->get_mode() );
+
+		return $gateway;
 	}
 }
