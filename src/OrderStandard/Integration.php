@@ -25,7 +25,7 @@ class Integration extends AbstractIntegration {
 
 		parent::__construct( $args );
 
-		$this->action_url = $action_url;
+		$this->action_url = $args['action_url'];
 	}
 
 	/**
