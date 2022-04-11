@@ -7,16 +7,26 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Settings;
 
 class Integration extends AbstractIntegration {
+	/**
+	 * API URL.
+	 * 
+	 * @var string
+	 */
+	private $api_url;
+
 	public function __construct( $args = array() ) {
 		$args = wp_parse_args(
 			$args,
 			array(
-				'id'   => 'ogone-directlink',
-				'name' => 'Ingenico/Ogone - DirectLink',
+				'id'      => 'ogone-directlink',
+				'name'    => 'Ingenico/Ogone - DirectLink',
+				'api_url' => DirectLink::API_PRODUCTION_URL,
 			)
 		);
 
 		parent::__construct( $args );
+
+		$this->api_url = $args['api_url'];
 	}
 
 	public function get_settings_fields() {
@@ -26,7 +36,8 @@ class Integration extends AbstractIntegration {
 	public function get_config( $post_id ) {
 		$config = new Config();
 
-		$config->mode                = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
+		$config->api_url = $this->api_url;
+
 		$config->psp_id              = get_post_meta( $post_id, '_pronamic_gateway_ogone_psp_id', true );
 		$config->hash_algorithm      = get_post_meta( $post_id, '_pronamic_gateway_ogone_hash_algorithm', true );
 		$config->sha_out_pass_phrase = get_post_meta( $post_id, '_pronamic_gateway_ogone_sha_out_pass_phrase', true );
@@ -38,26 +49,6 @@ class Integration extends AbstractIntegration {
 		$config->alias_enabled       = get_post_meta( $post_id, '_pronamic_gateway_ogone_alias_enabled', true );
 		$config->alias_usage         = get_post_meta( $post_id, '_pronamic_gateway_ogone_alias_usage', true );
 
-		// API URL
-		$is_utf8 = strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) === 0;
-
-		switch ( $config->mode ) {
-			case Gateway::MODE_TEST:
-				if ( $is_utf8 ) {
-					$config->api_url = DirectLink::API_TEST_UTF8_URL;
-				} else {
-					$config->api_url = DirectLink::API_TEST_URL;
-				}
-
-				break;
-			default:
-				if ( $is_utf8 ) {
-					$config->api_url = DirectLink::API_PRODUCTION_UTF8_URL;
-				} else {
-					$config->api_url = DirectLink::API_PRODUCTION_URL;
-				}
-		}
-
 		return $config;
 	}
 
@@ -68,6 +59,10 @@ class Integration extends AbstractIntegration {
 	 * @return Gateway
 	 */
 	public function get_gateway( $post_id ) {
-		return new Gateway( $this->get_config( $post_id ) );
+		$gateway = new Gateway( $this->get_config( $post_id ) );
+
+		$gateway->set_mode( $this->get_mode() );
+
+		return $gateway;
 	}
 }

@@ -27,6 +27,13 @@ use Pronamic\WordPress\Pay\Payments\Payment;
  */
 class Gateway extends Core_Gateway {
 	/**
+	 * Config
+	 *
+	 * @var Config
+	 */
+	protected $config;
+
+	/**
 	 * Client.
 	 *
 	 * @var Client
@@ -41,6 +48,8 @@ class Gateway extends Core_Gateway {
 	public function __construct( Config $config ) {
 		parent::__construct( $config );
 
+		$this->config = $config;
+
 		$this->set_method( self::METHOD_HTML_FORM );
 
 		// Supported features.
@@ -49,7 +58,7 @@ class Gateway extends Core_Gateway {
 		);
 
 		// Client.
-		$this->client = new Client( $this->config->psp_id );
+		$this->client = new Client( $config->psp_id );
 
 		$this->client->set_payment_server_url( $config->get_form_action_url() );
 		$this->client->set_direct_query_url( $config->get_direct_query_url() );

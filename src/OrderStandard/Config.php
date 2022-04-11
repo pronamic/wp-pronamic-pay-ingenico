@@ -58,4 +58,30 @@ class Config extends Ingenico_Config {
 	 * @var string
 	 */
 	public $password;
+
+	/**
+	 * The Ogone e-Commerce direct query URL.
+	 *
+	 * @var string
+	 */
+	public $direct_query_url;
+
+	/**
+	 * Get the Ogone e-Commerce direct query URL.
+	 *
+	 * @return string
+	 */
+	public function get_direct_query_url() {
+		return $this->direct_query_url;
+	}
+
+	/**
+	 * Set the Ogone e-Commerce direct query URL.
+	 *
+	 * @param string $url Ogone e-Commerce direct query URL.
+	 * @return void
+	 */
+	public function set_direct_query_url( $url ) {
+		$this->direct_query_url = $url;
+	}
 }

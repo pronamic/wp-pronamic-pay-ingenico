@@ -2,7 +2,6 @@
 
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
-use Pronamic\WordPress\Pay\Core\Gateway as Core_Gateway;
 use Pronamic\WordPress\Pay\Core\GatewayConfig;
 
 /**
@@ -75,24 +74,10 @@ class Config extends GatewayConfig {
 	 * Set the Ogone e-Commerce form action URL.
 	 *
 	 * @since 1.2.9
-	 *
 	 * @param string $url Ogone e-Commerce form action URL.
+	 * @return void
 	 */
 	public function set_form_action_url( $url ) {
 		$this->form_action_url = $url;
-	}
-
-	/**
-	 * Get Direct Query URL.
-	 *
-	 * @since 1.3.2
-	 * @return string
-	 */
-	public function get_direct_query_url() {
-		if ( Core_Gateway::MODE_TEST === $this->mode ) {
-			return 'https://secure.ogone.com/ncol/test/querydirect.asp';
-		}
-
-		return 'https://secure.ogone.com/ncol/prod/querydirect.asp';
 	}
 }
