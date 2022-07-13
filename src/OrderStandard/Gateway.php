@@ -3,6 +3,7 @@
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard;
 
 use Pronamic\WordPress\Pay\Core\Gateway as Core_Gateway;
+use Pronamic\WordPress\Pay\Core\PaymentMethod;
 use Pronamic\WordPress\Pay\Core\PaymentMethods as Core_PaymentMethods;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Brands;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\DataCustomerHelper;
@@ -70,20 +71,13 @@ class Gateway extends Core_Gateway {
 		if ( ! empty( $config->hash_algorithm ) ) {
 			$this->client->set_hash_algorithm( $config->hash_algorithm );
 		}
-	}
-	/**
-	 * Get supported payment methods
-	 *
-	 * @see Core_Gateway::get_supported_payment_methods()
-	 */
-	public function get_supported_payment_methods() {
-		return array(
-			Core_PaymentMethods::BANK_TRANSFER,
-			Core_PaymentMethods::IDEAL,
-			Core_PaymentMethods::CREDIT_CARD,
-			Core_PaymentMethods::BANCONTACT,
-			Core_PaymentMethods::PAYPAL,
-		);
+
+		// Methods.
+		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::BANK_TRANSFER ) );
+		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::IDEAL ) );
+		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::CREDIT_CARD ) );
+		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::BANCONTACT ) );
+		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::PAYPAL ) );
 	}
 
 	/**
