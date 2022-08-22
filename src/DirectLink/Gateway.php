@@ -3,6 +3,8 @@
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink;
 
 use Pronamic\WordPress\Pay\Core\Gateway as Core_Gateway;
+use Pronamic\WordPress\Pay\Core\PaymentMethod;
+use Pronamic\WordPress\Pay\Core\PaymentMethods as Core_PaymentMethods;
 use Pronamic\WordPress\Pay\Core\Server;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Data;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\DataCreditCardHelper;
@@ -57,6 +59,8 @@ class Gateway extends Core_Gateway {
 		$this->client->user_id  = $config->user_id;
 		$this->client->password = $config->password;
 		$this->client->api_url  = $config->api_url;
+
+		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::VOID ) );
 	}
 
 	/**
