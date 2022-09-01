@@ -59,8 +59,6 @@ class Gateway extends Core_Gateway {
 		$this->client->user_id  = $config->user_id;
 		$this->client->password = $config->password;
 		$this->client->api_url  = $config->api_url;
-
-		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::VOID ) );
 	}
 
 	/**
