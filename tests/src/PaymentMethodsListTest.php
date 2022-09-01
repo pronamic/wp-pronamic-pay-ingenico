@@ -18,11 +18,11 @@ class PaymentMethodsListTest extends \WP_UnitTestCase {
 	 */
 	public function test_constructor() {
 		$list = new PaymentMethodsList(
-			array(
+			[
 				Brands::VISA,
 				Brands::MASTERCARD,
 				Brands::AMERICAN_EXPRESS,
-			)
+			]
 		);
 
 		$string = (string) $list;

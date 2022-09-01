@@ -289,16 +289,16 @@ class Client {
 		$result = Util::remote_get_body(
 			$this->get_direct_query_url(),
 			200,
-			array(
+			[
 				'method'  => 'POST',
-				'body'    => array(
+				'body'    => [
 					Parameters::ORDERID  => $order_id,
 					Parameters::PSPID    => $this->data->get_field( Parameters::PSPID ),
 					Parameters::USER_ID  => $user_id,
 					Parameters::PASSWORD => $password,
-				),
+				],
 				'timeout' => 30,
-			)
+			]
 		);
 
 		if ( $result instanceof \WP_Error ) {
@@ -349,7 +349,7 @@ class Client {
 			if ( 0 === strcasecmp( $signature, $signature_out ) ) {
 				$result = filter_var_array(
 					$data,
-					array(
+					[
 						Parameters::ORDERID  => FILTER_SANITIZE_STRING,
 						Parameters::AMOUNT   => FILTER_VALIDATE_FLOAT,
 						Parameters::CURRENCY => FILTER_SANITIZE_STRING,
@@ -361,7 +361,7 @@ class Client {
 						'NCERROR'            => FILTER_SANITIZE_STRING,
 						'BRAND'              => FILTER_SANITIZE_STRING,
 						'SHASIGN'            => FILTER_SANITIZE_STRING,
-					)
+					]
 				);
 			}
 		}

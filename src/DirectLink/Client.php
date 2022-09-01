@@ -69,15 +69,15 @@ class Client {
 	 * @return bool|OrderResponse
 	 * @throws \Exception Throws exception if DirectLink request fails.
 	 */
-	public function order_direct( array $data = array() ) {
+	public function order_direct( array $data = [] ) {
 		$result = Util::remote_get_body(
 			$this->api_url,
 			200,
-			array(
+			[
 				'method'    => 'POST',
 				'sslverify' => false,
 				'body'      => $data,
-			)
+			]
 		);
 
 		if ( $result instanceof \WP_Error ) {

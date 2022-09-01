@@ -31,7 +31,7 @@ class Security {
 	 */
 	public static function get_calculations_parameters_in() {
 		if ( ! isset( self::$calculations_parameters_in ) ) {
-			self::$calculations_parameters_in = array();
+			self::$calculations_parameters_in = [];
 
 			$file = dirname( __FILE__ ) . '/../data/calculations-parameters-sha-in.txt';
 			if ( is_readable( $file ) ) {
@@ -47,7 +47,7 @@ class Security {
 	 */
 	public static function get_calculations_parameters_out() {
 		if ( ! isset( self::$calculations_parameters_out ) ) {
-			self::$calculations_parameters_out = array();
+			self::$calculations_parameters_out = [];
 
 			$file = dirname( __FILE__ ) . '/../data/calculations-parameters-sha-out.txt';
 			if ( is_readable( $file ) ) {
@@ -64,7 +64,7 @@ class Security {
 	 * @return array
 	 */
 	public static function get_request_data() {
-		$data = array();
+		$data = [];
 
 		if ( isset( $_SERVER['REQUEST_METHOD'] ) ) { // WPCS: input var ok.
 			switch ( $_SERVER['REQUEST_METHOD'] ) { // WPCS: input var ok.

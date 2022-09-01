@@ -24,7 +24,7 @@ class Data {
 	 * Constructs and initialize a iDEAL kassa object
 	 */
 	public function __construct() {
-		$this->fields = array();
+		$this->fields = [];
 	}
 
 	/**

@@ -22,11 +22,11 @@ class DataGeneralHelperTest extends \WP_UnitTestCase {
 		$helper = new DataGeneralHelper( $data );
 
 		$pmlist = new PaymentMethodsList(
-			array(
+			[
 				Brands::VISA,
 				Brands::MASTERCARD,
 				Brands::AMERICAN_EXPRESS,
-			)
+			]
 		);
 
 		$helper
@@ -43,7 +43,7 @@ class DataGeneralHelperTest extends \WP_UnitTestCase {
 			->set_brand( Brands::IDEAL );
 
 		$this->assertEquals(
-			array(
+			[
 				'PSPID'    => 'test',
 				'ORDERID'  => '1234',
 				'COM'      => 'order description',
@@ -55,7 +55,7 @@ class DataGeneralHelperTest extends \WP_UnitTestCase {
 				'PM'       => PaymentMethods::IDEAL,
 				'PMLIST'   => (string) $pmlist,
 				'BRAND'    => Brands::IDEAL,
-			),
+			],
 			$data->get_fields()
 		);
 	}

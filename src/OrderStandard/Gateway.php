@@ -54,9 +54,9 @@ class Gateway extends Core_Gateway {
 		$this->set_method( self::METHOD_HTML_FORM );
 
 		// Supported features.
-		$this->supports = array(
+		$this->supports = [
 			'payment_status_request',
-		);
+		];
 
 		// Client.
 		$this->client = new Client( $config->psp_id );
@@ -291,7 +291,7 @@ class Gateway extends Core_Gateway {
 	 * @param array   $data    Data.
 	 */
 	private function update_status_payment_note( Payment $payment, $data ) {
-		$labels = array(
+		$labels = [
 			'STATUS'     => __( 'Status', 'pronamic_ideal' ),
 			'ORDERID'    => __( 'Order ID', 'pronamic_ideal' ),
 			'CURRENCY'   => __( 'Currency', 'pronamic_ideal' ),
@@ -307,7 +307,7 @@ class Gateway extends Core_Gateway {
 			'BRAND'      => __( 'Brand', 'pronamic_ideal' ),
 			'IP'         => __( 'IP', 'pronamic_ideal' ),
 			'SHASIGN'    => __( 'SHA Signature', 'pronamic_ideal' ),
-		);
+		];
 
 		$note = '';
 

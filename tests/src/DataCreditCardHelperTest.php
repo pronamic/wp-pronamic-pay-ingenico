@@ -31,11 +31,11 @@ class DataCreditCardHelperTest extends \WP_UnitTestCase {
 			->set_security_code( '123' );
 
 		$this->assertEquals(
-			array(
+			[
 				'CARDNO' => '378282246310005',
 				'ED'     => $ed->format( Ingenico::EXPIRATION_DATE_FORMAT ),
 				'CVC'    => '123',
-			),
+			],
 			$data->get_fields()
 		);
 	}
