@@ -3,6 +3,7 @@
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard;
 
 use Pronamic\WordPress\Pay\Core\Gateway as Core_Gateway;
+use Pronamic\WordPress\Pay\Core\PaymentMethod;
 use Pronamic\WordPress\Pay\Core\PaymentMethods as Core_PaymentMethods;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Brands;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\DataCustomerHelper;
@@ -46,16 +47,16 @@ class Gateway extends Core_Gateway {
 	 * @param Config $config Config.
 	 */
 	public function __construct( Config $config ) {
-		parent::__construct( $config );
+		parent::__construct();
 
 		$this->config = $config;
 
 		$this->set_method( self::METHOD_HTML_FORM );
 
 		// Supported features.
-		$this->supports = array(
+		$this->supports = [
 			'payment_status_request',
-		);
+		];
 
 		// Client.
 		$this->client = new Client( $config->psp_id );
@@ -70,20 +71,13 @@ class Gateway extends Core_Gateway {
 		if ( ! empty( $config->hash_algorithm ) ) {
 			$this->client->set_hash_algorithm( $config->hash_algorithm );
 		}
-	}
-	/**
-	 * Get supported payment methods
-	 *
-	 * @see Core_Gateway::get_supported_payment_methods()
-	 */
-	public function get_supported_payment_methods() {
-		return array(
-			Core_PaymentMethods::BANK_TRANSFER,
-			Core_PaymentMethods::IDEAL,
-			Core_PaymentMethods::CREDIT_CARD,
-			Core_PaymentMethods::BANCONTACT,
-			Core_PaymentMethods::PAYPAL,
-		);
+
+		// Methods.
+		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::BANK_TRANSFER ) );
+		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::IDEAL ) );
+		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::CREDIT_CARD ) );
+		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::BANCONTACT ) );
+		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::PAYPAL ) );
 	}
 
 	/**
@@ -297,7 +291,7 @@ class Gateway extends Core_Gateway {
 	 * @param array   $data    Data.
 	 */
 	private function update_status_payment_note( Payment $payment, $data ) {
-		$labels = array(
+		$labels = [
 			'STATUS'     => __( 'Status', 'pronamic_ideal' ),
 			'ORDERID'    => __( 'Order ID', 'pronamic_ideal' ),
 			'CURRENCY'   => __( 'Currency', 'pronamic_ideal' ),
@@ -313,7 +307,7 @@ class Gateway extends Core_Gateway {
 			'BRAND'      => __( 'Brand', 'pronamic_ideal' ),
 			'IP'         => __( 'IP', 'pronamic_ideal' ),
 			'SHASIGN'    => __( 'SHA Signature', 'pronamic_ideal' ),
-		);
+		];
 
 		$note = '';
 

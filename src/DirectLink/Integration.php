@@ -14,14 +14,14 @@ class Integration extends AbstractIntegration {
 	 */
 	private $api_url;
 
-	public function __construct( $args = array() ) {
+	public function __construct( $args = [] ) {
 		$args = wp_parse_args(
 			$args,
-			array(
+			[
 				'id'      => 'ogone-directlink',
 				'name'    => 'Ingenico/Ogone - DirectLink',
 				'api_url' => DirectLink::API_PRODUCTION_URL,
-			)
+			]
 		);
 
 		parent::__construct( $args );

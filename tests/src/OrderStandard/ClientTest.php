@@ -58,7 +58,7 @@ class ClientTest extends \WP_UnitTestCase {
 	 */
 	public function test_signature_out_from_documentation() {
 		/* @link http://pronamic.nl/wp-content/uploads/2012/02/ABNAMRO_e-Com-BAS_EN.pdf #page 16 */
-		$data = array(
+		$data = [
 			'ACCEPTANCE' => '1234',
 			'AMOUNT'     => '15.00',
 			'BRAND'      => 'VISA',
@@ -70,7 +70,7 @@ class ClientTest extends \WP_UnitTestCase {
 			'PM'         => 'CreditCard',
 			'STATUS'     => '9',
 			'SHASIGN'    => '8DC2A769700CA4B3DF87FE8E3B6FD162D6F6A5FA',
-		);
+		];
 
 		$client = new Client( 'MyPSPID' );
 

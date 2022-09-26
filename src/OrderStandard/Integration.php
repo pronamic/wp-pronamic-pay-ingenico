@@ -26,15 +26,15 @@ class Integration extends AbstractIntegration {
 	 * @param array<string, string> $args Arguments.
 	 * @return void
 	 */
-	public function __construct( $args = array() ) {
+	public function __construct( $args = [] ) {
 		$args = wp_parse_args(
 			$args,
-			array(
+			[
 				'id'               => 'ogone-orderstandard',
 				'name'             => 'Ingenico/Ogone - e-Commerce',
 				'action_url'       => 'https://secure.ogone.com/ncol/prod/orderstandard.asp',
 				'direct_query_url' => 'https://secure.ogone.com/ncol/prod/querydirect.asp',
-			)
+			]
 		);
 
 		parent::__construct( $args );

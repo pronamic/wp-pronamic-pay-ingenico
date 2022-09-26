@@ -3,6 +3,8 @@
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink;
 
 use Pronamic\WordPress\Pay\Core\Gateway as Core_Gateway;
+use Pronamic\WordPress\Pay\Core\PaymentMethod;
+use Pronamic\WordPress\Pay\Core\PaymentMethods as Core_PaymentMethods;
 use Pronamic\WordPress\Pay\Core\Server;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Data;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\DataCreditCardHelper;
@@ -45,7 +47,7 @@ class Gateway extends Core_Gateway {
 	 * @param Config $config Config.
 	 */
 	public function __construct( Config $config ) {
-		parent::__construct( $config );
+		parent::__construct();
 
 		$this->config = $config;
 

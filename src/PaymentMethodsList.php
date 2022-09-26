@@ -23,7 +23,7 @@ class PaymentMethodsList {
 	/**
 	 * Constructs and initialize a payment methods list
 	 */
-	public function __construct( array $list = array() ) {
+	public function __construct( array $list = [] ) {
 		$this->list = $list;
 	}
 

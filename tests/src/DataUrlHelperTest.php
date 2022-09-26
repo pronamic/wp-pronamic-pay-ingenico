@@ -30,14 +30,14 @@ class DataUrlHelperTest extends \WP_UnitTestCase {
 			->set_back_url( 'http://www.example.com/payment/' );
 
 		$this->assertEquals(
-			array(
+			[
 				'ACCEPTURL'    => 'http://www.example.com/payment/accepted/',
 				'CANCELURL'    => 'http://www.example.com/payment/cancelled/',
 				'EXCEPTIONURL' => 'http://www.example.com/payment/exception/',
 				'DECLINEURL'   => 'http://www.example.com/payment/declined/',
 				'home'         => 'http://www.example.com/',
 				'backurl'      => 'http://www.example.com/payment/',
-			),
+			],
 			$data->get_fields()
 		);
 	}
