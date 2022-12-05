@@ -10,6 +10,6 @@ tests/Mock/response-status-46-html-answer.html text eol=crlf
 /.travis.yml       export-ignore
 /Gruntfile.js      export-ignore
 /package.json      export-ignore
-/phpcs.ruleset.xml export-ignore
+/phpcs.xml.dist    export-ignore
 /phpmd.ruleset.xml export-ignore
 /phpunit.xml.dist  export-ignore
