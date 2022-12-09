@@ -33,7 +33,7 @@ class Security {
 		if ( ! isset( self::$calculations_parameters_in ) ) {
 			self::$calculations_parameters_in = [];
 
-			$file = dirname( __FILE__ ) . '/../data/calculations-parameters-sha-in.txt';
+			$file = __DIR__ . '/../data/calculations-parameters-sha-in.txt';
 			if ( is_readable( $file ) ) {
 				self::$calculations_parameters_in = file( $file, FILE_IGNORE_NEW_LINES );
 			}
@@ -49,7 +49,7 @@ class Security {
 		if ( ! isset( self::$calculations_parameters_out ) ) {
 			self::$calculations_parameters_out = [];
 
-			$file = dirname( __FILE__ ) . '/../data/calculations-parameters-sha-out.txt';
+			$file = __DIR__ . '/../data/calculations-parameters-sha-out.txt';
 			if ( is_readable( $file ) ) {
 				self::$calculations_parameters_out = file( $file, FILE_IGNORE_NEW_LINES );
 			}

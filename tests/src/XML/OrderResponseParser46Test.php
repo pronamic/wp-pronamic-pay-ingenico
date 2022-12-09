@@ -11,7 +11,7 @@ class OrderResponseParser46Test extends \WP_UnitTestCase {
 	 * @return SimpleXMLElement
 	 */
 	public function test_init() {
-		$filename = dirname( dirname( dirname( __FILE__ ) ) ) . '/Mock/response-status-46.xml';
+		$filename = dirname( dirname( __DIR__ ) ) . '/Mock/response-status-46.xml';
 
 		$simplexml = simplexml_load_file( $filename );
 
@@ -45,7 +45,7 @@ class OrderResponseParser46Test extends \WP_UnitTestCase {
 	 * @param OrderResponse $order_response Order response.
 	 */
 	public function test_values( $order_response ) {
-		$filename = dirname( dirname( dirname( __FILE__ ) ) ) . '/Mock/response-status-46-html-answer.html';
+		$filename = dirname( dirname( __DIR__ ) ) . '/Mock/response-status-46-html-answer.html';
 
 		$expected                = new OrderResponse();
 		$expected->order_id      = '1387195001';

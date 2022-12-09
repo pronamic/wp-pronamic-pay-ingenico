@@ -11,7 +11,7 @@ class OrderResponseParser0Test extends \WP_UnitTestCase {
 	 * @return SimpleXMLElement
 	 */
 	public function test_init() {
-		$filename = dirname( dirname( dirname( __FILE__ ) ) ) . '/Mock/response-status-0-50001123.xml';
+		$filename = dirname( dirname( __DIR__ ) ) . '/Mock/response-status-0-50001123.xml';
 
 		$simplexml = simplexml_load_file( $filename );
 
