@@ -2,6 +2,7 @@
 
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard;
 
+use Pronamic\WordPress\Http\Facades\Http;
 use Pronamic\WordPress\Pay\Core\Util;
 use Pronamic\WordPress\Pay\Core\XML\Security as XML_Security;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Data;
@@ -286,9 +287,8 @@ class Client {
 			return $return;
 		}
 
-		$result = Util::remote_get_body(
+		$response = Http::request(
 			$this->get_direct_query_url(),
-			200,
 			[
 				'method'  => 'POST',
 				'body'    => [
@@ -301,11 +301,7 @@ class Client {
 			]
 		);
 
-		if ( $result instanceof \WP_Error ) {
-			throw new \Exception( sprintf( 'Could not get order status for order ID %s.', $order_id ) );
-		}
-
-		$xml = Util::simplexml_load_string( $result );
+		$xml = $response->simplexml();
 
 		$order_response = OrderResponseParser::parse( $xml );
 

@@ -2,6 +2,7 @@
 
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink;
 
+use Pronamic\WordPress\Http\Facades\Http;
 use Pronamic\WordPress\Pay\Core\Util;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Error;
@@ -69,9 +70,8 @@ class Client {
 	 * @throws \Exception Throws exception if DirectLink request fails.
 	 */
 	public function order_direct( array $data = [] ) {
-		$result = Util::remote_get_body(
+		$response = Http::request(
 			$this->api_url,
-			200,
 			[
 				'method'    => 'POST',
 				'sslverify' => false,
@@ -79,16 +79,7 @@ class Client {
 			]
 		);
 
-		if ( $result instanceof \WP_Error ) {
-			throw new \Exception(
-				\sprintf(
-					'Ogone DirectLink HTTP request failed: %s.',
-					$result->get_error_message()
-				)
-			);
-		}
-
-		$xml = Util::simplexml_load_string( $result );
+		$xml = $response->simplexml();
 
 		$order_response = OrderResponseParser::parse( $xml );
 
