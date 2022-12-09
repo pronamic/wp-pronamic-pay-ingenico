@@ -308,7 +308,7 @@ class Client {
 		if ( ! empty( $order_response->nc_error ) ) {
 			$ogone_error = new Error(
 				(string) $order_response->nc_error,
-				(stirng) $order_response->nc_error_plus
+				(string) $order_response->nc_error_plus
 			);
 
 			throw new \Exception(
