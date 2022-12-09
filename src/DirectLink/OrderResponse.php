@@ -41,6 +41,5 @@ class OrderResponse {
 	 * Constructs and initializes an Ogone DirectLink order response
 	 */
 	public function __construct() {
-
 	}
 }

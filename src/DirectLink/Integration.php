@@ -9,7 +9,7 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\Settings;
 class Integration extends AbstractIntegration {
 	/**
 	 * API URL.
-	 * 
+	 *
 	 * @var string
 	 */
 	private $api_url;

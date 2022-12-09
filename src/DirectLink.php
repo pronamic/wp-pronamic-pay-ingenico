@@ -45,6 +45,5 @@ class DirectLink {
 	 * Constructs and initializes an Ogone DirectLink object
 	 */
 	public function __construct() {
-
 	}
 }

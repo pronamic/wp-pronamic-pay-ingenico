@@ -8,7 +8,7 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\Settings;
 class Integration extends AbstractIntegration {
 	/**
 	 * Action URL.
-	 * 
+	 *
 	 * @var string
 	 */
 	private $action_url;
