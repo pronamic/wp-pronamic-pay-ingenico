@@ -346,19 +346,30 @@ class Client {
 				$result = filter_var_array(
 					$data,
 					[
-						Parameters::ORDERID  => FILTER_SANITIZE_STRING,
-						Parameters::AMOUNT   => FILTER_VALIDATE_FLOAT,
-						Parameters::CURRENCY => FILTER_SANITIZE_STRING,
-						'PM'                 => FILTER_SANITIZE_STRING,
-						'ACCEPTANCE'         => FILTER_SANITIZE_STRING,
-						'STATUS'             => FILTER_VALIDATE_INT,
-						'CARDNO'             => FILTER_SANITIZE_STRING,
-						'PAYID'              => FILTER_VALIDATE_INT,
-						'NCERROR'            => FILTER_SANITIZE_STRING,
-						'BRAND'              => FILTER_SANITIZE_STRING,
-						'SHASIGN'            => FILTER_SANITIZE_STRING,
+						Parameters::AMOUNT => FILTER_VALIDATE_FLOAT,
+						'STATUS'           => FILTER_VALIDATE_INT,
+						'PAYID'            => FILTER_VALIDATE_INT,
 					]
 				);
+
+				$sanitize_params = [
+					Parameters::ORDERID,
+					Parameters::CURRENCY,
+					'PM',
+					'ACCEPTANCE',
+					'CARDNO',
+					'NCERROR',
+					'BRAND',
+					'SHASIGN',
+				];
+
+				foreach ( $sanitize_params as $param ) {
+					if ( ! \array_key_exists( $param, $data ) ) {
+						continue;
+					}
+
+					$result[ $param ] = \sanitize_text_field( \wp_unslash( $data[ $param ] ) );
+				}
 			}
 		}
 
