@@ -35,7 +35,6 @@ class Settings {
 		// PSPID.
 		$fields[] = [
 			'section'  => 'general',
-			'filter'   => FILTER_SANITIZE_STRING,
 			'meta_key' => '_pronamic_gateway_ogone_psp_id',
 			'title'    => __( 'PSPID', 'pronamic_ideal' ),
 			'type'     => 'text',
@@ -46,7 +45,6 @@ class Settings {
 		// API user ID.
 		$fields[] = [
 			'section'  => 'general',
-			'filter'   => FILTER_SANITIZE_STRING,
 			'meta_key' => '_pronamic_gateway_ogone_user_id',
 			'title'    => __( 'API user ID', 'pronamic_ideal' ),
 			'type'     => 'text',
@@ -57,7 +55,6 @@ class Settings {
 		// API user password.
 		$fields[] = [
 			'section'  => 'general',
-			'filter'   => FILTER_SANITIZE_STRING,
 			'meta_key' => '_pronamic_gateway_ogone_password',
 			'title'    => __( 'API user password', 'pronamic_ideal' ),
 			'type'     => 'password',
@@ -69,7 +66,6 @@ class Settings {
 			// SHA-IN Pass phrase.
 			$fields[] = [
 				'section'  => 'general',
-				'filter'   => FILTER_SANITIZE_STRING,
 				'meta_key' => '_pronamic_gateway_ogone_sha_in_pass_phrase',
 				'title'    => __( 'SHA-IN Pass phrase', 'pronamic_ideal' ),
 				'type'     => 'password',
@@ -82,7 +78,6 @@ class Settings {
 			// SHA-IN Pass phrase.
 			$fields[] = [
 				'section'  => 'general',
-				'filter'   => FILTER_SANITIZE_STRING,
 				'meta_key' => '_pronamic_gateway_ogone_directlink_sha_in_pass_phrase',
 				'title'    => __( 'SHA-IN Pass phrase', 'pronamic_ideal' ),
 				'type'     => 'password',
@@ -94,7 +89,6 @@ class Settings {
 		// SHA-OUT Pass phrase.
 		$fields[] = [
 			'section'  => 'general',
-			'filter'   => FILTER_SANITIZE_STRING,
 			'meta_key' => '_pronamic_gateway_ogone_sha_out_pass_phrase',
 			'title'    => __( 'SHA-OUT Pass phrase', 'pronamic_ideal' ),
 			'type'     => 'password',
@@ -105,7 +99,6 @@ class Settings {
 		// Hash algorithm.
 		$fields[] = [
 			'section'  => 'general',
-			'filter'   => FILTER_SANITIZE_STRING,
 			'meta_key' => '_pronamic_gateway_ogone_hash_algorithm',
 			'title'    => __( 'Hash algorithm', 'pronamic_ideal' ),
 			'type'     => 'optgroup',
@@ -144,7 +137,6 @@ class Settings {
 		if ( 'standard' === $type ) {
 			$fields[] = [
 				'section'  => 'advanced',
-				'filter'   => FILTER_SANITIZE_STRING,
 				'meta_key' => '_pronamic_gateway_ogone_form_action_url',
 				'title'    => __( 'Form Action URL', 'pronamic_ideal' ),
 				'type'     => 'text',
@@ -156,7 +148,6 @@ class Settings {
 		// Order ID.
 		$fields[] = [
 			'section'     => 'advanced',
-			'filter'      => FILTER_SANITIZE_STRING,
 			'meta_key'    => '_pronamic_gateway_ogone_order_id',
 			'title'       => __( 'Order ID', 'pronamic_ideal' ),
 			'type'        => 'text',
@@ -184,7 +175,6 @@ class Settings {
 		// Parameter Variable.
 		$fields[] = [
 			'section'     => 'advanced',
-			'filter'      => FILTER_SANITIZE_STRING,
 			'meta_key'    => '_pronamic_gateway_ogone_param_var',
 			'title'       => __( 'Parameter Variable', 'pronamic_ideal' ),
 			'type'        => 'text',
@@ -215,7 +205,6 @@ class Settings {
 		// Alias usage.
 		$fields[] = [
 			'section'     => 'advanced',
-			'filter'      => FILTER_SANITIZE_STRING,
 			'meta_key'    => '_pronamic_gateway_ogone_alias_usage',
 			'title'       => __( 'Alias Usage', 'pronamic_ideal' ),
 			'type'        => 'text',
@@ -231,7 +220,6 @@ class Settings {
 		// Template Page.
 		$fields[] = [
 			'section'  => 'advanced',
-			'filter'   => FILTER_SANITIZE_STRING,
 			'meta_key' => '_pronamic_gateway_ogone_template_page',
 			'title'    => __( 'Template Page', 'pronamic_ideal' ),
 			'type'     => 'text',
