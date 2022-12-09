@@ -30,22 +30,22 @@ class OrderResponseParser {
 			$order_response = new OrderResponse();
 		}
 
-		$order_response->order_id      = Security::filter( $xml['orderID'] );
-		$order_response->pay_id        = Security::filter( $xml['PAYID'] );
-		$order_response->nc_status     = Security::filter( $xml[ Parameters::NC_STATUS ] );
-		$order_response->nc_error      = Security::filter( $xml[ Parameters::NC_ERROR ] );
-		$order_response->nc_error_plus = Security::filter( $xml[ Parameters::NC_ERROR_PLUS ] );
-		$order_response->acceptance    = Security::filter( $xml['ACCEPTANCE'] );
-		$order_response->status        = Security::filter( $xml[ Parameters::STATUS ] );
-		$order_response->eci           = Security::filter( $xml['ECI'] );
-		$order_response->amount        = Security::filter( $xml[ Parameters::AMOUNT ] );
-		$order_response->currency      = Security::filter( $xml[ Parameters::CURRENCY ] );
-		$order_response->pm            = Security::filter( $xml['PM'] );
-		$order_response->brand         = Security::filter( $xml['BRAND'] );
+		$order_response->order_id      = (string) $xml['orderID'];
+		$order_response->pay_id        = (string) $xml['PAYID'];
+		$order_response->nc_status     = (string) $xml[ Parameters::NC_STATUS ];
+		$order_response->nc_error      = (string) $xml[ Parameters::NC_ERROR ];
+		$order_response->nc_error_plus = (string) $xml[ Parameters::NC_ERROR_PLUS ];
+		$order_response->acceptance    = (string) $xml['ACCEPTANCE'];
+		$order_response->status        = (string) $xml[ Parameters::STATUS ];
+		$order_response->eci           = (string) $xml['ECI'];
+		$order_response->amount        = (string) $xml[ Parameters::AMOUNT ];
+		$order_response->currency      = (string) $xml[ Parameters::CURRENCY ];
+		$order_response->pm            = (string) $xml['PM'];
+		$order_response->brand         = (string) $xml['BRAND'];
 
 		if ( $xml->HTML_ANSWER ) {
 			// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
-			$order_response->html_answer = base64_decode( Security::filter( $xml->HTML_ANSWER ) );
+			$order_response->html_answer = base64_decode( (string) $xml->HTML_ANSWER );
 		}
 
 		return $order_response;

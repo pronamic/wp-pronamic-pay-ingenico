@@ -95,8 +95,8 @@ class Client {
 
 		if ( ! empty( $order_response->nc_error ) ) {
 			$ogone_error = new Error(
-				Security::filter( $order_response->nc_error ),
-				Security::filter( $order_response->nc_error_plus )
+				(string) $order_response->nc_error,
+				(string) $order_response->nc_error_plus
 			);
 
 			throw new \Exception( (string) $ogone_error );

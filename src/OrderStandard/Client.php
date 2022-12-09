@@ -311,8 +311,8 @@ class Client {
 
 		if ( ! empty( $order_response->nc_error ) ) {
 			$ogone_error = new Error(
-				XML_Security::filter( $order_response->nc_error ),
-				XML_Security::filter( $order_response->nc_error_plus )
+				(string) $order_response->nc_error,
+				(stirng) $order_response->nc_error_plus
 			);
 
 			throw new \Exception(
@@ -324,7 +324,7 @@ class Client {
 			);
 		}
 
-		$status = XML_Security::filter( $order_response->status );
+		$status = (string) $order_response->status;
 
 		$return = Statuses::transform( $status );
 
