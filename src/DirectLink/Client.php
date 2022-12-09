@@ -3,7 +3,6 @@
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink;
 
 use Pronamic\WordPress\Pay\Core\Util;
-use Pronamic\WordPress\Pay\Core\XML\Security;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Error;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\XML\OrderResponseParser;

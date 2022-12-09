@@ -2,7 +2,6 @@
 
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico\XML;
 
-use Pronamic\WordPress\Pay\Core\XML\Security;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\OrderResponse;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Parameters;
 use SimpleXMLElement;
