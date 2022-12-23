@@ -7,6 +7,25 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [4.3.0] - 2022-12-23
+
+### Commits
+
+- Use `pronamic/wp-http` library for remote requests. ([cdfd5a5](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/cdfd5a54f0ce56d051bfe50dfe9c2f7798e049ad))
+- Removed usage of deprecated `\FILTER_SANITIZE_STRING` in gateway settings fields. ([58397af](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/58397afb674ae3d709f0baeceec161bcb92f4974))
+- Updated manual URL to pronamicpay.com (pronamic/pronamic-pay#15). ([98a1228](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/98a1228cb2c4781047c12a2f00865f68b97a9a41))
+
+### Composer
+
+- Added `pronamic/wp-http` `^1.2`.
+- Changed `php` from `>=5.6.20` to `>=8.0`.
+- Changed `wp-pay/core` from `^4.0` to `v4.6.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.2.0
+
+Full set of changes: [`4.2.0...4.3.0`][4.3.0]
+
+[4.3.0]: https://github.com/pronamic/wp-pronamic-pay-ingenico/compare/v4.2.0...v4.3.0
+
 ## [4.2.0] - 2022-09-26
 - Updated payment methods registration.
 
