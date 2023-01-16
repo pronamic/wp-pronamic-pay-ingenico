@@ -32,6 +32,7 @@
   },
   "homepage": "http://www.wp-pay.org/gateways/ogone/",
   "devDependencies": {
+    "@wordpress/env": "^5.9.0",
     "grunt": "^1.0.4",
     "grunt-contrib-jshint": "^2.1.0",
     "grunt-phpcs": "^0.4.0",
