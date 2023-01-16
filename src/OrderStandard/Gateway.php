@@ -5,6 +5,10 @@ namespace Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard;
 use Pronamic\WordPress\Pay\Core\Gateway as Core_Gateway;
 use Pronamic\WordPress\Pay\Core\PaymentMethod;
 use Pronamic\WordPress\Pay\Core\PaymentMethods as Core_PaymentMethods;
+use Pronamic\WordPress\Pay\Fields\CachedCallbackOptions;
+use Pronamic\WordPress\Pay\Fields\IDealIssuerSelectField;
+use Pronamic\WordPress\Pay\Fields\SelectFieldOption;
+use Pronamic\WordPress\Pay\Fields\SelectFieldOptionGroup;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Brands;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\DataCustomerHelper;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\DataGeneralHelper;
@@ -74,10 +78,53 @@ class Gateway extends Core_Gateway {
 
 		// Methods.
 		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::BANK_TRANSFER ) );
-		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::IDEAL ) );
 		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::CREDIT_CARD ) );
 		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::BANCONTACT ) );
 		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::PAYPAL ) );
+
+		// Payment method iDEAL.
+		$ideal_options = new CachedCallbackOptions(
+			function() {
+				return $this->get_ideal_issuers();
+			},
+			'pronamic_pay_ideal_issuers_' . \md5( (string) \wp_json_encode( $config ) )
+		);
+
+		$payment_method_ideal = new PaymentMethod( Core_PaymentMethods::IDEAL );
+
+		$field_ideal_issuer = new IDealIssuerSelectField( 'pronamic_pay_ingenico_ideal_issuer' );
+		$field_ideal_issuer->set_options( $ideal_options );
+
+		$payment_method_ideal->add_field( $field_ideal_issuer );
+
+		$this->register_payment_method( $payment_method_ideal );
+	}
+
+	/**
+	 * Get iDEAL issuers.
+	 *
+	 * @return iterable<SelectFieldOption|SelectFieldOptionGroup>
+	 */
+	private function get_ideal_issuers() {
+		if ( 'test' === $this->get_mode() ) {
+			return [
+				new SelectFieldOption( '9999+TST', \__( 'TST iDEAL', 'pronamic_ideal' ) ),
+			];
+		}
+
+		return [
+			new SelectFieldOption( 'ABNANL2A', \__( 'ABN AMRO', 'pronamic_ideal' ) ),
+			new SelectFieldOption( 'RABONL2U', \__( 'Rabobank', 'pronamic_ideal' ) ),
+			new SelectFieldOption( 'INGBNL2A', \__( 'ING', 'pronamic_ideal' ) ),
+			new SelectFieldOption( 'SNSBNL2A', \__( 'SNS Bank', 'pronamic_ideal' ) ),
+			new SelectFieldOption( 'RBRBNL21', \__( 'Regio Bank', 'pronamic_ideal' ) ),
+			new SelectFieldOption( 'ASNBNL21', \__( 'ASN Bank', 'pronamic_ideal' ) ),
+			new SelectFieldOption( 'BUNQNL2A', \__( 'Bunq', 'pronamic_ideal' ) ),
+			new SelectFieldOption( 'TRIONL2U', \__( 'Triodos Bank', 'pronamic_ideal' ) ),
+			new SelectFieldOption( 'FVLBNL22', \__( 'van Lanschot Bankiers', 'pronamic_ideal' ) ),
+			new SelectFieldOption( 'KNABNL2H', \__( 'Knab bank', 'pronamic_ideal' ) ),
+			new SelectFieldOption( 'REVOLT21', \__( 'Revolut', 'pronamic_ideal' ) ),
+		];
 	}
 
 	/**
@@ -200,6 +247,8 @@ class Gateway extends Core_Gateway {
 				$ogone_data_general
 					->set_brand( Brands::IDEAL )
 					->set_payment_method( PaymentMethods::IDEAL );
+
+				$ogone_data_general->set_field( 'ISSUERID', $payment->get_meta( 'issuer' ) );
 
 				break;
 			case Core_PaymentMethods::BANCONTACT:
