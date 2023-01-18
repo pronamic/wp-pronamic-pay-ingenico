@@ -7,6 +7,17 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [4.4.0] - 2023-01-18
+
+### Commits
+
+- Added support for iDEAL issuer options. ([00a0f5a](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/00a0f5a221e94eaee8dcaa12c8a31287dc9c0c45))
+- Happy 2023. ([23facf0](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/23facf001dc85428ac652d2558e4ef2ba21d2b8b))
+
+Full set of changes: [`4.3.0...4.4.0`][4.4.0]
+
+[4.4.0]: https://github.com/pronamic/wp-pronamic-pay-ingenico/compare/v4.3.0...v4.4.0
+
 ## [4.3.0] - 2022-12-23
 
 ### Commits

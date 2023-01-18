@@ -4,7 +4,7 @@
  * Plugin URI: https://www.pronamic.eu/plugins/pronamic-pay-igenico/
  * Description: Extend the Pronamic Pay plugin with the Igenico gateway to receive payments with Igenico through a variety of WordPress plugins.
  *
- * Version: 4.3.0
+ * Version: 4.4.0
  * Requires at least: 4.7
  * Requires PHP: 8.0
  *
