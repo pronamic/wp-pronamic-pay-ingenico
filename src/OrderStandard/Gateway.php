@@ -103,6 +103,7 @@ class Gateway extends Core_Gateway {
 	/**
 	 * Get iDEAL issuers.
 	 *
+	 * @link https://epayments-support.ingenico.com/en/payment-methods/alternative-payment-methods/ideal#ideal_integration_guides_redirect_to_ideal_bank_page
 	 * @return iterable<SelectFieldOption|SelectFieldOptionGroup>
 	 */
 	private function get_ideal_issuers() {
