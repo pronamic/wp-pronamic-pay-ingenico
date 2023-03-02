@@ -3,13 +3,18 @@
 
 tests/Mock/response-status-46-html-answer.html text eol=crlf
 
-/bin               export-ignore
-/tests             export-ignore
 /.gitattributes    export-ignore
+/.github/          export-ignore
 /.gitignore        export-ignore
+/.phplint.yml      export-ignore
 /.travis.yml       export-ignore
 /Gruntfile.js      export-ignore
+/bin               export-ignore
 /package.json      export-ignore
 /phpcs.xml.dist    export-ignore
 /phpmd.ruleset.xml export-ignore
+/phpstan.neon.dist export-ignore
 /phpunit.xml.dist  export-ignore
+/psalm.xml.dist    export-ignore
+/tests/            export-ignore
+/vendor-bin/       export-ignore
