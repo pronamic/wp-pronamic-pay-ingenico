@@ -4,6 +4,7 @@
 	"keywords": ["wordpress", "wp", "pay", "ogone", "ingenico", "gateway", "pronamic"],
 	"homepage": "http://www.wp-pay.org/gateways/ogone/",
 	"license": "GPL-3.0-or-later",
+	"type": "wordpress-plugin",
 	"authors": [
 		{
 			"name": "Pronamic",
