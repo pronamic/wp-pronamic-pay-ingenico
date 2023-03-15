@@ -7,6 +7,19 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [4.5.0] - 2023-03-15
+
+### Commits
+
+- Set Composer package type to "wordpress-plugin". ([726774a](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/726774ac8c9aaee14930429097fa707e3f3eb4d0))
+- Added Yoursafe iDEAL issuer. ([4ff6f8f](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/4ff6f8f894a466058f0571328d1687df1a825a34))
+- Updated .gitattributes ([4547483](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/4547483f50095ead3e34af9d5cf0e3d311bda9cd))
+- Requires PHP: 7.4. ([cf55309](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/cf55309daf5748fab07094eedbca091661d660fd))
+
+Full set of changes: [`4.4.1...4.5.0`][4.5.0]
+
+[4.5.0]: https://github.com/pronamic/wp-pronamic-pay-ingenico/compare/v4.4.1...v4.5.0
+
 ## [4.4.1] - 2023-01-31
 ### Composer
 
