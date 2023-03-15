@@ -125,6 +125,7 @@ class Gateway extends Core_Gateway {
 			new SelectFieldOption( 'FVLBNL22', \__( 'van Lanschot Bankiers', 'pronamic_ideal' ) ),
 			new SelectFieldOption( 'KNABNL2H', \__( 'Knab bank', 'pronamic_ideal' ) ),
 			new SelectFieldOption( 'REVOLT21', \__( 'Revolut', 'pronamic_ideal' ) ),
+			new SelectFieldOption( 'BITSNL2A', \__( 'Yoursafe', 'pronamic_ideal' ) ),
 		];
 	}
 
