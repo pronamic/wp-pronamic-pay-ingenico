@@ -10,7 +10,7 @@ tests/Mock/response-status-46-html-answer.html text eol=crlf
 /.travis.yml       export-ignore
 /.wp-env.json      export-ignore
 /Gruntfile.js      export-ignore
-/bin               export-ignore
+/documentation/    export-ignore
 /phpcs.xml.dist    export-ignore
 /phpmd.ruleset.xml export-ignore
 /phpstan.neon.dist export-ignore
