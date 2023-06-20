@@ -67,6 +67,13 @@ class Config extends Ingenico_Config {
 	public $direct_query_url;
 
 	/**
+	 * Configuration value for the `COMPLUS` parameter.
+	 * 
+	 * @var string
+	 */
+	public $complus = '';
+
+	/**
 	 * Get the Ogone e-Commerce direct query URL.
 	 *
 	 * @return string
