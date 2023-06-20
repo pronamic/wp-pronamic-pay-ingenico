@@ -169,6 +169,11 @@ class Gateway extends Core_Gateway {
 			->set_currency( $payment->get_total_amount()->get_currency()->get_alphabetic_code() )
 			->set_amount( $payment->get_total_amount()->get_minor_units()->format( 0, '', '' ) );
 
+		// Communication parameters.
+		if ( '' !== $this->config->complus ) {
+			$ogone_data->set_field( 'COMPLUS', $payment->format_string( $this->config->complus ) );
+		}
+
 		// Alias.
 		$alias = $payment->get_meta( 'ogone_alias' );
 

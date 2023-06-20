@@ -172,6 +172,25 @@ class Settings {
 			),
 		];
 
+		// COMPLUS
+		$fields[] = [
+			'section'     => 'advanced',
+			'meta_key'    => '_pronamic_gateway_ogone_complus',
+			'title'       => \__( 'Parameter `COMPLUS`', 'pronamic_ideal' ),
+			'type'        => 'text',
+			'classes'     => [ 'regular-text', 'code' ],
+			'tooltip'     => \sprintf(
+				/* translators: %s: <code>PARAMETER</code> */
+				\__( 'The Ingenico %s parameter.', 'pronamic_ideal' ),
+				\sprintf( '<code>%s</code>', 'COMPLUS' )
+			),
+			'description' => \sprintf(
+				/* translators: %s: <code>{tag}</code> */
+				\__( 'Available tags: %s', 'pronamic_ideal' ),
+				\sprintf( '<code>%s</code> <code>%s</code>', '{order_id}', '{payment_id}' )
+			),
+		];
+
 		// Parameter Variable.
 		$fields[] = [
 			'section'     => 'advanced',

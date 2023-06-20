@@ -112,6 +112,13 @@ class Parameters {
 	const COM = 'COM';
 
 	/**
+	 * Indicator for the COMPLUS parameter.
+	 *
+	 * @var string
+	 */
+	const COMPLUS = 'COMPLUS';
+
+	/**
 	 * Indicator for the ACCEPTURL parameter.
 	 *
 	 * @var string
