@@ -7,6 +7,18 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [4.5.2] - 2023-07-12
+
+### Commits
+
+- Updated for removed payment ID fallback in formatted payment string (pronamic/wp-pronamic-pay-adyen#23). ([71147a6](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/71147a6e9be8eb1e25e3579f626333e5f4a81394))
+- Added support for the COMPLUS parameter. ([be4b079](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/be4b0795bca58fa86ac55e1034b56cc8926525d3))
+- Added documentation. ([8ef4cfe](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/8ef4cfe14e1eedec70b4f3db3c21fce5e1398dfa))
+
+Full set of changes: [`4.5.1...4.5.2`][4.5.2]
+
+[4.5.2]: https://github.com/pronamic/wp-pronamic-pay-ingenico/compare/v4.5.1...v4.5.2
+
 ## [4.5.1] - 2023-06-01
 
 ### Commits
