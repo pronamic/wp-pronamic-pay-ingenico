@@ -7,6 +7,17 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [4.5.3] - 2023-09-11
+
+### Commits
+
+- Merge pull request #12 from pronamic/11-add-ideal-issuer-n26 ([2745635](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/274563563aa6ac0040e4573ea148a5247ca8124d))
+- Added new iDEAL issuer N26. ([48e522e](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/48e522e0316e958b134a8de2aa0b58498262a382))
+
+Full set of changes: [`4.5.2...4.5.3`][4.5.3]
+
+[4.5.3]: https://github.com/pronamic/wp-pronamic-pay-ingenico/compare/v4.5.2...v4.5.3
+
 ## [4.5.2] - 2023-07-12
 
 ### Commits
