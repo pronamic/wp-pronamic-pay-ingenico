@@ -127,6 +127,7 @@ class Gateway extends Core_Gateway {
 			new SelectFieldOption( 'REVOLT21', \__( 'Revolut', 'pronamic_ideal' ) ),
 			new SelectFieldOption( 'BITSNL2A', \__( 'Yoursafe', 'pronamic_ideal' ) ),
 			new SelectFieldOption( 'NTSBDEB1', \__( 'N26', 'pronamic_ideal' ) ),
+			new SelectFieldOption( 'NNBANL2G', \__( 'Nationale Nederlanden', 'pronamic_ideal' ) ),
 		];
 	}
 
