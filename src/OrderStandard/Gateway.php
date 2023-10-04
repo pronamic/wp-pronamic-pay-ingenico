@@ -155,7 +155,6 @@ class Gateway extends Core_Gateway {
 	 * @return array
 	 * @since   1.2.1
 	 * @version 2.0.4
-	 * @see     Core_Gateway::get_output_html()
 	 */
 	public function get_output_fields( Payment $payment ) {
 		$ogone_data = $this->client->get_data();
