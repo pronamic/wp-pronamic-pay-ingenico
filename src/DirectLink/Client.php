@@ -89,7 +89,9 @@ class Client {
 				(string) $order_response->nc_error_plus
 			);
 
-			throw new \Exception( (string) $ogone_error );
+			throw new \Exception(
+				\esc_html( (string) $ogone_error )
+			);
 		}
 
 		return $order_response;
