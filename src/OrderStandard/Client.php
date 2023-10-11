@@ -313,9 +313,9 @@ class Client {
 
 			throw new \Exception(
 				\sprintf(
-					'%s<br>%s',
-					sprintf( 'Could not get order status for order ID %s.', $order_id ),
-					(string) $ogone_error
+					'Could not get order status for order ID %s, error: %s.',
+					\esc_html( $order_id ),
+					\esc_html( (string) $ogone_error )
 				)
 			);
 		}
