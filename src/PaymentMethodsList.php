@@ -18,13 +18,13 @@ class PaymentMethodsList {
 	 *
 	 * @var array
 	 */
-	private $list;
+	private $data;
 
 	/**
 	 * Constructs and initialize a payment methods list
 	 */
-	public function __construct( array $list = [] ) {
-		$this->list = $list;
+	public function __construct( array $data = [] ) {
+		$this->data = $data;
 	}
 
 	/**
@@ -33,7 +33,7 @@ class PaymentMethodsList {
 	 * @param string $payment_method
 	 */
 	public function add_payment_method( $payment_method ) {
-		$this->list[] = $payment_method;
+		$this->data[] = $payment_method;
 	}
 
 	/**
@@ -44,6 +44,6 @@ class PaymentMethodsList {
 	 * @return string
 	 */
 	public function __toString() {
-		return implode( ';', $this->list );
+		return implode( ';', $this->data );
 	}
 }

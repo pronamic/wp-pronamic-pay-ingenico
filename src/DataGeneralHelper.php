@@ -141,12 +141,12 @@ class DataGeneralHelper extends DataHelper {
 	/**
 	 * Set payment methods list
 	 *
-	 * @param string $list Payment method list.
+	 * @param string $value Payment method list.
 	 *
 	 * @return DataGeneralHelper
 	 */
-	public function set_payment_methods_list( $list ) {
-		return $this->set_field( 'PMLIST', $list );
+	public function set_payment_methods_list( $value ) {
+		return $this->set_field( 'PMLIST', $value );
 	}
 
 	/**
