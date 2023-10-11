@@ -166,9 +166,16 @@ class Gateway extends Core_Gateway {
 
 			$secure_data_helper
 				->set_3d_secure_flag( true )
-				->set_http_accept( Server::get( 'HTTP_ACCEPT' ) )
-				->set_http_user_agent( Server::get( 'HTTP_USER_AGENT' ) )
 				->set_window( 'MAINW' );
+
+			if ( \array_key_exists( 'HTTP_ACCEPT', $_SERVER ) ) {
+				$secure_data_helper->set_http_accept( \sanitize_text_field( $_SERVER['HTTP_ACCEPT'] ) );
+			}
+
+			if ( \array_key_exists( 'HTTP_USER_AGENT', $_SERVER ) ) {
+				// phpcs:ignore WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___SERVER__HTTP_USER_AGENT__
+				$secure_data_helper->set_http_accept( \sanitize_text_field( $_SERVER['HTTP_USER_AGENT'] ) );
+			}
 
 			$ogone_data->set_field( 'ACCEPTURL', $payment->get_return_url() );
 			$ogone_data->set_field( 'DECLINEURL', $payment->get_return_url() );
