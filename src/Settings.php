@@ -115,7 +115,6 @@ class Settings {
 			// 3-D Secure
 			$fields[] = [
 				'section'  => 'general',
-				'filter'   => FILTER_VALIDATE_BOOLEAN,
 				'meta_key' => '_pronamic_gateway_ogone_3d_secure_enabled',
 				'title'    => __( '3-D Secure', 'pronamic_ideal' ),
 				'type'     => 'checkbox',
@@ -213,7 +212,6 @@ class Settings {
 		// Alias.
 		$fields[] = [
 			'section'  => 'advanced',
-			'filter'   => FILTER_VALIDATE_BOOLEAN,
 			'meta_key' => '_pronamic_gateway_ogone_alias_enabled',
 			'title'    => __( 'Alias', 'pronamic_ideal' ),
 			'type'     => 'checkbox',
