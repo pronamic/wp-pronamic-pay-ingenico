@@ -7,6 +7,23 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [4.5.4] - 2023-10-13
+
+### Commits
+
+- No longer use removed 'filter' option in setting fields. ([d348204](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/d348204a47b27aa45b9aaf0fa887ea2b527e1cc2))
+- Removed unused `use Pronamic\WordPress\Pay\Core\Server;`. ([1450321](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/1450321a16be6f2cddd07675206ddde74e09b889))
+- No longer use `Server::get` method, will be removed. ([28f76ed](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/28f76ed0215ffba14cd9a9683c1cb5d502b81932))
+- It is recommended not to use reserved keyword "list". ([451066d](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/451066d061e529183dbff7f262862cf9cc9e28a4))
+- No longer use HTML <br> element in exception message and escape values. ([2fc139e](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/2fc139ef6e15f052513e931e224013ecb98a2f23))
+- Fixed "All output should be run through an escaping function". ([33f0b20](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/33f0b20cd2077247cceae72ff9e8f08090d02cf1))
+- Removed old see ref in docblock. ([c0592bb](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/c0592bb8e49a6959cd2aa8b46cad1cb501b06cf6))
+- Added iDEAL issuer Nationale Nederlanden. ([bb4cf32](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/bb4cf32d608e925b51f6a22b6750f27a62dd767d))
+
+Full set of changes: [`4.5.3...4.5.4`][4.5.4]
+
+[4.5.4]: https://github.com/pronamic/wp-pronamic-pay-ingenico/compare/v4.5.3...v4.5.4
+
 ## [4.5.3] - 2023-09-11
 
 ### Commits
