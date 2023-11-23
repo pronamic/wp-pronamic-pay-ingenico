@@ -3,6 +3,7 @@
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
 use Pronamic\WordPress\Pay\Payments\PaymentStatus as Core_Statuses;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
 /**
  * Title: Ogone statuses constants tests
@@ -13,7 +14,7 @@ use Pronamic\WordPress\Pay\Payments\PaymentStatus as Core_Statuses;
  * @author  Remco Tolsma
  * @version 2.0.4
  */
-class StatusesTest extends \PHPUnit_Framework_TestCase {
+class StatusesTest extends TestCase {
 	/**
 	 * Test transform.
 	 *

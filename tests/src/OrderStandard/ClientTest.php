@@ -3,6 +3,7 @@
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard;
 
 use Pronamic\WordPress\Pay\Gateways\Ingenico\DataGeneralHelper;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
 /**
  * Title: Ogone client class test
@@ -14,7 +15,7 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\DataGeneralHelper;
  * @version 2.0.0
  * @since   1.1.0
  */
-class ClientTest extends \WP_UnitTestCase {
+class ClientTest extends TestCase {
 	/**
 	 * Test signature in empty.
 	 */

@@ -2,7 +2,9 @@
 
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
-class SecurityTest extends \WP_UnitTestCase {
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
+
+class SecurityTest extends TestCase {
 	/**
 	 * Test get calculations parameters in.
 	 */

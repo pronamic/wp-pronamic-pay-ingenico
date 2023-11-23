@@ -8,22 +8,31 @@
  * @package   Pronamic\WordPress\Pay\Gateways\Ingenico
  */
 
-putenv( 'WP_PHPUNIT__TESTS_CONFIG=tests/wp-config.php' );
-
+/**
+ * Composer.
+ */
 require_once __DIR__ . '/../vendor/autoload.php';
 
-require_once getenv( 'WP_PHPUNIT__DIR' ) . '/includes/functions.php';
+/**
+ * WorDBless.
+ */
+\WorDBless\Load::load();
 
 /**
- * Manually load plugin.
+ * Psalm.
  */
-function _manually_load_plugin() {
-	global $pronamic_ideal;
-
-	$pronamic_ideal = pronamic_pay_plugin();
+if ( defined( 'PSALM_VERSION' ) ) {
+	return;
 }
 
-tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
+/**
+ * Plugin.
+ */
+$pronamic_pay_plugin = \Pronamic\WordPress\Pay\Plugin::instance(
+	array(
+		'file'             => __DIR__ . '/../pronamic-pay-ingenico.php',
+		'action_scheduler' => __DIR__ . '/../vendor/woocommerce/action-scheduler/action-scheduler.php',
+	)
+);
 
-// Bootstrap.
-require getenv( 'WP_PHPUNIT__DIR' ) . '/includes/bootstrap.php';
+$pronamic_pay_plugin->plugins_loaded();

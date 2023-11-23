@@ -11,7 +11,6 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\Ingenico;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Parameters;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Statuses;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Security;
-use Pronamic\WordPress\Pay\Gateways\Ingenico\XML\OrderResponseParser;
 
 /**
  * Title: Ingenico order standard client
@@ -303,12 +302,12 @@ class Client {
 
 		$xml = $response->simplexml();
 
-		$order_response = OrderResponseParser::parse( $xml );
+		$nc_error = (string) $xml[ Parameters::NC_ERROR ];
 
-		if ( ! empty( $order_response->nc_error ) ) {
+		if ( '0' !== $nc_error ) {
 			$ogone_error = new Error(
-				(string) $order_response->nc_error,
-				(string) $order_response->nc_error_plus
+				$nc_error,
+				(string) $xml[ Parameters::NC_ERROR_PLUS ]
 			);
 
 			throw new \Exception(
@@ -320,7 +319,7 @@ class Client {
 			);
 		}
 
-		$status = (string) $order_response->status;
+		$status = (string) $xml[ Parameters::STATUS ];
 
 		$return = Statuses::transform( $status );
 
