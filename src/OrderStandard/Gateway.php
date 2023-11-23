@@ -334,6 +334,10 @@ class Gateway extends Core_Gateway {
 		// Get order status with direct query.
 		$order_id = $payment->format_string( $this->config->order_id );
 
+		if ( '' === $order_id ) {
+			$order_id = $payment->get_id();
+		}
+
 		try {
 			$status = $this->client->get_order_status( $order_id );
 		} catch ( \Exception $e ) {
