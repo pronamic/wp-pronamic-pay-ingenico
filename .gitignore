@@ -17,6 +17,9 @@
 /package-lock.json
 /node_modules/
 
+# PHPUnit
+/.phpunit.result.cache
+
 # WordPress
 /wordpress/
 /wp-content/
