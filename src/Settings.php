@@ -16,11 +16,9 @@ class Settings {
 	/**
 	 * Fields.
 	 *
-	 * @param array $fields Settings fields.
-	 *
 	 * @return array
 	 */
-	public static function get_settings_fields( $type ) {
+	public static function get_settings_fields() {
 		$fields = [];
 
 		/*
@@ -62,29 +60,15 @@ class Settings {
 			'tooltip'  => __( 'Password of the API user in the payment provider dashboard: Configuration &raquo; Users', 'pronamic_ideal' ),
 		];
 
-		if ( 'standard' === $type ) {
-			// SHA-IN Pass phrase.
-			$fields[] = [
-				'section'  => 'general',
-				'meta_key' => '_pronamic_gateway_ogone_sha_in_pass_phrase',
-				'title'    => __( 'SHA-IN Pass phrase', 'pronamic_ideal' ),
-				'type'     => 'password',
-				'classes'  => [ 'regular-text', 'code' ],
-				'tooltip'  => __( 'SHA-IN pass phrase as mentioned in the payment provider dashboard: Configuration &raquo; Technical information &raquo; Data and origin verification.', 'pronamic_ideal' ),
-			];
-		}
-
-		if ( 'directlink' === $type ) {
-			// SHA-IN Pass phrase.
-			$fields[] = [
-				'section'  => 'general',
-				'meta_key' => '_pronamic_gateway_ogone_directlink_sha_in_pass_phrase',
-				'title'    => __( 'SHA-IN Pass phrase', 'pronamic_ideal' ),
-				'type'     => 'password',
-				'classes'  => [ 'regular-text', 'code' ],
-				'tooltip'  => __( 'SHA-IN pass phrase as mentioned in the payment provider dashboard: Configuration &raquo; Technical information &raquo; Data and origin verification.', 'pronamic_ideal' ),
-			];
-		}
+		// SHA-IN Pass phrase.
+		$fields[] = [
+			'section'  => 'general',
+			'meta_key' => '_pronamic_gateway_ogone_sha_in_pass_phrase',
+			'title'    => __( 'SHA-IN Pass phrase', 'pronamic_ideal' ),
+			'type'     => 'password',
+			'classes'  => [ 'regular-text', 'code' ],
+			'tooltip'  => __( 'SHA-IN pass phrase as mentioned in the payment provider dashboard: Configuration &raquo; Technical information &raquo; Data and origin verification.', 'pronamic_ideal' ),
+		];
 
 		// SHA-OUT Pass phrase.
 		$fields[] = [
@@ -111,21 +95,9 @@ class Settings {
 			'default'  => Ingenico::SHA_1,
 		];
 
-		if ( 'directlink' === $type ) {
-			// 3-D Secure
-			$fields[] = [
-				'section'  => 'general',
-				'meta_key' => '_pronamic_gateway_ogone_3d_secure_enabled',
-				'title'    => __( '3-D Secure', 'pronamic_ideal' ),
-				'type'     => 'checkbox',
-				'label'    => __( 'Enable 3-D Secure protocol', 'pronamic_ideal' ),
-			];
-		}
-
 		/*
 		 * Advanced settings
 		 */
-
 		$fields[] = [
 			'section' => 'advanced',
 			'type'    => 'html',
@@ -133,16 +105,14 @@ class Settings {
 		];
 
 		// Form Action URL.
-		if ( 'standard' === $type ) {
-			$fields[] = [
-				'section'  => 'advanced',
-				'meta_key' => '_pronamic_gateway_ogone_form_action_url',
-				'title'    => __( 'Form Action URL', 'pronamic_ideal' ),
-				'type'     => 'text',
-				'classes'  => [ 'regular-text', 'code' ],
-				'tooltip'  => __( 'With this setting you can override the default Ingenico e-Commerce form action URL to the payment processing page.', 'pronamic_ideal' ),
-			];
-		}
+		$fields[] = [
+			'section'  => 'advanced',
+			'meta_key' => '_pronamic_gateway_ogone_form_action_url',
+			'title'    => __( 'Form Action URL', 'pronamic_ideal' ),
+			'type'     => 'text',
+			'classes'  => [ 'regular-text', 'code' ],
+			'tooltip'  => __( 'With this setting you can override the default Ingenico e-Commerce form action URL to the payment processing page.', 'pronamic_ideal' ),
+		];
 
 		// Order ID.
 		$fields[] = [
@@ -171,7 +141,7 @@ class Settings {
 			),
 		];
 
-		// COMPLUS
+		// Parameter COMPLUS.
 		$fields[] = [
 			'section'     => 'advanced',
 			'meta_key'    => '_pronamic_gateway_ogone_complus',

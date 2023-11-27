@@ -16,22 +16,16 @@ class Util {
 	/**
 	 * Get parameter variable
 	 *
-	 * @param string $param_var
+	 * @param string $param_var Parameter variable.
+	 * @return string
 	 */
 	public static function get_param_var( $param_var ) {
-		// Find and replace
-		// @link https://github.com/woothemes/woocommerce/blob/v2.0.19/classes/emails/class-wc-email-new-order.php
-		$find    = [];
-		$replace = [];
+		$replace_pairs = [
+			'{site_url}' => \site_url(),
+			'{home_url}' => \home_url(),
+		];
 
-		$find[]    = '{site_url}';
-		$replace[] = site_url();
-
-		$find[]    = '{home_url}';
-		$replace[] = home_url();
-
-		// Parameter Variable
-		$param_var = str_replace( $find, $replace, $param_var );
+		$param_var = \strtr( $param_var, $replace_pairs );
 
 		return $param_var;
 	}

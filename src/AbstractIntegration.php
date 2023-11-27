@@ -5,6 +5,11 @@ namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 use Pronamic\WordPress\Pay\AbstractGatewayIntegration;
 
 abstract class AbstractIntegration extends AbstractGatewayIntegration {
+	/**
+	 * Constructor.
+	 *
+	 * @param array<string, mixed> $args Arguments.
+	 */
 	public function __construct( $args = [] ) {
 		$args = wp_parse_args(
 			$args,

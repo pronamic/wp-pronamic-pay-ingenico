@@ -40,6 +40,7 @@ class Data {
 	 * Get field by the specifiek name
 	 *
 	 * @param string $name
+	 * @return string|null
 	 */
 	public function get_field( $name ) {
 		$value = null;

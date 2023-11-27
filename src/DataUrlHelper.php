@@ -21,6 +21,7 @@ class DataUrlHelper extends DataHelper {
 	 * URL of the web page to show the customer when the payment is authorized.
 	 *
 	 * @param string $url
+	 * @return DataUrlHelper
 	 */
 	public function set_accept_url( $url ) {
 		return $this->set_field( Parameters::ACCEPT_URL, $url );
@@ -32,6 +33,7 @@ class DataUrlHelper extends DataHelper {
 	 * URL of the web page to show the customer when he cancels the payment.
 	 *
 	 * @param string $url
+	 * @return DataUrlHelper
 	 */
 	public function set_cancel_url( $url ) {
 		return $this->set_field( Parameters::CANCEL_URL, $url );
@@ -43,6 +45,7 @@ class DataUrlHelper extends DataHelper {
 	 * URL of the web page to show the customer when the payment result is uncertain.
 	 *
 	 * @param string $url
+	 * @return DataUrlHelper
 	 */
 	public function set_exception_url( $url ) {
 		return $this->set_field( Parameters::EXCEPTION_URL, $url );
@@ -56,6 +59,7 @@ class DataUrlHelper extends DataHelper {
 	 * information page).
 	 *
 	 * @param string $url
+	 * @return DataUrlHelper
 	 */
 	public function set_decline_url( $url ) {
 		return $this->set_field( Parameters::DECLINE_URL, $url );
@@ -65,6 +69,7 @@ class DataUrlHelper extends DataHelper {
 	 * Set home URL
 	 *
 	 * @param string $url
+	 * @return DataUrlHelper
 	 */
 	public function set_home_url( $url ) {
 		return $this->set_field( 'home', $url );
@@ -74,6 +79,7 @@ class DataUrlHelper extends DataHelper {
 	 * Set back URL
 	 *
 	 * @param string $url
+	 * @return DataUrlHelper
 	 */
 	public function set_back_url( $url ) {
 		return $this->set_field( 'backurl', $url );

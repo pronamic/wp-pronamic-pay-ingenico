@@ -170,8 +170,8 @@ class Gateway extends Core_Gateway {
 		}
 
 		$ogone_data_general
-			->set_order_id( $order_id )
-			->set_order_description( $payment->get_description() )
+			->set_order_id( (string) $order_id )
+			->set_order_description( (string) $payment->get_description() )
 			->set_param_plus( 'payment_id=' . $payment->get_id() )
 			->set_currency( $payment->get_total_amount()->get_currency()->get_alphabetic_code() )
 			->set_amount( $payment->get_total_amount()->get_minor_units()->format( 0, '', '' ) );
@@ -184,9 +184,10 @@ class Gateway extends Core_Gateway {
 		// Alias.
 		$alias = $payment->get_meta( 'ogone_alias' );
 
-		if ( $this->config->alias_enabled && false !== $alias ) {
-			$ogone_data_general->set_alias( $alias )
-								->set_alias_usage( $this->config->alias_usage );
+		if ( $this->config->alias_enabled && is_string( $alias ) && false !== $alias ) {
+			$ogone_data_general
+				->set_alias( $alias )
+				->set_alias_usage( (string) $this->config->alias_usage );
 		}
 
 		$customer = $payment->get_customer();
@@ -215,18 +216,18 @@ class Gateway extends Core_Gateway {
 				$ogone_data_customer->set_name( strval( $name ) );
 			}
 
-			$ogone_data_customer->set_email( $customer->get_email() );
+			$ogone_data_customer->set_email( (string) $customer->get_email() );
 		}
 
 		$billing_address = $payment->get_billing_address();
 
 		if ( null !== $billing_address ) {
 			$ogone_data_customer
-				->set_address( $billing_address->get_line_1() )
-				->set_zip( $billing_address->get_postal_code() )
-				->set_town( $billing_address->get_city() )
-				->set_country( $billing_address->get_country_code() )
-				->set_telephone_number( $billing_address->get_phone() );
+				->set_address( (string) $billing_address->get_line_1() )
+				->set_zip( (string) $billing_address->get_postal_code() )
+				->set_town( (string) $billing_address->get_city() )
+				->set_country( (string) $billing_address->get_country_code() )
+				->set_telephone_number( (string) $billing_address->get_phone() );
 		}
 
 		/*
@@ -262,7 +263,11 @@ class Gateway extends Core_Gateway {
 					->set_brand( Brands::IDEAL )
 					->set_payment_method( PaymentMethods::IDEAL );
 
-				$ogone_data_general->set_field( 'ISSUERID', $payment->get_meta( 'issuer' ) );
+				$issuer = $payment->get_meta( 'issuer' );
+
+				if ( is_string( $issuer ) ) {
+					$ogone_data_general->set_field( 'ISSUERID', $issuer );
+				}
 
 				break;
 			case Core_PaymentMethods::BANCONTACT:
@@ -316,13 +321,13 @@ class Gateway extends Core_Gateway {
 		$data = $this->client->verify_request( $data );
 
 		if ( false !== $data ) {
-			$status = Statuses::transform( $data[ Parameters::STATUS ] );
+			$status = Statuses::transform( (string) $data[ Parameters::STATUS ] );
 
 			$payment->set_status( $status );
 
 			// Update transaction ID.
 			if ( \array_key_exists( Parameters::PAY_ID, $data ) ) {
-				$payment->set_transaction_id( $data[ Parameters::PAY_ID ] );
+				$payment->set_transaction_id( (string) $data[ Parameters::PAY_ID ] );
 			}
 
 			// Add payment note.
@@ -339,7 +344,7 @@ class Gateway extends Core_Gateway {
 		}
 
 		try {
-			$status = $this->client->get_order_status( $order_id );
+			$status = $this->client->get_order_status( (string) $order_id );
 		} catch ( \Exception $e ) {
 			$payment->add_note( $e->getMessage() );
 
@@ -356,6 +361,7 @@ class Gateway extends Core_Gateway {
 	 *
 	 * @param Payment $payment Payment.
 	 * @param array   $data    Data.
+	 * @return void
 	 */
 	private function update_status_payment_note( Payment $payment, $data ) {
 		$labels = [

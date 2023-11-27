@@ -18,12 +18,11 @@ class DataCreditCardHelper extends DataHelper {
 	/**
 	 * Set credit card number.
 	 *
-	 * @param int $number Credit card number.
-	 *
+	 * @param string|int $number Credit card number.
 	 * @return DataCreditCardHelper
 	 */
 	public function set_number( $number ) {
-		return $this->set_field( 'CARDNO', $number );
+		return $this->set_field( 'CARDNO', (string) $number );
 	}
 
 	/**

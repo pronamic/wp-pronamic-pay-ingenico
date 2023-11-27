@@ -16,7 +16,7 @@ abstract class DataHelper {
 	/**
 	 * Data
 	 *
-	 * @var array
+	 * @var Data
 	 */
 	protected $data;
 
@@ -34,8 +34,7 @@ abstract class DataHelper {
 	 *
 	 * @param string $name  Name.
 	 * @param string $value Value.
-	 *
-	 * @return mixed
+	 * @return static
 	 */
 	public function set_field( $name, $value ) {
 		$this->data->set_field( $name, $value );

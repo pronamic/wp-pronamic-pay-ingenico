@@ -15,27 +15,34 @@ class Security {
 	/**
 	 * The Ogone calculations parameters in
 	 *
-	 * @var array
+	 * @var array|null
 	 */
 	private static $calculations_parameters_in;
 
 	/**
 	 * The Ogone calculations parameters out
 	 *
-	 * @var array
+	 * @var array|null
 	 */
 	private static $calculations_parameters_out;
 
 	/**
 	 * Get calculations parameters in
+	 *
+	 * @return array
 	 */
 	public static function get_calculations_parameters_in() {
 		if ( ! isset( self::$calculations_parameters_in ) ) {
 			self::$calculations_parameters_in = [];
 
 			$file = __DIR__ . '/../data/calculations-parameters-sha-in.txt';
+
 			if ( is_readable( $file ) ) {
-				self::$calculations_parameters_in = file( $file, FILE_IGNORE_NEW_LINES );
+				$parameters = file( $file, FILE_IGNORE_NEW_LINES );
+
+				if ( false !== $parameters ) {
+					self::$calculations_parameters_in = $parameters;
+				}
 			}
 		}
 
@@ -44,14 +51,21 @@ class Security {
 
 	/**
 	 * Get calculations parameters in
+	 *
+	 * @return array
 	 */
 	public static function get_calculations_parameters_out() {
 		if ( ! isset( self::$calculations_parameters_out ) ) {
 			self::$calculations_parameters_out = [];
 
 			$file = __DIR__ . '/../data/calculations-parameters-sha-out.txt';
+
 			if ( is_readable( $file ) ) {
-				self::$calculations_parameters_out = file( $file, FILE_IGNORE_NEW_LINES );
+				$parameters = file( $file, FILE_IGNORE_NEW_LINES );
+
+				if ( false !== $parameters ) {
+					self::$calculations_parameters_out = $parameters;
+				}
 			}
 		}
 
@@ -91,7 +105,6 @@ class Security {
 	 *
 	 * @param array $calculation_fields Calculation fields.
 	 * @param array $fields             Fields.
-	 *
 	 * @return array
 	 */
 	public static function get_calculation_fields( $calculation_fields, $fields ) {
@@ -106,7 +119,6 @@ class Security {
 	 * @param array  $fields         Fields.
 	 * @param string $passphrase     Pass phrase.
 	 * @param string $hash_algorithm Hashing algorithm.
-	 *
 	 * @return string
 	 */
 	public static function get_signature( $fields, $passphrase, $hash_algorithm ) {
@@ -144,6 +156,7 @@ class Security {
 	 * @param Data   $data           Data.
 	 * @param string $pass_phrase    Pass phrase.
 	 * @param string $hash_algorithm Hashing algorithm.
+	 * @return void
 	 */
 	public static function sign_data( Data $data, $pass_phrase, $hash_algorithm ) {
 		$calculation_fields = self::get_calculations_parameters_in();

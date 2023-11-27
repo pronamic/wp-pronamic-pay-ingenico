@@ -16,7 +16,7 @@ class SecureDataHelper {
 	/**
 	 * Data
 	 *
-	 * @var array
+	 * @var Data
 	 */
 	private $data;
 

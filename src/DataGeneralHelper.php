@@ -38,7 +38,7 @@ class DataGeneralHelper extends DataHelper {
 	/**
 	 * Set PSP ID
 	 *
-	 * @param int $number PSP ID.
+	 * @param string $number PSP ID.
 	 *
 	 * @return DataGeneralHelper
 	 */

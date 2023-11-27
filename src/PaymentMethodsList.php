@@ -22,6 +22,8 @@ class PaymentMethodsList {
 
 	/**
 	 * Constructs and initialize a payment methods list
+	 *
+	 * @param array $data Data.
 	 */
 	public function __construct( array $data = [] ) {
 		$this->data = $data;
@@ -30,7 +32,8 @@ class PaymentMethodsList {
 	/**
 	 * Add payment method
 	 *
-	 * @param string $payment_method
+	 * @param string $payment_method Payment method.
+	 * @return void
 	 */
 	public function add_payment_method( $payment_method ) {
 		$this->data[] = $payment_method;

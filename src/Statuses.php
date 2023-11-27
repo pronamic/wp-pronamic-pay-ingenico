@@ -285,6 +285,7 @@ class Statuses {
 	 * Transform an Ogone status to an Pronamic Pay status.
 	 *
 	 * @param string $status Status.
+	 * @return string|null
 	 */
 	public static function transform( $status ) {
 		switch ( $status ) {

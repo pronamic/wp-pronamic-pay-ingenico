@@ -15,6 +15,11 @@ use Pronamic\WordPress\Pay\Plugin;
  * @since   1.0.0
  */
 class Listener {
+	/**
+	 * Listen.
+	 *
+	 * @return void
+	 */
 	public static function listen() {
 		$data = Security::get_request_data();
 

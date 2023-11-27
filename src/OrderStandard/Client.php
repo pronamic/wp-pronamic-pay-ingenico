@@ -39,13 +39,6 @@ class Client {
 	private $direct_query_url;
 
 	/**
-	 * The amount
-	 *
-	 * @var int
-	 */
-	private $amount;
-
-	/**
 	 * Pass phrase IN
 	 *
 	 * @var string
@@ -81,6 +74,13 @@ class Client {
 	private $data;
 
 	/**
+	 * Hashing algorithm.
+	 *
+	 * @var string
+	 */
+	private $hash_algorithm;
+
+	/**
 	 * Constructs and initialize a iDEAL kassa object
 	 *
 	 * @param string $psp_id PSP ID.
@@ -95,7 +95,7 @@ class Client {
 	/**
 	 * Get the payment server URL
 	 *
-	 * @return the payment server URL
+	 * @return string Payment server URL.
 	 */
 	public function get_payment_server_url() {
 		return $this->payment_server_url;
@@ -105,6 +105,7 @@ class Client {
 	 * Set the payment server URL
 	 *
 	 * @param string $url Payment server URL.
+	 * @return void
 	 */
 	public function set_payment_server_url( $url ) {
 		$this->payment_server_url = $url;
@@ -123,6 +124,7 @@ class Client {
 	 * Set the Direct Query URL.
 	 *
 	 * @param string $url Direct query URL.
+	 * @return void
 	 */
 	public function set_direct_query_url( $url ) {
 		$this->direct_query_url = $url;
@@ -141,6 +143,7 @@ class Client {
 	 * Set hash algorithm
 	 *
 	 * @param string $hash_algorithm Hashing algorithm.
+	 * @return void
 	 */
 	public function set_hash_algorithm( $hash_algorithm ) {
 		$this->hash_algorithm = $hash_algorithm;
@@ -159,6 +162,7 @@ class Client {
 	 * Set password phrase IN
 	 *
 	 * @param string $pass_phrase_in Pass phrase IN.
+	 * @return void
 	 */
 	public function set_pass_phrase_in( $pass_phrase_in ) {
 		$this->pass_phrase_in = $pass_phrase_in;
@@ -177,6 +181,7 @@ class Client {
 	 * Set password phrase OUT
 	 *
 	 * @param string $pass_phrase_out Pass phrase OUT.
+	 * @return void
 	 */
 	public function set_pass_phrase_out( $pass_phrase_out ) {
 		$this->pass_phrase_out = $pass_phrase_out;
@@ -195,6 +200,7 @@ class Client {
 	 * Set API user ID.
 	 *
 	 * @param string $user_id API user ID.
+	 * @return void
 	 */
 	public function set_user_id( $user_id ) {
 		$this->user_id = $user_id;
@@ -213,6 +219,7 @@ class Client {
 	 * Set API user password.
 	 *
 	 * @param string $password API user password.
+	 * @return void
 	 */
 	public function set_password( $password ) {
 		$this->password = $password;
@@ -244,7 +251,6 @@ class Client {
 	 * Get signature OUT
 	 *
 	 * @param array $fields Fields to calculate signature for.
-	 *
 	 * @return string
 	 */
 	public function get_signature_out( $fields ) {
@@ -271,7 +277,6 @@ class Client {
 	 * Get order status
 	 *
 	 * @param string $order_id Order ID.
-	 *
 	 * @return string|null
 	 * @throws \Exception Throw exception on error in retrieving order status.
 	 */
@@ -330,6 +335,7 @@ class Client {
 	 * Verify request
 	 *
 	 * @param array $data Request data.
+	 * @return array|false
 	 */
 	public function verify_request( $data ) {
 		$result = false;

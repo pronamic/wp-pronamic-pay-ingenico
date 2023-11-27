@@ -68,10 +68,45 @@ class Config extends Ingenico_Config {
 
 	/**
 	 * Configuration value for the `COMPLUS` parameter.
-	 * 
+	 *
 	 * @var string
 	 */
 	public $complus = '';
+
+	/**
+	 * Configuration value for the `PARAMVAR` parameter.
+	 *
+	 * @var string
+	 */
+	public $param_var = '';
+
+	/**
+	 * Configuration value for order ID.
+	 *
+	 * @var string
+	 */
+	public $order_id = '';
+
+	/**
+	 * Template page.
+	 *
+	 * @var string
+	 */
+	public $template_page = '';
+
+	/**
+	 * Alias enabled.
+	 *
+	 * @var string
+	 */
+	public $alias_enabled = '';
+
+	/**
+	 * Alias usage.
+	 *
+	 * @var string
+	 */
+	public $alias_usage = '';
 
 	/**
 	 * Get the Ogone e-Commerce direct query URL.
