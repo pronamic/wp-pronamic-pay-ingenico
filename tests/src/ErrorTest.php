@@ -2,7 +2,9 @@
 
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
-class ErrorTest extends \WP_UnitTestCase {
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
+
+class ErrorTest extends TestCase {
 	/**
 	 * Test error.
 	 */

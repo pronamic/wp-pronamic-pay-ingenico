@@ -39,12 +39,13 @@
 		}
 	},
 	"require": {
-		"php": ">=7.4",
+		"php": ">=8.0",
 		"ext-simplexml": "*",
 		"pronamic/wp-http": "^1.2",
-		"wp-pay/core": "^4.6"
+		"wp-pay/core": "^4.13"
 	},
 	"require-dev": {
+		"automattic/wordbless": "^0.4.0",
 		"bamarni/composer-bin-plugin": "^1.8",
 		"overtrue/phplint": "^9.0",
 		"php-coveralls/php-coveralls": "^2.6",
@@ -53,7 +54,7 @@
 		"pronamic/wp-coding-standards": "^2.0",
 		"roots/wordpress": "^6.0",
 		"wp-phpunit/wp-phpunit": "^6.1",
-		"yoast/phpunit-polyfills": "^2.0"
+		"yoast/phpunit-polyfills": "^1.0"
 	},
 	"scripts": {
 		"coveralls": "vendor/bin/php-coveralls -v",
@@ -62,9 +63,12 @@
 		"phplint": "vendor/bin/phplint",
 		"phpmd": "vendor/bin/phpmd src,tests text phpmd.ruleset.xml --suffixes php",
 		"phpstan": "vendor/bin/phpstan analyse --memory-limit=-1",
-		"phpunit": "vendor/bin/phpunit",
-		"post-install-cmd": "echo 'Optionally run: composer bin all install'",
-		"post-update-cmd": "echo 'Optionally run: composer bin all update'",
+		"phpunit": "vendor/bin/phpunit --colors=always",
+		"post-install-cmd": "WorDBless\\Composer\\InstallDropin::copy",
+		"post-update-cmd": [
+			"echo 'Optionally run: composer bin all update'",
+			"WorDBless\\Composer\\InstallDropin::copy"
+		],
 		"psalm": "vendor/bin/psalm"
 	}
 }

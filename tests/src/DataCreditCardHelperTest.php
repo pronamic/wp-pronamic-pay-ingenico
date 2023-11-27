@@ -3,6 +3,7 @@
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
 use DateTime;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
 /**
  * Title: Ogone data default helper class test
@@ -14,7 +15,7 @@ use DateTime;
  * @version 2.0.0
  * @since   1.1.0
  */
-class DataCreditCardHelperTest extends \WP_UnitTestCase {
+class DataCreditCardHelperTest extends TestCase {
 	/**
 	 * Test helper.
 	 */

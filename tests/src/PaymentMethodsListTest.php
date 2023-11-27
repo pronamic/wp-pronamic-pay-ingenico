@@ -2,6 +2,8 @@
 
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
 
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
+
 /**
  * Title: Ogone payment methods list (PMLIST parameter) test
  * Description:
@@ -12,7 +14,7 @@ namespace Pronamic\WordPress\Pay\Gateways\Ingenico;
  * @version 2.0.0
  * @since   1.1.0
  */
-class PaymentMethodsListTest extends \WP_UnitTestCase {
+class PaymentMethodsListTest extends TestCase {
 	/**
 	 * Test constructor.
 	 */
