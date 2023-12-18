@@ -7,6 +7,25 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [4.6.0] - 2023-12-18
+
+### Commits
+
+- Removed unused class `SecureDataHelper`. ([3fde8c3](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/3fde8c3651cfea6fc636fe23b975036a032f5932))
+- Removed unused credit card data helper. ([ab0cd1d](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/ab0cd1dbb65fb732d607fc61277d36530c4257dd))
+- Removed `DirectLink` integration. ([51047d6](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/51047d6c9c73b5b9d63ecd151fa6fff169e39638))
+- Fixed getting order status with payment ID by default. ([772fa93](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/772fa9321a01cceb4748842ad4a5a212aea4950c))
+
+### Composer
+
+- Changed `php` from `>=7.4` to `>=8.0`.
+- Changed `wp-pay/core` from `^4.6` to `v4.14.3`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.14.3
+
+Full set of changes: [`4.5.4...4.6.0`][4.6.0]
+
+[4.6.0]: https://github.com/pronamic/wp-pronamic-pay-ingenico/compare/v4.5.4...v4.6.0
+
 ## [4.5.4] - 2023-10-13
 
 ### Commits
