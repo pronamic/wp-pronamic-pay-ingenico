@@ -109,6 +109,13 @@ class Config extends Ingenico_Config {
 	public $alias_usage = '';
 
 	/**
+	 * Live or test mode.
+	 *
+	 * @var string
+	 */
+	public $mode = '';
+
+	/**
 	 * Get the Ogone e-Commerce direct query URL.
 	 *
 	 * @return string
