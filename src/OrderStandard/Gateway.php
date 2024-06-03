@@ -2,6 +2,7 @@
 
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard;
 
+use Pronamic\IDealIssuers\IDealIssuerService;
 use Pronamic\WordPress\Pay\Core\Gateway as Core_Gateway;
 use Pronamic\WordPress\Pay\Core\PaymentMethod;
 use Pronamic\WordPress\Pay\Core\PaymentMethods as Core_PaymentMethods;
@@ -55,6 +56,8 @@ class Gateway extends Core_Gateway {
 
 		$this->config = $config;
 
+		$this->set_mode( $config->mode );
+
 		$this->set_method( self::METHOD_HTML_FORM );
 
 		// Supported features.
@@ -83,17 +86,10 @@ class Gateway extends Core_Gateway {
 		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::PAYPAL ) );
 
 		// Payment method iDEAL.
-		$ideal_options = new CachedCallbackOptions(
-			function () {
-				return $this->get_ideal_issuers();
-			},
-			'pronamic_pay_ideal_issuers_' . \md5( (string) \wp_json_encode( $config ) )
-		);
-
 		$payment_method_ideal = new PaymentMethod( Core_PaymentMethods::IDEAL );
 
 		$field_ideal_issuer = new IDealIssuerSelectField( 'pronamic_pay_ingenico_ideal_issuer' );
-		$field_ideal_issuer->set_options( $ideal_options );
+		$field_ideal_issuer->set_options( $this->get_ideal_issuers() );
 
 		$payment_method_ideal->add_field( $field_ideal_issuer );
 
@@ -113,22 +109,17 @@ class Gateway extends Core_Gateway {
 			];
 		}
 
-		return [
-			new SelectFieldOption( 'ABNANL2A', \__( 'ABN AMRO', 'pronamic_ideal' ) ),
-			new SelectFieldOption( 'RABONL2U', \__( 'Rabobank', 'pronamic_ideal' ) ),
-			new SelectFieldOption( 'INGBNL2A', \__( 'ING', 'pronamic_ideal' ) ),
-			new SelectFieldOption( 'SNSBNL2A', \__( 'SNS Bank', 'pronamic_ideal' ) ),
-			new SelectFieldOption( 'RBRBNL21', \__( 'Regio Bank', 'pronamic_ideal' ) ),
-			new SelectFieldOption( 'ASNBNL21', \__( 'ASN Bank', 'pronamic_ideal' ) ),
-			new SelectFieldOption( 'BUNQNL2A', \__( 'Bunq', 'pronamic_ideal' ) ),
-			new SelectFieldOption( 'TRIONL2U', \__( 'Triodos Bank', 'pronamic_ideal' ) ),
-			new SelectFieldOption( 'FVLBNL22', \__( 'van Lanschot Bankiers', 'pronamic_ideal' ) ),
-			new SelectFieldOption( 'KNABNL2H', \__( 'Knab bank', 'pronamic_ideal' ) ),
-			new SelectFieldOption( 'REVOLT21', \__( 'Revolut', 'pronamic_ideal' ) ),
-			new SelectFieldOption( 'BITSNL2A', \__( 'Yoursafe', 'pronamic_ideal' ) ),
-			new SelectFieldOption( 'NTSBDEB1', \__( 'N26', 'pronamic_ideal' ) ),
-			new SelectFieldOption( 'NNBANL2G', \__( 'Nationale Nederlanden', 'pronamic_ideal' ) ),
-		];
+		$ideal_issuer_service = new IDealIssuerService();
+
+		$issuers = $ideal_issuer_service->get_issuers();
+
+		$items = [];
+
+		foreach ( $issuers as $issuer ) {
+			$items[] = new SelectFieldOption( $issuer->code, $issuer->name );
+		}
+
+		return $items;
 	}
 
 	/**

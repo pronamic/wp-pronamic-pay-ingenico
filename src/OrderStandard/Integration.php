@@ -61,6 +61,8 @@ class Integration extends AbstractIntegration {
 	public function get_config( $post_id ) {
 		$config = new Config();
 
+		$config->mode = $this->get_mode();
+
 		$config->set_form_action_url( $this->action_url );
 		$config->set_direct_query_url( $this->direct_query_url );
 
@@ -94,8 +96,6 @@ class Integration extends AbstractIntegration {
 	 */
 	public function get_gateway( $post_id ) {
 		$gateway = new Gateway( $this->get_config( $post_id ) );
-
-		$gateway->set_mode( $this->get_mode() );
 
 		return $gateway;
 	}
