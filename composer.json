@@ -38,7 +38,7 @@
 			"bamarni/composer-bin-plugin": true,
 			"automattic/jetpack-autoloader": true
 		},
-		"wp-slug": "pronamic-pay-ogone"
+		"wp-slug": "pronamic-pay-ingenico"
 	},
 	"require": {
 		"php": ">=8.1",
