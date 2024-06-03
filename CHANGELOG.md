@@ -7,6 +7,20 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [4.7.0] - 2024-06-03
+
+### Changed
+
+- Use the pronamic/ideal-issuers library for iDEAL issuers. ([#18](https://github.com/pronamic/wp-pronamic-pay-ingenico/issues/18))
+
+### Composer
+
+- Changed `php` from `>=8.0` to `>=8.1`.
+
+Full set of changes: [`4.6.0...4.7.0`][4.7.0]
+
+[4.7.0]: https://github.com/pronamic/wp-pronamic-pay-ingenico/compare/v4.6.0...v4.7.0
+
 ## [4.6.0] - 2023-12-18
 
 ### Commits
