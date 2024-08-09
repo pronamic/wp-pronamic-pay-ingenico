@@ -15,7 +15,7 @@ use Pronamic\WordPress\Pay\Gateways\Ingenico\Security;
 /**
  * Title: Ingenico order standard client
  * Description:
- * Copyright: 2005-2023 Pronamic
+ * Copyright: 2005-2024 Pronamic
  * Company: Pronamic
  *
  * @author  Remco Tolsma
