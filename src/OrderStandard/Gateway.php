@@ -144,7 +144,7 @@ class Gateway extends Core_Gateway {
 	 *
 	 * @param Payment $payment Payment.
 	 *
-	 * @return array
+	 * @return array<string, string>
 	 * @since   1.2.1
 	 * @version 2.0.4
 	 */
@@ -350,8 +350,8 @@ class Gateway extends Core_Gateway {
 	/**
 	 * Update status payment note
 	 *
-	 * @param Payment $payment Payment.
-	 * @param array   $data    Data.
+	 * @param Payment                    $payment Payment.
+	 * @param array<string, scalar|null> $data    Data.
 	 * @return void
 	 */
 	private function update_status_payment_note( Payment $payment, $data ) {
@@ -384,7 +384,7 @@ class Gateway extends Core_Gateway {
 		foreach ( $labels as $key => $label ) {
 			if ( isset( $data[ $key ] ) && '' !== $data[ $key ] ) {
 				$note .= sprintf( '<dt>%s</dt>', esc_html( $label ) );
-				$note .= sprintf( '<dd>%s</dd>', esc_html( $data[ $key ] ) );
+				$note .= sprintf( '<dd>%s</dd>', esc_html( (string) $data[ $key ] ) );
 			}
 		}
 

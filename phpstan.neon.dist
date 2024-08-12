@@ -1,10 +1,7 @@
 includes:
-	- vendor-bin/phpstan/vendor/szepeviktor/phpstan-wordpress/extension.neon
+	- vendor/szepeviktor/phpstan-wordpress/extension.neon
 parameters:
-	checkMissingIterableValueType: false
 	customRulesetUsed: false
 	level: max
-	bootstrapFiles:
-		- tests/phpstan/bootstrap.php
 	paths:
 		- src/

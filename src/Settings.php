@@ -16,7 +16,7 @@ class Settings {
 	/**
 	 * Fields.
 	 *
-	 * @return array
+	 * @return array<int, array<string, mixed>>
 	 */
 	public static function get_settings_fields() {
 		$fields = [];

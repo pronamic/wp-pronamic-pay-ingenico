@@ -15,21 +15,21 @@ class Security {
 	/**
 	 * The Ogone calculations parameters in
 	 *
-	 * @var array|null
+	 * @var array<int, string>|null
 	 */
 	private static $calculations_parameters_in;
 
 	/**
 	 * The Ogone calculations parameters out
 	 *
-	 * @var array|null
+	 * @var array<int, string>|null
 	 */
 	private static $calculations_parameters_out;
 
 	/**
 	 * Get calculations parameters in
 	 *
-	 * @return array
+	 * @return array<int, string>
 	 */
 	public static function get_calculations_parameters_in() {
 		if ( ! isset( self::$calculations_parameters_in ) ) {
@@ -52,7 +52,7 @@ class Security {
 	/**
 	 * Get calculations parameters in
 	 *
-	 * @return array
+	 * @return array<int, string>
 	 */
 	public static function get_calculations_parameters_out() {
 		if ( ! isset( self::$calculations_parameters_out ) ) {
@@ -75,7 +75,7 @@ class Security {
 	/**
 	 * Get request data
 	 *
-	 * @return array
+	 * @return array<string, string>
 	 */
 	public static function get_request_data() {
 		$data = [];
@@ -103,9 +103,9 @@ class Security {
 	/**
 	 * Get calculation fields.
 	 *
-	 * @param array $calculation_fields Calculation fields.
-	 * @param array $fields             Fields.
-	 * @return array
+	 * @param array<string>         $calculation_fields Calculation fields.
+	 * @param array<string, string> $fields             Fields.
+	 * @return array<string, string>
 	 */
 	public static function get_calculation_fields( $calculation_fields, $fields ) {
 		$calculation_fields = array_flip( $calculation_fields );
@@ -116,9 +116,9 @@ class Security {
 	/**
 	 * Get signature.
 	 *
-	 * @param array  $fields         Fields.
-	 * @param string $passphrase     Pass phrase.
-	 * @param string $hash_algorithm Hashing algorithm.
+	 * @param array<string, string> $fields         Fields.
+	 * @param string                $passphrase     Pass phrase.
+	 * @param string                $hash_algorithm Hashing algorithm.
 	 * @return string
 	 */
 	public static function get_signature( $fields, $passphrase, $hash_algorithm ) {

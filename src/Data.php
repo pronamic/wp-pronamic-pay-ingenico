@@ -16,12 +16,12 @@ class Data {
 	/**
 	 * Fields
 	 *
-	 * @var array
+	 * @var array<string, string>
 	 */
 	private $fields;
 
 	/**
-	 * Constructs and initialize a iDEAL kassa object
+	 * Constructs and initialize a Data object
 	 */
 	public function __construct() {
 		$this->fields = [];
@@ -30,16 +30,16 @@ class Data {
 	/**
 	 * Get all the fields
 	 *
-	 * @return array
+	 * @return array<string, string>
 	 */
 	public function get_fields() {
 		return $this->fields;
 	}
 
 	/**
-	 * Get field by the specifiek name
+	 * Get field by the specified name
 	 *
-	 * @param string $name
+	 * @param string $name Field name.
 	 * @return string|null
 	 */
 	public function get_field( $name ) {
@@ -55,8 +55,8 @@ class Data {
 	/**
 	 * Set field
 	 *
-	 * @param string $name
-	 * @param string $value
+	 * @param string $name  Field name.
+	 * @param string $value Field value.
 	 *
 	 * @return Data
 	 */

@@ -16,14 +16,14 @@ class PaymentMethodsList {
 	/**
 	 * List
 	 *
-	 * @var array
+	 * @var array<string>
 	 */
 	private $data;
 
 	/**
 	 * Constructs and initialize a payment methods list
 	 *
-	 * @param array $data Data.
+	 * @param array<string> $data Data.
 	 */
 	public function __construct( array $data = [] ) {
 		$this->data = $data;

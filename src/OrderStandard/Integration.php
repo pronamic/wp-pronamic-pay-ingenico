@@ -46,7 +46,7 @@ class Integration extends AbstractIntegration {
 	/**
 	 * Get settings fields.
 	 *
-	 * @return array
+	 * @return array<int, array<string, mixed>>
 	 */
 	public function get_settings_fields() {
 		return Settings::get_settings_fields();
