@@ -7,6 +7,17 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [4.7.1] - 2024-12-17
+
+### Commits
+
+- Happy 2024. ([331bb05](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/331bb05907ec2611ed22249a7422941f675b1def))
+- Added `wp-slug` to Composer config. ([8198a81](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/8198a819c373ecef049e705eb3f5dd3900149079))
+
+Full set of changes: [`4.7.0...4.7.1`][4.7.1]
+
+[4.7.1]: https://github.com/pronamic/wp-pronamic-pay-ingenico/compare/v4.7.0...v4.7.1
+
 ## [4.7.0] - 2024-06-03
 
 ### Changed
