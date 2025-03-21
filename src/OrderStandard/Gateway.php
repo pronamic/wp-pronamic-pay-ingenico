@@ -2,14 +2,9 @@
 
 namespace Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard;
 
-use Pronamic\IDealIssuers\IDealIssuerService;
 use Pronamic\WordPress\Pay\Core\Gateway as Core_Gateway;
 use Pronamic\WordPress\Pay\Core\PaymentMethod;
 use Pronamic\WordPress\Pay\Core\PaymentMethods as Core_PaymentMethods;
-use Pronamic\WordPress\Pay\Fields\CachedCallbackOptions;
-use Pronamic\WordPress\Pay\Fields\IDealIssuerSelectField;
-use Pronamic\WordPress\Pay\Fields\SelectFieldOption;
-use Pronamic\WordPress\Pay\Fields\SelectFieldOptionGroup;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\Brands;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\DataCustomerHelper;
 use Pronamic\WordPress\Pay\Gateways\Ingenico\DataGeneralHelper;
@@ -84,42 +79,7 @@ class Gateway extends Core_Gateway {
 		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::CREDIT_CARD ) );
 		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::BANCONTACT ) );
 		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::PAYPAL ) );
-
-		// Payment method iDEAL.
-		$payment_method_ideal = new PaymentMethod( Core_PaymentMethods::IDEAL );
-
-		$field_ideal_issuer = new IDealIssuerSelectField( 'pronamic_pay_ingenico_ideal_issuer' );
-		$field_ideal_issuer->set_options( $this->get_ideal_issuers() );
-
-		$payment_method_ideal->add_field( $field_ideal_issuer );
-
-		$this->register_payment_method( $payment_method_ideal );
-	}
-
-	/**
-	 * Get iDEAL issuers.
-	 *
-	 * @link https://epayments-support.ingenico.com/en/payment-methods/alternative-payment-methods/ideal#ideal_integration_guides_redirect_to_ideal_bank_page
-	 * @return iterable<SelectFieldOption|SelectFieldOptionGroup>
-	 */
-	private function get_ideal_issuers() {
-		if ( 'test' === $this->get_mode() ) {
-			return [
-				new SelectFieldOption( '9999+TST', \__( 'TST iDEAL', 'pronamic_ideal' ) ),
-			];
-		}
-
-		$ideal_issuer_service = new IDealIssuerService();
-
-		$issuers = $ideal_issuer_service->get_issuers();
-
-		$items = [];
-
-		foreach ( $issuers as $issuer ) {
-			$items[] = new SelectFieldOption( $issuer->code, $issuer->name );
-		}
-
-		return $items;
+		$this->register_payment_method( new PaymentMethod( Core_PaymentMethods::IDEAL ) );
 	}
 
 	/**
@@ -253,12 +213,6 @@ class Gateway extends Core_Gateway {
 				$ogone_data_general
 					->set_brand( Brands::IDEAL )
 					->set_payment_method( PaymentMethods::IDEAL );
-
-				$issuer = $payment->get_meta( 'issuer' );
-
-				if ( is_string( $issuer ) ) {
-					$ogone_data_general->set_field( 'ISSUERID', $issuer );
-				}
 
 				break;
 			case Core_PaymentMethods::BANCONTACT:
