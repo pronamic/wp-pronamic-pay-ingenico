@@ -7,6 +7,20 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [4.8.0] - 2025-06-19
+
+### Removed
+
+- Removed iDEAL issuers field. ([147d740](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/147d740448742be1d233ef8f70818b9770818604))
+
+### Composer
+
+- Removed `pronamic/ideal-issuers` `^1.0`.
+
+Full set of changes: [`4.7.1...4.8.0`][4.8.0]
+
+[4.8.0]: https://github.com/pronamic/wp-pronamic-pay-ingenico/compare/v4.7.1...v4.8.0
+
 ## [4.7.1] - 2024-12-17
 
 ### Commits
