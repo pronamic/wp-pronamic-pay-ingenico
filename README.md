@@ -1,5 +1,17 @@
 # WordPress Pay Gateway: Ingenico/Ogone
 
+**Ingenico/Ogone driver for the WordPress payment processing library.**
+
+[![Build Status](https://travis-ci.org/wp-pay-gateways/ogone.svg?branch=develop)](https://travis-ci.org/wp-pay-gateways/ogone)
+[![Coverage Status](https://coveralls.io/repos/wp-pay-gateways/ogone/badge.svg?branch=master&service=github)](https://coveralls.io/github/wp-pay-gateways/ogone?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/wp-pay-gateways/ogone/v/stable.svg)](https://packagist.org/packages/wp-pay-gateways/ogone)
+[![Total Downloads](https://poser.pugx.org/wp-pay-gateways/ogone/downloads.svg)](https://packagist.org/packages/wp-pay-gateways/ogone)
+[![Latest Unstable Version](https://poser.pugx.org/wp-pay-gateways/ogone/v/unstable.svg)](https://packagist.org/packages/wp-pay-gateways/ogone)
+[![License](https://poser.pugx.org/wp-pay-gateways/ogone/license.svg)](https://packagist.org/packages/wp-pay-gateways/ogone)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](http://gruntjs.com/)
+
+---
+
 An important notice from Worldline, the current owner and operator of the Ogone and Ingenico solutions:
 
 > [!IMPORTANT]  
@@ -10,16 +22,6 @@ An important notice from Worldline, the current owner and operator of the Ogone 
 For merchants looking to migrate from the legacy Ogone or Ingenico integrations, we recommend using the [**Worldline – Direct – Hosted Checkout** integration](https://github.com/pronamic/pronamic-pay-worldline-direct-hosted-checkout) included in [Pronamic Pay Premium](https://www.pronamic.shop/product/pronamic-pay-premium/). This integration provides a secure and modern payment experience for WordPress and WooCommerce, ensuring compatibility with current Worldline services and continued support beyond December 31, 2025.
 
 ---
-
-**Ingenico/Ogone driver for the WordPress payment processing library.**
-
-[![Build Status](https://travis-ci.org/wp-pay-gateways/ogone.svg?branch=develop)](https://travis-ci.org/wp-pay-gateways/ogone)
-[![Coverage Status](https://coveralls.io/repos/wp-pay-gateways/ogone/badge.svg?branch=master&service=github)](https://coveralls.io/github/wp-pay-gateways/ogone?branch=master)
-[![Latest Stable Version](https://poser.pugx.org/wp-pay-gateways/ogone/v/stable.svg)](https://packagist.org/packages/wp-pay-gateways/ogone)
-[![Total Downloads](https://poser.pugx.org/wp-pay-gateways/ogone/downloads.svg)](https://packagist.org/packages/wp-pay-gateways/ogone)
-[![Latest Unstable Version](https://poser.pugx.org/wp-pay-gateways/ogone/v/unstable.svg)](https://packagist.org/packages/wp-pay-gateways/ogone)
-[![License](https://poser.pugx.org/wp-pay-gateways/ogone/license.svg)](https://packagist.org/packages/wp-pay-gateways/ogone)
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](http://gruntjs.com/)
 
 ## Production Environment
 
