@@ -7,6 +7,16 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [4.8.1] - 2025-11-11
+
+### Commits
+
+- Added this point we shoud not use translation functions. ([e41b724](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/e41b724cd751942038a36655177bb3764ed1d053))
+
+Full set of changes: [`4.8.0...4.8.1`][4.8.1]
+
+[4.8.1]: https://github.com/pronamic/wp-pronamic-pay-ingenico/compare/v4.8.0...v4.8.1
+
 ## [4.8.0] - 2025-06-19
 
 ### Removed
